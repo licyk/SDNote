@@ -1,5 +1,8 @@
 ---
 title: 附录
+hide:
+  - navigation
+  - footer
 ---
 # 附录
 来自社区的资源。

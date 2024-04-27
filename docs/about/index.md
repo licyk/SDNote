@@ -15,6 +15,6 @@ git clone https://github.com/licyk/SDNote
 ```
 python -m venv venv
 .\venv\Scripts\Activate.ps1
-pip install mkdocs mkdocs-material pymdown-extensions mkdocs-glightbox mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2 mkdocs-git-authors-plugin
+pip install -r requirements.txt
 mkdocs serve
 ```

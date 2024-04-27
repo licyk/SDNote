@@ -84,10 +84,10 @@ plugins:
       enable_creation_date: false # 显示与页面关联的文件的创建日期
       type: iso_date # 时间格式
   - glightbox # 图像缩放
-  #- git-committers:
-  #    repository: licyk/SD-Notes
-  #    branch: main
-  #- git-authors
+#  - git-committers:
+#      repository: licyk/SDNote
+#      branch: main
+#  - git-authors
 
 extra:
   homepage: https://example.com
