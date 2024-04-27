@@ -1,0 +1,226 @@
+# 一些配置教程
+# https://squidfunk.github.io/mkdocs-material
+# https://www.mkdocs.org
+# https://zhuanlan.zhihu.com/p/383582472
+# https://markdown-docs-zh.readthedocs.io/zh-cn/latest
+# ============================================
+# 需要安装的 Python 软件包
+# mkdocs
+# mkdocs-material
+# pymdown-extensions
+# mkdocs-glightbox
+# mkdocs-git-revision-date-localized-plugin
+# mkdocs-git-committers-plugin-2
+# mkdocs-git-authors-plugin
+# ============================================
+
+site_name: SDNote
+
+theme:
+  name: material
+  language: zh
+  features:
+    # - navigation.instant # 即时加载, 在firefox下有内存泄露的问题
+    - navigation.instant.prefetch # 即时预加载
+    - navigation.instant.progress # 加载进度显示
+    - navigation.instant.preview # 即时预览
+    - navigation.tracking # 锚点跟踪
+    - navigation.tabs # 导航选项卡
+    - navigation.tabs.sticky # 始终显示导航选项卡
+    - navigation.path # 显示导航路径
+    # - navigation.prune # 导航修剪
+    # - navigation.indexes # 章节索引页
+    - navigation.expand # 侧边栏展开
+    - navigation.footer # 启用页脚
+    - navigation.top # 返回顶部按钮
+    - search.suggest # 搜索建议
+    - search.highlight # 搜索高亮
+    - search.share # 搜索共享
+    - content.action.edit # 编辑本页按钮
+    # - content.action.view # 查看本页源代码
+    - content.code.copy # 代码块复制按钮
+    - content.code.annotate # 代码注解
+    - content.tabs.link # 链接的内容选项卡
+    - content.tooltips # 改进的工具提示
+    
+  palette: # 颜色
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 跟随系统配色
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default # 配色
+      primary: white # 原色
+      accent: light blue # 强调色
+      toggle:
+        icon: material/brightness-7
+        name: 浅色主题
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: 黑暗主题
+
+  logo: assets/site_resources/logo.png
+  favicon: assets/site_resources/favicon.png
+
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+plugins:
+  - search # 搜索功能
+  - tags # 标签插件
+  - git-revision-date-localized:
+      enable_creation_date: false # 显示与页面关联的文件的创建日期
+      type: iso_date # 时间格式
+  - glightbox # 图像缩放
+  #- git-committers:
+  #    repository: licyk/SD-Notes
+  #    branch: main
+  #- git-authors
+
+extra:
+  homepage: https://example.com
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/licyk
+      name: Github
+    - icon: fontawesome/brands/bilibili
+      link: https://space.bilibili.com/46497516
+      name: 哔哩哔哩
+    - icon: fontawesome/solid/blog
+      link: https://licyk.netlify.app
+      name: licyk的小窝
+    - icon: fontawesome/solid/envelope
+      link: mailto:licyk233@163.com
+      name: 联系邮箱
+
+  generator: false # 生成器通知
+
+copyright: Copyright &copy; 2024 licyk
+
+repo_url: https://github.com/licyk/SDNote
+repo_name: licyk/SDNote
+edit_uri: edit/main/docs/
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.arithmatex
+  - pymdownx.b64
+  - pymdownx.betterem
+  - pymdownx.blocks.admonition
+  - pymdownx.blocks.definition
+  - pymdownx.blocks.details
+  - pymdownx.blocks.html
+  - pymdownx.blocks.tab
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.escapeall
+  - pymdownx.extra
+  - pymdownx.highlight
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.pathconverter
+  - pymdownx.progressbar
+  - pymdownx.saneheaders
+  - pymdownx.smartsymbols
+  - pymdownx.striphtml
+  - pymdownx.tasklist
+  - pymdownx.tilde
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - abbr
+  - admonition
+  - toc:
+      # permalink: true
+      # permalink: ↗ ⬈ ⇗ ➶ ➹ 🡥 🡵 🡽 🢅 ⬈ ⬀ ⭷ 🛪 ⧉ ⧉ ⮺ ⎋ ⏍ ◳ ❐ ⬔ ⭷ ↸ ⇱ ⤯ ↻ ⇲ ⎘ 🔗
+      permalink: ☍
+      permalink_title: 锚链接到此处
+      title: 目录
+  - tables
+
+nav:
+- "主页": index.md
+- "绘画指南":
+  - guide/index.md
+  - "前期准备":
+    - guide/requirement/index.md
+  - "部署": 
+    - guide/install/index.md
+    - "Linux / MacOS 平台": guide/install/other.md
+  - "模型":
+    - guide/model/index.md
+    - "模型下载": guide/model/download_model.md
+  - "使用":
+    - guide/use/index.md
+    - "文生图": guide/use/t2i.md
+    - "图生图": guide/use/i2i.md
+    - "LoRA 应用": guide/use/lora.md
+    - "放大图片": guide/use/upscale.md
+    - "ControlNet 应用": guide/use/controlnet.md
+    - "杂项": guide/use/extra.md
+  - "提示词书写":
+    - guide/prompt/index.md
+    - "如何书写提示词": guide/prompt/write_prompt.md
+    - "提示词高级用法": guide/prompt/advance.md
+    - "画师提示词应用": guide/prompt/artist_prompt.md
+- "绘世启动器使用":
+  - sd_launcher/index.md
+  - "部署功能": 
+    - sd_launcher/install/index.md
+  - "高级选项":
+    - sd_launcher/advance/index.md
+    - "环境维护": sd_launcher/advance/env.md
+    - "补丁管理": sd_launcher/advance/patch.md
+  - "版本管理":
+    - sd_launcher/ver_manager/index.md
+    - "内核": sd_launcher/ver_manager/kernel.md
+    - "扩展": sd_launcher/ver_manager/extension.md
+    - "安装新扩展": sd_launcher/ver_manager/install.md
+  - "其他功能":
+    - "疑难解答": sd_launcher/other/faq.md
+    - "模型管理": sd_launcher/other/model.md
+    - "控制台": sd_launcher/other/terminal.md
+    - "启动器设置": sd_launcher/other/setting.md
+    - sd_launcher/other/index.md
+- "疑难解答": 
+    - help/index.md
+    - "绘世启动器": help/sd_launcher.md
+    - "SD WebUI": help/sd_webui.md
+    - "ComfyUI": help/comfyui.md
+    - "杂项": help/other.md
+- "附录": appendix.md
+- "关于": 
+  - about/index.md
+  - "协议": about/license.md
