@@ -3,16 +3,8 @@
 # https://www.mkdocs.org
 # https://zhuanlan.zhihu.com/p/383582472
 # https://markdown-docs-zh.readthedocs.io/zh-cn/latest
-# ============================================
-# 需要安装的 Python 软件包
-# mkdocs
-# mkdocs-material
-# pymdown-extensions
-# mkdocs-glightbox
-# mkdocs-git-revision-date-localized-plugin
-# mkdocs-git-committers-plugin-2
-# mkdocs-git-authors-plugin
-# ============================================
+# https://docs.netlify.com/frameworks/#mkdocs
+# https://www.starfallprojects.co.uk/projects/deploy-host-docs/deploy-mkdocs-material-vercel/
 
 site_name: SDNote
 
@@ -221,6 +213,4 @@ nav:
     - "ComfyUI": help/comfyui.md
     - "杂项": help/other.md
 - "附录": appendix.md
-- "关于": 
-  - about/index.md
-  - "协议": about/license.md
+- "关于": about.md

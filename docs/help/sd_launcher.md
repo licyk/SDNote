@@ -70,6 +70,8 @@ title: 绘世启动器
 ### 配置绘世启动器的代理
 参考该教程：[网络错误？下载失败？配置绘世启动器的代理服务器！ - 哔哩哔哩](https://www.bilibili.com/read/cv33230985)。
 
+有关绘世启动器的代理设置说明：[启动器设置 - 代理设置 - SDNote](../sd_launcher/other/setting.md#_5)
+
 !!!note
     绘世启动器的代理设置需要和代理软件相互配合，所以当代理软件关闭后，需要将绘世启动器的代理设置关闭，否则将出现绘世启动器无法连接网络的问题。
 
@@ -103,6 +105,3 @@ title: 绘世启动器
 !!!note
     关于原生组件的介绍：[环境维护 - 原生组件管理 - SD Notes](../sd_launcher/advance/env.md#_3)。
 
-
-### xFormers can't load C++/CUDA extensions
-这是因为你安装了不匹配 PyTorch 版本 xFormers，前往绘世启动器的`高级选项`->`环境维护`->`安装 PyTorch`，安装对应版本的 PyTorch。参看[环境维护 - 安装 PyTorch - SD Notes](../sd_launcher/advance/env.md#pytorch)。

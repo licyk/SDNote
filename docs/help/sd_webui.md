@@ -267,8 +267,23 @@ python -m pip install onnxruntime -U
 
 
 ### 配置代理
-参考该教程：[网络错误？下载失败？配置绘世启动器的代理服务器！ - 哔哩哔哩](https://www.bilibili.com/read/cv33230985)
+参考该教程：[绘世启动器 - 配置绘世启动器的代理 - SDNote](../help/sd_launcher.md#_6)
 
 
 ### 使用 SDXL 模型时特定提示词组慧出现鬼图
 参考该教程：[杂项 - 使用 SDXL 模型时特定的提示词组会出现鬼图 - SD Notes](../guide/use/extra.md#sdxl_1)
+
+
+### xFormers can't load C++/CUDA extensions
+这是因为你安装了不匹配 PyTorch 版本 xFormers，前往绘世启动器的`高级选项`->`环境维护`->`安装 PyTorch`，安装对应版本的 PyTorch。参看[环境维护 - 安装 PyTorch - SD Notes](../sd_launcher/advance/env.md#pytorch)。
+
+
+### ControlNet 没效果
+检查 ControlNet 扩展的选项卡中有没有选择 ControlNet 模型，再检查 ControlNet 权重之类的参数是否正确设置。
+
+
+### SD WebUI 界面点击没反应
+SD WebUI 点击切换模型按钮但无法切换模型，点击生成按钮后无反应，这可能是开启的浏览器翻译导致界面无法正常使用，尝试关闭浏览器翻译后重试。如果问题未解决，尝试更换浏览器。
+
+!!!note
+    浏览器推荐：[杂项 - 浏览器推荐 - SDNote](../help/other.md#_5)

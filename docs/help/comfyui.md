@@ -92,7 +92,7 @@ ComfyUI 的扩展生态一直存在着问题，各种扩展的环境依赖要求
 
 
 ### 配置代理
-参考该教程：[网络错误？下载失败？配置绘世启动器的代理服务器！ - 哔哩哔哩](https://www.bilibili.com/read/cv33230985)
+参考该教程：[绘世启动器 - 配置绘世启动器的代理 - SDNote](../help/sd_launcher.md#_6)
 
 
 ### insightface model is required for FaceID models
