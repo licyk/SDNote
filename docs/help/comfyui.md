@@ -20,6 +20,15 @@ ComfyUI 的扩展生态一直存在着问题，各种扩展的环境依赖要求
 
 关于 ComfyUI 扩展生态的问题：[A rant about current custom nodes ecosystem · comfyanonymous/ComfyUI · Discussion #2635](https://github.com/comfyanonymous/ComfyUI/discussions/2635)。
 
+这是避免 ComfyUI 环境坏掉的方法（来自绘世启动器开发者[喵喵hmkai](https://space.bilibili.com/2082155)）。
+
+0. 远离官方整合包和官方整合包的派生；如果不能远离，就远离里边自带的更新脚本，除非你不安装任何插件
+1. 少装插件
+2. 不要直接把插件压缩包或者文件夹拷进去，这不是 WebUI
+3. 不要直接 git clone 插件，这不是 WebUI
+4. 只有在用官方整合包的情况下使用 install.bat，其他情况均不使用
+5. 插件能用列表装就别用链接装，有些额外的部件只有列表里装才会下载，这不是 WebUI
+
 ## 报错合集
 
 ### 环境依赖存在冲突

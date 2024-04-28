@@ -99,6 +99,16 @@ python -m pip install tqdm
 ### 图片颜色变得奇怪
 可能是提示词 / 分辨率 / 使用的 LoRA 模型有问题，尝试调整后再生图。
 
+这里用 [Animagine XL 3](https://huggingface.co/cagliostrolab/animagine-xl-3.0) 举例。
+
+- 使用不合适的分辨率
+
+![use_wrong_config_sdxl_model](../assets/images/help/sd_webui/use_wrong_config_sdxl_model.jpg)
+
+- 使用合适的分辨率
+
+![use_right_config_sdxl_model](../assets/images/help/sd_webui/use_right_config_sdxl_model.jpg)
+
 
 ### 预览图是正常的，但是出图后图片变花
 这是你的大模型和 VAE 模型不匹配，将 VAE 模型改成对应大模型版本的模型，或者 VAE 模型选择无。
@@ -287,3 +297,42 @@ SD WebUI 点击切换模型按钮但无法切换模型，点击生成按钮后�
 
 !!!note
     浏览器推荐：[杂项 - 浏览器推荐 - SDNote](../help/other.md#_5)
+
+
+### 生图过程时的预览图是正常的，但是出图后图片突然发灰
+这是因为融合模型在融合的时候，模型内的 VAE 出现了问题，尝试外挂 VAE 模型解决。
+
+- 未外挂 VAE 模型前
+
+![no_use_external_vae_model](../assets/images/help/sd_webui/no_use_external_vae_model.jpg)
+
+- 外挂 VAE 模型后
+
+![use_external_vae_model](../assets/images/help/sd_webui/use_external_vae_model.jpg)
+
+
+### 新版 SD WebUI 中面部修复消失了
+SD WebUI 自带的面部修复因为效果不行，已被新版的 SD WebUI 默认隐藏了，使用 [adetailer](https://github.com/Bing-su/adetailer) 扩展代替。参看：[杂项 - 面部修复 - SDNote](../guide/use/extra.md#_6)
+
+
+### 使用 sd-webui-prompt-all-in-one 扩展时发现 LoRA 模型在闪烁
+sd-webui-prompt-all-in-one 扩展将 LoRA 模型显示为粉红色，并不断闪烁。
+
+![prompt_all_in_one_lora_notice](../assets/images/help/sd_webui/prompt_all_in_one_lora_notice.jpg)
+
+这个闪烁并不会影响调用，LoRA 模型依然可以正常调用。
+
+如果想要解决这个闪烁问题，可以在 SD WebUI 的`设置`->`扩展模型`->`将扩展模型添加到提示词时，通过以下格式提及lora`，将从文坚读取别名改成文件名，再回到生图界面重新添加 LoRA 模型调用提示词时就不会闪烁了。
+
+!!!note
+    这个是因为 sd-webui-prompt-all-in-one 扩展判断 LoRA 模型的调用名字和 LoRA 模型的文件名不同，所以将 LoRA 标记成粉红色并闪烁，~~说实话这个设计很容易让新手误以为 LoRA 模型调用有问题。~~
+
+
+### DPM++ 2M SDE Karras 采样器消失了，采样器也少了很多
+这是因为在 SD WebUI 1.9 中将采样方法和调度器分开了，所以实际的采样器为 采样方法 (Sampler) + 调度器(
+Schedule type)。
+
+![sampler_and_schedule_type](../assets/images/help/sd_webui/sampler_and_schedule_type.jpg)
+
+这样可以使可用的采样方法更多，因为可以通过不同的组合来得到采样方法。
+

@@ -105,3 +105,9 @@ title: 绘世启动器
 !!!note
     关于原生组件的介绍：[环境维护 - 原生组件管理 - SD Notes](../sd_launcher/advance/env.md#_3)。
 
+
+### 该应用程序无法直接运行，请通过随附的自动更工具启动该应用
+![sd_launcher_can_not_run_directly](../assets/images/help/sd_launcher/sd_launcher_can_not_run_directly.jpg)
+
+这是因为你在绘世启动器的数据文件夹`.launcher`中运行绘世启动器，请使用`.launcher`文件夹外的绘世启动器来运行。
+

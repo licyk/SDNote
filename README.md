@@ -5,8 +5,7 @@
 <p align="center">
   <img src="https://img.shields.io/github/stars/licyk/SDNote.svg" alt="Stars">
   <a href="https://github.com/licyk/SDNote/issues"><img src="https://img.shields.io/github/issues/licyk/SDNote" alt="Issues"></a>
-  <a href="https://github.com/licyk/SDNote/actions/workflows/cl.yml"><img src="https://github.com/licyk/SDNote/actions/workflows/cl.yml/badge.svg" alt="Test"></a>
-  <a href="https://github.com/licyk/SDNote/actions/workflows/cl.yml"><img src="https://github.com/licyk/SDNote/actions/workflows/cl.yml/badge.svg" alt="Test"></a>
+  <a href="https://github.com/licyk/SDNote/actions/workflows/ci.yml"><img src="https://github.com/licyk/SDNote/actions/workflows/ci.yml/badge.svg" alt="Test"></a>
   <a href="https://app.netlify.com/sites/sdnote/deploys"><img src="https://api.netlify.com/api/v1/badges/72ce71fd-df94-4da5-90a4-bdeb49899221/deploy-status" alt="Netlify"></a>
   <img src="https://vercelbadge.vercel.app/api/licyk/sdnote" alt="Vercel">
 </p>

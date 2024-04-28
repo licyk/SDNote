@@ -17,11 +17,27 @@ hide:
 - [Stable Diffusion 信息并联&入门教程 - 飞书云文档](https://hazn93ygkcs.feishu.cn/wiki/JRydwXpCti1bxJkN6zNc4a8qnAe)
 - [stable diffusion工作流分享](https://www.lightflow.ai)
 - [Home - InvokeAI Documentation](https://invoke-ai.github.io/InvokeAI/)
-
+- [SD 资源金矿](https://rentry.org/sdupdates)
+- [Notion：关于人工智能艺术](https://proximacentaurib.notion.site/proximacentaurib/parrot-zone-74a5c04d4feb4f12b52a41fc8750b205)
+- [WebUI 使用手册](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features)
+- [NovelAI 5ch Wiki](https://seesaawiki.jp/nai_ch/)
+- [Voldy Retard Guide](https://rentry.co/voldy)
+- [一个小指南：RedditAbout](https://www.reddit.com/r/StableDiffusion/comments/xbeyw3/can_anyone_offer_a_little_guidance_on_the/)
+- [SD 相关的 FAQ](https://gist.github.com/crosstyan/f912612f4c26e298feec4a2924c41d99)
+- [为文字转图像 AI 提示编写指南：A Guide to Writing Prompts for Text-to-image AI](https://docs.google.com/document/d/1XUT2G9LmkZataHFzmuOtRXnuWBfhvXDAo8DkS--8tec/edit#)
+- [AI Art Learning Hub](https://mashonoid.notion.site/AI-Art-Learning-Hub-b6bb69fc249847438602ee11d3a89fa0)
+- [来自日本社区的教程](https://rentry.co/zk4u5)
+- [novelai 对 SD 的优化日志](https://blog.novelai.net/novelai-improvements-on-stable-diffusion-e10d38db82ac)
+- [火药教程](https://rentry.org/stablediffgpubuy)
+- [匿名者的绘画技巧/nsfw](https://rentry.org/inpainting-guide-SD)
+- [梦想家指南](https://stablediffusionguides.carrd.co/#)
 
 ## 社区
 - [AIGODLIKE社区](https://www.aigodlike.com)
 - [NovelAI.Dev](https://novelai.dev/)
+- [中文社区 StableDiffusion_CN](https://t.me/StableDiffusion_CN/)
+- [StableDiffusion WebUI Discussions](https://github.com/AUTOMATIC1111/stable-diffusion-webui/discussions)
+- [Reddit](https://www.reddit.com/r/StableDiffusion/)
 
 
 ## 网页工具
@@ -51,12 +67,61 @@ hide:
 - [SD常见报错合集（更新到2023.12.27）](https://docs.qq.com/doc/DU3ZudG1UZ1hiU01K)
 
 
-## 提示词分享
+## 提示词
 - [密码的nai3 tag创想(AI绘画tag分享)](https://docs.qq.com/doc/DRVBjRVdBWld4THBV)
 - [森林的NAI-V3法典](https://docs.qq.com/doc/DSU9CZHhLRERRbllw)
 - [Tags | Danbooru](https://danbooru.donmai.us/)
 - [绘世法师见闻录——Novel AI 秋葉社区魔法收录](https://docs.qq.com/doc/DR0d3aEdzSmxORE5w)
 - [旧日黎明——献给朋友们的法术书](https://www.kdocs.cn/l/caGSIQNOfNDO)
+- [Danbooru tag 组](https://danbooru.donmai.us/wiki_pages/tag_groups)
+- [人偶教室：风格化教学](https://www.yuque.com/longyuye/lmgcwy)
+- [人工智能艺术的工具和资源](https://pharmapsychotic.com/tools.html)
+- [手抄本法术书](https://docs.google.com/spreadsheets/d/14Gg1kIGWdZGXyCC8AgYVT0lqI6IivLzZOdIT3QMWwVI/edit)
+- [参数法术全典](https://docs.google.com/spreadsheets/d/e/2PACX-1vRa2HjzocajlsPLH1e5QsJumnEShfooDdeHqcAuxjPKBIVVTHbOYWASAQyfmrQhUtoZAKPri2s_tGxx/pubhtml#)
+- [元素法典](https://docs.qq.com/doc/DWHl3am5Zb05QbGVs)
+- [图像合成风格研究数据库](https://docs.google.com/spreadsheets/d/14xTqtuV3BuKDNhLotB_d1aFlBGnDJOY0BRXJ8-86GpA/edit#gid=0)
+- [StableDiffusion Show](https://t.me/StableDiffusion_Show)
+- [E 站标签翻译项目](https://github.com/EhTagTranslation)
+- [绘画媒介全分类](https://danbooru.donmai.us/wiki_pages?commit=Search&search%5Btitle_normalize%5D=%2A_%28medium%29)
+- [艺术家博物馆](https://gallerix.asia/storeroom/)
+- [AI 艺术家文档——深入了解](https://docs.google.com/spreadsheets/d/1SRqJ7F_6yHVSOeCi3U82aA448TqEGrUlRrLLZ51abLg/htmlview#)
+- [动漫人物/艺术家/风格化列表/Pt 文件](https://rentry.org/anime_and_titties)
+- [风格化，日语 Wiki](https://seesaawiki.jp/nai_ch/d/%b2%e8%c9%f7%a1%a6%b9%bd%bf%de)
+- [风格化: 32 种](https://www.bilibili.com/video/BV1TP411N71t/)
+- [艺术家列表/SD1.4](https://rentry.org/artists_sd-v1-4)
+- [艺术家列表/SD1.4/1,833 位艺术家查询](https://www.urania.ai/top-sd-artists)
+- [Danbooru 标签比例冰山图](https://icebergcharts.com/i/Danbooru_Tags)
+- [MidJourney-Styles-and-Keywords-Reference](https://github.com/willwulfken/MidJourney-Styles-and-Keywords-Reference)
+- [nai-anime-pure-negative-prompt docs](https://github.com/6DammK9/nai-anime-pure-negative-prompt)
+- [绘画技术分类](https://danbooru.donmai.us/wiki_pages/tag_group%3Aimage_composition)
+- [地点分类](https://danbooru.donmai.us/wiki_pages/tag_group%3Alocations)
+- [服装分类](https://danbooru.donmai.us/wiki_pages/tag_group%3Aattire)
+- [美学风格分类](https://aesthetics.fandom.com/wiki/List_of_Aesthetics)
+- [颜色列表](https://en.wikipedia.org/wiki/List_of_colors_by_shade)
+- [表情符号参考](https://unicode.org/emoji/charts/emoji-list.html)
+- [Pic2Prompt0](https://www.latentspace.dev/)
+- [Pic2Prompt1](https://magicstudio.com/pic2prompt/editor)
+- [Pic2Prompt2](https://replicate.com/methexis-inc/img2prompt)
+- [prompthero](https://prompthero.com/)
+- [Prompt Search Anime](https://www.ptsearch.info/home/)
+- [Prompt Search2](https://pagebrain.ai/promptsearch/?q=girl&page=1)
+- [midjourney showcase](https://www.midjourney.com/showcase/)
+- [Social Generative AI](https://histre.com/integrations/generative/)
+- [稳定扩散的艺术家风格研究](https://proximacentaurib.notion.site/e28a4f8d97724f14a784a538b8589e7d?v=42948fd8f45c4d47a0edfc4b78937474)
+- [Top-sd-artists](https://www.urania.ai/top-sd-artists)
+- [artiststostudy](https://artiststostudy.pages.dev/)
+- [Stable Diffusion Artist Style Studies](https://proximacentaurib.notion.site/e28a4f8d97724f14a784a538b8589e7d?v=ab624266c6a44413b42a6c57a41d828c)
+
+
+## 图库
+- [AIBooru](https://aibooru.online/)
+- [openart.ai](https://openart.ai/)
+- [lexica](https://lexica.art/)
+- [PIXAI](https://pixai.art/)
+- [arthub](https://arthub.ai/)
+- [NAI-NOVELAI.IO](https://novelai.io/)
+- [Krea](https://www.krea.ai/)
+- [largest library of AI-generated images](https://libraire.ai/)
 
 
 ## Up 主推荐

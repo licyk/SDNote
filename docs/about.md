@@ -20,8 +20,19 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
+
+## 声明
+
+1. 如果本文档外链的内容中有不合适的内容，与本文档无关。
+2. 引用或复制内容需要注明链接。
+3. 文档基于公开材料和经验编写，不对内容准确性负责。
+4. 文档使用 GFDL 许可，如果需要使用本文档的内容，您必须遵守 GFDL。
+
+
 ***
 
+
+<!--Giscus-->
 <script src="https://giscus.app/client.js"
         data-repo="licyk/SDNote"
         data-repo-id="R_kgDOL0EOiA"
@@ -37,11 +48,3 @@ mkdocs serve
         crossorigin="anonymous"
         async>
 </script>
-
-
-## 声明
-
-1. 如果本文档外链的内容中有不合适的内容，与本文档无关。
-2. 引用或复制内容需要注明链接。
-3. 文档基于公开材料和经验编写，不对内容准确性负责。
-4. 文档使用 GFDL 许可，如果需要使用本文档的内容，您必须遵守 GFDL。
