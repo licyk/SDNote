@@ -178,7 +178,7 @@ PyTorch 未正确安装 / 版本和显卡不对应，或者显卡驱动未更到
 2. 在打开的窗口中，点击`高级`选项卡下`性能`选项组的`设置`按钮
 3. 打开性能选项窗口后，点击`高级`选项卡中的`更改`按钮
 4. 在打开的窗口中，首先取消勾选`自动管理所有驱动器的分页文件大小`
-5. 接下来选择`自定义大小`，然后手动设置初始大小以及最大值，建议初始值为 10240，最大值为 30720（或者更高的值）。设置完后，先点`设置`，然后点击`确定`按钮保存设置，设置好后重启电脑。
+5. 接下来选择`自定义大小`，然后手动设置初始大小以及最大值，建议初始值为 10240，最大值为 30720（或者更高的值，但不能超过系统可设置的最大虚拟内存的值）。设置完后，先点`设置`，然后点击`确定`按钮保存设置，设置好后重启电脑。
 
 
 ## mat1 and mat2 shapes cannot be multiplied
@@ -390,3 +390,7 @@ SD WebUI 启动完成后没有自动打开浏览器，而且控制台没有明�
 这是因为 [LayerDiffusion](https://github.com/layerdiffusion/sd-forge-layerdiffusion) 扩展仅支持 [stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge)，请使用 stable-diffusion-webui-forge 安装该扩展。
 
 LayerDiffusion 模型下载：https://modelscope.cn/models/licyks/layerdiffusion
+
+
+## 扩展安装后没有扩展对应的模型
+安装了扩展 ≠ 下载了扩展对应的模型，有些扩展需要手动下载模型才能使用，比如 [AnimateDiff](https://github.com/guoyww/AnimateDiff) 扩展，这时需要阅读扩展的文档并按要求下载模型到对应的路径。

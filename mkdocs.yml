@@ -6,7 +6,7 @@
 # https://docs.netlify.com/frameworks/#mkdocs
 # https://www.starfallprojects.co.uk/projects/deploy-host-docs/deploy-mkdocs-material-vercel/
 
-site_name: SDNote
+site_name: SD Note
 
 theme:
   name: material
