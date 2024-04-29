@@ -48,3 +48,19 @@ mkdocs serve
         crossorigin="anonymous"
         async>
 </script>
+
+<canvas
+    id="fireworks"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767" >
+</canvas>
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+<script src="../assets/js/fireworks.min.js"></script>
+
+<canvas
+    id="background"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1">
+</canvas>
+
+<!--
+<script src="../assets/js/background.min.js"></script>
+-->

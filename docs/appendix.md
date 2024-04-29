@@ -31,6 +31,13 @@ hide:
 - [火药教程](https://rentry.org/stablediffgpubuy)
 - [匿名者的绘画技巧/nsfw](https://rentry.org/inpainting-guide-SD)
 - [梦想家指南](https://stablediffusionguides.carrd.co/#)
+- [Stable Diffusion WebUI使用手冊(简体中文)｜Ivon的部落格](https://ivonblog.com/posts/stable-diffusion-webui-manuals/zh-cn/)
+- [重绘学派法术绪论1.2](https://docs.qq.com/pdf/DR2pJcWdTRXVpWEty)
+- [给所有想学习AI辅助绘画的人的入门课（InvokeAI）](https://docs.qq.com/doc/p/9a03673f4a0493b4cd76babc901a49f0e6d52140)
+- [模型理论科普](https://docs.qq.com/doc/p/a36aa471709d1cf5758151d68ef5b59397421b2e)
+- [Model basis theory | Civitai](https://civitai.com/articles/640/model-basis-theory)
+- [Merge Block Weight 魔法密录1.0正式版](https://docs.qq.com/doc/DTklkTllGQmdac3Jl)
+
 
 ## 社区
 - [AIGODLIKE社区](https://www.aigodlike.com)
@@ -38,6 +45,23 @@ hide:
 - [中文社区 StableDiffusion_CN](https://t.me/StableDiffusion_CN/)
 - [StableDiffusion WebUI Discussions](https://github.com/AUTOMATIC1111/stable-diffusion-webui/discussions)
 - [Reddit](https://www.reddit.com/r/StableDiffusion/)
+- [AIGC All in One](https://aigc.latentcat.com/)
+- [CGKIT-AI](https://bbs.cgkit.cn/)
+- [片绘 - 致力于成为最好的AI创作社区](https://community.hua-der.com/artwork)
+
+
+## 工具
+- [Stable-Diffusion-WebUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
+- [SD.Next](https://github.com/vladmandic/automatic)
+- [Stable-Diffusion-WebUI-Forge](https://github.com/lllyasviel/stable-diffusion-webui-forge)
+- [HCP-Diffusion-webui](https://github.com/IrisRainbowNeko/HCP-Diffusion-webui)
+- [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
+- [InvokeAI](https://github.com/invoke-ai/InvokeAI)
+- [Fooocus](https://github.com/lllyasviel/Fooocus)
+- [SD-Trainer](https://github.com/Akegarasu/lora-scripts)
+- [Kohya_ss GUI](https://github.com/bmaltais/kohya_ss)
+- [Kohya Train Scripts](https://github.com/kohya-ss/sd-scripts)
+- [OneTrainer](https://github.com/Nerogar/OneTrainer)
 
 
 ## 网页工具
@@ -111,6 +135,16 @@ hide:
 - [Top-sd-artists](https://www.urania.ai/top-sd-artists)
 - [artiststostudy](https://artiststostudy.pages.dev/)
 - [Stable Diffusion Artist Style Studies](https://proximacentaurib.notion.site/e28a4f8d97724f14a784a538b8589e7d?v=ab624266c6a44413b42a6c57a41d828c)
+- [Xianyun-TagSelect](https://nai3.xianyun.cool/tag_selector)
+- [NovelAI tag在线生成器](https://hipete19.github.io/)
+- [500画风-NovelAI V3示例-上](https://docs.qq.com/doc/DRFdnb01mQXVBUm12)
+- [Artists:（rentry.org）](https://rentry.org/NAIDv3artisttagtestoverview)
+- [wildcard/character.txt · Linaqruf/animagine-xl at main](https://huggingface.co/spaces/Linaqruf/animagine-xl/blob/main/wildcard/character.txt)
+- [MEGA Nai v3 Artists](https://mega.nz/folder/dZ1RVJDK#jdO5hfJtWvICDGyFZFxMHA)
+- [MEGA Artists SFW Only](https://mega.nz/folder/AE8mFI4Z#t2A1tm6HYiXOHOj9Fk8Ncw)
+- [奥术(Arcane)第一卷](https://docs.qq.com/doc/DUWxNREplQkhsb0Jx)
+- [C站/社区常用高质量提示词](https://civitai.com/models/62473)
+- [SD优质提示词库](https://docs.qq.com/sheet/DYUtXVGJJSFZ1R3FF?tab=ss_0gqnt7&viewId=vig5co)
 
 
 ## 图库
@@ -132,3 +166,4 @@ hide:
 - bilibili@[大江户战士](https://space.bilibili.com/55123)
 - bilibili@[独立研究员-星空](https://space.bilibili.com/250989068)
 - bilibili@[自带马赛克属性的阿尼](https://space.bilibili.com/27688282)
+- bilibili@[-Zho-](https://space.bilibili.com/484366804)
