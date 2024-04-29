@@ -198,7 +198,7 @@ ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
 
 
 ### 系统退出代码名称：ACCESS VIOLATION
-内存不足导致崩溃，尝试增大虚拟内存，或者加内存条。
+内存不足导致崩溃，尝试增大虚拟内存，或者重装 SD WebUI。如果问题未解决，检查 Windows 系统是否有文件损坏，或者尝试增加内存条扩大物理内存。有时候内存超频可能会导致系统不稳定，可以尝试关闭后再试。
 
 
 ### 提示词插件无法翻译，右上角提示 ’NoneType‘ object has no attribute 'group'
@@ -335,4 +335,22 @@ Schedule type)。
 ![sampler_and_schedule_type](../assets/images/help/sd_webui/sampler_and_schedule_type.jpg)
 
 这样可以使可用的采样方法更多，因为可以通过不同的组合来得到采样方法。
+
+
+### LoRA / Embedding 模型放到对应的路径了，但是在 SD WebUI 中不显示
+这是因为 SD WebUI 的防呆机制在起作用，只需要将大模型切换成对应 LoRA / Embedding 模型版本的就行，参看：[杂项 - SD WebUI 的 LoRA / Embedding 模型展示的规则 - SDNote](../guide/use/extra.md#sd-webui-lora-embedding)
+
+
+### 模型不知道放哪里
+参看：[杂项 - SD WebUI 中不同模型的放置路径 - SDNote](../guide/use/extra.md#sd-webui_1)
+
+
+### 安装扩展后不显示
+在安装某个扩展后，在 SD WebUI 界面不显示，可能有以下原因。
+
+1. 扩展的选项藏在某个地方，仔细寻找或者阅读扩展的说明即可找到。
+2. 扩展和 SD WebUI 版本不匹配导致无法正常加载，在绘世启动器的版本管理中将 SD WebUI 和扩展更至最新的即可。
+3. 扩展需要安装某些依赖才能正常运行。一般来说 SD WebUI 在启动的时候会检查扩展的依赖是否安装，如果出现扩展的依赖安装失败，有可能是网络的问题，检查网络是否正常或者尝试配置代理解决。有个别的依赖需要安装编译工具才能安装，只需要安装依赖所需的编译工具后即可正常安装依赖。
+4. 扩展已被作者废弃 / 过于老旧，无法在新版的 SD WebUI 运行，这时只能寻找该扩展的替代品。
+
 

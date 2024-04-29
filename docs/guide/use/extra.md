@@ -133,3 +133,53 @@ SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 
 
 ## 使用 SDXL 模型时特定的提示词组会出现鬼图
 这个可能和提示词权重有关，在 SD WebUI 的`设置`->`SD`->`强调模式`，选择 No norm 后保存设置。
+
+## SD WebUI 的 LoRA / Embedding 模型展示的规则
+在 SD WebUI 1.8 后，引入了模型的防呆机制，防止用户错误地使用不对应版本的 LoRA / Embedding 模型，导致报错或者出鬼图。防呆机制的规则如下：
+
+1. 当加载了 SD 1.5 的大模型时，只显示适用于 SD 1.5 的 LoRA / Embedding 模型
+2. 当加载了 SDXL 的大模型：只显示适用于 SDXL 的 LoRA / Embedding 模型
+
+如果要使用适用于 SD 1.5 的 LoRA / Embedding 模型，只需要将大模型切换成 SD 1.5 的，这时候在 SD WebUI 的模型列表中就可以看到 SD 1.5 的 LoRA / Embedding 模型了，要使用 SDXL 的也同理。
+
+如果要关闭这个防呆机制，可以在 SD WebUI 的`设置`->`扩展模型`，将`在 Lora 页面保持显示所有模型 (否则, 将隐藏不兼容当前加载的 Stable Diffusion 模型版本的模型)`选项勾上，并保存 SD WebUI 的设置。
+
+## SD WebUI 不同路径 / 文件的作用
+这是 SD WebUI 中不同路径 / 文件的作用。
+
+|路径 / 文件|作用|
+|---|---|
+|stable-diffusion-webui/models|大部分模型的存放路径|
+|stable-diffusion-webui/extensions|扩展路径|
+|stable-diffusion-webui/outputs|保存的图片路径|
+|stable-diffusion-webui/repositories|SD WebUI 内部组件|
+|stable-diffusion-webui/cache.json|模型哈希记录文件|
+|stable-diffusion-webui/config.json|保存 SD WebUI 设置的文件|
+|stable-diffusion-webui/params.txt|保存上一次生图的参数|
+|stable-diffusion-webui/styles.csv|提示词预设文件|
+|stable-diffusion-webui/ui-config.json|SD WebUI 界面预设文件|
+
+SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径如下。
+
+|不同启动方式的用户|缓存路径|
+|---|---|
+|绘世启动器用户|stable-diffusion-webui/.cache|
+|使用原生 SD WebUI 启动方式用户|C:/Users/%USERNAME%/.cache|
+
+.cache 为隐藏路径，需要将文件管理器显示隐藏隐藏文件的功能打开，参看：[杂项 - 显示隐藏的文件和文件后缀名 - SDNote](../../help/other.md#_4)
+
+## SD WebUI 中不同模型的放置路径
+
+|模型种类|放置路径|
+|---|---|
+|Stable Diffusion 模型（大模型）|stable-diffusion-webui/models/Stable-diffusion|
+|VAE 模型|stable-diffusion-webui/models/VAE|
+|VAE-approx 模型|stable-diffusion-webui/models/VAE-approx|
+|LoRA / Lycoris 模型|stable-diffusion-webui/models/Lora|
+|Embedding 模型|stable-diffusion-webui/embeddings|
+|Hypernetwork 模型|stable-diffusion-webui/models/hypernetworks|
+|放大模型|stable-diffusion-webui/models/ESRGAN </p> stable-diffusion-webui/models/RealESRGAN </p> stable-diffusion-webui/models/SwinIR </p> stable-diffusion-webui/models/DAT|
+|ControlNet 模型|stable-diffusion-webui/models/ControlNet|
+|ControlNet 预处理器模型|stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads|
+|AnimateDiff 模型|stable-diffusion-webui/extensions/sd-webui-animatediff/model|
+|DanTagGen 模型|stable-diffusion-webui\extensions\z-a1111-sd-webui-dtg\models|
