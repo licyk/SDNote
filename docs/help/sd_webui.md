@@ -101,7 +101,8 @@ python -m pip install tqdm
 网络不稳定，尝试更换其他网络，或者配置代理。
 
 !!!note
-    有些报错也和网络问题有关，比如报错中有`Internet`、`connection`、`ConnectTimeout`这些关键词，或者是`由于目标计算机积极拒绝，无法连接` / `信号灯超时时间已到`，就有可能是网络问题。
+    有些报错也和网络问题有关，比如报错中有`Internet`、`connection`、`ConnectTimeout`这些关键词，或者是`由于目标计算机积极拒绝，无法连接` / `信号灯超时时间已到`，就有可能是网络问题。配置绘世启动器的代理参看：[绘世启动器 - 配置绘世启动器的代理 - SD Note](../help/sd_launcher.md#_6)
+
 
 ## 提示词输入框不见了
 ![prompt_input_box_disappear](../assets/images/help/sd_webui/prompt_input_box_disappear.jpg)
@@ -149,6 +150,9 @@ python -m pip install tqdm
 ## [WinError 10054]远程主机强迫关闭了一个现有的连接
 网络问题，尝试配置代理，或者检查代理是否配置正确。
 
+!!!note
+    配置绘世启动器的代理参看：[绘世启动器 - 配置绘世启动器的代理 - SD Note](../help/sd_launcher.md#_6)
+
 
 ## Error! in sd webui 1.5, composable-lora not support with sd-webui-lycoris extension
 请卸载 a1111-sd-webui-lycoris 扩展（如果安装了 a1111-sd-webui-locon 扩展，也卸载），该插件会导致 SD WebUI 出图速度变慢。
@@ -189,11 +193,8 @@ PyTorch 未正确安装 / 版本和显卡不对应，或者显卡驱动未更到
 ## DefaultCPUAllocator: not enough memory
 内存不足，尝试增加虚拟内存。
 
-1. 按下`Win + R`快捷键，输入`sysdm.cpl`，回车运行，打开`高级系统设置`
-2. 在打开的窗口中，点击`高级`选项卡下`性能`选项组的`设置`按钮
-3. 打开性能选项窗口后，点击`高级`选项卡中的`更改`按钮
-4. 在打开的窗口中，首先取消勾选`自动管理所有驱动器的分页文件大小`
-5. 接下来选择`自定义大小`，然后手动设置初始大小以及最大值，建议初始值为 10240，最大值为 30720（或者更高的值，但不能超过系统可设置的最大虚拟内存的值）。设置完后，先点`设置`，然后点击`确定`按钮保存设置，设置好后重启电脑。
+!!!note
+    调整虚拟内存的方法参看：[杂项 - 调整虚拟内存 - SD Note](../help/other.md#_3)
 
 
 ## mat1 and mat2 shapes cannot be multiplied
@@ -208,13 +209,22 @@ ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
 ## \<urlopen error [ SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1007)\>
 网络不稳定，尝试更换其他网络，或者配置代理。
 
+!!!note
+    配置绘世启动器的代理参看：[绘世启动器 - 配置绘世启动器的代理 - SD Note](../help/sd_launcher.md#_6)
+
 
 ## 系统退出代码名称：IN_PAGE_ERROR
 虚拟内存不足，尝试增大虚拟内存。
 
+!!!note
+    调整虚拟内存的方法参看：[杂项 - 调整虚拟内存 - SD Note](../help/other.md#_3)
+
 
 ## 系统退出代码名称：ACCESS VIOLATION
 内存不足导致崩溃，尝试增大虚拟内存，或者重装 SD WebUI。如果问题未解决，检查 Windows 系统是否有文件损坏，或者尝试增加内存条扩大物理内存。有时候内存超频可能会导致系统不稳定，可以尝试关闭后再试。
+
+!!!note
+    调整虚拟内存的方法参看：[杂项 - 调整虚拟内存 - SD Note](../help/other.md#_3)
 
 
 ## 提示词插件无法翻译，右上角提示 ’NoneType‘ object has no attribute 'group'
@@ -371,9 +381,15 @@ Schedule type)。
 3. 扩展需要安装某些依赖才能正常运行。一般来说 SD WebUI 在启动的时候会检查扩展的依赖是否安装，如果出现扩展的依赖安装失败，有可能是网络的问题，检查网络是否正常或者尝试配置代理解决。有个别的依赖需要安装编译工具才能安装，只需要安装依赖所需的编译工具后即可正常安装依赖。
 4. 扩展已被作者废弃 / 过于老旧，无法在新版的 SD WebUI 运行，这时只能寻找该扩展的替代品。
 
+!!!note
+    配置绘世启动器的代理参看：[绘世启动器 - 配置绘世启动器的代理 - SD Note](../help/sd_launcher.md#_6)
+
 
 ##  Can't load tokenizer for 'laion/CLIP-ViT-bigG-14-laion2B-39B-b160k'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name
 尝试配置代理解决。
+
+!!!note
+    配置绘世启动器的代理参看：[绘世启动器 - 配置绘世启动器的代理 - SD Note](../help/sd_launcher.md#_6)
 
 
 ## FileNotFoundError: [Errno 2] No such file or directory: '...\\site-packages\\open_clip\\bpe_simple_vocab_16e6.txt.gz'
@@ -418,3 +434,8 @@ SD WebUI 出现报错后，在绘世启动器的疑难解答的扫描中，显�
 
 但通常情况下不需要这么麻烦，只需要在绘世启动器的版本管理中把内核的版本和所有的扩展版本都更到最新即可。
 
+
+## No module 'xformers'. Proceeding without it
+如果显卡不是 Nvidia 显卡，可忽略这个提示。
+
+如果显卡是 Nvidia 显卡，可以在绘世启动器的高级选项中，检查 Cross-Attension 优化方案是否选择了 xFormers，如果不是，选择`尝试使用 xFormers`或者`使用 xFormers Flash Attension`即可。

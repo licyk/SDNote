@@ -88,7 +88,7 @@ ComfyUI 的扩展生态一直存在着问题，各种扩展的环境依赖要求
 这是因为网络问题导致无法下载一些缺失文件，尝试配置代理解决。
 
 !!!note
-    有些报错也和网络问题有关，比如报错中有`Internet`、`connection`、`ConnectTimeout`这些关键词，或者是`由于目标计算机积极拒绝，无法连接` / `信号灯超时时间已到`，就有可能是网络问题。
+    有些报错也和网络问题有关，比如报错中有`Internet`、`connection`、`ConnectTimeout`这些关键词，或者是`由于目标计算机积极拒绝，无法连接` / `信号灯超时时间已到`，就有可能是网络问题。配置绘世启动器的代理参看：[绘世启动器 - 配置绘世启动器的代理 - SD Note](../help/sd_launcher.md#_6)
 
 
 ## 'UNetModel' object has no attribute 'default_image_only_indicator'
