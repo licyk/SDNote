@@ -4,7 +4,7 @@ hide:
   - footer
 title: 主页
 ---
-# SDNote
+# SD Note
 一个关于使用 AI 绘画的文档，包含教程和相关资源。
 
 [绘画指南 :fontawesome-solid-book:](guide/index.md){ .md-button }

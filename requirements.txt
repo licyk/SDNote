@@ -1,4 +1,4 @@
-mkdocs-material==9.5.18 # 9.5.19有点问题
+﻿mkdocs-material==9.5.18 # 9.5.19有点问题
 mkdocs-glightbox
 mkdocs-git-revision-date-localized-plugin
 
