@@ -42,6 +42,17 @@ SD WebUI 是基于 SD 进行制作的 WebUI 界面，用于方便的使用 SD �
 !!!note
     绘世启动器和 SD WebUI 的关系可以看作 PCL2 启动器和 Minecraft 的关系，所以绘世启动器 ≠ SD WebUI。
 
+
+## 为 SD WebUI 安装扩展
+为 SD WebUI 安装扩展有几种方式。
+
+1. 使用绘世启动器的版本管理：在绘世启动器的`版本管理`->`安装新扩展`，在扩展列表中选择扩展安装或者输入扩展地址进行安装。
+2. 使用 SD WebUI 的扩展管理：在 SD WebUI 的扩展选项中安装。
+3. 使用 Git 命令：在 stable-diffusion-webui/extensions 目录下使用`git clone 扩展地址`命令安装。
+4. 手动从 Github 下载压缩包：在 Github 扩展项目中下载扩展的压缩包并解压到 stable-diffusion-webui/extensions 目录中。（极不推荐！！！）
+
+在安装和使用扩展前，请仔细阅读扩展作者的说明文档，并按照扩展作者的说明进行操作！！！
+
 ***
 
 ## CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect
@@ -397,4 +408,13 @@ LayerDiffusion 模型下载：https://modelscope.cn/models/licyks/layerdiffusion
 
 
 ## 扩展安装后没有扩展对应的模型
-安装了扩展 ≠ 下载了扩展对应的模型，有些扩展需要手动下载模型才能使用，比如 [AnimateDiff](https://github.com/guoyww/AnimateDiff) 扩展，这时需要阅读扩展的文档并按要求下载模型到对应的路径。
+安装了扩展 ≠ 下载了扩展对应的模型，有些扩展需要手动下载模型才能使用，比如 [AnimateDiff](https://github.com/continue-revolution/sd-webui-animatediff) 扩展，这时需要阅读扩展的文档并按要求下载模型到对应的路径。
+
+
+## 绘世启动器疑难解答中扫描出“扩展版本不兼容”
+SD WebUI 出现报错后，在绘世启动器的疑难解答的扫描中，显示“您所安装的扩展版本与 SD-WebUI 版本不兼容。请前往版本管理与扩展管理界面手动对齐更新日期”，这说明需要调整扩展的版本。
+
+这里“手动对齐更新日期”指的是在绘世启动器的版本管理中，通过切换扩展的版本使扩展的更新日期和内核的更新日期相同或者相近。
+
+但通常情况下不需要这么麻烦，只需要在绘世启动器的版本管理中把内核的版本和所有的扩展版本都更到最新即可。
+

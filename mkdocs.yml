@@ -82,7 +82,7 @@ plugins:
 #  - git-authors
 
 extra:
-  homepage: https://example.com
+  homepage: https://sdnote.netlify.app
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/licyk
