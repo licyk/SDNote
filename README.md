@@ -18,6 +18,12 @@
 
 本文档持续更新中，欢迎您参与贡献本项目！
 
+## 文档地址
+- https://licyk.github.io/SDNote
+- https://sdnote.netlify.app
+- https://sdnote.vercel.app （国内访问受限）
+
+
 ## 将仓库克隆到本地
 ```
 git clone https://github.com/licyk/SDNote
