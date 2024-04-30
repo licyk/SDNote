@@ -135,7 +135,7 @@ title: 高级选项
 
 ![user_experience](../../assets/images/sd_launcher/advance/user_experience.jpg)
 
-### 启动完成后自动打开浏览器
+### 启动完毕后自动打开浏览器
 这个就不用多说了。
 
 ### 界面样式

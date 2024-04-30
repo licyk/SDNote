@@ -13,6 +13,14 @@ title: 概述
 ## 采样器（Sampler）
 对噪声进行降噪的放方法，不同的采样器所需要的采样步数不同，出图的效果也不同。
 
+## 调度器（Schedulers）
+控制噪声的生成。
+
+有关调度器的说明：[Diffusers - Schedulers - HuggingFace](https://huggingface.co/docs/diffusers/api/schedulers/overview)
+
+!!!note
+    不同采样算法和调度器的简单效果对比：[SD WebUI 采样算法和调度器对比](https://github.com/licyk/README-collection/blob/main/sampler-contrast/README.md)
+
 ## 迭代步数（Step）
 降噪的步数。更多的步骤意味着从噪声到图像的更小、更精确的步骤。增加这一点直接增加了生成图像所需的时间。每一步的速度取决于采样器。
 
