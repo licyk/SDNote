@@ -61,7 +61,7 @@ PyTorch 版本需要和显卡的型号相对应，以保证 SD WebUI，ComfyUI�
     AMD 显卡驱动下载：https://www.amd.com/zh-hans/support  
     Intel 显卡驱动下载：https://www.intel.cn/content/www/cn/zh/download-center/home.html
 
-    AMD 780M（核显），RX 5000 系（独显）以上的 AMD 显卡支持 ZLUDA，而其他不支持的系列请使用 DirectML。
+    AMD 780M（核显），RX 5000 系（独显）及以上的 AMD 显卡支持 ZLUDA，而其他不支持的系列请使用 DirectML。
 
     AMD 780M 核显无法直接使用 ZLUDA，需要手动添加文件：[适用于绘世启动器的 AMD Radeon 780M 的 ZLUDA 教程 - 哔哩哔哩](https://www.bilibili.com/read/cv33327387)。
 

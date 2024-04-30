@@ -17,7 +17,7 @@ LoRA 模型可使用提示词进行调用，格式如下：
 !!!note
     如果你发现你的 LoRA 模型没有显示出来，这是因为 SD WebUI 的防呆机制在起作用，隐藏了不兼容当前加载的 Stable Diffusion 模型版本的模型。
 
-    该机制可在 SD WebUI 的`设置` -> `扩展模型`，勾选`在 LoRA 页面保持显示所有模型`选项后关闭。
+    该机制可在 SD WebUI 的`设置` -> `扩展模型`，勾选`在 LoRA 页面保持显示所有模型`选项后关闭（不建议）。
 
 如果你需要使用某个 LoRA 模型时，点击 LoRA 模型的卡片。
 
@@ -47,7 +47,7 @@ LoRA 模型可使用提示词进行调用，格式如下：
 |画风|![style](../../assets/images/guide/lora/style.jpg)|
 
 ## LoRA 分层
-LoRA 模型在使用的时候，可能因为一些权重问题导致 LoRA 的表现效果不行，这时候这时候可以使用 sd-webui-lora-block-weight 扩展细调 LoRA 模型的权重来提高 LoRA 模型的表现效果。
+LoRA 模型在使用的时候，可能因为一些权重问题导致 LoRA 的表现效果不行，这时候这时候可以使用 sd-webui-https://github.com/nihedon/sd-webui-weight-helper 扩展细调 LoRA 模型的权重来提高 LoRA 模型的表现效果。
 
 !!!note
     sd-webui-lora-block-weight 扩展：https://github.com/hako-mikan/sd-webui-lora-block-weight
@@ -65,7 +65,8 @@ sd-webui-lora-block-weight 扩展的选项可在 SD WebUI 左下角找到。
 lbw 后面的数字代表了 LoRA 模型在不同 UNet 层控制的权重。调节这些权重可使 LoRA 模型的表现效果更好。
 
 !!!note
-    对于不同的 LoRA 模型（如 Lycoris，Loha 等），其控制的 UNet 层数不同，所以`lbw`后面总共要写的权重数量也不同，具体请阅读 sd-webui-lora-block-weight 扩展的说明：https://github.com/hako-mikan/sd-webui-lora-block-weight?tab=readme-ov-file#weights-setting
+    1. 对于不同的 LoRA 模型（如 Lycoris，Loha 等），其控制的 UNet 层数不同，所以`lbw`后面总共要写的权重数量也不同，具体请阅读 sd-webui-lora-block-weight 扩展的说明：https://github.com/hako-mikan/sd-webui-lora-block-weight?tab=readme-ov-file#weights-setting
+	2. 推荐使用 [nihedon](https://github.com/nihedon) 用户编写的 [sd-webui-weight-helper](https://github.com/nihedon/sd-webui-weight-helper) 扩展来辅助调整sd-webui-lora-block-weight扩展的参数。
 
 以下为使用 LoRA 分层前后的效果。
 
