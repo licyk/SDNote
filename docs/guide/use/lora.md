@@ -47,7 +47,7 @@ LoRA 模型可使用提示词进行调用，格式如下：
 |画风|![style](../../assets/images/guide/lora/style.jpg)|
 
 ## LoRA 分层
-LoRA 模型在使用的时候，可能因为一些权重问题导致 LoRA 的表现效果不行，这时候这时候可以使用 sd-webui-https://github.com/nihedon/sd-webui-weight-helper 扩展细调 LoRA 模型的权重来提高 LoRA 模型的表现效果。
+LoRA 模型在使用的时候，可能因为一些权重问题导致 LoRA 的表现效果不行，这时候这时候可以使用 sd-webui-lora-block-weight 扩展细调 LoRA 模型的权重来提高 LoRA 模型的表现效果。
 
 !!!note
     sd-webui-lora-block-weight 扩展：https://github.com/hako-mikan/sd-webui-lora-block-weight
