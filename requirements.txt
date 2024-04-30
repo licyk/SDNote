@@ -1,6 +1,6 @@
-﻿mkdocs-material==9.5.18 # 9.5.19有点问题
-mkdocs-glightbox
+mkdocs-material==9.5.18
 mkdocs-git-revision-date-localized-plugin
+mkdocs-glightbox
 
 # mkdocs-git-authors-plugin
 # mkdocs-git-committers-plugin-2
