@@ -8,7 +8,7 @@ title: 绘世启动器
 ![net_runtime_not_found](../assets/images/help/sd_launcher
 /net_runtime_not_found.jpg)
 
-这是因为系统中未安装绘世启动器的依赖（.NET 6.0），点击弹窗提示的`是`可跳转到绘世启动器的依赖下载地址，下载并安装依赖后重新打开绘世启动器。
+这是因为系统中未安装绘世启动器需要的 .NET 6.0 依赖（或已安装但低于要求的版本），点击弹窗提示的`是`可跳转到绘世启动器的依赖下载地址，下载并安装依赖后重新打开绘世启动器。
 
 
 ## 绘世启动器无法打开
@@ -45,6 +45,8 @@ title: 绘世启动器
 
 直接点`是`。
 
+!!!note
+    Windows 10 家庭版 可能无法通过点击`是`正确的解决该问题。
 
 ## 启动器已检测到内核文件，但无法找到与之对应的版本信息
 ![missing_git_file](../assets/images/help/sd_launcher
@@ -91,7 +93,7 @@ title: 绘世启动器
 ![port_occupied](../assets/images/help/sd_launcher
 /port_occupied.jpg)
 
-可选择[前往高级选项更改监听端口](../sd_launcher/advance/index.md#_12)，或者尝试终止占用端口的进程。
+请先检查您是否已经启动 SD WebUI，如果没有可选择[前往高级选项更改监听端口](../sd_launcher/advance/index.md#_12)，或者尝试终止占用端口的进程。
 
 
 ## 由于找不到 zlib.dll，无法继续执行代码
