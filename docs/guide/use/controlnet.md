@@ -8,7 +8,8 @@ title: ControlNet 应用
 如果需要使用 ControlNet，需要安装 sd-webui-controlnet 扩展。
 
 !!!note
-    sd-webui-controlnet 扩展下载：https://github.com/Mikubill/sd-webui-controlnet
+    1. sd-webui-controlnet 扩展下载：https://github.com/Mikubill/sd-webui-controlnet。
+	2. sd-webui-controlnet 扩展并不会主动下载预处理器 / 模型，默认情况下，您需要主动的去下载模型文件并放置到对应的文件夹。而预处理器文件在首次使用对应预处理器时从huggingface.co网站下载。
 
 安装后可在 SD WebUI 左下角的选项找到 ControNet 选项。
 

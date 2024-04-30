@@ -68,7 +68,9 @@ SD WebUI 是基于 SD 进行制作的 WebUI 界面，用于方便的使用 SD �
 
 ## ModuleNotFoundError: No module named 'tqdm.auto'
 1、启动器的`版本管理`->`扩展`，卸载 Temporalkit 插件。
+
 2、启动器的`高级选项`，点右上角的`启动命令提示符`。
+
 3、依次输入下面两条命令。
 ```bash
 python -m pip uninstall tqdm -y
@@ -79,6 +81,9 @@ python -m pip install tqdm
 
 ## Cannot connect to proxy
 前往绘世启动器的`设置`->`代理设置`，检查代理服务器地址是否和代理软件的地址对应，如果无误，检查代理软件是否打开，或者代理软件的节点是否可用。
+
+!!!note
+    部分代理软件内默认显示的端口号为socks5协议的端口号，一般情况下http协议端口号为socks5端口号+1。
 
 
 ## Connection timed out / Connection was Reset
@@ -135,7 +140,7 @@ python -m pip install tqdm
 
 
 ## Error! in sd webui 1.5, composable-lora not support with sd-webui-lycoris extension
-请卸载 a1111-sd-webui-lycoris 扩展（如果安装了 a1111-sd-webui-locon 扩展，也卸载），该插件蒋慧导致 SD WebUI 出图速度变慢。
+请卸载 a1111-sd-webui-lycoris 扩展（如果安装了 a1111-sd-webui-locon 扩展，也卸载），该插件会导致 SD WebUI 出图速度变慢。
 
 有关该插件的说明：https://www.bilibili.com/opus/900927097529171969
 
@@ -154,7 +159,6 @@ python -m pip install tqdm
 如果经常出现黑图，可以前往绘世启动器的高级选项，在[计算精度设置](../sd_launcher/advance/index.md#_5)中关闭对应的半精度优化，但这只是环境措施，并且会显著增加显存的占用。
 
 最好的方法是找出出现问题的模型，并更换掉。使用排除法，检查是否使用了 LoRA，如果用了，尝试去除后是否解决问题。问题未解决，检查是否 ControlNet，并尝试关闭。如果问题解决，说明 ControlNet 模型出问题，需要重新下载 ControlNet 模型。如果问题还是没有解决，则尝试更换大模型 / VAE，如果更换后解决了问题，则说明是大模型 / VAE 的问题。
-
 
 ## Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0!
 尝试重启 SD WebUI，如果未解决，尝试禁用一些扩展。

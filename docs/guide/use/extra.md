@@ -149,9 +149,10 @@ SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 
 
 |路径 / 文件|作用|
 |---|---|
-|stable-diffusion-webui/models|大部分模型的存放路径|
+|stable-diffusion-webui/models|大部分模型的保存路径|
 |stable-diffusion-webui/extensions|扩展路径|
-|stable-diffusion-webui/outputs|保存的图片路径|
+|stable-diffusion-webui/extensions-builtin|SD WebUI 内置扩展路径|
+|stable-diffusion-webui/outputs|生成图片的保存路径|
 |stable-diffusion-webui/repositories|SD WebUI 内部组件|
 |stable-diffusion-webui/cache.json|模型哈希记录文件|
 |stable-diffusion-webui/config.json|保存 SD WebUI 设置的文件|
@@ -178,8 +179,8 @@ SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径�
 |LoRA / Lycoris 模型|stable-diffusion-webui/models/Lora|
 |Embedding 模型|stable-diffusion-webui/embeddings|
 |Hypernetwork 模型|stable-diffusion-webui/models/hypernetworks|
-|放大模型|stable-diffusion-webui/models/ESRGAN </p> stable-diffusion-webui/models/RealESRGAN </p> stable-diffusion-webui/models/SwinIR </p> stable-diffusion-webui/models/DAT|
-|ControlNet 模型|stable-diffusion-webui/models/ControlNet|
+|高清修复模型|stable-diffusion-webui/models/ESRGAN </p> stable-diffusion-webui/models/RealESRGAN </p> stable-diffusion-webui/models/SwinIR </p> stable-diffusion-webui/models/DAT|
+|ControlNet 模型|stable-diffusion-webui/models/ControlNet </p> stable-diffusion-webui/extensions/sd-webui-controlnet/models|
 |ControlNet 预处理器模型|stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads|
 |AnimateDiff 模型|stable-diffusion-webui/extensions/sd-webui-animatediff/model|
 |DanTagGen 模型|stable-diffusion-webui\extensions\z-a1111-sd-webui-dtg\models|
