@@ -183,4 +183,4 @@ SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径�
 |ControlNet 模型|stable-diffusion-webui/models/ControlNet </p> stable-diffusion-webui/extensions/sd-webui-controlnet/models|
 |ControlNet 预处理器模型|stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads|
 |AnimateDiff 模型|stable-diffusion-webui/extensions/sd-webui-animatediff/model|
-|DanTagGen 模型|stable-diffusion-webui\extensions\z-a1111-sd-webui-dtg\models|
+|DanTagGen 模型|stable-diffusion-webui/extensions/z-a1111-sd-webui-dtg/models|

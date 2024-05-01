@@ -78,7 +78,7 @@ SD WebUI 是基于 SD 进行制作的 WebUI 界面，用于方便的使用 SD �
 
 
 ## ModuleNotFoundError: No module named 'tqdm.auto'
-1、启动器的`版本管理`->`扩展`，卸载 Temporalkit 插件。
+1、启动器的`版本管理`->`扩展`，卸载 Temporalkit 扩展。
 
 2、启动器的`高级选项`，点右上角的`启动命令提示符`。
 
@@ -155,9 +155,9 @@ python -m pip install tqdm
 
 
 ## Error! in sd webui 1.5, composable-lora not support with sd-webui-lycoris extension
-请卸载 a1111-sd-webui-lycoris 扩展（如果安装了 a1111-sd-webui-locon 扩展，也卸载），该插件会导致 SD WebUI 出图速度变慢。
+请卸载 a1111-sd-webui-lycoris 扩展（如果安装了 a1111-sd-webui-locon 扩展，也卸载），该扩展会导致 SD WebUI 出图速度变慢。
 
-有关该插件的说明：https://www.bilibili.com/opus/900927097529171969
+有关该扩展的说明：https://www.bilibili.com/opus/900927097529171969
 
 
 ## [Errno 2] No such file or directory
@@ -231,8 +231,8 @@ ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
     调整虚拟内存的方法参看：[杂项 - 调整虚拟内存 - SD Note](../help/other.md#_3)
 
 
-## 提示词插件无法翻译，右上角提示 ’NoneType‘ object has no attribute 'group'
-提示词翻译插件的翻译 API 出现了问题，请更换。
+## 提示词扩展无法翻译，右上角提示 ’NoneType‘ object has no attribute 'group'
+提示词翻译扩展的翻译 API 出现了问题，请更换。
 
 ![change_prompt_all_in_one_translate_api](../assets/images/help/sd_webui/change_prompt_all_in_one_translate_api.jpg)
 
@@ -247,8 +247,8 @@ ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
 参考该教程：[【AI绘画】训练“预处理”选项卡不见了？挪位置了！ - 哔哩哔哩](https://www.bilibili.com/read/cv29917364)
 
 
-## 停止使用 LoRA 插件
-参考该教程：[【AI绘画】停止使用LoRA插件，请使用WebUI内置原生LoRA - 哔哩哔哩](https://www.bilibili.com/read/cv26261691)
+## 停止使用 sd-webui-additional-networks 扩展
+[sd-webui-additional-networks](https://github.com/kohya-ss/sd-webui-additional-networks) 扩展仅支持 SD 1.5 的 LoRA 模型，并且已经停止更新，而在新版的 SD WebUI 中已经原生支持 LoRA 模型，请卸载 sd-webui-additional-networks 扩展，并使用原生方式使用 LoRA 模型，参看：[【AI绘画】停止使用LoRA插件，请使用WebUI内置原生LoRA - 哔哩哔哩](https://www.bilibili.com/read/cv26261691)
 
 
 ## 绘世启动器打开后界面白屏
@@ -443,3 +443,7 @@ SD WebUI 出现报错后，在绘世启动器的疑难解答的扫描中，显�
 如果显卡不是 Nvidia 显卡，可忽略这个提示。
 
 如果显卡是 Nvidia 显卡，可以在绘世启动器的高级选项中，检查 Cross-Attension 优化方案是否选择了 xFormers，如果不是，选择`尝试使用 xFormers`或者`使用 xFormers Flash Attension`即可。
+
+
+## List Index Out of Range
+这可能是因为参数中出现了非法值，检查生图参数中是否存在错误的地方，修改后再重试。

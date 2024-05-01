@@ -16,7 +16,7 @@ Stable Diffusion 模型也称为底模或大模型，常见的版本有 1.5 和 
 
 VAE模型有两个部分，一个编码器和一个解码器。编码器用于将图像转换为低维潜在表示，这将作为U-Net模型的输入。相反，解码器将潜在的表征转换回图像。在潜扩散训练过程中，利用编码器得到图像的潜表示（latents），用于前向扩散过程，每一步都会施加越来越多的噪声。在推理过程中，将反向扩散过程产生的去噪后的潜波利用VAE解码转换回图像。
 
-# Embedding 模型
+## Embedding 模型
 Embedding 是指将高维度的数据（例如文字、图片、音频）映射到向量空间的方法，即用数字表示的过程，这些数字通常为向量形式。当然，这个映射的结果也可以叫 Embeddings 或 Embedding 向量，它是一种模型。在 Stable Diffusion 中，Embedding 是 Textual Inversion（TI）训练的结果。
 
 Embedding 模型常用于负面提示词中，用于提升生图的质量。
@@ -48,6 +48,8 @@ ControlNet 让生图更加的可控，更加容易地实现想要的效果。
 论文：[[2302.05543] Adding Conditional Control to Text-to-Image Diffusion Models](https://arxiv.org/abs/2302.05543)
 
 !!!note
+    Stable Diffusion 模型科普：[模型理论科普第一辑](https://docs.qq.com/doc/p/a36aa471709d1cf5758151d68ef5b59397421b2e)
+
     详细了解模型的原理可以观看[秋葉aaaki](https://space.bilibili.com/12566101)制作的视频：[【AI绘画】深入理解Stable Diffusion！站内首个深入教程，30分钟从原理到模型训练 买不到的课程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1x8411m76H)，也可以观看[琥珀青葉](https://space.bilibili.com/507303431)的视频。
 
 ## 模型精度
