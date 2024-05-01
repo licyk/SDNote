@@ -202,7 +202,7 @@ PyTorch 未正确安装 / 版本和显卡不对应，或者显卡驱动未更到
 
 
 ## mat1 and mat2 shapes cannot be multiplied
-ControlNet 模型和大模型（SD）的版本不匹配， SD 1.5 模型需要搭配ControlNet 1.5 的模型， SDXL 模型需要搭配ControlNet XL 的模型。
+ControlNet 模型和大模型（SD）的版本不匹配，SD 1.5 模型需要搭配ControlNet 1.5 的模型，SDXL 模型需要搭配ControlNet XL 的模型。
 
 ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
 
