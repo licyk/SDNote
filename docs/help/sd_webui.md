@@ -202,7 +202,7 @@ PyTorch 未正确安装 / 版本和显卡不对应，或者显卡驱动未更到
 
 
 ## mat1 and mat2 shapes cannot be multiplied
-ControlNet 模型和大模型（SD）的版本不匹配，ControlNet 1.5 的模型需要搭配 SD 1.5 模型，ControlNet XL 的模型需要搭配 SDXL 模型。
+ControlNet 模型和大模型（SD）的版本不匹配，SD 1.5 模型需要搭配ControlNet 1.5 的模型，SDXL 模型需要搭配ControlNet XL 的模型。
 
 ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
 
@@ -268,7 +268,7 @@ ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
 
 
 ## SD WebUI 界面显示异常
-如果 SD WebUI 界面出现下面的情况，请检查你的 SD WebUI 路径是否有某个文件夹是以`.`开头。
+如果 SD WebUI 界面出现下面的情况，请检查你的 SD WebUI 路径是否有某个文件夹名称是以`.`开头。
 
 ![leading_dot_causing_interface_removal](../assets/images/help/sd_webui/leading_dot_causing_interface_removal.jpg)
 
@@ -310,7 +310,7 @@ python -m pip install onnxruntime -U
 参考该教程：[绘世启动器 - 配置绘世启动器的代理 - SDNote](../help/sd_launcher.md#_6)
 
 
-## 使用 SDXL 模型时特定提示词组慧出现鬼图
+## 使用 SDXL 模型时特定提示词组会出现鬼图
 参考该教程：[杂项 - 使用 SDXL 模型时特定的提示词组会出现鬼图 - SD Notes](../guide/use/extra.md#sdxl_1)
 
 
@@ -319,7 +319,9 @@ python -m pip install onnxruntime -U
 
 
 ## ControlNet 没效果
-检查 ControlNet 扩展的选项卡中有没有选择 ControlNet 模型，再检查 ControlNet 权重之类的参数是否正确设置。
+1. 检查 ControlNet 扩展是否已经激活。
+2. 检查 ControlNet 扩展的选项卡中有没有选择 ControlNet 模型。
+3. 检查 ControlNet 权重之类的参数是否正确设置。
 
 ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
 
@@ -361,8 +363,7 @@ sd-webui-prompt-all-in-one 扩展将 LoRA 模型显示为粉红色，并不断�
 
 
 ## DPM++ 2M SDE Karras 采样器消失了，采样器也少了很多
-这是因为在 SD WebUI 1.9 中将采样方法和调度器分开了，所以实际的采样器为 采样方法 (Sampler) + 调度器(
-Schedule type)。
+这是因为在 SD WebUI 1.9 中将采样方法和调度器分开了，所以实际的采样器为 采样方法 (Sampler) + 调度器(Schedule type)。
 
 ![sampler_and_schedule_type](../assets/images/help/sd_webui/sampler_and_schedule_type.jpg)
 
@@ -384,6 +385,7 @@ Schedule type)。
 2. 扩展和 SD WebUI 版本不匹配导致无法正常加载，在绘世启动器的版本管理中将 SD WebUI 和扩展更至最新的即可。
 3. 扩展需要安装某些依赖才能正常运行。一般来说 SD WebUI 在启动的时候会检查扩展的依赖是否安装，如果出现扩展的依赖安装失败，有可能是网络的问题，检查网络是否正常或者尝试配置代理解决。有个别的依赖需要安装编译工具才能安装，只需要安装依赖所需的编译工具后即可正常安装依赖。
 4. 扩展已被作者废弃 / 过于老旧，无法在新版的 SD WebUI 运行，这时只能寻找该扩展的替代品。
+5. 扩展并不适用于 SD WebUI （如LayerDiffusion）。
 
 !!!note
     配置绘世启动器的代理参看：[绘世启动器 - 配置绘世启动器的代理 - SD Note](../help/sd_launcher.md#_6)
