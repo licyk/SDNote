@@ -192,11 +192,17 @@ SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径�
 |Stable Diffusion 模型（大模型）|stable-diffusion-webui/models/Stable-diffusion|
 |VAE 模型|stable-diffusion-webui/models/VAE|
 |VAE-approx 模型|stable-diffusion-webui/models/VAE-approx|
-|LoRA / Lycoris 模型|stable-diffusion-webui/models/Lora|
+|LoRA 模型|stable-diffusion-webui/models/Lora|
+|Lycoris 模型<sup>1</sup>|stable-diffusion-webui/models/Lora </p> stable-diffusion-webui/models/LyCORIS|
 |Embedding 模型|stable-diffusion-webui/embeddings|
 |Hypernetwork 模型|stable-diffusion-webui/models/hypernetworks|
 |高清修复模型|stable-diffusion-webui/models/ESRGAN </p> stable-diffusion-webui/models/RealESRGAN </p> stable-diffusion-webui/models/SwinIR </p> stable-diffusion-webui/models/DAT|
-|ControlNet 模型|stable-diffusion-webui/models/ControlNet </p> stable-diffusion-webui/extensions/sd-webui-controlnet/models|
-|ControlNet 预处理器模型|stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads|
+|ControlNet 模型<sup>2</sup>|stable-diffusion-webui/models/ControlNet </p> stable-diffusion-webui/extensions/sd-webui-controlnet/models|
+|ControlNet 预处理器模型<sup>3</sup>|stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads|
 |AnimateDiff 模型|stable-diffusion-webui/extensions/sd-webui-animatediff/model|
 |DanTagGen 模型|stable-diffusion-webui/extensions/z-a1111-sd-webui-dtg/models|
+
+!!!note
+    1. SD WebUI 1.5 及以上版本无需扩展即可读取 LyCORIS 文件夹内的 LyCORIS 模型（该文件夹不会自动生成），并显示在 SD WebUI 的 LoRA 栏内。
+	2. 两个文件夹皆可放置 ControlNet 模型。
+	3. 并非所有的 ControlNet 预处理器模型都存储在 downloads 文件夹（例如： depth_anything 预处理器的部分模型会存储在 .cache 文件夹内）。
