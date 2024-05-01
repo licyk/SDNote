@@ -9,7 +9,57 @@ title: ControlNet 应用
 
 !!!note
     1. sd-webui-controlnet 扩展下载：https://github.com/Mikubill/sd-webui-controlnet。
-	2. sd-webui-controlnet 扩展并不会主动下载预处理器 / 模型，默认情况下，您需要主动的去下载模型文件并放置到对应的文件夹。而预处理器文件在首次使用对应预处理器时从huggingface.co网站下载。
+	2. sd-webui-controlnet 扩展部分预处理器模型文件官方下载地址：https://huggingface.co/lllyasviel/Annotators/tree/main。
+	3. sd-webui-controlnet 扩展模型文件官方下载地址：https://github.com/Mikubill/sd-webui-controlnet/wiki/Model-download。
+	4. **预处理器模型文件** 用于 **预处理器** 项，**模型文件** 用于 **模型** 项。
+	5. sd-webui-controlnet 扩展 **并不会** 主动下载预处理器模型文件 / 模型文件，默认情况下，您需要主动的去下载模型文件并放置到对应的文件夹。而预处理器文件在首次使用对应预处理器时从网络下载。
+
+如果您打算主动下载预处理器模型文件，请将下载的文件按照以下折叠内容放置到对应的文件夹内。
+
+???点击展开
+    stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads/<br />
+	├anime_face_segment/UNet.pth<br />
+	├clip_vision/clip_g.pth<br />
+	├clip_vision/clip_h.pth<br />
+	├clip_vision/clip_vitl.pth<br />
+	├densepose/densepose_r50_fpn_dl.torchscript<br />
+	├depth_anything/depth_anything_vitl14.pth<br />
+	├hand_refiner/hr16/ControlNet-HandRefiner-pruned/graphormer_hand_state_dict.bin<br />
+	├hand_refiner/hr16/ControlNet-HandRefiner-pruned/hrnetv2_w64_imagenet_pretrained.pth<br />
+	├hed/ControlNetHED.pth<br />
+	├insightface/models/antelopev2/1k3d68.onnx<br />
+	├insightface/models/antelopev2/2d106det.onnx<br />
+	├insightface/models/antelopev2/genderage.onnx<br />
+	├insightface/models/antelopev2/glintr100.onnx<br />
+	├insightface/models/antelopev2/scrfd_10g_bnkps.onnx<br />
+	├insightface/models/buffalo_l/1k3d68.onnx<br />
+	├insightface/models/buffalo_l/2d106det.onnx<br />
+	├insightface/models/buffalo_l/det_10g.onnx<br />
+	├insightface/models/buffalo_l/genderage.onnx<br />
+	├insightface/models/buffalo_l/w600k_r50.onnx<br />
+	├lama/ControlNetLama.pth<br />
+	├leres/latest_net_G.pth<br />
+	├leres/res101.pth<br />
+	├lineart/sk_model.pth<br />
+	├lineart/sk_model2.pth<br />
+	├lineart_anime/netG.pth<br />
+	├manga_line/erika.pth<br />
+	├midas/dpt_hybrid-midas-501f0c75.pt<br />
+	├mlsd/mlsd_large_512_fp32.pth<br />
+	├normal_bae/scannet.pt<br />
+	├normal_dsine/dsine.pt<br />
+	├oneformer/150_16_swin_l_oneformer_coco_100ep.pth<br />
+	├oneformer/250_16_swin_l_oneformer_ade20k_160k.pth<br />
+	├openpose/body_pose_model.pth<br />
+	├openpose/dw-ll_ucoco_384.onnx<br />
+	├openpose/facenet.pth<br />
+	├openpose/hand_pose_model.pth<br />
+	├openpose/rtmpose-m_simcc-ap10k_pt-aic-coco_210e-256x256-7a041aa1_20230206.onnx<br />
+	├openpose/yolox_l.onnx<br />
+	├pidinet/table5_pidinet.pth<br />
+	├TEED/7_model.pth<br />
+	├uniformer/upernet_global_small.pth<br />
+	└zoedepth/ZoeD_M12_N.pt
 
 安装后可在 SD WebUI 左下角的选项找到 ControNet 选项。
 
