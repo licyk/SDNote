@@ -182,7 +182,7 @@ SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径�
 |绘世启动器用户|stable-diffusion-webui/.cache|
 |使用原生 SD WebUI 启动方式用户|C:/Users/%USERNAME%/.cache|
 
-.cache 为隐藏路径，需要将文件管理器显示隐藏隐藏文件的功能打开，参看：[杂项 - 显示隐藏的文件和文件后缀名 - SDNote](../../help/other.md#_4)
+.cache 为隐藏路径，需要将文件管理器显示隐藏文件的功能打开，参看：[杂项 - 显示隐藏的文件和文件后缀名 - SDNote](../../help/other.md#_4)
 
 
 ## SD WebUI 中不同模型的放置路径
