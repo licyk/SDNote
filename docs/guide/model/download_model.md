@@ -6,7 +6,7 @@ title: 模型下载
 
 - [Civitai](https://civitai.com)（推荐！）
 - [HuggingFace](https://huggingface.co)（推荐！）
-- [ModelScope](https://modelscope.cn)（推荐！国内可访问）
+- [ModelScope](https://modelscope.cn)（推荐！国内可直接访问）
 
 !!! note
     需要使用加速工具打开网址。
