@@ -168,12 +168,16 @@ python -m pip install tqdm
 在使用旧版整合包 + 某些扩展就会出现这个问题，尝试下载最新的整合包并部署。
 
 
-## A tensor with al NaNs was produced in Unet / VAE
+## A tensor with all NaNs was produced in Unet / VAE
 这是因为当前的生图参数（提示词 / 分辨率 / 种子 / ...）匹配上了一张无法表示的图，所以造成了黑图。可尝试调整生图参数再次进行生图。
 
 如果经常出现黑图，可以前往绘世启动器的高级选项，在[计算精度设置](../sd_launcher/advance/index.md#_5)中关闭对应的半精度优化，但这只是环境措施，并且会显著增加显存的占用。
 
-最好的方法是找出出现问题的模型，并更换掉。使用排除法，检查是否使用了 LoRA，如果用了，尝试去除后是否解决问题。问题未解决，检查是否 ControlNet，并尝试关闭。如果问题解决，说明 ControlNet 模型出问题，需要重新下载 ControlNet 模型。如果问题还是没有解决，则尝试更换大模型 / VAE，如果更换后解决了问题，则说明是大模型 / VAE 的问题。
+最好的方法是使用排除法找出出现问题的模型，并更换掉。
+
+1. 检查是否使用了 LoRA，如果用了，尝试去除后是否解决问题。
+2. 问题未解决，检查是否 ControlNet，并尝试关闭。如果问题解决，说明 ControlNet 模型出问题，需要重新下载 ControlNet 模型。
+3. 如果问题还是没有解决，则尝试更换大模型 / VAE，如果更换后解决了问题，则说明是大模型 / VAE 的问题。
 
 ## Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0!
 尝试重启 SD WebUI，如果未解决，尝试禁用一些扩展。
@@ -274,7 +278,7 @@ B:\Downloads\.subdir\sd.webui
              ^
 ```
 
-这时你需要将`.subdir`前面的`.`删去。
+这时你需要将`.subdir`文件夹前面的`.`删去。
 
 详细的原因：[Do not installed Webui under a directory with leading dot (`.`) · Issue #13292 · AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/13292)
 
@@ -340,7 +344,7 @@ SD WebUI 点击切换模型按钮但无法切换模型，点击生成按钮后�
 
 
 ## 新版 SD WebUI 中面部修复消失了
-SD WebUI 自带的面部修复因为效果不行，已被新版的 SD WebUI 默认隐藏了，使用 [adetailer](https://github.com/Bing-su/adetailer) 扩展代替。参看：[杂项 - 面部修复 - SDNote](../guide/use/extra.md#_6)
+SD WebUI 自带的面部修复因为效果不行，已被新版的 SD WebUI 默认隐藏了，建议使用 [adetailer](https://github.com/Bing-su/adetailer) 扩展代替。参看：[杂项 - 面部修复 - SDNote](../guide/use/extra.md#_6)
 
 
 ## 使用 sd-webui-prompt-all-in-one 扩展时发现 LoRA 模型在闪烁
