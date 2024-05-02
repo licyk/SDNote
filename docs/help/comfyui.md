@@ -12,6 +12,7 @@ title: ComfyUI
 - 绘世启动器部署：[什么，绘世启动器还能安装ComfyUI（全新篇——安装与配置） - 哔哩哔哩](https://www.bilibili.com/read/cv28869554)
 - 从源码部署：[comfyanonymous/ComfyUI - Installing](https://github.com/comfyanonymous/ComfyUI?tab=readme-ov-file#installing)
 
+***
 
 ## 关于 ComfyUI
 ComfyUI 并没有比 SD WebUI 快多少，而 ComfyUI 的显存策略和 SD WebUI 不同，所以 ComfyUI 在很多时候显存占用会比 SD WebUI 低一点，所以没有所谓的 ComfyUI 比 SD WebUI 好。在 SD WebUI 中也有 [LightDiffusionFlow](https://github.com/Tencent/LightDiffusionFlow) 扩展实现 ComfyUI 的保存工作流，工作流可在 [LIGHTFLOW](https://www.lightflow.ai/) 寻找。
@@ -29,6 +30,7 @@ ComfyUI 的扩展生态一直存在着问题，各种扩展的环境依赖要求
 4. 只有在用官方整合包的情况下使用 install.bat，其他情况均不使用
 5. 插件能用列表装就别用链接装，有些额外的部件只有列表里装才会下载，这不是 WebUI
 
+***
 
 ## 为 ComfyUI 安装扩展
 为 ComfyUI 安装扩展有几种方式。
@@ -51,6 +53,7 @@ ComfyUI 的扩展生态一直存在着问题，各种扩展的环境依赖要求
 
 你可以尝试卸载发生环境依赖冲突的扩展，以上图为例，可以看到 was-node-suite-comfyui 和 ComfyUI-PhotoMaker-ZHO 的依赖要求中只用了`==`来注明版本号，可以在绘世启动器的`版本管理`->`扩展`中，将这两个扩展卸载。
 
+***
 
 ## the following node types were not found，导入节点流爆红
 这可能是所加载的节点流缺少了包含了缺失的扩展。
@@ -76,6 +79,7 @@ ComfyUI 的扩展生态一直存在着问题，各种扩展的环境依赖要求
     2. 扩展已经安装了，但是在 ComfyUI 启动的时候加载失败了，在 ComfyUI 的启动信息中可以查看 Import times for custom nodes 这部分的信息，如果看到 IMPORT FAILED 就说明加载失败了。
     3. 扩展出现了破坏性更新，扩展内带的节点出现过大的改动，导致原来使用该扩展搭建出的节点无法使用，需要重新搭建。比如 [ComfyUI_IPAdapter_plus](https://github.com/cubiq/ComfyUI_IPAdapter_plus) 扩展，在 2024.3.23 时将扩展重写了（破坏性更新），导致之前使用这个扩展的工作流需要重新搭建。
 
+***
 
 ## ComfyUI 启动时显示 IMPORT FAILED
 在 ComfyUI 启动完成后显示的 Import times for custom nodes 信息中出现了 IMPORT FAILED，这是因为扩展因为某些原因导致导入失败，可能有以下几种原因。
@@ -84,6 +88,7 @@ ComfyUI 的扩展生态一直存在着问题，各种扩展的环境依赖要求
 2. 扩展版本和 ComfyUI 版本未对齐，请在绘世启动器的版本中将内核和扩展都更新一遍。
 3. 扩展所需的依赖环境缺失，需要在绘世启动器的`高级选项`->`环境维护`，使用[环境修复](../sd_launcher/advance/env.md#_2)功能修复扩展所需的依赖环境。
 
+***
 
 ## Please check your connect and try again or make sure your Internet connection is on
 这是因为网络问题导致无法下载一些缺失文件，尝试配置代理解决。
@@ -91,10 +96,12 @@ ComfyUI 的扩展生态一直存在着问题，各种扩展的环境依赖要求
 !!!note
     有些报错也和网络问题有关，比如报错中有`Internet`、`connection`、`ConnectTimeout`这些关键词，或者是`由于目标计算机积极拒绝，无法连接` / `信号灯超时时间已到`，就有可能是网络问题。配置绘世启动器的代理参看：[绘世启动器 - 配置绘世启动器的代理 - SD Note](../help/sd_launcher.md#_6)
 
+***
 
 ## 'UNetModel' object has no attribute 'default_image_only_indicator'
 在绘世启动器的`版本管理`->`扩展`，更新或者卸载 [FreeU_Advanced](https://github.com/WASasquatch/FreeU_Advanced) 扩展。
 
+***
 
 ## ComfyUI 设置中文
 有以下两种方式设置中文。
@@ -110,28 +117,34 @@ ComfyUI 的扩展生态一直存在着问题，各种扩展的环境依赖要求
 1. 打开绘世启动器的高级选项。
 2. 在启动器特性设置中找到启用云端页面汉化选项，启用即可。
 
+***
 
 ## 配置代理
 参考该教程：[绘世启动器 - 配置绘世启动器的代理 - SDNote](../help/sd_launcher.md#_6)
 
+***
 
 ## insightface model is required for FaceID models
 缺失对应的模型，参看扩展说明自行下载模型，放到对应的目录。在 ComfyUI-Manager 中，可以在`安装模型`选项找到缺失的模型。
 
+***
 
 ## ComfyUI too old, can't autodecet properly.
 在绘世启动器的版本管理里更新 ComfyUI。
 
+***
 
 ## [AinmateDiffEvo] - ERROR - No motion models found.Please download one and place in ...
 这是缺少 AnimateDiffEvo 扩展对应的动作模型，如果不使用 AnimateDiffEvo 扩展，可以忽略这个报错。如果要解决这个报错，请下载对应的模型并放到报错提示的路径中，参考：[Kosinkadink/ComfyUI-AnimateDiff-Evolved - Model Setup](https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved?tab=readme-ov-file#model-setup)。
 
+***
 
 ## mat1 and mat2 shapes cannot be multiplied
 ControlNet 模型和大模型（SD）的版本不匹配，ControlNet 1.5 的模型需要搭配 SD 1.5 模型，ControlNet XL 的模型需要搭配 SDXL 模型。
 
 ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
 
+***
 
 ## ComfyUI 共享 SD WebUI 的模型
 在 ComfyUI 启动一次后，在 ComfyUI 的根目录会生成一个 extra_model_paths.yaml.example 共享目录示例文件，通过修改这个文件可以使 ComfyUI 共享 SD WebUI 的模型文件。
@@ -194,6 +207,7 @@ comfyui:
 !!!note
     如果看不到文件名的后缀，需要将显示文件名后缀打开，参看：[杂项 - 显示隐藏的文件和文件后缀名 - SDNote](../help/other.md#_4)
 
+***
 
 ## 运行节点流时某个节点报错
 运行节点流时 ComfyUI 会使用颜色标记正在执行的节点，出现报错时，某个节点会爆红或者爆紫。

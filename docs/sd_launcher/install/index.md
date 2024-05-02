@@ -14,7 +14,7 @@ title: 部署功能
 在选择内核分支中可以选择你想要部署的 Stable Diffusion 项目，目前支持部署的 Stable Diffusion 项目如下。
 
 - AUTOMATIC1111/stable-diffusion-webui：功能多，插件丰富的 SD WebUI，
-- lshqqytiger/stable-diffusion-webui-directml：在 SD WebUI 的基础上添加了 DirectML 的支持，使在 Windows 系统上不支持 ZLUDA 的 AMD显卡也能跑图。
+- lshqqytiger/stable-diffusion-webui-directml：在 SD WebUI 的基础上添加了 DirectML 的支持，使在 Windows 系统上不支持 ZLUDA 的 AMD 显卡也能跑图。
 - vladmandic/automatic：和 SD WebUI 类似，但稳定性较差，不推荐。
 - comfyanonymous/ComfyUI：使用节点流进行图片生成。
 - lllyasviel/Fooocus：界面简单，可专注于提示词书写，一键出图。
@@ -32,36 +32,31 @@ PyTorch 版本需要和显卡的型号相对应，以保证 SD WebUI，ComfyUI�
 
 ![task_manager](../../assets/images/sd_launcher/install/task_manager.jpg)
 
-以下为不同显卡对应可选的 PyTorch 版本：
+以下为不同显卡对应可选的 PyTorch 版本（ x,y,z 分别代表三个数字）：
 
 - Nvidia 显卡：
-    - Torch 2.1.2 (CUDA 11.8) + xFormers 0.0.23.post1
-    - Torch 2.1.2 (CUDA 12.1) + xFormers 0.0.23.post1
-    - Torch 2.2.0 (CUDA 11.8) + xFormers 0.0.24
-    - Torch 2.2.0 (CUDA 12.1) + xFormers 0.0.24
-    - Torch 2.2.1 (CUDA 11.8) + xFormers 0.0.25
-    - Torch 2.2.1 (CUDA 12.1) + xFormers 0.0.25
+    - Torch x.y.z (CUDA x.y) + xFormers x.y.z
+
 - AMD 显卡：
     - 支持 ZLUDA 的：
-        - Torch 2.1.2 (CUDA 11.8) + xFormers 0.0.23.post1
-        - Torch 2.2.0 (CUDA 11.8) + xFormers 0.0.24
-        - Torch 2.2.1 (CUDA 11.8) + xFormers 0.0.25
+        - Torch x.y.z (CUDA x.y) + xFormers x.y.z
+
     - 不支持 ZLUDA 的：
-        - Torch 2.0.0 (DirectML)
+        - Torch x.y.z (DirectML)
+		
 - Intel 显卡：
     - 独显：
-        - Torch 2.0.0 (IPEX AOT, Arc)
-        - Torch 2.1.0 (IPEX AOT, Arc)
+        - Torch x.y.z (IPEX AOT, Arc)
     - 核显：
-        - Torch 2.1.0 (IPEX AOT, Core Ultra)
+        - Torch x.y.z (IPEX AOT, Core Ultra)
 
 !!!note
-    建议将显卡驱动更到最新以保证 PyTorch 能够正常工作。  
-    Nvidia 显卡驱动下载：https://www.nvidia.cn/geforce/drivers  
-    AMD 显卡驱动下载：https://www.amd.com/zh-hans/support  
-    Intel 显卡驱动下载：https://www.intel.cn/content/www/cn/zh/download-center/home.html
+   	建议将显卡驱动更到最新公版驱动以保证 PyTorch 能够正常工作。  
+    Nvidia 驱动下载：https://www.nvidia.cn/geforce/drivers  
+    AMD 驱动下载：https://www.amd.com/zh-hans/support  
+    Intel 驱动下载：https://www.intel.cn/content/www/cn/zh/download-center/home.html
 
-    AMD 780M（核显），RX 5000 系（独显）及以上的 AMD 显卡支持 ZLUDA，而其他不支持的系列请使用 DirectML。
+    AMD 780M （核显），RX 5000 系（独显）及以上的 AMD 显卡支持 ZLUDA，而其他不支持的系列请使用 DirectML。
 
     AMD 780M 核显无法直接使用 ZLUDA，需要手动添加文件：[适用于绘世启动器的 AMD Radeon 780M 的 ZLUDA 教程 - 哔哩哔哩](https://www.bilibili.com/read/cv33327387)。
 
