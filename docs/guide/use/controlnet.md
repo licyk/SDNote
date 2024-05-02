@@ -12,7 +12,7 @@ title: ControlNet 应用
 	2. sd-webui-controlnet 扩展部分预处理器模型文件官方下载地址：https://huggingface.co/lllyasviel/Annotators/tree/main。
 	3. sd-webui-controlnet 扩展模型文件官方下载地址：https://github.com/Mikubill/sd-webui-controlnet/wiki/Model-download。
 	4. **预处理器模型文件** 用于 **预处理器** 项，**模型文件** 用于 **模型** 项。
-	5. sd-webui-controlnet 扩展 **并不会** 主动下载预处理器模型文件 / 模型文件，默认情况下，您需要主动的去下载模型文件并放置到对应的文件夹。而预处理器文件在首次使用对应预处理器时从网络下载。
+	5. sd-webui-controlnet 扩展 **并不会** 主动下载预 处理器模型文件 / 模型文件，默认情况下，您需要主动的去下载模型文件并放置到对应的文件夹。而预处理器文件在首次使用对应预处理器时从网络下载。
 
 如果您打算主动下载预处理器模型文件，请将下载的文件按照以下折叠内容放置到对应的文件夹内。
 

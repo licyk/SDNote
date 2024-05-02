@@ -4,6 +4,9 @@ title: 文生图
 # 文生图
 这里我使用以下模型进行演示。
 
+!!!note
+	演示界面包含外置扩展，您的界面可能与我的有一定的区别。
+
 |模型（点击即可下载）|放置路径|
 |---|---|
 |[cetusMix_Whalefall2](https://modelscope.cn/api/v1/models/licyks/sd-model/repo?Revision=master&FilePath=sd_1.5%2FcetusMix_Whalefall2.safetensors)|stable-diffusion-webui/models/Stable-diffusion|
