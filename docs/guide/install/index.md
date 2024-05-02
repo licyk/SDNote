@@ -13,7 +13,7 @@ title: Windows 平台
     - Nvidia 显卡版本：https://pan.baidu.com/s/1MjO3CpsIvTQIDXplhE0-OA?pwd=aaki
     - AMD 显卡版本：https://pan.baidu.com/s/1QDqo2uEoUS_NY1olb4vmVQ?pwd=aaki
 - 夸克网盘：
-    - https://pan.quark.cn/s/2c832199b09b
+    - Nvidia 显卡版本：https://pan.quark.cn/s/2c832199b09b
 
 !!!note
     秋葉的整合包密码为`bilibili@秋葉aaaki`，详情请阅读[秋葉aaaki的动态](https://www.bilibili.com/opus/923836599107584017)。
