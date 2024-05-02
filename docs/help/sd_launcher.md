@@ -4,6 +4,7 @@ title: 绘世启动器
 # 绘世启动器
 这里是有关绘世启动器的报错收集。
 
+
 ## You must install .NET Desktop Runtime to run this application
 ![net_runtime_not_found](../assets/images/help/sd_launcher
 /net_runtime_not_found.jpg)
@@ -47,6 +48,7 @@ title: 绘世启动器
 
 !!!note
     Windows 10 家庭版 可能无法通过点击`是`正确的解决该问题。
+
 
 ## 启动器已检测到内核文件，但无法找到与之对应的版本信息
 ![missing_git_file](../assets/images/help/sd_launcher
@@ -112,4 +114,3 @@ title: 绘世启动器
 ![sd_launcher_can_not_run_directly](../assets/images/help/sd_launcher/sd_launcher_can_not_run_directly.jpg)
 
 这是因为你在绘世启动器的数据文件夹`.launcher`中运行绘世启动器，请使用`.launcher`文件夹外的绘世启动器来运行。
-

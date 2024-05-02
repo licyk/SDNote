@@ -4,11 +4,13 @@ title: 画师提示词应用
 # 画师提示词应用
 在 SDXL 模型中，模型的泛化能力大大的增强，仅靠提示词就可以实现比 SD 1.5 模型更多的效果。在基于 SDXL 的 [NovelAI 3](https://novelai.net) 中，就可以通过画师提示词来调整画面的画风，当然在开源社区中有一些模型也能通过画师提示词来调整画风，比如 [Animagine XL 3](https://huggingface.co/cagliostrolab/animagine-xl-3.0)，[Kohaku XL Epsilon](https://huggingface.co/KBlueLeaf/Kohaku-XL-Epsilon)。
 
+
 ## 画师提示词来源
 画师的名字有中文 / 英文 / 日文等，但 在 Stable Diffusion 中只认英文的提示词，所以需要寻找对应的英文提示词。在模型的介绍页可能会说明支持的一些画师提示词，比如 [Kohaku XL Epsilon](https://huggingface.co/KBlueLeaf/Kohaku-XL-Epsilon)，或者去数据集来源站点，如 [Danbooru](https://danbooru.donmai.us) 来寻找。
 
 !!!note
     其实有支持中文或者日文的 SDXL 模型，[华为](https://www.huawei.com)出了支持中文提示词的 [SDXL](https://pangu-draw.github.io) 模型，[Stability AI](https://stability.ai) 出了支持日文提示词的 [SDXL](https://huggingface.co/stabilityai/japanese-stable-diffusion-xl) 模型。
+
 
 ## 怎么用
 请确保 SD WebUI 的版本大于 1.5 以支持 SDXL 模型，现在使用 Animagine XL 3.0 模型进行演示。

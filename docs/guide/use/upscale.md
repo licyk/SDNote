@@ -4,6 +4,7 @@ title: 图片放大
 # 图片放大
 一般 Stable Diffusion 生成出来的图片因为分辨率太低（768x1024 之类的），造成图片比较糊，观感，此时就可以通过放大的方式来提高图片的清晰度。这里介绍几种放大图片的方式。
 
+
 ## 高分辨率修复
 这个功能仅在文生图界面中可以看到，因为高分辨率修复的本质为图生图，所以在图生图界面是看不到这个功能的。
 
@@ -32,6 +33,7 @@ title: 图片放大
 !!!note
     个人觉得图片放大这个步骤应该放在制作图片的最后一个阶段，因为用高分辨率的图片来进行重绘会占用大量的显存，这时又不得不缩小图片的分辨率，所以显得这么早就放大就没有太大意义。当然你可以启用 Tiled VAE 来降低显存占用，只不过高分辨率图片的重绘会比低分辨率图片的重绘慢很多。
 
+
 ## 后期处理的放大
 在 SD WebUI 的后期处理选项卡中，也有一个放大功能。
 
@@ -42,12 +44,14 @@ title: 图片放大
 !!!note
     下面介绍的放大方法都在图生图选项卡中进行。
 
+
 ## 图生图直接放大
 在图生图界面中，可以直接调整重绘尺寸或者重绘尺寸倍数来实现图片放大。
 
 ![i2i_direct_upscale](../../assets/images/guide/upscale/i2i_direct_upscale.jpg)
 
 不过在 SD WebUI 的默认设置下，放大后的图片效果可能不如意，此时可以在 SD WebUI 的`设置`->`放大`->`图生图放大算法`，选择一个算法，这样出图的效果就会比较好。
+
 
 ## Tiled Diffusion 放大
 multidiffusion-upscaler-for-automatic1111 扩展提供了 Tiled Diffusion 功能用于图片放大，不过该功能必须搭配 Tiled VAE 一起使用。下面为 Tiled Diffusion 的设置界面。
@@ -73,6 +77,7 @@ multidiffusion-upscaler-for-automatic1111 扩展提供了 Tiled Diffusion 功能
 !!!note
     multidiffusion-upscaler-for-automatic1111 扩展关于图片放大的具体说明：https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111/wiki/%E5%88%86%E7%89%87%E6%89%A9%E6%95%A3
 
+
 ## StableSR 放大
 sd-webui-stablesr 扩展提供的 StableSR 放大方法也可以提供不错的放大效果，使用前需要下载相关模型。
 
@@ -88,6 +93,7 @@ sd-webui-stablesr 扩展提供的 StableSR 放大方法也可以提供不错的�
 
 ![stablesr_interface](../../assets/images/guide/upscale/stablesr_interface.jpg)
 
+
 ## ControlNet Tile 放大
 ControlNet Tile 模型可以保证图片的一致性，同时也可以用于增加图片的细节，所以可以作为图片放大的方法。
 
@@ -102,6 +108,7 @@ ControlNet Tile 模型可以保证图片的一致性，同时也可以用于增�
 ![controlnet_tile](../../assets/images/guide/upscale/controlnet_tile.jpg)
 
 再将重绘幅度调整到 0.4~0.7 之间的值（推荐0.5），点击生成就可以进行放大了。
+
 
 ## Ultimate SD upscale
 ultimate-upscale-for-automatic1111 扩展提供的放大方案将图片分块后放大，再将这些分块合成一张大图，可在低显存的情况下放大图片。
@@ -122,6 +129,7 @@ ultimate-upscale-for-automatic1111 扩展提供的放大方案将图片分块后
 ![ultimate_sd_upscale](../../assets/images/guide/upscale/ultimate_sd_upscale.jpg)
 
 再将重绘幅度调至 0.2~0.4之间的值（推荐 0.4），重绘尺寸倍数设置好尺度，就可以进行图片放大了。
+
 
 ## 放大方案的组合
 这些图片放大方法可以互相组合，不同的组合可能会获得不一样的放大效果。下面列出一些放大方法组合：

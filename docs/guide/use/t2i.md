@@ -4,6 +4,9 @@ title: 文生图
 # 文生图
 这里我使用以下模型进行演示。
 
+!!!note
+	演示界面包含外置扩展，您的界面可能与我的有一定的区别。
+
 |模型（点击即可下载）|放置路径|
 |---|---|
 |[cetusMix_Whalefall2](https://modelscope.cn/api/v1/models/licyks/sd-model/repo?Revision=master&FilePath=sd_1.5%2FcetusMix_Whalefall2.safetensors)|stable-diffusion-webui/models/Stable-diffusion|
@@ -11,6 +14,7 @@ title: 文生图
 
 将模型放置到对应的路径后，启动 SD WebUI，启动完成后浏览器将会跳转到 SD WebUI 的界面，在界面最上方的模型选择切换成刚刚放进去的模型。
 ![webui interface](../../assets/images/guide/t2i/webui_interface.jpg)
+
 
 ## 界面介绍
 SD WebUI 的界面大致分为几个部分。
@@ -29,6 +33,7 @@ SD WebUI 的界面大致分为几个部分。
 
 - 图片预览
 ![preview_interface](../../assets/images/guide/t2i/preview_interface.jpg)
+
 
 ## 提示词输入
 大致认识了界面后，现在来调整生成图片的参数。
@@ -68,6 +73,7 @@ close-up,upper body,dynamic_angle,
 lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits,cropped,worst quality,low quality,normal quality,jpeg artifacts,signature,watermark,username,blurry,bad feet,
 ```
 
+
 ## 生图参数调整
 填完了提示词，我们还需要调整一下左下角的生图参数，因为现在我使用的 cetusMix_Whalefall2 模型为 SD 1.5 的模型，适合的分辨率范围为 512 ~ 1024，所以我把宽度和高度分别设置为 768 和 1024。接下来来调整采样方法和迭代步数，下面为我个人比较喜欢的搭配。
 
@@ -77,6 +83,7 @@ lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits
 |DPM++ 系|Exponentia|20|
 |Restart|Autumatic|10|
 |Unipc|Autumatic|13|
+
 
 ## 生图
 调整完这些参数后，点击右侧的生成按钮就开始生图了，生成完成后即可在图片预览区域看见生成好的图片。
