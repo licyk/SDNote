@@ -18,9 +18,11 @@ title: Windows 平台
 !!!note
     秋葉的整合包密码为`bilibili@秋葉aaaki`，详情请阅读[秋葉aaaki的动态](https://www.bilibili.com/opus/923836599107584017)。
 
+
 ## 绘世启动器部署
 绘世启动器从 2.6.0 开始就支持部署 SD WebUI / ComfyUI 等 WebUI 界面了，可选择使用绘世启动器进行部署。  
 [【AI绘画】拒绝低速网盘下载！使用绘世启动器安装SD-WebUI](https://www.bilibili.com/video/BV1fC411s7Yt)
+
 
 ## 官方方法部署
 [AUTOMATIC1111/stable-diffusion-webui - Installation and Running](https://github.com/AUTOMATIC1111/stable-diffusion-webui?tab=readme-ov-file#installation-and-running)

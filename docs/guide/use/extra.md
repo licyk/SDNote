@@ -4,6 +4,7 @@ title: 杂项
 # 杂项
 这里列出其他在 SD WebUI 里用的功能
 
+
 ## 图片信息查看
 如果想要查看一张由 SD WebUI 生成的图片的参数，可以在 SD WebUI 的 PNG 图片信息里，导入图片后即可查看生图参数。
 
@@ -186,7 +187,6 @@ SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径�
 
 
 ## SD WebUI 中不同模型的放置路径
-
 |模型种类|放置路径|
 |---|---|
 |Stable Diffusion 模型（大模型）|stable-diffusion-webui/models/Stable-diffusion|

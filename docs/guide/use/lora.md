@@ -7,6 +7,7 @@ title: LoRA 应用
 !!!note
 	演示界面包含外置扩展，您的界面可能与我的有一定的区别。
 
+
 ## 如何使用
 LoRA 模型可使用提示词进行调用，格式如下：
 ```
@@ -40,6 +41,7 @@ LoRA 模型可使用提示词进行调用，格式如下：
 
 如果你想更改成使用 LoRA 模型文件名作为 LoRA 模型的触发词，可以点击 SD WebUI 的`设置` -> `扩展模型` -> `将扩展模型添加到提示词时，通过以下格式提及lora`，将`从文件读取别名`改成`文件名`并保存设置。
 
+
 ## LoRA 模型的功能
 根据 LoRA 模型可实现的效果，可分为以下三种。
 
@@ -48,6 +50,7 @@ LoRA 模型可使用提示词进行调用，格式如下：
 |角色|![character](../../assets/images/guide/lora/character.jpg)|
 |动作|![motion](../../assets/images/guide/lora/motion.jpg)|
 |画风|![style](../../assets/images/guide/lora/style.jpg)|
+
 
 ## LoRA 分层
 LoRA 模型在使用的时候，可能因为一些权重问题导致 LoRA 的表现效果不行，这时候这时候可以使用 sd-webui-lora-block-weight 扩展细调 LoRA 模型的权重来提高 LoRA 模型的表现效果。

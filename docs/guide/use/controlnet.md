@@ -4,6 +4,7 @@ title: ControlNet 应用
 # ControlNet 应用
 在 ControlNet 出现之前，控制图片的生成靠的是提示词，再加上图生图的局部重绘辅助。但在 ControlNet 出现后，控制图片变得简单了，通过图片 + 提示词的方式来更好的控制图片生成。
 
+
 ## ControlNet 插件
 如果需要使用 ControlNet，需要安装 sd-webui-controlnet 扩展。
 
@@ -78,6 +79,7 @@ title: ControlNet 应用
 - 引导介入 / 终止时机：调节 ControlNet 介入图片生成过程的时机。
 - 控制模式：调节生图时提示词和 ControlNet 这两者所占的控制强度。
 
+- 
 ## 不同 ControlNet 的作用
 下面列出不同 ControlNet 的作用。
 

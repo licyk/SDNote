@@ -4,6 +4,7 @@ title: 杂项
 # 杂项
 这里是其他的教程。
 
+
 ## 安装 Linux 系统
 参考该教程：[Linux系统安装原来这么容易？还能与Windows系统共存？手把手教你安装_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Dj421X7XZ)
 
