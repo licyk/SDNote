@@ -22,30 +22,34 @@ title: 起步配置推荐
 	2. 如果您准备购买 固态硬盘，则建议至少购买 TLC 颗粒的 固态硬盘（SATA / M.2不限）。
 
 ## 显卡
-### 显卡品牌
-个人建议选择显卡品牌的优先级：Nvidia > AMD ≈ Intel
+### 核心选择
+个人建议选择显卡核心的优先级：Nvidia > AMD ≈ Intel
 
-### Nvidia 品牌
+### Nvidia 核心
 最低20系起步，如果您准备购买显卡，建议30系起步.
 
-### AMD 品牌
-建议"能使用 ZLUDA"的显卡，如果您准备购买显卡，并不推荐 AMD 品牌的显卡。
+### AMD 核心
+建议 **能使用 ZLUDA** 的显卡，如果您准备购买显卡，并不推荐 AMD 核心的显卡。
 
-### Intel 品牌
-暂无，如果您准备购买显卡，并不推荐 Intel 品牌的显卡。
+### Intel 核心
+暂无，如果您准备购买显卡，并不推荐 Intel 核心的显卡。
 
 ### 显存要求
-最低 8 GB，建议 12 GB 及以上。
+Nvidia：最低 8 GB，建议 12 GB 及以上。
+AMD / Intel：最低 12 GB，建议 16 GB 及以上。
 
 !!!note
-	如果您主要使用 SDXL 模型，建议 12 GB 起步。
+	如果您主要使用 SDXL 模型，Nvidia 建议 12 GB 起步，AMD / Intel 建议 16 GB 起步。
 
 ### 显卡驱动
-建议使用最新的显卡驱动，以下为不同显卡品牌的官方驱动下载地址。
+建议使用最新的显卡驱动，以下为不同显卡的公版驱动下载地址。
 
 - Nvidia：https://www.nvidia.cn/geforce/drivers
 - AMD：https://www.amd.com/zh-hans/support
 - Intel：https://www.intel.cn/content/www/cn/zh/download-center
+
+!!!note
+	笔记本电脑用户并不建议从笔记本电脑品牌官网下载显卡驱动，除非笔记本电脑品牌发布的显卡驱动包含了公版驱动没有但又对电脑使用很有影响的功能。
 
 ## 网络
 涉及到的部分网站在国内的访问性不佳，建议自备加速工具。
