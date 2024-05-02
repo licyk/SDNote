@@ -30,11 +30,10 @@ mkdocs serve
 
 
 ## 声明
-
 1. 如果本文档外链的内容中有不合适的内容，与本文档无关。
 2. 引用或复制内容需要注明链接。
 3. 文档基于公开材料和经验编写，不对内容准确性负责。
-4. 文档使用 GFDL 许可，如果需要使用本文档的内容，您必须遵守 GFDL。
+4. 文档使用 [GFDL](https://github.com/licyk/SDNote?tab=GFDL-1.3-1-ov-file#readme) 许可，如果需要使用本文档的内容，您必须遵守 [GFDL](https://github.com/licyk/SDNote?tab=GFDL-1.3-1-ov-file#readme)。
 
 
 ***
