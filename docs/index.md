@@ -42,7 +42,6 @@ title: 主页
     收录来自社区的资源链接。
 
     [:octicons-arrow-right-24: 前往](appendix.md)
-
 </div>
 
 
