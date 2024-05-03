@@ -206,3 +206,64 @@ SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径�
     1. SD WebUI 1.5 及以上版本无需扩展即可读取 LyCORIS 文件夹内的 LyCORIS 模型（该文件夹不会自动生成），并显示在 SD WebUI 的 LoRA 栏内。
 	2. 两个文件夹皆可放置 ControlNet 模型。
 	3. 并非所有的 ControlNet 预处理器模型都存储在 downloads 文件夹（例如： depth_anything 预处理器的部分模型会存储在 .cache 文件夹内）。
+
+
+## 使用 X/Y/Z 图
+如果要对提示词、不同模型、参数等坐对比测试时，可以使用 SD WebUI 的 X/Y/Z 图，在 SD WebUI 左下角的脚本中选择 X/Y/Z Plot 即可使用。
+
+下面举个测试不同提示词和提示词引导系数（CFG Scale）的例子。
+
+- 使用的提示词
+```
+1girl,(loli:1.2),vampire,silver hair,very long hair,two side up,bat hair ornament,bangs,red eyes,light smile,closed mouth,blush,flat chest,gothic lolita,long sleeves,frills,
+looking at viewer,heart hands,
+simple background,white background,detail light,chromatic_aberration,sunlight,
+close up,upper body,
+```
+
+- X/Y/Z 图的参数
+
+![xyz_plot_config](../../assets/images/guide/extra/xyz_plot_config.jpg)
+
+Prompr S/R 为提示词替换，这里我填的是`heart hands,"hand on own chin, index finger raised",hand on own chest`，SD WebUI 将第一个逗号前的提示词作为被替换的对象（也就是`heart hands`），生图时将所写的完整提示词中的`heart hands`替换成`heart hands`、`hand on own chin, index finger raised`、`hand on own chest`。
+
+CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中可以看到该选项，生图时将依次设置该值为`7`和`5`。
+
+生图完成后将会得到下面的 X/Y/Z 图。
+
+![xyz_plot](../../assets/images/guide/extra/xyz_plot.jpg)
+
+!!!note
+    关于 X/Y/Z 图的说明可参看：[Features · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#xyz-plot)
+
+
+## 为 SD WebUI 模型列表中的模型添加预览图
+模型在放置在 SD WebUI 的模型目录后，在 SD WebUI 的模型列表中看到模型并没有预览图。
+
+![no_preview_image_for_model](../../assets/images/guide/extra/no_preview_image_for_model.jpg)
+
+这里有几种方法为模型添加模型预览图：
+
+- 方法 1：使用 SD WebUI 的模型管理功能。
+
+生成一张用于添加模型预览图的图片。
+
+![generate_image_for_model_preview_image](../../assets/images/guide/extra/generate_image_for_model_preview_image.jpg)
+
+在 SD WebUI 的模型列表找到要添加模型预览图的模型，并点击右上角的设置图标。
+
+![open_model_info_interface](../../assets/images/guide/extra/open_model_info_interface.jpg)
+
+在模型信息页面点击下方的替换预览图像，这时模型就有了预览图。
+
+![replace_model_preview_image](../../assets/images/guide/extra/replace_model_preview_image.jpg)
+
+- 方法 2：手动将图片命名成和模型一样的并放至在和模型同一个目录下。
+
+将一张图片的文件名命名成和模型一样的名字，然后放在和模型文坚放在一起即可。
+
+![rename_image_file_name_and_put_into_model_folder](../../assets/images/guide/extra/rename_image_file_name_and_put_into_model_folder.jpg)
+
+- 方法 3：使用扩展（不推荐）。
+
+可以使用的扩展有 [Stable-Diffusion-Webui-Civitai-Helper](https://github.com/butaixianran/Stable-Diffusion-Webui-Civitai-Helper)、[sd-civitai-browser-plus](https://github.com/BlafKing/sd-civitai-browser-plus)，这里就不做详细的介绍了。
