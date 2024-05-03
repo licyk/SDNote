@@ -23,6 +23,12 @@ title: 部署功能
 ## 原生环境组件
 为内核提供运行环境，同时为绘世启动器提供管理工具。默认保持勾选即可，除非系统环境中已经存在这些原生环境组件。
 
+## CUDA
+在cmd中输入如下命令即可查看CUDA Version
+```
+nvidia-smi
+```
+
 ## PyTorch
 PyTorch 是一个基于 Python 的机器学习库，为 AI 的运算提供大量的工具和函数，而 Stable Diffusion 在计算的时候依赖 PyTorch，所以需要安装 PyTorch。
 
