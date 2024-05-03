@@ -72,3 +72,4 @@ lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits
 
 !!!note
     在 SD WebUI 中，调整提示词的可用这种方法：`(提示词:权重)`
+
