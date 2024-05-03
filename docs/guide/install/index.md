@@ -4,7 +4,7 @@ title: Windows 平台
 # Windows 平台
 
 ## 整合包部署
-前往 [秋葉aaaki](https://space.bilibili.com/12566101) 的视频获取下载链接。  
+(推荐)前往 [秋葉aaaki](https://space.bilibili.com/12566101) 的视频获取下载链接。  
 [【AI绘画·24年3月最新】Stable Diffusion整合包v4.7发布！解压即用 防爆显存 三分钟入门AI绘画 ☆更新 ☆训练 ☆汉化 秋叶整合包](https://www.bilibili.com/video/BV1iM4y1y7oA)
 
 以下为秋葉aaaki制作的整合包网盘链接：
@@ -25,4 +25,4 @@ title: Windows 平台
 
 
 ## 官方方法部署
-[AUTOMATIC1111/stable-diffusion-webui - Installation and Running](https://github.com/AUTOMATIC1111/stable-diffusion-webui?tab=readme-ov-file#installation-and-running)
+(不推荐)[AUTOMATIC1111/stable-diffusion-webui - Installation and Running](https://github.com/AUTOMATIC1111/stable-diffusion-webui?tab=readme-ov-file#installation-and-running)
