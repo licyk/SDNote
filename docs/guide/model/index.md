@@ -5,16 +5,16 @@ title: 模型种类
 在学习使用 AI 绘画时，会遇到不同种类的模型，这里简单介绍几种模型。
 
 
-## Stable Diffusion 模型
-Stable Diffusion 是一种文本到图像的潜在扩散模型（Latent Diffusion Model），能够在给定任何文本输入的情况下生成逼真的图像，出品于 [CompVis](https://github.com/CompVis)，[Stability AI](https://stability.ai) 和 [LAION](https://laion.ai/)。Stable Diffusion 可以通过在较低维的 latent space 上应用扩散过程，而非使用实际的像素空间，这样可以减少内存和计算复杂度。
+## Stable Diffusion Checkpoint 模型
+Checkpoint 是一种文本到图像的潜在扩散模型（Latent Diffusion Model），能够在给定任何文本输入的情况下生成逼真的图像，出品于 [CompVis](https://github.com/CompVis)，[Stability AI](https://stability.ai) 和 [LAION](https://laion.ai/)。Stable Diffusion 可以通过在较低维的 latent space 上应用扩散过程，而非使用实际的像素空间，这样可以减少内存和计算复杂度。
 
-Stable Diffusion 模型也称为底模或大模型，常见的版本有 1.5 和 XL。1.5 版本的生态比较丰富，如 ControlNet 等工具，而 XL 版本生图的质量会比较高，但生态没有 1.5 版本的那么丰富。
+Checkpoint 模型也称为底模或大模型，常见的版本有 1.5 和 XL。1.5 版本的生态比较丰富，如 ControlNet 等工具，而 XL 版本生图的质量会比较高，但生态没有 1.5 版本的那么丰富。
 
 论文：[[2112.10752] High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752)
 
 
 ## VAE 模型
->这是 Stable Diffusion 模型的其中一个组件
+>这是 Checkpoint 模型的其中一个组件
 
 VAE模型有两个部分，一个编码器和一个解码器。编码器用于将图像转换为低维潜在表示，这将作为U-Net模型的输入。相反，解码器将潜在的表征转换回图像。在潜扩散训练过程中，利用编码器得到图像的潜表示（latents），用于前向扩散过程，每一步都会施加越来越多的噪声。在推理过程中，将反向扩散过程产生的去噪后的潜波利用VAE解码转换回图像。
 
