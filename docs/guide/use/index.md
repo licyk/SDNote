@@ -23,6 +23,8 @@ title: 概述
 有关调度器的说明：[Diffusers - Schedulers - HuggingFace](https://huggingface.co/docs/diffusers/api/schedulers/overview)
 
 !!!note
+	SD WebUI 1.9 版之前的版本没有独立的调度器选择框。
+
     不同采样算法和调度器的简单效果对比：[SD WebUI 采样算法和调度器对比](https://github.com/licyk/README-collection/blob/main/sampler-contrast/README.md)
 
 
@@ -43,9 +45,9 @@ title: 概述
 一般想要生成一张高分辨率的图片需要通过高分辨率修复 / 图生图来完成。
 
 
+## 高分辨率修复（Hires. Fix）
+启用高分辨率修复后，模型先生成一张小图，再通过图生图方式进行放大，这样可以得到一张高分辨率的图像。启用该选项后，建议 Latent 放大算法搭配大于 0.55 的重绘幅度，非 Latent 的放大算法搭配 0.2~0.4 的重绘幅度。
+
+
 ## 降噪强度（Denoising Strength）
 该选项仅在图生图 / 高分辨率修复中被应用。在图生图中，这个值越高，和原图的关联性就越低。一般建议在重绘的时候该值设置为 0.7 以上，通过图生图 / 高分辨率修复放大图片的时候该值设置为 0.2~0.4。
-
-
-## 高分辨率修复（Hires. Fix）
-启用高分辨率修复后，模型先生成一张小图，再通过图生图进行放大，这样可以得到一张高分辨率的图像。启用该选项后，建议 Latent 放大算法搭配大于 0.55 的重绘幅度，非 Latent 的放大算法搭配 0.2~0.4 的重绘幅度。
