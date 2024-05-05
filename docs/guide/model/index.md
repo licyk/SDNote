@@ -68,3 +68,37 @@ FP32，FP16，BF16，FP8，这些都是模型的精度。FP32 为全精度，可
 FP32 和 FP16 精度出图的效果完全一致，FP16 和 FP8 精度出图的效果仅有细微的差别，并不会对出图的效果有明显的影响。
 
 在半精度中，BF16 比 FP16 出现精度不足的概率更小，但是 BF16 需要显卡的支持。对于 CPU 来说，支持的精度只有 FP32，而 FP16 之类的精度是不支持的。
+
+
+## 模型版本
+Stable Diffusion 模型（大模型）存在版本之分，以下为常见的版本：
+
+- Stable Diffusion 1.4 / 1.5
+- Stable Diffusion 2.0 / 2.1
+- Stable Diffusion XL 0.9 / 1.0
+- Stable Cascade
+- Stable Diffusion 3
+
+Stable Diffusion 1.5 的生态比较丰富，比如对应版本的 LoRA 模型、ControlNet 模型。而被泄露的 NovelAI 1 模型基于 Stable Diffusion 1.4 进行训练，但是因为 Stable Diffusion 1.4 和 Stable Diffusion 的差别较小，所以 LoRA 之类的模型是通用的。
+
+Stable Diffusion 2.0 / 2.1 使用 768 x 768 分辨率的训练集进行训练，相对于使用 512 x 512 分辨率的训练集训练的 Stable Diffusion 1.4 / 1.5，出图的质量有了提升，但是因为该版本中的 CLIP 存在严格的敏感词屏蔽，导致无法出某些效果，所以这个版本并没有多少人用，对应版本的 LoRA 模型也非常少。
+
+Stable Diffusion XL 0.9 / 1.0 使用了 1024 x 1024 分辨率的训练集进行训练，出图质量相对于之前的版本有了很大的提升。
+
+!!!note
+    这里的 Stable Diffusion XL 0.9 属于测试版本，Stable Diffusion XL 1.0 才是正式的版本，也就是社区中常用的 Stable Diffusion XL 的版本。
+
+但是生态对于 Stable Diffusion 1.4 / 1.5 就没有那么丰富，比如 LoRA 模型，ControlNet 模型。
+
+!!!note
+    适用于 Stable Diffusion XL 的 ControlNet 模型质量普遍很差，控制效果并不行，而且这些 ControlNet 模型来自社区 / 公司，而不是 ControlNet 的作者 [lllyasviel](https://github.com/lllyasviel)，所以质量就比较差。~~没人比 lllyasviel 更懂 ControlNet。~~。
+
+不过随着时间的推进，Stable Diffusion XL 的生态有了比较好的发展，LoRA 模型多了起来，基于 Stable Diffusion XL 训练的大模型也多了起来。在 Civitai 上的 SDXL Turbo、SDXL Lightning、Pony（除去 Stable Diffusion 1.5 的版本）、Pix Art、Playground 模型，其实本质都属于 Stable Diffusion XL。
+
+!!!note
+    从 Stable Diffuison 1.5 到 Stable Diffusion Xl 后，很多人发现 Stable Diffusion Xl 的 LoRA 模型没有像 Stable Diffsuion 1.5 的 LoRA 模型兼容性强，比如在 Pony 模型训练的 LoRA 模型在 Kohaku XL 中使用并没有效果。这是因为在 Stable Diffusion 1.5 中，很多模型都融了 NovelAI 1 的模型，有了相同的底子才使 LoRA 模型的兼容性好。而在 Stable Diffusion XL 中，很多模型更多的是从 [Stable Diffusion XL](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0) 官方模型训练出来的，而不是融模，这就造成了 LoRA 模型的兼容性差。
+
+Stable Cascade 强化了模型写字的能力（Stable Diffusion XL 其实也能写字，但是不是很好），可以通过提示词在生成的图片中写英文单词 / 短语，~~但是没出多久可能就被即将开源出来的 Stable Diffusion 3 超越~~。
+
+Stable Diffusion 3 在原来 Stable Diffusion XL 的 2 个 CLIP 的基础上引入了 T5 编码器，大大提升模型对提示词的理解能力，并且 [Stability AI](https://stability.ai) 官方将发布不同参数（800m ~ 8B）的模型消除硬件障碍。
+
