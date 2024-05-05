@@ -28,9 +28,9 @@ Embedding 模型常用于负面提示词中，用于提升生图的质量。
 
 
 ## LoRA 模型
-LoRA 模型全称 Low-Rank Adaptation of Large Language Models，是一种用于微调大型模型的轻量级技术。它的主要特点是使用低秩矩阵进行参数更新，这样只需训练较小的模型，然后将这些参数注入到基础模型中，以实现风格的调整或添加新的人物 / IP。
+LoRA 模型全称 Low-Rank Adaptation of Large Language Models，是一种用于微调大型模型的轻量级技术。它的主要特点是使用低秩矩阵进行参数更新，这样只需训练较小体积的模型，然后将这些参数注入到 Stable Diffusion 模型中，以快速实现风格的调整或添加新的人物 / IP。
 
-通过 LoRA 模型，可以实现一些 Stable Diffusion 原本很难出来的效果，如人物的某种动作等。
+通过 LoRA 模型，可以实现一些 Stable Diffusion 模型原本很难出来的效果，如人物的某种动作等。
 
 论文：[[2106.09685] LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)
 
