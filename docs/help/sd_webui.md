@@ -8,7 +8,7 @@ title: SD WebUI
 ## 部署
 如果还没有安装 SD WebUI，请根据下面的文档进行安装。
 
-- [绘画指南 - 部署 - Windows 平台](../guide/install/index.md)
+- [绘画指南 - 部署 - Windows 平台](../guide/install/win.md)
 
 ***
 
