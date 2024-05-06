@@ -94,5 +94,7 @@ irm https://massgrave.dev/get | iex
 有些软件包的安装需要编译后才能安装，所以需要安装编译工具（生成工具）。这里介绍如何安装  Visual Studio 生成工具。
 
 1. 前往 [Visual Studio](https://visualstudio.microsoft.com/zh-hans/downloads/) 官网，在`所有下载`中展开`用于 Visual Studio 的工具`选项，找到`Visual Studio 2022 生成工具`后点击旁边的下载。
+![Visual Studio_install](../assets/images/help/other/Visual Studio_install.png)
 2. 双击打开下载好的安装包，在弹出的窗口中选择继续，等待 Visual Studio Installer 安装完成。
 3. Visual Studio Installer 安装完成后将弹出安装生成工具的选项，勾选`使用 C++ 的桌面开发`，再点击右下角的安装，等待安装完成。
+![Visual Studio_C++](../assets/images/help/other/Visual Studio_C++.png)

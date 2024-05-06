@@ -173,12 +173,13 @@ nav:
           - "WIN平台": guide/install/win.md
           - "其他平台": guide/install/other.md
 
-  - "模型":
-      - guide/model/index.md
+  - "模型使用":
+      - "模型种类": guide/model/model_type.md
       - "模型下载": guide/model/download_model.md
 
   - "软件使用":
       - guide/use/index.md
+      - "常见参数": guide/use/common parameters.md
       - "基础使用":
           - "文生图": guide/use/t2i.md
           - "图生图": guide/use/i2i.md
@@ -207,6 +208,7 @@ nav:
           - "StableSR": guide/plugs/stable SR.md
           - "controlnet tile": guide/plugs/controlnet tile.md
 
+
   - "绘世启动器":
       - sd_launcher/index.md
       - "部署功能":
@@ -221,7 +223,7 @@ nav:
           - "扩展": sd_launcher/ver_manager/extension.md
           - "安装新扩展": sd_launcher/ver_manager/install.md
       - "其他功能":
-          - "疑难解答": sd_launcher/other/faq.md
+          - "报错检测": sd_launcher/other/faq.md
           - "模型管理": sd_launcher/other/model.md
           - "控制台": sd_launcher/other/terminal.md
           - "启动器设置": sd_launcher/other/setting.md

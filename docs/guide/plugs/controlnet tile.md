@@ -9,6 +9,6 @@ ControlNet Tile 模型可以保证图片的一致性，同时也可以用于增�
 !!!note
     使用 ControlNet Tile 前需要下载 [control_v11f1e_sd15_tile_fp16](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11f1e_sd15_tile_fp16.safetensors)，并将模型放到 stable-diffusion-webui/models/ControlNet 路径里
 
-![controlnet_tile](../../assets/images/guide/upscale/controlnet_tile.jpg)
+![controlnet_tile](../../assets/images/guide/plugs/controlnet_tile.jpg)
 
 再将重绘幅度调整到 0.4~0.7 之间的值（推荐0.5），点击生成就可以进行放大了。

@@ -14,6 +14,6 @@ ultimate-upscale-for-automatic1111 扩展提供的放大方案将图片分块后
 - 蒙版边缘模糊度：24
 - Padding：32
 
-![ultimate_sd_upscale](../../assets/images/guide/upscale/ultimate_sd_upscale.jpg)
+![ultimate_sd_upscale](../../assets/images/guide/plugs/ultimate_sd_upscale.jpg)
 
 再将重绘幅度调至 0.2~0.4之间的值（推荐 0.4），重绘尺寸倍数设置好尺度，就可以进行图片放大了。

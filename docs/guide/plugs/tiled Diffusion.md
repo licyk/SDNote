@@ -1,7 +1,7 @@
 ## Tiled Diffusion 放大
 multidiffusion-upscaler-for-automatic1111 扩展提供了 Tiled Diffusion 功能用于图片放大，不过该功能必须搭配 Tiled VAE 一起使用。下面为 Tiled Diffusion 的设置界面。
 
-![tiled_diffusion_interface](../../assets/images/guide/upscale/tiled_diffusion_interface.jpg)
+![tiled_diffusion_interface](../../assets/images/guide/plugs/tiled_diffusion_interface.jpg)
 
 使用 Tiled Diffusion 进行图片放大时，勾选 Tiled Diffusion 选项，设置参数可以照抄下面的
 

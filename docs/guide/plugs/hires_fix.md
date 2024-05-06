@@ -1,7 +1,7 @@
 ## 高分辨率修复
 这个功能仅在文生图界面中可以看到，因为高分辨率修复的本质为图生图，所以在图生图界面是看不到这个功能的。
 
-![hires_fix](../../assets/images/guide/upscale/hires_fix.jpg)
+![hires_fix](../../assets/images/guide/plugs/hires_fix.jpg)
 
 启用后一般只用调整`放大算法`、`重绘幅度`、`放大倍数`这三个选项。
 
