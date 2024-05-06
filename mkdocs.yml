@@ -34,7 +34,7 @@ theme:
     - content.code.annotate # 代码注解
     - content.tabs.link # 链接的内容选项卡
     - content.tooltips # 改进的工具提示
-    
+
   palette: # 颜色
 
     # Palette toggle for automatic mode
@@ -163,54 +163,75 @@ markdown_extensions:
   - tables
 
 nav:
-- "主页": index.md
-- "绘画指南":
-  - guide/index.md
-  - "前期准备":
-    - guide/requirement/index.md
-  - "部署": 
-    - guide/install/index.md
-    - "Linux / MacOS 平台": guide/install/other.md
+  - "主页": index.md
+
+  - "程序部署":
+      - guide/index.md
+      - "前期准备":
+          - guide/install/requirement.md
+      - "部署":
+          - "WIN平台": guide/install/win.md
+          - "其他平台": guide/install/other.md
+
   - "模型":
-    - guide/model/index.md
-    - "模型下载": guide/model/download_model.md
-  - "使用":
-    - guide/use/index.md
-    - "文生图": guide/use/t2i.md
-    - "图生图": guide/use/i2i.md
-    - "LoRA 应用": guide/use/lora.md
-    - "放大图片": guide/use/upscale.md
-    - "ControlNet 应用": guide/use/controlnet.md
-    - "杂项": guide/use/extra.md
+      - guide/model/index.md
+      - "模型下载": guide/model/download_model.md
+
+  - "软件使用":
+      - guide/use/index.md
+      - "基础使用":
+          - "文生图": guide/use/t2i.md
+          - "图生图": guide/use/i2i.md
+          - "杂项": guide/use/extra.md
+      - "进阶使用":
+          - "LoRA 应用": guide/use/lora.md
+          - "放大图片": guide/use/upscale.md
+
+
+
   - "提示词书写":
-    - guide/prompt/index.md
-    - "如何书写提示词": guide/prompt/write_prompt.md
-    - "提示词高级用法": guide/prompt/advance.md
-    - "画师提示词应用": guide/prompt/artist_prompt.md
-- "绘世启动器使用":
-  - sd_launcher/index.md
-  - "部署功能": 
-    - sd_launcher/install/index.md
-  - "高级选项":
-    - sd_launcher/advance/index.md
-    - "环境维护": sd_launcher/advance/env.md
-    - "补丁管理": sd_launcher/advance/patch.md
-  - "版本管理":
-    - sd_launcher/ver_manager/index.md
-    - "内核": sd_launcher/ver_manager/kernel.md
-    - "扩展": sd_launcher/ver_manager/extension.md
-    - "安装新扩展": sd_launcher/ver_manager/install.md
-  - "其他功能":
-    - "疑难解答": sd_launcher/other/faq.md
-    - "模型管理": sd_launcher/other/model.md
-    - "控制台": sd_launcher/other/terminal.md
-    - "启动器设置": sd_launcher/other/setting.md
-    - sd_launcher/other/index.md
-- "疑难解答": 
-    - help/index.md
-    - "绘世启动器": help/sd_launcher.md
-    - "SD WebUI": help/sd_webui.md
-    - "ComfyUI": help/comfyui.md
-    - "杂项": help/other.md
-- "附录": appendix.md
-- "关于": about.md
+      - guide/prompt/index.md
+      - "提示词用法":
+          - "如何书写提示词": guide/prompt/write_prompt.md
+          - "提示词高级用法": guide/prompt/advance.md
+          - "画师提示词应用": guide/prompt/artist_prompt.md
+
+  - "插件教程":
+      - guide/plugs/index.md
+      - "ControlNet":
+          - "ControlNet 应用": guide/plugs/controlnet.md
+      - "放大图片":
+          - "hires_fix": guide/plugs/hires_fix.md
+          - "Tiled Diffusion": guide/plugs/tiled Diffusion.md
+          - "Ultimate SD upscale": guide/plugs/ultimate SD upscale.md
+          - "StableSR": guide/plugs/stable SR.md
+          - "controlnet tile": guide/plugs/controlnet tile.md
+
+  - "绘世启动器":
+      - sd_launcher/index.md
+      - "部署功能":
+          - sd_launcher/install/index.md
+      - "高级选项":
+          - sd_launcher/advance/index.md
+          - "环境维护": sd_launcher/advance/env.md
+          - "补丁管理": sd_launcher/advance/patch.md
+      - "版本管理":
+          - sd_launcher/ver_manager/index.md
+          - "内核": sd_launcher/ver_manager/kernel.md
+          - "扩展": sd_launcher/ver_manager/extension.md
+          - "安装新扩展": sd_launcher/ver_manager/install.md
+      - "其他功能":
+          - "疑难解答": sd_launcher/other/faq.md
+          - "模型管理": sd_launcher/other/model.md
+          - "控制台": sd_launcher/other/terminal.md
+          - "启动器设置": sd_launcher/other/setting.md
+          - sd_launcher/other/index.md
+
+  - "疑难解答":
+      - help/index.md
+      - "绘世启动器": help/sd_launcher.md
+      - "SD WebUI": help/sd_webui.md
+      - "ComfyUI": help/comfyui.md
+      - "杂项": help/other.md
+  - "附录": appendix.md
+  - "关于": about.md

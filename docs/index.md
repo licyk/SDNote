@@ -17,7 +17,7 @@ title: 主页
 
     介绍 AI 绘画的准备、安装、使用方法。
 
-    [:octicons-arrow-right-24: 前往](guide/index.md)
+    [:focticons-arrow-right-24: 前往](guide/index.md)
 
 -   :fontawesome-solid-rocket:{ .lg .middle } __绘世启动器使用__
 
@@ -25,7 +25,7 @@ title: 主页
 
     有关绘世启动器的功能说明和使用方法。
 
-    [:octicons-arrow-right-24: 前往](sd_launcher/index.md)
+    [:focticons-arrow-right-24: 前往](sd_launcher/index.md)
 
 -   :fontawesome-solid-circle-question:{ .lg .middle } __疑难解答__
 
@@ -33,7 +33,7 @@ title: 主页
 
     包含使用 AI 绘画时常见错误的解决方法。
 
-    [:octicons-arrow-right-24: 前往](help/index.md)
+    [:focticons-arrow-right-24: 前往](help/index.md)
 
 -   :fontawesome-solid-link:{ .lg .middle } __附录__
 
@@ -41,7 +41,7 @@ title: 主页
 
     收录来自社区的资源链接。
 
-    [:octicons-arrow-right-24: 前往](appendix.md)
+    [:focticons-arrow-right-24: 前往](appendix.md)
 
 </div>
 
