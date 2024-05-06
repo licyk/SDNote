@@ -20,11 +20,17 @@ git clone https://github.com/licyk/SDNote
 ```
 
 
-## 在本地构建文档
+## 配置文档运行环境
 ```
+cd SDNote
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+```
+
+
+## 在本地构建文档
+```
 mkdocs serve
 ```
 

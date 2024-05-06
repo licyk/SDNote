@@ -127,3 +127,12 @@ title: 绘世启动器
 ![sd_launcher_can_not_run_directly](../assets/images/help/sd_launcher/sd_launcher_can_not_run_directly.jpg)
 
 这是因为你在绘世启动器的数据文件夹`.launcher`中运行绘世启动器，请使用`.launcher`文件夹外的绘世启动器来运行。
+
+***
+
+## 安装绘世启动器的依赖时显示已安装这个产品的另一个版本
+在安装绘世启动器的依赖（.NET SDk）时显示安装失败，提示已安装这个产品的另一个版本，
+
+![net_runtime_already_installed_newer_version](../assets/images/help/sd_launcher/net_runtime_already_installed_newer_version.jpg)
+
+这说明你不再需要安装绘世启动器的依赖了。因为在 Windows 系统中已存在绘世启动器的依赖，所以可直接打开绘世启动器并使用。
