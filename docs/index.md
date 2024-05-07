@@ -53,7 +53,7 @@ title: 主页
 ## 项目
 本文档涉及三个项目：
 
-- Stable Diffusion WebUI：一个基于 Gradio 库的 Stable Diffusion 界面。
+- Stable Diffusion WebUI (SD WebUI) ：一个基于 Gradio 库的 Stable Diffusion 界面。
 - ComfyUI：一个可搭建节点流的 Stable Diffusion 界面。
 - 绘世启动器：一个简化 Stable Diffusion 界面的安装和管理的启动器。
 
