@@ -15,19 +15,25 @@ title: 主页
 
     ---
 
-    介绍 AI 绘画前期准备、部署方法。
-
--   [:fontawesome-solid-book: <big>__绘画指南__</big>](guide/index.md "点击此进入")
-
-    ---
-
-    介绍 AI 绘画使用方法。
-
+    介绍 AI 绘画前期准备和部署方法。
+    
 -   [:fontawesome-solid-window-restore: <big>__绘世启动器使用指南__</big> ](sd_launcher/index.md "点击此进入")
 
     ---
 
     有关绘世启动器的功能说明。
+
+-   [:fontawesome-solid-book: <big>__绘画指南__</big>](guide/index.md "点击此进入")
+
+    ---
+
+    介绍 AI 绘画基础理论和基础使用方法。
+
+-   [:fontawesome-solid-cubes: <big>__扩展指南__</big>](plugin/index.md "点击此进入")
+
+    ---
+
+    介绍 AI 绘画软件扩展的使用方法。
 
 -   [:fontawesome-solid-circle-question: <big>__疑难解答__</big> ](help/index.md "点击此进入")
 
