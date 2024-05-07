@@ -35,13 +35,13 @@ Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只�
 
 !!! warning "谨慎内存焊接在主板上的笔记本"
     * 焊接意味着 基本 断送了升级内存容量的可能。
-    * 如果只能选择内存焊接在主板上的笔记本，请果断的选择容量最大的。
+    * 如果 只能 选择内存焊接在主板上的笔记本，请果断的选择容量最大的。
     
 ## 显卡
 === "__使用已有硬件__"
 
     Nvidia 核心：最低 Turing 架构 8 GB 显存显卡，建议 Ampere 架构及以上， 16 GB 及以上显存显卡。
-    !!! example "Turing / Ampere 架构对应部分型号"
+    ??? example "Turing / Ampere 架构对应部分型号"
         | 架构 | GeForce | Quadro / NVS | Tesla / Datacenter |
         | :-: | :-: | :-: | :-: |
         | Turing | GTX 1660 / RTX 2080 / TITAN RTX | RTX 8000 / T1000 | T4 |
@@ -49,7 +49,7 @@ Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只�
 
 
     AMD 核心：最低 RDNA2 架构 12 GB 显存显卡，建议 RDNA2 架构 16 GB 及以上显存显卡.
-    !!! example "RDNA1 / RDNA2 架构对应部分型号"
+    ??? example "RDNA1 / RDNA2 架构对应部分型号"
         | 架构 | 型号 |
         | :-: | :-: |
         | RDNA1 | Radeon RX 5700 XT(M) |
@@ -58,7 +58,7 @@ Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只�
 === "__准备购买硬件__"
 
     Nvidia 核心：建议 Ampere 架构及以上， 16 GB 及以上显存显卡。
-    !!! example "Ampere 架构对应部分型号"
+    ??? example "Ampere 架构对应部分型号"
         | 架构 | GeForce | Quadro / NVS | Tesla / Datacenter |
         | :-: | :-: | :-: | :-: |
         | Ampere | RTX 3090 | RTX A6000 | A100|
@@ -70,6 +70,8 @@ Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只�
     * RDNA1 之前架构的 AMD 显卡无法使用 [原版 SD Webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui "AUTOMATIC1111，SD WebUI的母亲（父亲？）")。
     * Nvidia Turing 架构以下的显卡因为缺乏 FP16 算力，可能会有 "要不速度慢要不吃显存多" 的现象。
 
+<small>[扩展阅读：NVIDIA CUDA](#){ .md-button .md-button--primary }</small>
+
 ## 硬盘
 === "__使用已有硬件__"
 
@@ -77,8 +79,20 @@ Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只�
 
 === "__准备购买硬件__"
 
-    最低 1 TB 剩余空间的 NVME SSD。
+    最低 1 TB 剩余空间的 NVME SSD，建议 TLC 颗粒。
 
+!!! warning "软件以外也需要空间的"
+    * 这里提出的剩余空间 __仅__ 为储存 SD WebUI 软件建议预留的大小，事实上您还需要为 虚拟内存 预留足够的空间。
+    * Windows 系统下在 Nvidia 显卡拥有 8 GB 显存时 物理内存 + 虚拟内存 = 64 GB 可以基本满足生成图片的需求。
+    * 建议将 虚拟内存 文件位置设定在 直连 CPU 的 NVME SSD 中（如果主板有）。
+    
+!!! warning "HDD 并不适合担当此重任"
+    * 因为 SD WebUI 软件本身为大量小体积的文件组成，在软件启动时随机读取 IOPS 弱爆的 HDD 会让启动时间明显的增加。
+    * 如果实际无法为 SD WebUI 软件准备足够的 SSD 空间，可以考虑将 存放模型 的文件夹放置在 HDD 中，通过 `mklink` 指令将 模型 文件夹链接到 SD WebUI 软件目录内。
+    
+!!! failure "远离 SMR HDD"
+    * SMR HDD 的糟糕性能决定了该类硬盘只能用来存储冷数据，无论什么情况，都不要拿 SMR HDD 来运行 SD WebUI 软件。
+    * 您可以用过 硬盘型号 + SMR 词组在搜索引擎搜索您手上的 HDD 是否使用了 SMR 技术。
 
-
-## 主板
+!!! Success "拥有一个镜像能减轻出错后收拾烂摊子的工作量"
+    建议为 SD WebUI 软件准备一个存放镜像的空间（可以存放在 HDD，空间大小等同为 SD WebUI 准备的空间大小），可以为在操作 SD WebUI 软件出现重大问题而又无法撤销时提供简单、有效的还原方式。
