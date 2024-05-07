@@ -164,3 +164,12 @@ markdown_extensions:
 
 nav:
 - "主页": index.md
+- "部署指南":
+  - buildguide/index.md
+- "绘画指南":
+  - guide/index.md 
+- "绘世启动器使用指南":
+  - sd_launcher/index.md 
+- "疑难解答":
+  - help/index.md 
+- "附录": appendix.md.md 

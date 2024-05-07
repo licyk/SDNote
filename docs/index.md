@@ -11,35 +11,35 @@ title: 主页
 
 <div class="grid cards" markdown>
 
--   [:fontawesome-solid-book:{ .lg .middle } __部署指南__ ](buildguide/index.md "点击此进入"){ .md-button .md-button--primary } 
+-   [:fontawesome-solid-code: <big>__部署指南__</big> ](buildguide/index.md "点击此进入")
 
     ---
 
     介绍 AI 绘画前期准备、部署方法。
 
--   :fontawesome-solid-window-restore:{ .lg .middle } __绘世启动器使用__
+-   [:fontawesome-solid-book: <big>__绘画指南__</big>](guide/index.md "点击此进入")
 
     ---
 
-    有关绘世启动器的功能说明和使用方法。
+    介绍 AI 绘画使用方法。
 
-    [:octicons-arrow-right-24: 前往](sd_launcher/index.md)
+-   [:fontawesome-solid-window-restore: <big>__绘世启动器使用指南__</big> ](sd_launcher/index.md "点击此进入")
 
--   :fontawesome-solid-circle-question:{ .lg .middle } __疑难解答__
+    ---
+
+    有关绘世启动器的功能说明。
+
+-   [:fontawesome-solid-circle-question: <big>__疑难解答__</big> ](help/index.md "点击此进入")
 
     ---
 
     包含使用 AI 绘画时常见错误的解决方法。
 
-    [:octicons-arrow-right-24: 前往](help/index.md)
-
--   :fontawesome-solid-link:{ .lg .middle } __附录__
+-   [:fontawesome-solid-link: <big>__附录__</big> ](appendix.md "点击此进入")
 
     ---
 
     收录来自社区的资源链接。
-
-    [:octicons-arrow-right-24: 前往](appendix.md)
 
 </div>
 
