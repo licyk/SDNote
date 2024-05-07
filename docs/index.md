@@ -5,21 +5,19 @@ hide:
 title: 主页
 ---
 # SD Note
-一个关于使用 AI 绘画的文档，包含教程和相关资源。
+一个关于使用 AI 绘画的偏新手向文档，包含教程和相关资源链接。
 
 ---
 
 <div class="grid cards" markdown>
 
--   :fontawesome-solid-book:{ .lg .middle } __绘画指南__
+-   [:fontawesome-solid-book:{ .lg .middle } __部署指南__ ](buildguide/index.md "点击此进入"){ .md-button .md-button--primary } 
 
     ---
 
-    介绍 AI 绘画的准备、安装、使用方法。
+    介绍 AI 绘画前期准备、部署方法。
 
-    [:octicons-arrow-right-24: 前往](guide/index.md)
-
--   :fontawesome-solid-rocket:{ .lg .middle } __绘世启动器使用__
+-   :fontawesome-solid-window-restore:{ .lg .middle } __绘世启动器使用__
 
     ---
 
