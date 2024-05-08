@@ -116,3 +116,8 @@ title: 绘世启动器
 ![sd_launcher_can_not_run_directly](../assets/images/help/sd_launcher/sd_launcher_can_not_run_directly.jpg)
 
 这是因为你在绘世启动器的数据文件夹`.launcher`中运行绘世启动器，请使用`.launcher`文件夹外的绘世启动器来运行。
+
+## 软件缺少xxx.dll(动态链接库)
+在网上下载dll修复软件修复运行库和dll文件.实例：
+![fix_dll](../assets/images/help/sd_launcher/fix_dll.png)
+
