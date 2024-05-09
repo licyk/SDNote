@@ -3,14 +3,7 @@
 - CUDA Compute Capability (Version) 指显卡核心中 CUDA 的代数，一张显卡核心的 CUDA Compute Capability (Version) 是固定不变的。
 
 ## 部分 CUDA Compute Capability (Version) / 显卡核心架构 / CUDA SDK Version(s) 的关系[^1]
-!!! info inline end "关系说明"
-    * 列表仅列出支持 FP16 的显卡核心架构。
-    * 列表中 Turing 以下核心架构显卡 __仅 Tesla 计算卡__ 支持 FP16[^2] [^3]。
-    * 实际 Compute Capability 5.3 的 Maxwell 架构核心支持 FP16，但未有对应的 桌面 / 移动 显卡，故排除。
-    * 显卡核心架构 与 显卡核心型号 的关系可见[^1]
-    * CUDA SDK Version(s) 仅列出 PyTorch 2 开始支持的版本。
-    * 显卡核心型号 与 Compute Capability 的关系可见 [NVIDIA DEVELOPER页面](https://developer.nvidia.com/cuda-gpus#compute)
-
+<div class="grid" markdown>
 | Compute Capability | 显卡核心架构 | CUDA SDK Version(s) |
 | :-: | :-: | :-: |
 | 6.0-6.2 | Pascal | 11.8/12.0-12.4 |
@@ -20,6 +13,15 @@
 | 8.9 | Ada Lovelace | 11.8/12.0-12.4 |
 | 9.0 | Hopper | 11.8/12.0-12.4 |
 | 10.0 | Blackwell | 未列出 |
+
+!!! info "关系说明"
+    * 列表仅列出支持 FP16 的显卡核心架构。
+    * 列表中 Turing 以下核心架构显卡 __仅 Tesla 计算卡__ 支持 FP16[^2] [^3]。
+    * 实际 Compute Capability 5.3 的 Maxwell 架构核心支持 FP16，但未有对应的 桌面 / 移动 显卡，故排除。
+    * 显卡核心架构 与 显卡核心型号 的关系可见[^1]
+    * CUDA SDK Version(s) 仅列出 PyTorch 2 开始支持的版本。
+    * 显卡核心型号 与 Compute Capability 的关系可见 [NVIDIA DEVELOPER页面](https://developer.nvidia.com/cuda-gpus#compute)
+</div>
 
 [^1]: 参考来源：[维基百科 CUDA GPUs supported](https://en.wikipedia.org/wiki/CUDA#GPUs_supported)
 [^2]: 参考来源：[NVIDIA Deep Learning TensorRT Documentation](https://docs.nvidia.com/deeplearning/tensorrt/support-matrix/index.html#hardware-precision-matrix)
