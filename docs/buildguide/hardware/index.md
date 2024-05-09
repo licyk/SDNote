@@ -40,37 +40,37 @@ Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只�
 ## 显卡
 === "__使用已有硬件__"
 
-    Nvidia 核心：最低 Turing 架构 8 GB 显存显卡，建议 Ampere 架构及以上， 16 GB 及以上显存显卡。
-    ??? example "Turing / Ampere 架构对应部分型号"
-        | 架构 | GeForce | Quadro / NVS | Tesla / Datacenter |
+    Nvidia：最低 Turing 核心架构 8 GB 显存显卡，建议 Ampere 核心架构及以上， 16 GB 及以上显存显卡。
+    ??? info "Turing / Ampere 核心架构对应部分型号"
+        | 核心架构 | GeForce | Quadro / NVS | Tesla / Datacenter |
         | :-: | :-: | :-: | :-: |
         | Turing | GTX 1660 / RTX 2080 / TITAN RTX | RTX 8000 / T1000 | T4 |
         | Ampere | RTX 3090 | RTX A6000 | A100|
 
 
-    AMD 核心：最低 RDNA2 架构 12 GB 显存显卡，建议 RDNA2 架构 16 GB 及以上显存显卡.
-    ??? example "RDNA1 / RDNA2 架构对应部分型号"
-        | 架构 | 型号 |
+    AMD：最低 RDNA2 核心架构 12 GB 显存显卡，建议 RDNA2 架构 16 GB 及以上显存显卡.
+    ??? info "RDNA1 / RDNA2 核心架构对应部分型号"
+        | 核心架构 | 型号 |
         | :-: | :-: |
         | RDNA1 | Radeon RX 5700 XT(M) |
         | RDNA2 | Radeon RX 6700 XT(M) |
 
 === "__准备购买硬件__"
 
-    Nvidia 核心：建议 Ampere 架构及以上， 16 GB 及以上显存显卡。
-    ??? example "Ampere 架构对应部分型号"
-        | 架构 | GeForce | Quadro / NVS | Tesla / Datacenter |
+    Nvidia：建议 Ampere 核心架构及以上， 16 GB 及以上显存显卡。
+    ??? info "Ampere 核心架构对应部分型号"
+        | 核心架构 | GeForce | Quadro / NVS | Tesla / Datacenter |
         | :-: | :-: | :-: | :-: |
         | Ampere | RTX 3090 | RTX A6000 | A100|
 
 !!! warning "需求不同，需要不同"
     * 如果您需要长期使用 SDXL 模型生成图片，建议使用 12 GB 及以上显存的显卡。
     * Windows 系统下 AMD / Intel 显卡优化一般，相对于 Nvidia 显卡需要考虑选择更大显存的显卡。
-    * RDNA1 架构的显卡因为最大只有 8 GB 显存，故仅作提及。
-    * RDNA1 之前架构的 AMD 显卡无法使用 [原版 SD Webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui "AUTOMATIC1111，SD WebUI的母亲（父亲？）")。
-    * Nvidia Turing 架构以下的大部分显卡[^1] 因为缺乏 FP16 算力，可能会出现 "要不速度慢要不吃显存多" 的现象。
+    * RDNA1 核心架构的显卡因为最大只有 8 GB 显存，故仅作提及。
+    * RDNA1 之前核心架构的 AMD 显卡无法使用 [原版 SD Webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui "AUTOMATIC1111，SD WebUI的母亲（父亲？）")。
+    * Nvidia Turing 核心架构以下的大部分显卡[^1]因为缺乏 FP16 算力，可能会出现 "要不速度慢要不吃显存多" 的现象。
 
-[^1]:并非所有 Turing 架构以下的 Nvidia 显卡都缺乏 FP16 算例，具体可参看[<扩展阅读：NVIDIA CUDA>](./cuda.md)。
+[^1]: 并非所有 Turing 架构以下的 Nvidia 显卡都缺乏 FP16 算例，具体可参看[<扩展阅读：NVIDIA CUDA>](./cuda.md)。
 
 <small>[扩展阅读：NVIDIA CUDA](./cuda.md){ .md-button .md-button--primary }</small>
 
@@ -81,7 +81,7 @@ Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只�
 
 === "__准备购买硬件__"
 
-    最低 1 TB 剩余空间的 NVME SSD，建议 TLC 颗粒。
+    最低 1 TB 剩余空间的 NVME SSD，建议 TLC 或之上的颗粒，建议知名品牌。
 
 !!! warning "软件以外也需要空间的"
     * 这里提出的剩余空间 __仅__ 为储存 SD WebUI 软件建议预留的大小，事实上您还需要为 虚拟内存 预留足够的空间。
