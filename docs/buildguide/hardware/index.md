@@ -39,7 +39,9 @@ Intel / AMD 的近代 CPU 皆可（建议 2013 年及之后发售的 CPU），�
     * 以上内存容量建议仅只针对含有 8 GB 及以上显存 __独立显卡__ 的硬件平台，如果显卡显存大小小于 8 GB，建议配备更多的内存。
     * 如果您打算使用核心显卡（只有 共享 GPU 内存）生成图片，建议把显存容量需求算入到内存容量中。
     * 如果您打算使用 CPU 生成图片，建议把显存容量需求 __加一倍__ 算入到内存容量中。
-    * Nvidia [GeForce GRD]("GeForce Game Ready Driver") 536.40 版公版驱动开始引入了 共享 GPU 内存 功能，可以在不调整 SD WebUI 运行优化参数的前提下已牺牲生成图片速度为前提提高生成图片的 成功率 / 尺寸，此处 共享 GPU 内存 空间实际为内存空间。
+    * Nvidia GeForce GRD 536.40 版公版驱动开始引入了 共享 GPU 内存 功能，可以在不调整 SD WebUI 运行优化参数的前提下已牺牲生成图片速度为前提提高生成图片的 成功率 / 尺寸，此处 共享 GPU 内存 空间实际为内存空间。
+
+    *[GeForce GRD]: GeForce Game Ready Driver
 
 ## 显卡
 <div class="grid" markdown>
