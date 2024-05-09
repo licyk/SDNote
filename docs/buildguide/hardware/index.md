@@ -31,7 +31,7 @@ Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只�
     * 以上内存容量建议仅只针对含有 8 GB 及以上显存 __独立显卡__ 的硬件平台，如果显卡显存大小小于 8 GB，建议配备更多的内存。
     * 如果您打算使用核心显卡（只有 共享 GPU 内存）生成图片，建议把显存容量需求算入到内存容量中。
     * 如果您打算使用 CPU 生成图片，建议把显存容量需求 __加一倍__ 算入到内存容量中。
-    * Nvidia [GeForce GRD]("GeForce Game Ready Driver") 536.40 版公版驱动引入了 共享 GPU 内存 功能，可以在不调整 SD WebUI 运行优化参数的前提下已牺牲生成图片速度为前提提高生成图片的 成功率 / 尺寸，此处 共享 GPU 内存 空间实际为内存空间。
+    * Nvidia [GeForce GRD]("GeForce Game Ready Driver") 536.40 版公版驱动开始引入了 共享 GPU 内存 功能，可以在不调整 SD WebUI 运行优化参数的前提下已牺牲生成图片速度为前提提高生成图片的 成功率 / 尺寸，此处 共享 GPU 内存 空间实际为内存空间。
 
 !!! warning "谨慎内存焊接在主板上的笔记本"
     * 焊接意味着 基本 断送了升级内存容量的可能。
@@ -68,9 +68,11 @@ Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只�
     * Windows 系统下 AMD / Intel 显卡优化一般，相对于 Nvidia 显卡需要考虑选择更大显存的显卡。
     * RDNA1 架构的显卡因为最大只有 8 GB 显存，故仅作提及。
     * RDNA1 之前架构的 AMD 显卡无法使用 [原版 SD Webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui "AUTOMATIC1111，SD WebUI的母亲（父亲？）")。
-    * Nvidia Turing 架构以下的显卡因为缺乏 FP16 算力，可能会有 "要不速度慢要不吃显存多" 的现象。
+    * Nvidia Turing 架构以下的大部分显卡[^1] 因为缺乏 FP16 算力，可能会出现 "要不速度慢要不吃显存多" 的现象。
 
-<small>[扩展阅读：NVIDIA CUDA](#){ .md-button .md-button--primary }</small>
+[^1]:并非所有 Turing 架构以下的 Nvidia 显卡都缺乏 FP16 算例，具体可参看[<扩展阅读：NVIDIA CUDA>](./cuda.md)。
+
+<small>[扩展阅读：NVIDIA CUDA](./cuda.md){ .md-button .md-button--primary }</small>
 
 ## 硬盘
 === "__使用已有硬件__"
@@ -94,5 +96,5 @@ Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只�
     * SMR HDD 的糟糕性能决定了该类硬盘只能用来存储冷数据，无论什么情况，都不要拿 SMR HDD 来运行 SD WebUI 软件。
     * 您可以用过 硬盘型号 + SMR 词组在搜索引擎搜索您手上的 HDD 是否使用了 SMR 技术。
 
-!!! Success "拥有一个镜像能减轻出错后收拾烂摊子的工作量"
+!!! Success "拥有一个软件镜像能减轻报错后收拾烂摊子的工作量"
     建议为 SD WebUI 软件准备一个存放镜像的空间（可以存放在 HDD，空间大小等同为 SD WebUI 准备的空间大小），可以为在操作 SD WebUI 软件出现重大问题而又无法撤销时提供简单、有效的还原方式。

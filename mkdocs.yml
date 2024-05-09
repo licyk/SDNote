@@ -166,7 +166,9 @@ nav:
 - "主页": index.md
 - "部署指南":
   - buildguide/index.md
-  - "硬件选择": buildguide/hardware/index.md
+  - "硬件选择": 
+    - buildguide/hardware/index.md
+    - "NVIDIA CUDA": buildguide/hardware/cuda.md
 - "绘世启动器使用指南":
   - sd_launcher/index.md 
 - "绘画指南":
