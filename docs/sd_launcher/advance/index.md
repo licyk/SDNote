@@ -60,10 +60,10 @@ title: 高级选项
     关于向上采样法的说明：[--upcast-sampling support for CUDA by FNSpd · Pull Request #8782 · AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/8782)
 
 ### 使用共享显存
-在 Nvidia 显卡驱动 大于 525 版本中，支持在专用 GPU 显存不足时使用共享 GPU 显存来补足，降低爆显存的概率。但是调用了共享显存后将会显著地降低出图速度，这时可以关闭共享显存来解决。
+在 Nvidia 显卡公版驱动 大于等于 536.40 版本中，支持在专用 GPU 显存不足时使用共享 GPU 显存来补足，降低爆显存的概率。但是调用了共享显存后将会显著地降低出图速度，这时可以关闭共享显存来解决。
 
 !!!note
-    关闭共享显存的前提是 Nvidia 显卡驱动的版本大于 536.40。
+    关闭共享显存的前提是 Nvidia 显卡公版驱动的版本大于 546.01，但不建议使用小于 536.40 版的公版驱动。
 
 ### Channels-last 内存优化
 这个功能可能可以在一定的限度内提升性能。
