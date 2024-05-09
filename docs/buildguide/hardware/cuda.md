@@ -21,11 +21,6 @@
 | 9.0 | Hopper | 11.8/12.0-12.4 |
 | 10.0 | Blackwell | 未列出 |
 
-
-
-
-
-
 [^1]: 参考来源：[维基百科 CUDA GPUs supported](https://en.wikipedia.org/wiki/CUDA#GPUs_supported)
 [^2]: 参考来源：[NVIDIA Deep Learning TensorRT Documentation](https://docs.nvidia.com/deeplearning/tensorrt/support-matrix/index.html#hardware-precision-matrix)
 [^3]: 参考来源：[维基百科 CUDA Version features and specifications](https://en.wikipedia.org/wiki/CUDA#Version_features_and_specifications)
