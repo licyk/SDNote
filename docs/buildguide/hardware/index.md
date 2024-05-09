@@ -13,10 +13,10 @@ title: 硬件选择
 建议使用台式机，相对于笔记本电脑，台式机有更好的散热条件。同时部分笔记本电脑缺少 [XMP](https://www.intel.cn/content/www/cn/zh/gaming/extreme-memory-profile-xmp.html "英特尔® 极限内存配置文件") / [EXPO](https://www.amd.com/zh-cn/products/processors/technologies/expo.html "AMD Extended Profiles for Overclocking") 功能，导致内存条无法发挥超频性能。
 
 ## CPU
-Intel / AMD 的近代 CPU 皆可（建议2013年及之后发售的 CPU），只要能流畅运行 Windows 10 专业版 及以上的系统。
+Intel / AMD 的近代 CPU 皆可（建议 2013 年及之后发售的 CPU），只要能流畅运行 Windows 10 专业版 及以上的系统。
 
 !!! warning "注意核心显卡惹祸"
-    2024年初，带有核显的 Intel CPU 的用户出现过无法打开 绘世启动器 的问题，主要原因为 Intel 显卡的驱动bug，现 Intel 已通过更新驱动修复该bug。
+    2024年初，部分带有核心显卡的 Intel CPU 的用户出现过无法打开 绘世启动器 的问题，主要原因为 Intel 显卡的驱动 bug，现 Intel 已通过更新驱动修复该 bug。
 
 ## 内存
 === "__使用已有硬件__"
