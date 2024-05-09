@@ -13,6 +13,7 @@ theme:
   language: zh
   features:
     # - navigation.instant # 即时加载, 在firefox下有内存泄露的问题
+    - navigation.indexes
     - navigation.instant.prefetch # 即时预加载
     - navigation.instant.progress # 加载进度显示
     - navigation.instant.preview # 即时预览

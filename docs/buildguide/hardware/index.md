@@ -2,7 +2,7 @@
 title: 硬件选择
 ---
 # 硬件选择
-本章节将分 __使用已有硬件__ / __准备购买硬件__ 两种情况进行说明，如未指明代表条件共同适用。高性能的硬件能够回避一些基础的错误。
+本章节将分 __使用已有硬件__ / __准备购买硬件__ 两种情况进行说明，如未指明代表条件共同适用。高性能的硬件能够回避一些基础的问题。
 
 !!! warning "读前须知"
     * 本章节提供的硬件建议基准判定为 <big>__Windows 系统下仅使用基础优化时比较流畅的使用带有一些扩展的 SD WebUI__</big> ，并非低于该基准就无法正常运行 SD WebUI 软件。
@@ -16,7 +16,9 @@ title: 硬件选择
 Intel / AMD 的近代 CPU 皆可（建议 2013 年及之后发售的 CPU），只要能流畅运行 Windows 10 专业版 及以上的系统。
 
 !!! warning "注意核心显卡惹祸"
-    2024年初，部分带有核心显卡的 Intel CPU 的用户出现过无法打开 绘世启动器 的问题，主要原因为 Intel 显卡的驱动 bug，现 Intel 已通过更新驱动修复该 bug。
+    2024年初，部分带有核心显卡的 Intel CPU 的用户出现过无法打开 绘世启动器 的问题，主要原因为 Intel 显卡的驱动 bug[^1]，现 Intel 已通过更新驱动修复该 bug。
+
+[^1]:[记 Intel 的 31.0.101.5186 版本驱动带崩 WPF 程序](https://blog.lindexi.com/post/%E8%AE%B0-Intel-%E7%9A%84-31.0.101.5186-%E7%89%88%E6%9C%AC%E9%A9%B1%E5%8A%A8%E5%B8%A6%E5%B4%A9-WPF-%E7%A8%8B%E5%BA%8F.html)
 
 ## 内存
 === "__使用已有硬件__"
@@ -68,9 +70,9 @@ Intel / AMD 的近代 CPU 皆可（建议 2013 年及之后发售的 CPU），�
     * Windows 系统下 AMD / Intel 显卡优化一般，相对于 Nvidia 显卡需要考虑选择更大显存的显卡。
     * RDNA1 核心架构的显卡因为最大只有 8 GB 显存，故仅作提及。
     * RDNA1 之前核心架构的 AMD 显卡无法使用 [原版 SD Webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui "AUTOMATIC1111，SD WebUI的母亲（父亲？）")。
-    * Nvidia Turing 核心架构以下的大部分显卡[^1]因为缺乏 FP16 算力，可能会出现 "要不速度慢要不吃显存多" 的现象。
+    * Nvidia Turing 核心架构以下的大部分显卡[^2]因为缺乏 FP16 算力，可能会出现 "要不速度慢要不吃显存多" 的现象。
 
-[^1]: 并非所有 Turing 架构以下的 Nvidia 显卡都缺乏 FP16 算例，具体可参看[<扩展阅读：NVIDIA CUDA>](./cuda.md)。
+[^2]: 并非所有 Turing 架构以下的 Nvidia 显卡都缺乏 FP16 算例，具体可参看[<扩展阅读：NVIDIA CUDA>](./cuda.md)。
 
 <small>[扩展阅读：NVIDIA CUDA](./cuda.md){ .md-button .md-button--primary }</small>
 
@@ -93,7 +95,7 @@ Intel / AMD 的近代 CPU 皆可（建议 2013 年及之后发售的 CPU），�
     * 如果实际无法为 SD WebUI 软件准备足够的 SSD 空间，可以考虑将 存放模型 的文件夹放置在 HDD 中，通过 `mklink` 指令将 模型 文件夹链接到 SD WebUI 软件目录内。
     
 !!! failure "远离 SMR HDD"
-    * SMR HDD 的糟糕性能决定了该类硬盘只能用来存储冷数据，无论什么情况，都不要拿 SMR HDD 来运行 SD WebUI 软件。
+    * SMR HDD 的糟糕性能决定了该类硬盘只能用来存储冷数据。无论什么情况，都请不要拿 SMR HDD 来运行 SD WebUI 软件。
     * 您可以用过 硬盘型号 + SMR 词组在搜索引擎搜索您手上的 HDD 是否使用了 SMR 技术。
 
 !!! Success "拥有一个软件镜像能减轻报错后收拾烂摊子的工作量"

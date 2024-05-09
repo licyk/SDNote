@@ -1,4 +1,4 @@
-## CUDA SDK Version(s) 与 CUDA Compute Capability (Version) 的关系
+## CUDA SDK Version(s) / CUDA Compute Capability (Version) 的关系
 - CUDA SDK Version(s) 指 CUDA 开发工具的版本，一张显卡核心能够支持多个不同的 CUDA SDK Version(s)，PyTorch 和 xformers 软件中描述的 CUDA 版本为 CUDA SDK Version(s)。
 - CUDA Compute Capability (Version) 指显卡核心中 CUDA 的代数，一张显卡核心的 CUDA Compute Capability (Version) 是固定不变的。
 
