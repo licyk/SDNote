@@ -42,12 +42,13 @@ Windows 10 及以上，除 __家庭版__ 外主流桌面版本，仅限 64 位�
 ### 基础程序
 点击对应名称可进入官方下载地址。
 
+!!! Success "绿色:fontawesome-solid-check:为必要，灰色:fontawesome-solid-check:为可选。未标明版本号的请下载最新的版本，标有 x 的请下载 x 最大的版本"
 <div class="grid" markdown>  
 
 * [x] [Python 3.10.x](https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe "官方提供安装包的最后一版")
 * [x] [Git](https://git-scm.com/download/win)
 * [x] [7-zip](https://www.7-zip.org/) / [WinRAR](https://www.rarlab.com/) / [Bandizip](https://www.bandisoft.com/bandizip/)
-* [x] [.NET 6.0.x Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+* [x] [.NET 6.0.x Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0 "绘世启动器 的运行依赖")
 * [ ] [Microsoft Visual C++](https://learn.microsoft.com/zh-CN/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 
 !!! failure "整合包须知"
@@ -62,9 +63,23 @@ Windows 10 及以上，除 __家庭版__ 外主流桌面版本，仅限 64 位�
     * .NET 7.0 / 8.0 / 9.0 不能代替 .NET 6.0。
     * 不建议使用 Windows 系统自带的解压功能。
 
+### 其他程序
+!!! Success "绿色:fontawesome-solid-check:为建议，灰色:fontawesome-solid-check:为可选"
+<div class="grid" markdown> 
+
+* [x] 魔法程序
+* [ ] [FreeFileSync](https://freefilesync.org/ "免费文件同步软件")
+
+!!! warning "有些东西无法细说"
+    介于你懂的的情况，魔法程序虽然 __十分推荐__ ，但是只能提及。
+</div>
+
+### 系统环境设定
+详情见 <small>[扩展阅读：系统环境设定操作基础](./set.md){ .md-button .md-button--primary }</small>
+
 ## 准备流程图
 ??? info "点击展开"
     ``` mermaid
-    graph TB
-    A[安装系统]-->B[安装程序]
+    graph LR
+    A[安装系统]-->B[安装驱动程序]-->C[安装基础程序]-->D[配置环境]-->E[部署 AI 画图程序]
     ```
