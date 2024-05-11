@@ -146,6 +146,7 @@ hide:
 - [奥术(Arcane)第一卷](https://docs.qq.com/doc/DUWxNREplQkhsb0Jx)
 - [C站/社区常用高质量提示词](https://civitai.com/models/62473)
 - [SD优质提示词库](https://docs.qq.com/sheet/DYUtXVGJJSFZ1R3FF?tab=ss_0gqnt7&viewId=vig5co)
+- [衣服的提示词百科(上下身)](https://www.notion.so/ea163bebdce44785adf38041ac35ed6e#6cd3e15dfc3347fb9811bec8bc910c02)
 
 
 ## 图库
