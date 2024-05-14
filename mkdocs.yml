@@ -175,6 +175,8 @@ nav:
     - "系统环境设定操作基础": buildguide/system/set.md
 - "绘世启动器使用指南":
   - sd_launcher/index.md 
+  - "一键启动": sd_launcher/launch.md
+  - "高级选项": sd_launcher/advanced.md
 - "绘画指南":
   - guide/index.md 
 - "扩展指南":
