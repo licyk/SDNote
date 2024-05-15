@@ -5,7 +5,8 @@ hide:
 title: 主页
 ---
 # SD Note
-一个关于使用 AI 绘画的偏新手向文档，包含教程和相关资源链接。
+一个关于使用 AI 绘画的偏新手向文档，包含教程和相关资源链接。  
+文档内容以 绘世启动器 / Stable Diffusion Web UI 为主。
 
 ---
 
@@ -53,7 +54,7 @@ title: 主页
 ## 项目
 本文档涉及三个项目：
 
-- Stable Diffusion WebUI (SD WebUI) ：一个基于 Gradio 库的 Stable Diffusion 界面。
+- Stable Diffusion Web UI (SD WebUI) ：一个基于 Gradio 库的 Stable Diffusion 界面。
 - ComfyUI：一个可搭建节点流的 Stable Diffusion 界面。
 - 绘世启动器：一个简化 Stable Diffusion 界面的安装和管理的启动器。
 

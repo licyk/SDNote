@@ -35,6 +35,8 @@ theme:
     - content.code.annotate # 代码注解
     # content.tabs.link # 链接的内容选项卡
     - content.tooltips # 改进的工具提示
+  icon:
+    annotation: material/help-circle
     
   palette: # 颜色
 

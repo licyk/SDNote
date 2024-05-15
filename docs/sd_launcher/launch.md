@@ -2,7 +2,7 @@
 # :fontawesome-solid-play: 一键启动
 
 ## 界面简介
-运行 启动器 后，程序会显示 一键启动 界面，该界面大致分成6部分。
+运行 启动器 后，程序会显示 一键启动 界面，该界面大致分成7部分。
 
 <figure markdown="span">
     ![一键启动界面](../assets/doc/sd_launcher-launch1.jpg "点击放大")
