@@ -260,7 +260,7 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 
 - 方法 2：手动将图片命名成和模型一样的并放至在和模型同一个目录下。
 
-将一张图片的文件名命名成和模型一样的名字，然后放在和模型文坚放在一起即可。
+将一张图片的文件名命名成和模型一样的名字，然后放在和模型文件放在一起即可。
 
 ![rename_image_file_name_and_put_into_model_folder](../../assets/images/guide/extra/rename_image_file_name_and_put_into_model_folder.jpg)
 
