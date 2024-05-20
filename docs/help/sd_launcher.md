@@ -136,3 +136,21 @@ title: 绘世启动器
 ![net_runtime_already_installed_newer_version](../assets/images/help/sd_launcher/net_runtime_already_installed_newer_version.jpg)
 
 这说明你不再需要安装绘世启动器的依赖了。因为在 Windows 系统中已存在绘世启动器的依赖，所以可直接打开绘世启动器并使用。
+
+***
+
+## 打开绘世启动器时出现未知错误，报错显示'The process cannot access the file because it is being used by another process'
+这是因为你多次点击绘世启动器的图标，导致同时启动了多个绘世启动器，造成绘世启动器的某个文件被同时占用，导致绘世启动器崩溃。
+
+![sd_launcher_file_being_used_by_another_process](../assets/images/help/sd_launcher/sd_launcher_file_being_used_by_another_process.jpg)
+
+这个问题只需要通过双击鼠标左键来打开绘世启动器就行，不要多次点击绘世启动器图标。如果要多开多个绘世启动器，请等待第一个绘世启动器完全启动后再打开第二个绘世启动器。
+
+***
+
+## 绘世启动器提示体验降级，显示'启动器无法加载增强体验模块...你可能正在使用不收完整支持的 Python 组件结构'
+在绘世启动器的高级选项中提示“启动器无法加载增强体验模块，这将导致如默认浏览器指定、Huggingface 镜像及环境完整性检测等部分功能无法正常工作，你可能正在使用不收完整支持的 Python 组件结构”。
+
+![unsupported_python_structure_has_detected](../assets/images/help/sd_launcher/unsupported_python_structure_has_detected.jpg)
+
+这是因为使用了嵌入式 Python 而不是完整的 Python，这个问题常出现在 ComfyUI 官方整合包中，如果要解决这个问题，请使用秋葉aaaki制作的 ComfyUI 整合包或者使用绘世启动器部署 ComfyUI。
