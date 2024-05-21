@@ -20,7 +20,7 @@ title: 杂项
 
 
 ## 小工具
-这里包含了一些小工具。
+这里包含了一些小工具的链接。
 
 ![tools](../../assets/images/sd_launcher/other/tools.jpg)
 

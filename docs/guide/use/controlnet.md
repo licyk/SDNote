@@ -79,7 +79,7 @@ title: ControlNet 应用
 - 引导介入 / 终止时机：调节 ControlNet 介入图片生成过程的时机。
 - 控制模式：调节生图时提示词和 ControlNet 这两者所占的控制强度。
 
-- 
+
 ## 不同 ControlNet 的作用
 下面列出不同 ControlNet 的作用。
 

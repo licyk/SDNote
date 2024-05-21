@@ -38,7 +38,7 @@ SD WebUI 的界面大致分为几个部分。
 ## 提示词输入
 大致认识了界面后，现在来调整生成图片的参数。
 
-在正面提示词中输入你想要 AI 生成的东西（必须是英文），这里我们可以利用 a1111-sd-webui-tagcomplete 扩展来辅助我们输入提示词。使用方向键选择要补全的提示词，Tab 键 / Enter 键补全提示词。
+在正面提示词中输入你想要 AI 生成的东西（必须是英文），这里我们可以利用 a1111-sd-webui-tagcomplete 扩展来辅助我们输入提示词。使用方向键选择要补全的提示词，++tab++ 键 / ++enter++ 键补全提示词。
 
 ![tag_complete](../../assets/images/guide/t2i/tag_complete.jpg)
 

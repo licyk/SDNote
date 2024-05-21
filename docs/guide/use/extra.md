@@ -189,7 +189,7 @@ SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径�
 ## SD WebUI 中不同模型的放置路径
 |模型种类|放置路径|
 |---|---|
-|Stable Diffusion 模型（大模型）|stable-diffusion-webui/models/Stable-diffusion|
+|Stable Diffusion Checkpoint 模型（大模型）|stable-diffusion-webui/models/Stable-diffusion|
 |VAE 模型|stable-diffusion-webui/models/VAE|
 |VAE-approx 模型|stable-diffusion-webui/models/VAE-approx|
 |LoRA 模型|stable-diffusion-webui/models/Lora|
