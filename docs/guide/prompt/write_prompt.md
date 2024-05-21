@@ -71,5 +71,5 @@ lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits
 为了在画面内取消两个词之间的联想，最简单但不一定有效的做法是将被联想词写入负面咒语并加上较高权重。如果没有效果，那么不妨试一试在咒语内加上被联想词的对立面，比如用 aged up 对抗 flat chest 对于 child 的强联想。
 
 !!!note
-    在 SD WebUI 中，调整提示词的可用这种方法：`(提示词:权重)`
+    在 SD WebUI 中，调整提示词的方式可见[提示词高级用法](./advance.md)
 

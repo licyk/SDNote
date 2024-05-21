@@ -23,7 +23,7 @@ title: 环境维护
 
 PyTorch 版本需要和显卡的型号相对应，以保证 SD WebUI，ComfyUI 等 WebUI 能够正常运行 Stable Diffusion。
 
-查看显卡型号可在使用任务管理器，按下`Ctrl + Shift + ESC`启动任务管理器，点击`性能`->`GPU`，右上角就是显卡的型号。
+查看显卡型号可在使用任务管理器，按下++ctrl+shift+esc++启动任务管理器，点击`性能`->`GPU`，右上角就是显卡的型号。
 
 ![task_manager](../../assets/images/sd_launcher/install/task_manager.jpg)
 

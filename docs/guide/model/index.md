@@ -28,9 +28,9 @@ Embedding 模型常用于负面提示词中，用于提升生图的质量。
 
 
 ## LoRA 模型
-LoRA 模型全称 Low-Rank Adaptation of Large Language Models，是一种用于微调大型模型的轻量级技术。它的主要特点是使用低秩矩阵进行参数更新，这样只需训练较小体积的模型，然后将这些参数注入到 Stable Diffusion 模型中，以快速实现风格的调整或添加新的人物 / IP。
+LoRA 模型全称 Low-Rank Adaptation of Large Language Models，是一种用于微调大型模型的轻量级技术。它的主要特点是使用低秩矩阵进行参数更新，这样只需训练较小体积的模型，然后将这些参数注入到 Checkpoint 模型中，以快速实现风格的调整或添加新的人物 / IP。
 
-通过 LoRA 模型，可以实现一些 Stable Diffusion 模型原本很难出来的效果，如人物的某种动作等。
+通过 LoRA 模型，可以实现一些 Checkpoint 模型原本很难出来的效果，如人物的某种动作等。
 
 论文：[[2106.09685] LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)
 
@@ -71,13 +71,16 @@ FP32 和 FP16 精度出图的效果完全一致，FP16 和 FP8 精度出图的�
 
 
 ## 模型版本
-Stable Diffusion 模型（大模型）存在版本之分，以下为常见的版本：
+Stable Diffusion Checkpoint 模型（大模型）存在版本之分，以下为常见的版本：
 
 - Stable Diffusion 1.4 / 1.5
 - Stable Diffusion 2.0 / 2.1
 - Stable Diffusion XL 0.9 / 1.0
 - Stable Cascade
 - Stable Diffusion 3
+
+!!! warning
+    不同版本的模型之间并不一定能兼容。
 
 Stable Diffusion 1.5 的生态比较丰富，比如对应版本的 LoRA 模型、ControlNet 模型。而被泄露的 NovelAI 1 模型基于 Stable Diffusion 1.4 进行训练，但是因为 Stable Diffusion 1.4 和 Stable Diffusion 的差别较小，所以 LoRA 之类的模型是通用的。
 
