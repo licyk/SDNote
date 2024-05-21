@@ -24,6 +24,10 @@ title: 杂项
 
 ![tools](../../assets/images/sd_launcher/other/tools.jpg)
 
+
+## 交流群
+点击显示绘世启动器官方交流渠道（Discord 无法直接访问）。
+
 ## 灯泡
 切换启动器界面颜色（深色 / 浅色）。
 
