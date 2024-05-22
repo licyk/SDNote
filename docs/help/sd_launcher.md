@@ -145,7 +145,7 @@ title: 绘世启动器
 ![sd_launcher_file_being_used_by_another_process](../assets/images/help/sd_launcher/sd_launcher_file_being_used_by_another_process.jpg)
 
 这个问题只需要通过双击鼠标左键来打开绘世启动器就行，不要多次点击绘世启动器图标。如果要多开多个绘世启动器，请等待第一个绘世启动器完全启动后再打开第二个绘世启动器。
-
+<!---TODO 待迁移到主分支--->
 ***
 
 ## 绘世启动器提示体验降级，显示'启动器无法加载增强体验模块...你可能正在使用不收完整支持的 Python 组件结构'
@@ -154,3 +154,4 @@ title: 绘世启动器
 ![unsupported_python_structure_has_detected](../assets/images/help/sd_launcher/unsupported_python_structure_has_detected.jpg)
 
 这是因为使用了嵌入式 Python 而不是完整的 Python，这个问题常出现在 ComfyUI 官方整合包中，如果要解决这个问题，请使用秋葉aaaki制作的 ComfyUI 整合包或者使用绘世启动器部署 ComfyUI。
+<!---TODO 待迁移到主分支--->
