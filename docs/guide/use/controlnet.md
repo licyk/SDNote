@@ -107,3 +107,5 @@ title: ControlNet 应用
     点击种类的名称可下载对应的 ControlNet 模型，ControlNet 模型放置在 stable-diffusion-webui/models/ControlNet 路径中
 
 不同的 ControlNet 可组合起来一起使用，实现不同的效果。
+
+<!---TODO 说明预处理器和模型的关系---->
