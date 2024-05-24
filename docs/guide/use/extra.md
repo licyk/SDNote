@@ -189,7 +189,7 @@ SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径�
 ## SD WebUI 中不同模型的放置路径
 |模型种类|放置路径|
 |---|---|
-|Stable Diffusion Checkpoint 模型（大模型）|stable-diffusion-webui/models/Stable-diffusion|
+|Stable Diffusion 模型（大模型）|stable-diffusion-webui/models/Stable-diffusion|
 |VAE 模型|stable-diffusion-webui/models/VAE|
 |VAE-approx 模型|stable-diffusion-webui/models/VAE-approx|
 |LoRA 模型|stable-diffusion-webui/models/Lora|
@@ -267,3 +267,10 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 - 方法 3：使用扩展（不推荐）。
 
 可以使用的扩展有 [Stable-Diffusion-Webui-Civitai-Helper](https://github.com/butaixianran/Stable-Diffusion-Webui-Civitai-Helper)、[sd-civitai-browser-plus](https://github.com/BlafKing/sd-civitai-browser-plus)，这里就不做详细的介绍了。
+
+
+## 开启 / 关闭共享显存
+
+https://nvidia.custhelp.com/app/answers/detail/a_id/5490
+
+<!---TODO 待完成并迁移到主分支--->

@@ -565,3 +565,39 @@ SD WebUI 出现报错后，在绘世启动器的疑难解答的扫描中，显�
 
 该报错有关的说明：[Fix dtype mismatch by KohakuBlueleaf · Pull Request #359 · pkuliyi2015/multidiffusion-upscaler-for-automatic1111](https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111/pull/359)
 
+***
+
+## 启动时显示'RuntimeError: Failed to import transformers.modeling_utils because of the follow error'，报错信息中有 protobuf 相关的提示
+在启动 SD WebUI 出现下方的报错导致无法启动，报错信息如下。
+
+```
+RuntimeError: Failed to import transformers.modeling_utils because of the follow error (look up to see its traceback):
+Description cannot be created directly.
+If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+If you cannot imediately regenerate your protos, some other possible workarounds are:
+ 1. Downgrade the protobuf package to 3.20.x or lower.
+ 2. Set PROTOCOL_BUFFERS_PYTHON_IMOLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+
+More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates
+```
+
+这是因为 [adetailer](https://github.com/Bing-su/adetailer) 插件将 protobuf 软件包的版本要求提高了，在 SD WebUI 启动阶段将这个软件包升级，导致其他组件出现了不兼容。
+
+解决方法是在绘世启动器的版本管理 -> 扩展，将 adetailer 插件回退到 4 月 17 号的 1edd588 版本，然后在绘世启动器的高级选项中，点击右上角的启动命令提示符，输入下面的命令。
+
+```
+python -m pip install mediapipe==0.10.11
+```
+
+命令执行完成后重启 SD WebUI。
+
+***
+
+## ImportError: cannot import name 'packaging' from 'pkg_resources'
+这是因为 Python 环境中的 setuptools 的版本较新，在新版中移除了 packaging 模块，导致模块导入失败。在绘世启动器的高级选项中，点击右上角的启动命令提示符，输入以下的命令。
+
+```
+python -m pip install setuptools==65.5.0
+```
+
+降级 setuptools 软件包后重新启动 SD WebUI。

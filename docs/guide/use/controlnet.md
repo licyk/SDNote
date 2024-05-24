@@ -83,7 +83,7 @@ title: ControlNet 应用
 ## 不同 ControlNet 的作用
 下面列出不同 ControlNet 的作用。
 
-|种类|作用|控制图片|处理厚的控制图片|效果图|
+|种类|作用|控制图片|处理后的控制图片|效果图|
 |---|---|---|---|---|
 |[Canny](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11p_sd15_canny_fp16.safetensors)|使用粗略的线条描绘图片中物体的边缘，生成线稿图。生图过程中使用线稿图约束物体的边缘。|![origin_canny](../../assets/images/guide/controlnet/origin_canny.jpg)|![preprocess_canny](../../assets/images/guide/controlnet/preprocess_canny.jpg)|![output_canny](../../assets/images/guide/controlnet/output_canny.jpg)|
 |[Depth](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11f1p_sd15_depth_fp16.safetensors)|生成一个灰度图，通过灰度的深浅描述物品的前后远近关系，指导大模型生成图片时物品的远近关系。|![origin_depth](../../assets/images/guide/controlnet/origin_depth.jpg)|![preprocess_depth](../../assets/images/guide/controlnet/preprocess_depth.jpg)|![output_depth](../../assets/images/guide/controlnet/output_depth.jpg)|
@@ -107,3 +107,12 @@ title: ControlNet 应用
     点击种类的名称可下载对应的 ControlNet 模型，ControlNet 模型放置在 stable-diffusion-webui/models/ControlNet 路径中
 
 不同的 ControlNet 可组合起来一起使用，实现不同的效果。
+
+***
+
+## ControlNet 预处理器和 ControlNet 模型的关系
+ControlNet 模型在控制图片的生成时，需要使用一张图作为参考，但是 ControlNet 模型并不认识普通的图片，所以这就需要使用 ControlNet 预处理将图片处理成 ControlNet 模型认识的图片。
+
+ControlNet 预处理器后的图片如上方[不同 ControlNet 的作用](./controlnet.md#controlnet_2)部分中表格的处理后的控制图片的一样的效果。如果给 ControlNet 模型参考的图片是已经经过 ControlNet 处理过的图片时，就不需要再次经过 ControlNet 预处理器进行处理。
+
+ControlNet 预处理器并不参与生图的采样过程，所以并不存在只兼容 Stable Diffusion 1.5 或者 Stable Diffusion XL 的说法。而 ControlNet 模型参与生图过程的采样过程，所以需要使用匹配版本的 Stable Diffusion 模型，如果出现`mat1 and mat2 shapes cannot be multiplied`这种报错，这就说明 ControlNet 模型和 Stable Diffusion 模型的版本不匹配。
