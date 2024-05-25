@@ -34,6 +34,10 @@ SD WebUI 的界面大致分为几个部分。
 - 图片预览
 ![preview_interface](../../assets/images/guide/t2i/preview_interface.jpg)
 
+!!!note
+    如果你的界面不是中文，可以安装 stable-diffusion-webui-localization-zh_Hans 扩展。  
+    stable-diffusion-webui-localization-zh_Hans 扩展下载：https://github.com/hanamizuki-ai/stable-diffusion-webui-localization-zh_Hans  
+    安装该扩展后，在 SD WebUI 的`Settings`->`User interface`，在`Localization`选项选择`zh-hans (Stable)`，然后点击`Apply settings`保存设置，再点击`Reload UI`使设置生效。
 
 ## 提示词输入
 大致认识了界面后，现在来调整生成图片的参数。
