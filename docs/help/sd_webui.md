@@ -291,7 +291,7 @@ ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
 ***
 
 ## 停止使用 sd-webui-additional-networks 扩展
-[sd-webui-additional-networks](https://github.com/kohya-ss/sd-webui-additional-networks) 扩展仅支持 SD 1.5 的 LoRA 模型，并且已经停止更新，而在新版的 SD WebUI 中已经原生支持 LoRA 模型，请卸载 sd-webui-additional-networks 扩展，并使用原生方式使用 LoRA 模型，参看：[【AI绘画】停止使用LoRA插件，请使用WebUI内置原生LoRA - 哔哩哔哩](https://www.bilibili.com/read/cv26261691)
+[sd-webui-additional-networks](https://github.com/kohya-ss/sd-webui-additional-networks) 扩展仅支持 SD 1.5 的 LoRA 模型，并且已经停止更新，而在新版的 SD WebUI 中已经原生支持 LoRA 模型，请卸载 sd-webui-additional-networks 扩展，并使用原生方式使用 LoRA 模型，参看：[【AI绘画】停止使用LoRA扩展，请使用WebUI内置原生LoRA - 哔哩哔哩](https://www.bilibili.com/read/cv26261691)
 
 ***
 
@@ -538,17 +538,17 @@ SD WebUI 出现报错后，在绘世启动器的疑难解答的扫描中，显�
 ***
 
 ## xxx() takes x positional argument but x were given
-这是因为函数导入参数多于函数本身需求，请先确保插件和软件整体都已经是最新，若问题未解决可以尝试先找到你的环境目录然后进入'Lib\site-packages'文件夹下查看是否存在文件夹名前面存在'~'符号的，如果存在请立刻删除，然后重启启动器及SD
+这是因为函数导入参数多于函数本身需求，请先确保扩展和软件整体都已经是最新，若问题未解决可以尝试先找到你的环境目录然后进入`Lib\site-packages`文件夹下查看是否存在文件夹名前面存在`~`符号的，如果存在请立刻删除，然后重启启动器及 SD WebUI。
 
 ***
 
 ## 无法成功安装第三方包且报错信息不为网络内存错误
-先找到你的环境目录然后进入'Lib\site-packages'文件夹下查看是否存在文件夹名前面存在'~'符号的，如果存在请立刻删除，删除后重新执行安装第三方包操作
+先找到你的环境目录然后进入`Lib\site-packages`文件夹下查看是否存在文件夹名前面存在`~`符号的，如果存在请立刻删除，删除后重新执行安装第三方包操作。
 
 ***
 
 ## module 'xxx' has no attribute 'xxx'
-代码在库找不到对应函数，一般可以通过升级或降低库版本解决，若还是不行(不建议)你可能要到对应库的github仓库拉去代码并执行`python setup.py install`来解决
+代码在库找不到对应函数，一般可以通过升级或降低库版本解决，若还是不行(不建议)你可能要到对应库的 Github 仓库拉去代码并执行`python setup.py install`来解决
 
 ***
 
@@ -581,9 +581,9 @@ If you cannot imediately regenerate your protos, some other possible workarounds
 More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates
 ```
 
-这是因为 [adetailer](https://github.com/Bing-su/adetailer) 插件将 protobuf 软件包的版本要求提高了，在 SD WebUI 启动阶段将这个软件包升级，导致其他组件出现了不兼容。
+这是因为 [adetailer](https://github.com/Bing-su/adetailer) 扩展将 protobuf 软件包的版本要求提高了，在 SD WebUI 启动阶段将这个软件包升级，导致其他组件出现了不兼容。
 
-解决方法是在绘世启动器的版本管理 -> 扩展，将 adetailer 插件回退到 4 月 17 号的 1edd588 版本，然后在绘世启动器的高级选项中，点击右上角的启动命令提示符，输入下面的命令。
+解决方法是在绘世启动器的版本管理 -> 扩展，将 adetailer 扩展回退到 4 月 17 号的 1edd588 版本，然后在绘世启动器的高级选项中，点击右上角的启动命令提示符，输入下面的命令。
 
 ```
 python -m pip install mediapipe==0.10.11
@@ -601,3 +601,24 @@ python -m pip install setuptools==65.5.0
 ```
 
 降级 setuptools 软件包后重新启动 SD WebUI。
+
+***
+
+## 提示词反推扩展在 SD WebUI 界面中不显示，控制台有反推提示词扩展的报错
+提示词反推扩展在 SD WebUI 界面中不显示，在控制台中看到有关提示词反推扩展的报错，报错如下。
+
+```
+*** Error running preload() for F:\new webui\sd-webui-aki-v4.8\extensions\stable-diffusion-webui-wd14-tagger\preload.py
+    ...
+    ImportError: cannot import name 'models_path' from partially initialized module 'modules.shared' ...
+```
+
+这是因为提示词反推扩展版本过旧，并且当前的提示词反推扩展的分支已无人维护，导致无法兼容新版的 SD WebUI，有以下两种方法解决。
+
+- 方法一
+
+在绘世启动器的设置中，确保`Git 国内景象`和`替换扩展列表链接`这两个开关处于打开状态，然后前往绘世启动器的`版本管理`->`扩展`，将提示词反推扩展（stable-diffusion-webui-wd14-tagger）更到最新的版本。
+
+- 方法二
+
+在绘世启动器的`版本管理`->`扩展`中，将提示词反推扩展卸载，然后在`安装新扩展`中，在下方的地址栏输入`https://github.com/Akegarasu/sd-webui-wd14-tagger`后点击右侧的安装。
