@@ -622,3 +622,19 @@ python -m pip install setuptools==65.5.0
 - 方法二
 
 在绘世启动器的`版本管理`->`扩展`中，将提示词反推扩展卸载，然后在`安装新扩展`中，在下方的地址栏输入`https://github.com/Akegarasu/sd-webui-wd14-tagger`后点击右侧的安装。
+
+***
+
+## 启动时显示'RuntimeError: Failed to import transformers.modeling_utils because of the follow error'，报错信息中有 jax 相关的提示
+在启动 SD WebUI 出现下方的报错导致无法启动，报错信息如下。
+
+```
+RuntimeError: Failed to import transformers.modeling_utils because of the follow error (look up to see its traceback):
+jaxlib version 0.4.28 is newer than and incompatible with jax version 0.4.8. Please update jax and/or jaxlib packages.
+```
+
+这是因为 jax 软件包版本太旧，需要更新。在绘世启动器的高级选项中，点击右上角的启动命令提示符，输入下面的命令并回车。
+
+```
+python -m pip install jax -U
+```
