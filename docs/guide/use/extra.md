@@ -269,8 +269,16 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 可以使用的扩展有 [Stable-Diffusion-Webui-Civitai-Helper](https://github.com/butaixianran/Stable-Diffusion-Webui-Civitai-Helper)、[sd-civitai-browser-plus](https://github.com/BlafKing/sd-civitai-browser-plus)，这里就不做详细的介绍了。
 
 
-## 开启 / 关闭共享显存
+## 启用 / 禁用共享显存
+在 Nvidia 显卡驱动大于 525 后，允许 SD WebUI 等基于 SD 的软件调用显卡的共享显存，以弥补显卡的专用显存不足的问题。但是在 SD WebUI 调用共享显存后，出图的速度会大大降低，所以可以禁用共享显存来防止这种情况。
 
-https://nvidia.custhelp.com/app/answers/detail/a_id/5490
+!!!note
+    在禁用共享显存之前，请确保 Nvidia 显卡驱动的版本大于 536。
 
-<!---TODO 待完成并迁移到主分支--->
+- 使用绘世启动器禁用
+
+在绘世启动器的`高级选项`中，`性能设置`一栏有个`使用共享显存`的开关，关闭后即可禁用共享显存。
+
+- 使用 Nvidia 显卡驱动面板
+
+参考 Nvidia 官方文档：https://nvidia.custhelp.com/app/answers/detail/a_id/5490
