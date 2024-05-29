@@ -59,7 +59,7 @@ a1111-sd-webui-haku-img 扩展可对图像进行一些处理，如提取图片�
 ![adetailer](../../assets/images/guide/extra
 /adetailer.jpg)
 
-注意，在局部重绘中该插件并不会生效，因为这个插件的本质是自动检测面部位置并进行局部重绘。
+注意，在局部重绘中该扩展并不会生效，因为这个扩展的本质是自动检测面部位置并进行局部重绘。
 
 !!!note
     adetailer 扩展下载：https://github.com/Bing-su/adetailer
@@ -282,3 +282,16 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 - 使用 Nvidia 显卡驱动面板
 
 参考 Nvidia 官方文档：https://nvidia.custhelp.com/app/answers/detail/a_id/5490
+
+
+## 保存 SD WebUI 预设
+如果需要在进入 SD WebUI 后自动应用之前的参数，可以将这些参数调整好（建议先刷新一遍 SD WebUI 的网页），然后在 SD WebUI 的`设置`->`默认设置`，点击`应用`将这些参数保存到预设中，这些预设将保存在 ui-config.json 文件中，当点击`重载 UI`后预设将生效。
+
+如果想重置预设，可以在 SD WebUI 的目录下把 ui-config.json 文件删除，并重启 SD WebUI。
+
+
+## 将当前的生图参数保存成工作流
+在 SD WebUI 中可以通过安装 LightDiffusionFlow 扩展实现 ComfyUI 的保存工作流的效果，生图调整好后，在 SD WebUI 右下角看到该扩展的选项卡，点击保存按钮即可将当前的所有生图参数保存在一个工作流文件中。更多的工作流可在该网站查看：https://www.lightflow.ai
+
+!!!note
+    LightDiffusionFlow 扩展下载：https://github.com/Tencent/LightDiffusionFlow

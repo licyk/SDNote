@@ -13,7 +13,7 @@ title: 部署功能
 
 在选择内核分支中可以选择你想要部署的 Stable Diffusion 项目，目前支持部署的 Stable Diffusion 项目如下。
 
-- AUTOMATIC1111/stable-diffusion-webui：功能多，插件丰富的 SD WebUI，
+- AUTOMATIC1111/stable-diffusion-webui：功能多，扩展丰富的 SD WebUI，
 - lshqqytiger/stable-diffusion-webui-directml：在 SD WebUI 的基础上添加了 DirectML 的支持，使在 Windows 系统上不支持 ZLUDA 的 AMD 显卡也能跑图。
 - vladmandic/automatic：和 SD WebUI 类似，但稳定性较差，不推荐。
 - comfyanonymous/ComfyUI：使用节点流进行图片生成。
