@@ -22,6 +22,9 @@ title: 画师提示词应用
 |[vaeapprox-sdxl](https://modelscope.cn/api/v1/models/licyks/sd-vae/repo?Revision=master&FilePath=vae-approx%2Fvaeapprox-sdxl.pt)|stable-diffusion-webui/models/VAE-approx|
 |[model](https://modelscope.cn/api/v1/models/licyks/sd-vae/repo?Revision=master&FilePath=vae-approx%2Fmodel.pt)|stable-diffusion-webui/models/VAE-approx|
 
+!!!note
+    将大模型换成 SDXL 后，VAE 模型也要换成对应 SDXL 版本的，否则将出现花图。
+
 这里先尝试不用画师提示词的写法。
 ```
 1girl,animal ears,animal ear fluff,cat ears,pink hair,short hair,bangs,blush,closed mouth,light smile,purple eyes,hair between eyes,white hoodie,flat chest,

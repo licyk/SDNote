@@ -471,18 +471,25 @@ sd-webui-prompt-all-in-one 扩展将 LoRA 模型显示为粉红色，并不断�
 ## FileNotFoundError: [Errno 2] No such file or directory: '...\\site-packages\\open_clip\\bpe_simple_vocab_16e6.txt.gz'
 这是因为缺失了 bpe_simple_vocab_16e6.txt.gz 这个文件，可尝试以下其中一种方法恢复。
 
-方法1：重新安装 open-clip-torch
+方法1：重新安装 clip
 
 1. 在绘世启动器的高级选项中，点击右上角的启动命令提示符，打开命令提示符。
-2. 输入下面的命令重新安装 open-clip-torch。
+2. 输入下面的命令重新安装 clip。
 ```bash
-python -m pip install open-clip-torch --force-reinstall --no-deps
+python -m pip install %CLIP_PACKAGE% --force-reinstall --no-deps
 ```
+
+!!!note
+    上述方法基于绘世启动器进行操作，如果不使用绘世启动器，需要将命令换成`python -m pip install git+https://github.com/openai/CLIP --force-reinstall --no-deps`
 
 方法2：直接将缺失文件放到对应位置
 
-1. 点击 [bpe_simple_vocab_16e6.txt.gz](https://gitee.com/licyk/README-collection/releases/download/archive/bpe_simple_vocab_16e6.txt.gz) 这个下载链接下载 bpe_simple_vocab_16e6.txt.gz 文件。
-2. 将这个文件放到报错提示的路径中。
+1. 在以下的地址选择其中一个下载 bpe_simple_vocab_16e6.txt.gz 文件，并将这个文件放到报错提示的路径中。
+
+|bpe_simple_vocab_16e6.txt.gz 下载地址|
+|---|
+|[下载地址 1](https://gitee.com/licyk/README-collection/releases/download/archive/bpe_simple_vocab_16e6.txt.gz)|
+|[下载地址 2](https://raw.githubusercontent.com/openai/CLIP/HEAD/clip/bpe_simple_vocab_16e6.txt.gz)|
 
 ***
 
@@ -638,3 +645,30 @@ jaxlib version 0.4.28 is newer than and incompatible with jax version 0.4.8. Ple
 ```
 python -m pip install jax -U
 ```
+
+***
+
+## [ONNXRuntimeError] : 1 : FAIL : LoadLibrary failed with error 126
+在运行 SD WebUI 时出现下面的报错。
+
+```
+RuntimeError: D:\a_work\1\s\onnxruntime\core\session\provider_bridge_ort.cc:1106
+onnxruntime::ProviderLibrary::Get [ONNXRuntimeError] : 1 : FAIL : LoadLibrary failed with error 126 "" when trying to load "C:\AI\StableDiffusion\sd-webui-aki-v4.4\python\lib\site-packages\onnxruntime\capi\onnxruntime_providers_tensorrt.dll"
+```
+
+这是因为 onnxruntime 损坏了，无法正常加载模块，需要重装 onnxruntime。
+
+1. 在绘世启动器的高级选项中，点击右上角的启动命令提示符。
+2. 输入下面的命令卸载 onnxruntime。
+
+```
+python -m pip uninstall onnxruntime -y
+```
+
+3. 重新安装 onnxruntime。
+
+```
+python -m pip install onnxruntime
+```
+
+安装完成后重新启动 SD WebUI。
