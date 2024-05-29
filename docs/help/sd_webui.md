@@ -491,6 +491,9 @@ python -m pip install %CLIP_PACKAGE% --force-reinstall --no-deps
 |[下载地址 1](https://gitee.com/licyk/README-collection/releases/download/archive/bpe_simple_vocab_16e6.txt.gz)|
 |[下载地址 2](https://raw.githubusercontent.com/openai/CLIP/HEAD/clip/bpe_simple_vocab_16e6.txt.gz)|
 
+!!!note
+    视频版教程：[【AI 绘画】解决 SD WebUI 启动时出现 bpe_simple_vocab_16e6.txt.gz 缺失导致无法启动的问题_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1M1421q7Kp)
+
 ***
 
 ## SD WebUI 启动完成后没有弹出界面
