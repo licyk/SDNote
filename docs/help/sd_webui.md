@@ -661,14 +661,14 @@ onnxruntime::ProviderLibrary::Get [ONNXRuntimeError] : 1 : FAIL : LoadLibrary fa
 
 这是因为 onnxruntime 损坏了，无法正常加载模块，需要重装 onnxruntime。
 
-1. 在绘世启动器的高级选项中，点击右上角的启动命令提示符。
-2. 输入下面的命令卸载 onnxruntime。
+在绘世启动器的高级选项中，点击右上角的启动命令提示符，在弹出的命令提示符输入下面的命令卸载 onnxruntime。
+
 
 ```
 python -m pip uninstall onnxruntime -y
 ```
 
-3. 重新安装 onnxruntime。
+再输入下面的命令重新安装 onnxruntime。
 
 ```
 python -m pip install onnxruntime
