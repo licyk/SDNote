@@ -38,6 +38,7 @@ hide:
 - [Model basis theory | Civitai](https://civitai.com/articles/640/model-basis-theory)
 - [Merge Block Weight 魔法密录1.0正式版](https://docs.qq.com/doc/DTklkTllGQmdac3Jl)
 - [AI绘画资料合集](https://github.com/hua1995116/awesome-ai-painting)
+- [LoRA info links compilation](https://rentry.co/6172384)
 
 
 ## 社区
