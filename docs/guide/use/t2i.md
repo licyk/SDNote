@@ -85,7 +85,7 @@ lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits
 |---|---|---|
 |Eular a|Uniform / Exponential|20|
 |DPM++ 系|Exponentia|20|
-|Restart|Autumatic|10|
+|Restart|Karras / SGM Uniform|10|
 |Unipc|Autumatic|13|
 
 
