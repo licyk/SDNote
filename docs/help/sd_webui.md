@@ -135,13 +135,9 @@ python -m pip install tqdm
 
 这里用 [Animagine XL 3](https://huggingface.co/cagliostrolab/animagine-xl-3.0) 举例。
 
-- 使用不合适的分辨率
-
-![use_wrong_config_sdxl_model](../assets/images/help/sd_webui/use_wrong_config_sdxl_model.jpg)
-
-- 使用合适的分辨率
-
-![use_right_config_sdxl_model](../assets/images/help/sd_webui/use_right_config_sdxl_model.jpg)
+|使用不合适的分辨率|使用合适的分辨率|
+|---|---|
+|![use_wrong_config_sdxl_model](../assets/images/help/sd_webui/use_wrong_config_sdxl_model.jpg)|![use_right_config_sdxl_model](../assets/images/help/sd_webui/use_right_config_sdxl_model.jpg)|
 
 ***
 
@@ -398,13 +394,9 @@ SD WebUI 点击切换模型按钮但无法切换模型，点击生成按钮后�
 ## 生图过程时的预览图是正常的，但是出图后图片突然发灰
 这是因为融合模型在融合的时候，模型内的 VAE 出现了问题，尝试外挂 VAE 模型解决。
 
-- 未外挂 VAE 模型前
-
-![no_use_external_vae_model](../assets/images/help/sd_webui/no_use_external_vae_model.jpg)
-
-- 外挂 VAE 模型后
-
-![use_external_vae_model](../assets/images/help/sd_webui/use_external_vae_model.jpg)
+|未外挂 VAE 模型前|外挂 VAE 模型后|
+|---|---|
+|![no_use_external_vae_model](../assets/images/help/sd_webui/no_use_external_vae_model.jpg)|![use_external_vae_model](../assets/images/help/sd_webui/use_external_vae_model.jpg)|
 
 ***
 
