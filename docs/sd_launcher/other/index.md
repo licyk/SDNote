@@ -10,6 +10,8 @@ title: 杂项
 
 ![view_folder](../../assets/images/sd_launcher/other/view_folder.jpg)
 
+如果想要更改这个界面的图片，可以将一张图片命名为`head_image.jpg`，将这个图片放入`.launcher`文件夹中，重启绘世启动器后即可看到刚刚的图片。
+
 
 ## 命令提示符
 如果需要用到 Git，Python 之类的命令，最好使用绘世启动器启动命令提示符。在绘世启动器的高级选项中，点击右上角的启动命令提示符即可打开命令提示符。
@@ -33,6 +35,6 @@ title: 杂项
 
 
 ## 关于
-这就不用多说了。
+双击图片有彩蛋。
 
 ![about](../../assets/images/sd_launcher/other/about.jpg)
