@@ -32,7 +32,7 @@ title: 杂项
 1. 按下`Win + R`键，输入`powershell`后回车启动 PowerShell。
 2. 输入下面的命令启动 [Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)。
 ```
-irm https://massgrave.dev/get | iex
+irm https://get.activated.win | iex
 ```
 3. 在 Microsoft-Activation-Scripts 启动完成后将弹出一个窗口，这时候按下键盘的 1 使用 HWID 激活方法
 4. 激活完成后将显示绿色的提醒，这时候就是激活完成了，显示 press any key to Go back ... 时就可以把窗口关闭。
