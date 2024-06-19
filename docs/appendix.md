@@ -140,6 +140,7 @@ hide:
 - [Xianyun-TagSelect](https://nai3.xianyun.cool/tag_selector)
 - [NovelAI tag在线生成器](https://hipete19.github.io/)
 - [500画风-NovelAI V3示例-上](https://docs.qq.com/doc/DRFdnb01mQXVBUm12)
+- [300画风法典：NAI3画风收集和研究](https://docs.qq.com/sheet/DZWZMemxNZkpVR0VB)
 - [Artists:（rentry.org）](https://rentry.org/NAIDv3artisttagtestoverview)
 - [wildcard/character.txt · Linaqruf/animagine-xl at main](https://huggingface.co/spaces/Linaqruf/animagine-xl/blob/main/wildcard/character.txt)
 - [MEGA Nai v3 Artists](https://mega.nz/folder/dZ1RVJDK#jdO5hfJtWvICDGyFZFxMHA)
