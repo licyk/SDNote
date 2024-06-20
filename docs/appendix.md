@@ -86,6 +86,7 @@ hide:
 - [ComfyUI Tutorial - 中文](https://comfyui.jpanda.cn/)
 - [wyrde/wyrde-comfyui-workflows](https://github.com/wyrde/wyrde-comfyui-workflows)
 - [atlasunified/Templates-ComfyUI-](https://github.com/atlasunified/Templates-ComfyUI-)
+- [ComfyUI Org](https://www.comfy.org)
 
 
 ## 报错合集
