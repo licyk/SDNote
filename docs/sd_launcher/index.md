@@ -39,3 +39,11 @@ title: 简述
 - 设置
 
 ![settings](../assets/images/sd_launcher/total/settings.jpg)
+
+## 启动流程
+下图展示了绘世启动器的启动流程，列举了可能产生的问题和对应的解决方法。
+
+![sd_launcher_loading_process](../assets/images/sd_launcher/total/sd_launcher_loading_process.jpg)
+
+!!!info
+    图片待完成。

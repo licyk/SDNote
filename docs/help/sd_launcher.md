@@ -2,7 +2,10 @@
 title: 绘世启动器
 ---
 # 绘世启动器
-这里是有关绘世启动器的报错收集。
+这里是有关绘世启动器的报错收集，建议阅读绘世启动器的启动流程，有助于解决一些报错问题。
+
+!!!notice
+    绘世启动器的启动流程：[简述 - 绘世启动器 - SD Note](../sd_launcher/index.md#_3)
 
 
 ## You must install .NET Desktop Runtime to run this application
