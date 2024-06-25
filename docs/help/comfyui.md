@@ -216,3 +216,26 @@ comfyui:
 2. 如果这个节点的前面连接了其他节点（节点处在节点流的中间部分），这可能是这个节点的问题，也可能是这个节点之前的节点出现了问题（前面的节点给这个报错的节点传了错误的参数导致报错），这时需要检查前面的节点是否有参数错误，重新跳转后再试。
 
 ~~ComfyUI 的报错有时候让人捉摸不透。~~
+
+***
+
+## 修改 ComfyUI 的共享模型的配置文件后导致报错
+修改 extra_model_paths.yaml 文件后出现下面类似的报错导致 ComfyUI 无法启动。
+
+```
+yaml.scanner.ScannerError: mapping value are not allowed here
+    in "…\…\extra_model_paths.yaml", line x, column y
+```
+
+这是因为文件中出现了语法错误，举个例子。
+
+```yaml
+# 错误的写法，冒号后面缺少空格
+base_path:E:/sd_webui
+
+# 正确的写法
+base_path: E:/sd_webui
+```
+
+检查 extra_model_paths.yaml 文件中是否有语法错误并修改。如果需要重置该文件，可以将 extra_model_paths.yaml 文件删除，并将 ComfyUI 自动生成的 extra_model_paths.yaml.example 文件改名成 extra_model_paths.yaml，再重新修改里面的配置。
+
