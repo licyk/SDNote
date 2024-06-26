@@ -96,3 +96,13 @@ irm https://get.activated.win | iex
 1. 前往 [Visual Studio](https://visualstudio.microsoft.com/zh-hans/downloads/) 官网，在`所有下载`中展开`用于 Visual Studio 的工具`选项，找到`Visual Studio 2022 生成工具`后点击旁边的下载。
 2. 双击打开下载好的安装包，在弹出的窗口中选择继续，等待 Visual Studio Installer 安装完成。
 3. Visual Studio Installer 安装完成后将弹出安装生成工具的选项，勾选`使用 C++ 的桌面开发`，再点击右下角的安装，等待安装完成。
+
+***
+
+## 设置 Pip 镜像源
+打开终端，输入下面的命令。
+
+```bash
+pip config set global.index-url "https://mirrors.cloud.tencent.com/pypi/simple"
+pip config set global.find-links "https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html"
+```
