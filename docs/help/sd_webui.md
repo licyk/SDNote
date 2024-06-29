@@ -480,7 +480,7 @@ python -m pip install %CLIP_PACKAGE% --force-reinstall --no-deps
 
 |bpe_simple_vocab_16e6.txt.gz 下载地址|
 |---|
-|[下载地址 1](https://gitee.com/licyk/README-collection/releases/download/archive/bpe_simple_vocab_16e6.txt.gz)|
+|[下载地址 1](https://modelscope.cn/api/v1/models/licyks/sdnote/repo?Revision=master&FilePath=other%2Fbpe_simple_vocab_16e6.txt.gz)|
 |[下载地址 2](https://raw.githubusercontent.com/openai/CLIP/HEAD/clip/bpe_simple_vocab_16e6.txt.gz)|
 
 !!!note

@@ -295,3 +295,17 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 
 !!!note
     LightDiffusionFlow 扩展下载：https://github.com/Tencent/LightDiffusionFlow
+
+
+## 为提示词补全扩展添加词库和中文翻译
+[a1111-sd-webui-tagcomplete](https://github.com/DominikDoom/a1111-sd-webui-tagcomplete) 扩展可以提供提示词补全功能，在 SD WebUI 设置中和该扩展有关的设置中可以更换提示词补全的词库，也可以添加中文翻译，下面是更全的提示词补全词库和对应的中文翻译的下载地址。
+
+|[Tag++ 下载](https://modelscope.cn/api/v1/models/licyks/sdnote/repo?Revision=master&FilePath=tag%2Ftag%2B%2B.csv)|
+|---|
+|[Tag++ 中文翻译下载](https://modelscope.cn/api/v1/models/licyks/sdnote/repo?Revision=master&FilePath=tag%2Ftag%2B%2B_zh.csv)|
+
+将这两个文件下载到本地后，放进`stable-diffusion-webui/extensions/a1111-sd-webui-tagcomplete/tags`文件夹中，然后在 SD WebUI 的`设置`->`标签自动补全`中，在`选择使用的标签文件名`选择`tag++.csv`，`翻译文件名`选择`tag++_zh.csv`，勾选`翻译文件使用旧的三栏式翻译格式，而不是新的二栏式格式`，再点击上方的保存设置使设置生效。
+
+![switch_tag_file_and_add_tag_translation_for_tagcomplete](../../assets/images/guide/extra/switch_tag_file_and_add_tag_translation_for_tagcomplete.jpg)
+
+这样不仅可以看补全的提示词对应的翻译，也可以使用中文来触发提示词补全。
