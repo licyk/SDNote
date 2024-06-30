@@ -106,3 +106,51 @@ irm https://get.activated.win | iex
 pip config set global.index-url "https://mirrors.cloud.tencent.com/pypi/simple"
 pip config set global.find-links "https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html"
 ```
+
+***
+
+## 更新显卡驱动
+根据自己的显卡型号进入对应的显卡驱动官网，下载并安装驱动。
+
+Nvidia 驱动下载：https://www.nvidia.cn/geforce/drivers  
+AMD 驱动下载：https://www.amd.com/zh-hans/support  
+Intel 驱动下载：https://www.intel.cn/content/www/cn/zh/download-center/home.html
+
+视频版教程：[一看就会，教你更新Intel、AMD、Nvidia驱动_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Mq4y197yZ)
+
+***
+
+## 在终端中设置代理
+在终端中设置代理需要知道代理协议、IP、端口，再组成`<代理协议>://<IP>:<端口>`这个代理地址格式。
+
+IP 一般为`127.0.0.1`，而代理协议和端口可在代理软件中查看。
+
+得到代理地址后，比如`http://127.0.0.1:10809`，就可以根据不同的终端设置代理。
+
+- CMD
+
+```
+set HTTP_PROXY=http://127.0.0.1:10809
+set HTTPS_PROXY=http://127.0.0.1:10809
+set no_proxy=localhost,127.0.0.1,::1
+```
+
+- PowerShell
+
+```
+$env:HTTP_PROXY="http://127.0.0.1:10809"
+$env:HTTPS_PROXY="http://127.0.0.1:10809"
+$env:NO_PROXY="localhost,127.0.0.1,::1"
+```
+
+- Bash / Zsh / <UNIX Shell>
+
+```
+export http_proxy="http://127.0.0.1:10809"
+export https_proxy="http://127.0.0.1:10809"
+export no_proxy="localhost,127.0.0.1,::1"
+```
+
+!!!note
+    设置 no_proxy 变量是为了避免本地的 IP 也使用代理。
+
