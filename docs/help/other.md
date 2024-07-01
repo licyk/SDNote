@@ -143,7 +143,7 @@ $env:HTTPS_PROXY="http://127.0.0.1:10809"
 $env:NO_PROXY="localhost,127.0.0.1,::1"
 ```
 
-- Bash / Zsh / <UNIX Shell>
+- Bash / Zsh / \<Other UNIX Shell\>
 
 ```
 export http_proxy="http://127.0.0.1:10809"
