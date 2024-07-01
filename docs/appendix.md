@@ -139,7 +139,7 @@ hide:
 - [artiststostudy](https://artiststostudy.pages.dev/)
 - [Stable Diffusion Artist Style Studies](https://proximacentaurib.notion.site/e28a4f8d97724f14a784a538b8589e7d?v=ab624266c6a44413b42a6c57a41d828c)
 - [Xianyun-TagSelect](https://nai3.xianyun.cool/tag_selector)
-- [NovelAI tag在线生成器](https://hipete19.github.io/)
+- [NovelAI tag在线生成器](https://wolfchen.top/tag)
 - [500画风-NovelAI V3示例-上](https://docs.qq.com/doc/DRFdnb01mQXVBUm12)
 - [300画风法典：NAI3画风收集和研究](https://docs.qq.com/sheet/DZWZMemxNZkpVR0VB)
 - [Artists:（rentry.org）](https://rentry.org/NAIDv3artisttagtestoverview)
