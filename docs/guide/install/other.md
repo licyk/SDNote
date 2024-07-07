@@ -1,5 +1,5 @@
 ---
-title: Linux / MacOS平台
+title: 其他平台
 ---
 # Linux/MacOS平台
 以下为其他平台的部署方法。
