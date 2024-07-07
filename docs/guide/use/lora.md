@@ -16,7 +16,7 @@ LoRA 模型可使用提示词进行调用，格式如下：
 
 在 SD WebUI 的界面中，我们可以使用 LoRA 选项卡快速填写 LoRA 模型的触发提示词。点击 LoRA 打开选项卡，如果你在 stable-diffusion-webui/models/LoRA 路径放有 LoRA 模型，且 LoRA 模型与大模型的版本相匹配时，在下面的界面中就会显示你的 LoRA 模型。
 
-![lora_model_list](../../assets/images/guide/use/lora/lora_model_list.jpg)
+![lora_model_list](../../assets/images/guide/lora/lora_model_list.jpg)
 
 !!!note
     如果你发现你的 LoRA 模型没有显示出来，这是因为 SD WebUI 的防呆机制在起作用，隐藏了不兼容当前加载的 Stable Diffusion 模型版本的模型。
@@ -25,19 +25,19 @@ LoRA 模型可使用提示词进行调用，格式如下：
 
 如果你需要使用某个 LoRA 模型时，点击 LoRA 模型的卡片。
 
-![click_lora_model_card](../../assets/images/guide/use/lora/click_lora_model_card.jpg)
+![click_lora_model_card](../../assets/images/guide/lora/click_lora_model_card.jpg)
 
 这是就可以看到 LoRA 模型的触发词就添加到提示词框中。默认的 LoRA 权重为 1，但这个权重可能不是最佳值（有可能是 0.75），所以你需要参看 LoRA 模型的说明，一般作者会说明 LoRA 模型的最佳使用权重，和 LoRA 模型要搭配的其他提示词。
 
-![lora_trigger_tag](../../assets/images/guide/use/lora/lora_trigger_tag.jpg)
+![lora_trigger_tag](../../assets/images/guide/lora/lora_trigger_tag.jpg)
 
 不过你可能会发现 LoRA 模型的名字不是 LoRA 模型的文件名，这是因为 SD WebUI 使用了 LoRA 模型文件里保存的 LoRA 模型名称（大多数情况和文件名不同）。LoRA 模型名称可以在 LoRA 模型信息展示卡中查看，点击 LoRA 模型的卡片上的扳手图标。
 
-![view_lora_model_card](../../assets/images/guide/use/lora/view_lora_model_card.jpg)
+![view_lora_model_card](../../assets/images/guide/lora/view_lora_model_card.jpg)
 
 这里可以看到 LoRA 模型的信息，输出名称就是 SD WebUI 作为触发 LoRA 模型的名称了。
 
-![lora_model_card](../../assets/images/guide/use/lora/lora_model_card.jpg)
+![lora_model_card](../../assets/images/guide/lora/lora_model_card.jpg)
 
 如果你想更改成使用 LoRA 模型文件名作为 LoRA 模型的触发词，可以点击 SD WebUI 的`设置` -> `扩展模型` -> `将扩展模型添加到提示词时，通过以下格式提及lora`，将`从文件读取别名`改成`文件名`并保存设置。
 
@@ -47,9 +47,9 @@ LoRA 模型可使用提示词进行调用，格式如下：
 
 |功能|效果图|
 |---|---|
-|角色|![character](../../assets/images/guide/use/lora/character.jpg)|
-|动作|![motion](../../assets/images/guide/use/lora/motion.jpg)|
-|画风|![style](../../assets/images/guide/use/lora/style.jpg)|
+|角色|![character](../../assets/images/guide/lora/character.jpg)|
+|动作|![motion](../../assets/images/guide/lora/motion.jpg)|
+|画风|![style](../../assets/images/guide/lora/style.jpg)|
 
 
 ## LoRA 分层
@@ -60,7 +60,7 @@ LoRA 模型在使用的时候，可能因为一些权重问题导致 LoRA 的表
 
 sd-webui-lora-block-weight 扩展的选项可在 SD WebUI 左下角找到。
 
-![lora_block_weight_interface](../../assets/images/guide/use/lora/lora_block_weight_interface.jpg)
+![lora_block_weight_interface](../../assets/images/guide/lora/lora_block_weight_interface.jpg)
 
 使用 LoRA 分层需要使用提示词调用，以下两种方式都可以。
 ```
@@ -78,7 +78,7 @@ lbw 后面的数字代表了 LoRA 模型在不同 UNet 层控制的权重。调�
 
 |启用状态|提示词|效果图|
 |---|---|---|
-|启用前|\<lora:nana7miV2:0.75\>|![disable_lora_block_weight](../../assets/images/guide/use/lora/disable_lora_block_weight.jpg)|
-|启用后|\<lora:nana7miV2:0.75:lbw=1,0.5,0.5,0.5,1,1,1,1,1,1,1,1,1,1,1,1,1\>|![enable_lora_block_weight](../../assets/images/guide/use/lora/enable_lora_block_weight.jpg)|
+|启用前|\<lora:nana7miV2:0.75\>|![disable_lora_block_weight](../../assets/images/guide/lora/disable_lora_block_weight.jpg)|
+|启用后|\<lora:nana7miV2:0.75:lbw=1,0.5,0.5,0.5,1,1,1,1,1,1,1,1,1,1,1,1,1\>|![enable_lora_block_weight](../../assets/images/guide/lora/enable_lora_block_weight.jpg)|
 
 具体的权重如何调需要自己实践得出，因为不同的 LoRA 模型需要的分层权重不一定相同。

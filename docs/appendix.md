@@ -38,6 +38,7 @@ hide:
 - [Model basis theory | Civitai](https://civitai.com/articles/640/model-basis-theory)
 - [Merge Block Weight 魔法密录1.0正式版](https://docs.qq.com/doc/DTklkTllGQmdac3Jl)
 - [AI绘画资料合集](https://github.com/hua1995116/awesome-ai-painting)
+- [LoRA info links compilation](https://rentry.co/6172384)
 
 
 ## 社区
@@ -85,6 +86,7 @@ hide:
 - [ComfyUI Tutorial - 中文](https://comfyui.jpanda.cn/)
 - [wyrde/wyrde-comfyui-workflows](https://github.com/wyrde/wyrde-comfyui-workflows)
 - [atlasunified/Templates-ComfyUI-](https://github.com/atlasunified/Templates-ComfyUI-)
+- [ComfyUI Org](https://www.comfy.org)
 
 
 ## 报错合集
@@ -137,8 +139,9 @@ hide:
 - [artiststostudy](https://artiststostudy.pages.dev/)
 - [Stable Diffusion Artist Style Studies](https://proximacentaurib.notion.site/e28a4f8d97724f14a784a538b8589e7d?v=ab624266c6a44413b42a6c57a41d828c)
 - [Xianyun-TagSelect](https://nai3.xianyun.cool/tag_selector)
-- [NovelAI tag在线生成器](https://hipete19.github.io/)
+- [NovelAI tag在线生成器](https://wolfchen.top/tag)
 - [500画风-NovelAI V3示例-上](https://docs.qq.com/doc/DRFdnb01mQXVBUm12)
+- [300画风法典：NAI3画风收集和研究](https://docs.qq.com/sheet/DZWZMemxNZkpVR0VB)
 - [Artists:（rentry.org）](https://rentry.org/NAIDv3artisttagtestoverview)
 - [wildcard/character.txt · Linaqruf/animagine-xl at main](https://huggingface.co/spaces/Linaqruf/animagine-xl/blob/main/wildcard/character.txt)
 - [MEGA Nai v3 Artists](https://mega.nz/folder/dZ1RVJDK#jdO5hfJtWvICDGyFZFxMHA)
@@ -146,6 +149,7 @@ hide:
 - [奥术(Arcane)第一卷](https://docs.qq.com/doc/DUWxNREplQkhsb0Jx)
 - [C站/社区常用高质量提示词](https://civitai.com/models/62473)
 - [SD优质提示词库](https://docs.qq.com/sheet/DYUtXVGJJSFZ1R3FF?tab=ss_0gqnt7&viewId=vig5co)
+- [衣服的提示词百科(上下身)](https://www.notion.so/ea163bebdce44785adf38041ac35ed6e#6cd3e15dfc3347fb9811bec8bc910c02)
 
 
 ## 图库

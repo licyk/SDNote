@@ -1,8 +1,8 @@
 ---
-title: 报错检测
+title: 疑难解答
 ---
-# 报错检测
-这个功能为启动器诊断 SD WebUI / ComfyUI 出现的问题，并提供修复修复按钮或者修复方案。
+# 疑难解答
+这个功能用于自己诊断 SD WebUI / ComfyUI 出现的问题，并提供修复修复按钮或者修复方案。
 
 ![faq](../../assets/images/sd_launcher/faq/faq.jpg)
 

@@ -13,49 +13,53 @@ title: 文生图
 |[vae-ft-mse-840000-ema-pruned](https://modelscope.cn/api/v1/models/licyks/sd-vae/repo?Revision=master&FilePath=sd_1.5%2Fvae-ft-mse-840000-ema-pruned.safetensors)|stable-diffusion-webui/models/VAE|
 
 将模型放置到对应的路径后，启动 SD WebUI，启动完成后浏览器将会跳转到 SD WebUI 的界面，在界面最上方的模型选择切换成刚刚放进去的模型。
-![webui interface](../../assets/images/guide/use/t2i/webui_interface.jpg)
+![webui interface](../../assets/images/guide/t2i/webui_interface.jpg)
 
 
 ## 界面介绍
 SD WebUI 的界面大致分为几个部分。
 
 - 模型切换
-![model_select](../../assets/images/guide/use/t2i/model_select.jpg)
+![model_select](../../assets/images/guide/t2i/model_select.jpg)
 
 - 提示词输入
-![prompt_input](../../assets/images/guide/use/t2i/prompt_input.jpg)
+![prompt_input](../../assets/images/guide/t2i/prompt_input.jpg)
 
 - 参数调整
-![config_modify](../../assets/images/guide/use/t2i/config_modify.jpg)
+![config_modify](../../assets/images/guide/t2i/config_modify.jpg)
 
 - 生成按钮和其他按钮
-![generate_and_other_button](../../assets/images/guide/use/t2i/generate_and_other_button.jpg)
+![generate_and_other_button](../../assets/images/guide/t2i/generate_and_other_button.jpg)
 
 - 图片预览
-![preview_interface](../../assets/images/guide/use/t2i/preview_interface.jpg)
+![preview_interface](../../assets/images/guide/t2i/preview_interface.jpg)
 
+!!!note
+    如果你的界面不是中文，可以安装 stable-diffusion-webui-localization-zh_Hans 扩展。  
+    stable-diffusion-webui-localization-zh_Hans 扩展下载：https://github.com/hanamizuki-ai/stable-diffusion-webui-localization-zh_Hans  
+    安装该扩展后，在 SD WebUI 的`Settings`->`User interface`，在`Localization`选项选择`zh-hans (Stable)`，然后点击`Apply settings`保存设置，再点击`Reload UI`使设置生效。
 
 ## 提示词输入
 大致认识了界面后，现在来调整生成图片的参数。
 
-在正面提示词中输入你想要 AI 生成的东西（必须是英文），这里我们可以利用 a1111-sd-webui-tagcomplete 扩展来辅助我们输入提示词。使用方向键选择要补全的提示词，Tab 键 / Enter 键补全提示词。
+在正面提示词中输入你想要 AI 生成的东西（必须是英文），这里我们可以利用 a1111-sd-webui-tagcomplete 扩展来辅助我们输入提示词。使用方向键选择要补全的提示词，++tab++ 键 / ++enter++ 键补全提示词。
 
-![tag_complete](../../assets/images/guide/use/t2i/tag_complete.jpg)
+![tag_complete](../../assets/images/guide/t2i/tag_complete.jpg)
 
 !!!note
     a1111-sd-webui-tagcomplete 扩展：https://github.com/DominikDoom/a1111-sd-webui-tagcomplete
 
 如果对英文不熟悉，也可以通过 sd-webui-prompt-all-in-one 扩展输入提示词。点击左下角的按钮即可展开提示词列表，单击列表中的其中一个提示词就可以把输入到提示词框中。
 
-![prompt_all_in_one](../../assets/images/guide/use/t2i/prompt_all_in_one.jpg)
+![prompt_all_in_one](../../assets/images/guide/t2i/prompt_all_in_one.jpg)
 
 右侧的小框是 sd-webui-prompt-all-in-one 扩展的输入翻译框，这里可以输入中文并由扩展翻译成英文。
 
-![input_to_prompt_all_in_one](../../assets/images/guide/use/t2i/input_to_prompt_all_in_one.jpg)
+![input_to_prompt_all_in_one](../../assets/images/guide/t2i/input_to_prompt_all_in_one.jpg)
 
 回车后中文被输入到提示词框中并自动翻译成英文。
 
-![auto_translate](../../assets/images/guide/use/t2i/auto_translate.jpg)
+![auto_translate](../../assets/images/guide/t2i/auto_translate.jpg)
 
 !!!note
     sd-webui-prompt-all-in-one 扩展：https://github.com/Physton/sd-webui-prompt-all-in-one
@@ -81,11 +85,11 @@ lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits
 |---|---|---|
 |Eular a|Uniform / Exponential|20|
 |DPM++ 系|Exponentia|20|
-|Restart|Autumatic|10|
+|Restart|Karras / SGM Uniform|10|
 |Unipc|Autumatic|13|
 
 
 ## 生图
 调整完这些参数后，点击右侧的生成按钮就开始生图了，生成完成后即可在图片预览区域看见生成好的图片。
 
-![finish_generate_image](../../assets/images/guide/use/t2i/finish_generate_image.jpg)
+![finish_generate_image](../../assets/images/guide/t2i/finish_generate_image.jpg)

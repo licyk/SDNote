@@ -3,8 +3,8 @@
 # SDNote
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/licyk/SDNote.svg" alt="Stars">
-  <a href="https://github.com/licyk/SDNote/issues"><img src="https://img.shields.io/github/issues/licyk/SDNote" alt="Issues"></a>
+  <img src="https://img.shields.io/github/stars/licyk/SDNote?style=flat&logo=github&logoColor=silver&color=bluegreen&labelColor=grey" alt="Stars">
+  <a href="https://github.com/licyk/SDNote/issues"><img src="https://img.shields.io/github/issues/licyk/SDNote?style=flat&logo=github&logoColor=silver&color=bluegreen&labelColor=grey" alt="Issues"></a>
   <a href="https://github.com/licyk/SDNote/actions/workflows/ci.yml"><img src="https://github.com/licyk/SDNote/actions/workflows/ci.yml/badge.svg" alt="Test"></a>
   <a href="https://app.netlify.com/sites/sdnote/deploys"><img src="https://api.netlify.com/api/v1/badges/72ce71fd-df94-4da5-90a4-bdeb49899221/deploy-status" alt="Netlify"></a>
   <img src="https://vercelbadge.vercel.app/api/licyk/sdnote" alt="Vercel">
@@ -29,13 +29,21 @@
 git clone https://github.com/licyk/SDNote
 ```
 
-## 在本地构建文档
+
+## 配置文档运行环境
 ```
+cd SDNote
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+```
+
+
+## 在本地构建文档
+```
 mkdocs serve
 ```
+
 
 ## 声明
 

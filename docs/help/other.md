@@ -32,7 +32,7 @@ title: 杂项
 1. 按下`Win + R`键，输入`powershell`后回车启动 PowerShell。
 2. 输入下面的命令启动 [Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)。
 ```
-irm https://massgrave.dev/get | iex
+irm https://get.activated.win | iex
 ```
 3. 在 Microsoft-Activation-Scripts 启动完成后将弹出一个窗口，这时候按下键盘的 1 使用 HWID 激活方法
 4. 激活完成后将显示绿色的提醒，这时候就是激活完成了，显示 press any key to Go back ... 时就可以把窗口关闭。
@@ -94,7 +94,63 @@ irm https://massgrave.dev/get | iex
 有些软件包的安装需要编译后才能安装，所以需要安装编译工具（生成工具）。这里介绍如何安装  Visual Studio 生成工具。
 
 1. 前往 [Visual Studio](https://visualstudio.microsoft.com/zh-hans/downloads/) 官网，在`所有下载`中展开`用于 Visual Studio 的工具`选项，找到`Visual Studio 2022 生成工具`后点击旁边的下载。
-![Visual Studio_install](../assets/images/help/other/Visual Studio_install.png)
 2. 双击打开下载好的安装包，在弹出的窗口中选择继续，等待 Visual Studio Installer 安装完成。
 3. Visual Studio Installer 安装完成后将弹出安装生成工具的选项，勾选`使用 C++ 的桌面开发`，再点击右下角的安装，等待安装完成。
-![Visual Studio_C++](../assets/images/help/other/Visual Studio_C++.png)
+
+***
+
+## 设置 Pip 镜像源
+打开终端，输入下面的命令。
+
+```bash
+pip config set global.index-url "https://mirrors.cloud.tencent.com/pypi/simple"
+pip config set global.find-links "https://mirror.sjtu.edu.cn/pytorch-wheels/torch_stable.html"
+```
+
+***
+
+## 更新显卡驱动
+根据自己的显卡型号进入对应的显卡驱动官网，下载并安装驱动。
+
+Nvidia 驱动下载：https://www.nvidia.cn/geforce/drivers  
+AMD 驱动下载：https://www.amd.com/zh-hans/support  
+Intel 驱动下载：https://www.intel.cn/content/www/cn/zh/download-center/home.html
+
+视频版教程：[一看就会，教你更新Intel、AMD、Nvidia驱动_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Mq4y197yZ)
+
+***
+
+## 在终端中设置代理
+在终端中设置代理需要知道代理协议、IP、端口，再组成`<代理协议>://<IP>:<端口>`这个代理地址格式。
+
+IP 一般为`127.0.0.1`，而代理协议和端口可在代理软件中查看。
+
+得到代理地址后，比如`http://127.0.0.1:10809`，就可以根据不同的终端设置代理。
+
+- CMD
+
+```
+set HTTP_PROXY=http://127.0.0.1:10809
+set HTTPS_PROXY=http://127.0.0.1:10809
+set no_proxy=localhost,127.0.0.1,::1
+```
+
+- PowerShell
+
+```
+$env:HTTP_PROXY="http://127.0.0.1:10809"
+$env:HTTPS_PROXY="http://127.0.0.1:10809"
+$env:NO_PROXY="localhost,127.0.0.1,::1"
+```
+
+- Bash / Zsh / \<Other UNIX Shell\>
+
+```
+export http_proxy="http://127.0.0.1:10809"
+export https_proxy="http://127.0.0.1:10809"
+export no_proxy="localhost,127.0.0.1,::1"
+```
+
+!!!note
+    设置 no_proxy 变量是为了避免本地的 IP 也使用代理。
+

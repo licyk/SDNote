@@ -1,10 +1,8 @@
 ---
 title: 环境维护
 ---
-
 # 环境维护
-这里是有关环境维护的选项，用于解决一些环境问题。\
-`!!!请注意不要将 参数|环境|其他有关路径 添加至环境变量，这会造成运行错误以及运行环境不定时出错!!!`
+这里是有关环境维护的选项，用于解决一些环境问题。
 
 !!!warning
     如果你是整合包用户，非必要情况下请勿使用启动器的 ***高级*** / ***专家*** 模式。如有必要，请务必在调整设定前记录好原本设定的值（除非您的 SD WebUI 已无法正常使用）。
@@ -25,7 +23,7 @@ title: 环境维护
 
 PyTorch 版本需要和显卡的型号相对应，以保证 SD WebUI，ComfyUI 等 WebUI 能够正常运行 Stable Diffusion。
 
-查看显卡型号可在使用任务管理器，按下`Ctrl + Shift + ESC`启动任务管理器，点击`性能`->`GPU`，右上角就是显卡的型号。
+查看显卡型号可在使用任务管理器，按下++ctrl+shift+esc++启动任务管理器，点击`性能`->`GPU`，右上角就是显卡的型号。
 
 ![task_manager](../../assets/images/sd_launcher/install/task_manager.jpg)
 
@@ -36,23 +34,26 @@ PyTorch 版本需要和显卡的型号相对应，以保证 SD WebUI，ComfyUI �
 
 - AMD 显卡：
     - 支持 ZLUDA 的：
-        - Torch x.y.z (CUDA x.y) + xFormers x.y.z
+        - Torch x.y.z (CUDA 11.8) + xFormers x.y.z
 
     - 不支持 ZLUDA 的：
         - Torch x.y.z (DirectML)
-		
+
 - Intel 显卡：
     - 独显：
         - Torch x.y.z (IPEX AOT, Arc)
     - 核显：
         - Torch x.y.z (IPEX AOT, Core Ultra)
-!!!note
-    建议将显卡驱动更到最新以保证 PyTorch 能够正常工作。  
-    Nvidia 显卡驱动下载：https://www.nvidia.cn/geforce/drivers  
-    AMD 显卡驱动下载：https://www.amd.com/zh-hans/support  
-    Intel 显卡驱动下载：https://www.intel.cn/content/www/cn/zh/download-center/home.html
 
-    AMD 780M（核显），RX 5000 系（独显）以上的 AMD 显卡支持 ZLUDA，而其他不支持的系列请使用 DirectML。
+!!!note
+    一般来说选择选择对应显卡的最新版本的 PyTorch 就行。
+
+   	建议将显卡驱动更到最新公版驱动以保证 PyTorch 能够正常工作。  
+    Nvidia 驱动下载：https://www.nvidia.cn/geforce/drivers  
+    AMD 驱动下载：https://www.amd.com/zh-hans/support  
+    Intel 驱动下载：https://www.intel.cn/content/www/cn/zh/download-center/home.html
+
+    AMD 780M（核显），RX 5000 系（独显）及以上的 AMD 显卡支持 ZLUDA，而其他不支持的系列请使用 DirectML。
 
     AMD 780M 核显无法直接使用 ZLUDA，需要手动添加文件：[适用于绘世启动器的 AMD Radeon 780M 的 ZLUDA 教程 - 哔哩哔哩](https://www.bilibili.com/read/cv33327387)。
 
@@ -84,9 +85,9 @@ PyTorch 版本需要和显卡的型号相对应，以保证 SD WebUI，ComfyUI �
 
 该功能支持管理三种组件。
 
-- Python | 运行环境
-- Git | 进行对github上代码拉取
-- Ffmpeg |
+- Python
+- Git
+- Ffmpeg
 
 如果您使用的是整合包，就不需要安装 Python 和 Git，这可能会导致新的问题，如 PyTorch 缺失导致无法正常启动。
 

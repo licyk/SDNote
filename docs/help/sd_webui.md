@@ -8,7 +8,7 @@ title: SD WebUI
 ## 部署
 如果还没有安装 SD WebUI，请根据下面的文档进行安装。
 
-- [绘画指南 - 部署 - Windows 平台](../guide/install/win.md)
+- [绘画指南 - 部署 - Windows 平台](../guide/install/index.md)
 
 ***
 
@@ -65,6 +65,9 @@ SD WebUI 是基于 SD 进行制作的 WebUI 界面，用于方便的使用 SD �
 1. 重装 PyTorch
 2. 重装显卡驱动
 3. 重装对应显卡版本的整合包
+
+!!!note
+    安装 PyTorch 的方法参看：[环境维护 - 安装 PyTorch - SD Note](../sd_launcher/advance/env.md#pytorch)
 
 如果以上方法都试过了，可能显卡出现了问题。
 
@@ -132,13 +135,9 @@ python -m pip install tqdm
 
 这里用 [Animagine XL 3](https://huggingface.co/cagliostrolab/animagine-xl-3.0) 举例。
 
-- 使用不合适的分辨率
-
-![use_wrong_config_sdxl_model](../assets/images/help/sd_webui/use_wrong_config_sdxl_model.jpg)
-
-- 使用合适的分辨率
-
-![use_right_config_sdxl_model](../assets/images/help/sd_webui/use_right_config_sdxl_model.jpg)
+|使用不合适的分辨率|使用合适的分辨率|
+|---|---|
+|![use_wrong_config_sdxl_model](../assets/images/help/sd_webui/use_wrong_config_sdxl_model.jpg)|![use_right_config_sdxl_model](../assets/images/help/sd_webui/use_right_config_sdxl_model.jpg)|
 
 ***
 
@@ -218,6 +217,10 @@ python -m pip install tqdm
 ## Torch is not able to use GPU
 PyTorch 未正确安装 / 版本和显卡不对应，或者显卡驱动未更到最新版本。尝试重新安装 PyTorch 和更新驱动。
 
+!!!note
+    安装 PyTorch 的方法参看：[环境维护 - 安装 PyTorch - SD Note](../sd_launcher/advance/env.md#pytorch)
+
+
 ***
 
 ## DefaultCPUAllocator: not enough memory
@@ -284,7 +287,7 @@ ControlNet 模型下载：https://modelscope.cn/models/licyks/controlnet_v1.1
 ***
 
 ## 停止使用 sd-webui-additional-networks 扩展
-[sd-webui-additional-networks](https://github.com/kohya-ss/sd-webui-additional-networks) 扩展仅支持 SD 1.5 的 LoRA 模型，并且已经停止更新，而在新版的 SD WebUI 中已经原生支持 LoRA 模型，请卸载 sd-webui-additional-networks 扩展，并使用原生方式使用 LoRA 模型，参看：[【AI绘画】停止使用LoRA插件，请使用WebUI内置原生LoRA - 哔哩哔哩](https://www.bilibili.com/read/cv26261691)
+[sd-webui-additional-networks](https://github.com/kohya-ss/sd-webui-additional-networks) 扩展仅支持 SD 1.5 的 LoRA 模型，并且已经停止更新，而在新版的 SD WebUI 中已经原生支持 LoRA 模型，请卸载 sd-webui-additional-networks 扩展，并使用原生方式使用 LoRA 模型，参看：[【AI绘画】停止使用LoRA扩展，请使用WebUI内置原生LoRA - 哔哩哔哩](https://www.bilibili.com/read/cv26261691)
 
 ***
 
@@ -363,7 +366,11 @@ python -m pip install onnxruntime -U
 ***
 
 ## xFormers can't load C++/CUDA extensions
-这是因为你安装了不匹配 PyTorch 版本 xFormers，前往绘世启动器的`高级选项`->`环境维护`->`安装 PyTorch`，安装对应版本的 PyTorch。参看[环境维护 - 安装 PyTorch - SD Notes](../sd_launcher/advance/env.md#pytorch)。
+这是因为你安装了不匹配 PyTorch 版本 xFormers，前往绘世启动器的`高级选项`->`环境维护`->`安装 PyTorch`，安装对应版本的 PyTorch。
+
+!!!note
+    安装 PyTorch 的方法参看：[环境维护 - 安装 PyTorch - SD Note](../sd_launcher/advance/env.md#pytorch)
+
 
 ***
 
@@ -387,13 +394,9 @@ SD WebUI 点击切换模型按钮但无法切换模型，点击生成按钮后�
 ## 生图过程时的预览图是正常的，但是出图后图片突然发灰
 这是因为融合模型在融合的时候，模型内的 VAE 出现了问题，尝试外挂 VAE 模型解决。
 
-- 未外挂 VAE 模型前
-
-![no_use_external_vae_model](../assets/images/help/sd_webui/no_use_external_vae_model.jpg)
-
-- 外挂 VAE 模型后
-
-![use_external_vae_model](../assets/images/help/sd_webui/use_external_vae_model.jpg)
+|未外挂 VAE 模型前|外挂 VAE 模型后|
+|---|---|
+|![no_use_external_vae_model](../assets/images/help/sd_webui/no_use_external_vae_model.jpg)|![use_external_vae_model](../assets/images/help/sd_webui/use_external_vae_model.jpg)|
 
 ***
 
@@ -409,7 +412,7 @@ sd-webui-prompt-all-in-one 扩展将 LoRA 模型显示为粉红色，并不断�
 
 这个闪烁并不会影响调用，LoRA 模型依然可以正常调用。
 
-如果想要解决这个闪烁问题，可以在 SD WebUI 的`设置`->`扩展模型`->`将扩展模型添加到提示词时，通过以下格式提及lora`，将从文坚读取别名改成文件名，再回到生图界面重新添加 LoRA 模型调用提示词时就不会闪烁了。
+如果想要解决这个闪烁问题，可以在 SD WebUI 的`设置`->`扩展模型`->`将扩展模型添加到提示词时，通过以下格式提及lora`，将从文件读取别名改成文件名，再回到生图界面重新添加 LoRA 模型调用提示词时就不会闪烁了。
 
 !!!note
     这个是因为 sd-webui-prompt-all-in-one 扩展判断 LoRA 模型的调用名字和 LoRA 模型的文件名不同，所以将 LoRA 标记成粉红色并闪烁，~~说实话这个设计很容易让新手误以为 LoRA 模型调用有问题。~~
@@ -460,18 +463,28 @@ sd-webui-prompt-all-in-one 扩展将 LoRA 模型显示为粉红色，并不断�
 ## FileNotFoundError: [Errno 2] No such file or directory: '...\\site-packages\\open_clip\\bpe_simple_vocab_16e6.txt.gz'
 这是因为缺失了 bpe_simple_vocab_16e6.txt.gz 这个文件，可尝试以下其中一种方法恢复。
 
-方法1：重新安装 open-clip-torch
+方法1：重新安装 clip
 
 1. 在绘世启动器的高级选项中，点击右上角的启动命令提示符，打开命令提示符。
-2. 输入下面的命令重新安装 open-clip-torch。
+2. 输入下面的命令重新安装 clip。
 ```bash
-python -m pip install open-clip-torch --force-reinstall --no-deps
+python -m pip install %CLIP_PACKAGE% --force-reinstall --no-deps
 ```
+
+!!!note
+    上述方法基于绘世启动器进行操作，如果不使用绘世启动器，需要将命令换成`python -m pip install git+https://github.com/openai/CLIP --force-reinstall --no-deps`
 
 方法2：直接将缺失文件放到对应位置
 
-1. 点击 [bpe_simple_vocab_16e6.txt.gz](https://gitee.com/licyk/README-collection/releases/download/archive/bpe_simple_vocab_16e6.txt.gz) 这个下载链接下载 bpe_simple_vocab_16e6.txt.gz 文件。
-2. 将这个文件放到报错提示的路径中。
+1. 在以下的地址选择其中一个下载 bpe_simple_vocab_16e6.txt.gz 文件，并将这个文件放到报错提示的路径中。
+
+|bpe_simple_vocab_16e6.txt.gz 下载地址|
+|---|
+|[下载地址 1](https://modelscope.cn/api/v1/models/licyks/sdnote/repo?Revision=master&FilePath=other%2Fbpe_simple_vocab_16e6.txt.gz)|
+|[下载地址 2](https://raw.githubusercontent.com/openai/CLIP/HEAD/clip/bpe_simple_vocab_16e6.txt.gz)|
+
+!!!note
+    视频版教程：[【AI 绘画】解决 SD WebUI 启动时出现 bpe_simple_vocab_16e6.txt.gz 缺失导致无法启动的问题_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1M1421q7Kp)
 
 ***
 
@@ -517,15 +530,150 @@ SD WebUI 出现报错后，在绘世启动器的疑难解答的扫描中，显�
 
 ***
 
+## WD 1.4 反推提示词扩展在 SD WebUI 界面中不显示
+在绘世启动器的`版本管理`->`扩展`，检查扩展列表中是否存在 [sd-webui-wd14-tagger](https://github.com/Akegarasu/sd-webui-wd14-tagger) 扩展。
+
+如果该扩展不存在，则绘世启动器的`版本管理`->`安装新扩展`，在界面下方的地址栏中输入`https://github.com/Akegarasu/sd-webui-wd14-tagger`这个扩展地址，点击地址栏右侧的安装按钮进行安装。
+
+如果扩展存在，这可能是因为扩展过旧导致和 SD WebUI 出现了不兼容问题，更新该扩展即可。请确保在绘世启动器的设置中，`Git 国内镜像`和`替换扩展列表链接`这两个开关处于打开状态，如果未打开则打开后重启绘世启动器，确认好这个设置后在绘世启动器的`版本管理`->`扩展`中将该扩展更至最新。
+
+***
+
 ## xxx() takes x positional argument but x were given
-这是因为函数导入参数多于函数本身需求，请先确保插件和软件整体都已经是最新或版本匹配，若问题未解决可以尝试先找到你的环境目录然后进入'Lib\site-packages'文件夹下查看是否存在文件夹名前面存在'~'符号的，如果存在请立刻删除，然后重启启动器及SD
+这是因为函数导入参数多于函数本身需求，请先确保扩展和软件整体都已经是最新，若问题未解决可以尝试先找到你的环境目录然后进入`Lib\site-packages`文件夹下查看是否存在文件夹名前面存在`~`符号的，如果存在请立刻删除，然后重启启动器及 SD WebUI。
+
 ***
 
 ## 无法成功安装第三方包且报错信息不为网络内存错误
-先找到你的环境目录然后进入'Lib\site-packages'文件夹下查看是否存在文件夹名前面存在'~'符号的，如果存在请立刻删除，删除后重新执行安装第三方包操作
+先找到你的环境目录然后进入`Lib\site-packages`文件夹下查看是否存在文件夹名前面存在`~`符号的，如果存在请立刻删除，删除后重新执行安装第三方包操作。
 
 ***
 
 ## module 'xxx' has no attribute 'xxx'
-代码在库找不到对应函数，一般可以通过升级或降低库版本解决，若还是不行(不建议)你可能要到对应库的github仓库拉去代码并执行`python setup.py install`来解决
+代码在库找不到对应函数，一般可以通过升级或降低库版本解决，若还是不行(不建议)你可能要到对应库的 Github 仓库拉去代码并执行`python setup.py install`来解决
 
+***
+
+## xFormers wasn's build with CUDA support
+这是因为 xFormers 所支持的 CUDA 版本和 PyTorch 中所带的 CUDA 版本不匹配，请重新安装 PyTorch。在绘世启动器的`高级选项`->`环境维护`->`安装 PyTorch`中选择合适的 PyTorch 版本并安装。
+
+!!!note
+    安装 PyTorch 的方法参看：[环境维护 - 安装 PyTorch - SD Note](../sd_launcher/advance/env.md#pytorch)
+
+***
+
+## 使用 Tiled VAE 时出现 RuntimeError: Input type (float) and bias type (struct c10::Half) should be the same
+在绘世启动器的`版本管理`->`扩展`，中将 [multidiffusion-upscaler-for-automatic1111](https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111) 扩展更新到最新后再试。
+
+该报错有关的说明：[Fix dtype mismatch by KohakuBlueleaf · Pull Request #359 · pkuliyi2015/multidiffusion-upscaler-for-automatic1111](https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111/pull/359)
+
+***
+
+## 启动时显示'RuntimeError: Failed to import transformers.modeling_utils because of the follow error'，报错信息中有 protobuf 相关的提示
+在启动 SD WebUI 出现下方的报错导致无法启动，报错信息如下。
+
+```
+RuntimeError: Failed to import transformers.modeling_utils because of the follow error (look up to see its traceback):
+Description cannot be created directly.
+If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+If you cannot imediately regenerate your protos, some other possible workarounds are:
+ 1. Downgrade the protobuf package to 3.20.x or lower.
+ 2. Set PROTOCOL_BUFFERS_PYTHON_IMOLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+
+More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates
+```
+
+这是因为 [adetailer](https://github.com/Bing-su/adetailer) 扩展将 protobuf 软件包的版本要求提高了，在 SD WebUI 启动阶段将这个软件包升级，导致其他组件出现了不兼容。
+
+解决方法是在绘世启动器的版本管理 -> 扩展，将 adetailer 扩展回退到 4 月 17 号的 1edd588 版本，然后在绘世启动器的高级选项中，点击右上角的启动命令提示符，输入下面的命令。
+
+```
+python -m pip install mediapipe==0.10.11
+```
+
+命令执行完成后重启 SD WebUI。
+
+***
+
+## ImportError: cannot import name 'packaging' from 'pkg_resources'
+这是因为 Python 环境中的 setuptools 的版本较新，在新版中移除了 packaging 模块，导致模块导入失败。在绘世启动器的高级选项中，点击右上角的启动命令提示符，输入以下的命令。
+
+```
+python -m pip install setuptools==65.5.0
+```
+
+降级 setuptools 软件包后重新启动 SD WebUI。
+
+***
+
+## 提示词反推扩展在 SD WebUI 界面中不显示，控制台有反推提示词扩展的报错
+提示词反推扩展在 SD WebUI 界面中不显示，在控制台中看到有关提示词反推扩展的报错，报错如下。
+
+```
+*** Error running preload() for F:\new webui\sd-webui-aki-v4.8\extensions\stable-diffusion-webui-wd14-tagger\preload.py
+    ...
+    ImportError: cannot import name 'models_path' from partially initialized module 'modules.shared' ...
+```
+
+这是因为提示词反推扩展版本过旧，并且当前的提示词反推扩展的分支已无人维护，导致无法兼容新版的 SD WebUI，有以下两种方法解决。
+
+- 方法一
+
+在绘世启动器的设置中，确保`Git 国内景象`和`替换扩展列表链接`这两个开关处于打开状态，然后前往绘世启动器的`版本管理`->`扩展`，将提示词反推扩展（stable-diffusion-webui-wd14-tagger）更到最新的版本。
+
+- 方法二
+
+在绘世启动器的`版本管理`->`扩展`中，将提示词反推扩展卸载，然后在`安装新扩展`中，在下方的地址栏输入`https://github.com/Akegarasu/sd-webui-wd14-tagger`后点击右侧的安装。
+
+***
+
+## 启动时显示'RuntimeError: Failed to import transformers.modeling_utils because of the follow error'，报错信息中有 jax 相关的提示
+在启动 SD WebUI 出现下方的报错导致无法启动，报错信息如下。
+
+```
+RuntimeError: Failed to import transformers.modeling_utils because of the follow error (look up to see its traceback):
+jaxlib version 0.4.28 is newer than and incompatible with jax version 0.4.8. Please update jax and/or jaxlib packages.
+```
+
+这是因为 jax 软件包版本太旧，需要更新。在绘世启动器的高级选项中，点击右上角的启动命令提示符，输入下面的命令并回车。
+
+```
+python -m pip install jax -U
+```
+
+***
+
+## [ONNXRuntimeError] : 1 : FAIL : LoadLibrary failed with error 126
+在运行 SD WebUI 时出现下面的报错。
+
+```
+RuntimeError: D:\a_work\1\s\onnxruntime\core\session\provider_bridge_ort.cc:1106
+onnxruntime::ProviderLibrary::Get [ONNXRuntimeError] : 1 : FAIL : LoadLibrary failed with error 126 "" when trying to load "C:\AI\StableDiffusion\sd-webui-aki-v4.4\python\lib\site-packages\onnxruntime\capi\onnxruntime_providers_tensorrt.dll"
+```
+
+这是因为 onnxruntime 损坏了，无法正常加载模块，需要重装 onnxruntime。
+
+在绘世启动器的高级选项中，点击右上角的启动命令提示符，在弹出的命令提示符输入下面的命令卸载 onnxruntime。
+
+
+```
+python -m pip uninstall onnxruntime -y
+```
+
+再输入下面的命令重新安装 onnxruntime。
+
+```
+python -m pip install onnxruntime
+```
+
+安装完成后重新启动 SD WebUI。
+
+***
+
+## 点击生成没有反应，控制台无报错
+按顺序尝试以下的方法解决问题。
+
+1. 刷新浏览器网页。
+2. 禁用部分浏览器插件。
+3. 更换浏览器，这里推荐一些浏览器：[杂项 - 浏览器推荐 - SD Note](./other.md#_5)。
+4. 禁用 SD WebUI 部分扩展。

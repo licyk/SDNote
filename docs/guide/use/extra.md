@@ -8,7 +8,8 @@ title: 杂项
 ## 图片信息查看
 如果想要查看一张由 SD WebUI 生成的图片的参数，可以在 SD WebUI 的 PNG 图片信息里，导入图片后即可查看生图参数。
 
-![png_info_view](../../assets/images/guide/use/extra/png_info_view.jpg)
+![png_info_view](../../assets/images/guide/extra
+/png_info_view.jpg)
 
 !!!note
     ComfyUI、InvokeAI、NovelAI 等生成的图片也可以查看生图信息，但是要保证图片未被压缩或者被其他图像工具处理过。
@@ -17,7 +18,8 @@ title: 杂项
 ## 图片提示词反推
 想知道一张图片的提示词怎么写，可以通过 sd-webui-wd14-tagger 扩展将提示词反推出来。将图片导入后扩展将自动反推提示词，反推完成后最好点一下卸载所有反推模型来释放显存。
 
-![wd14_tagger](../../assets/images/guide/use/extra/wd14_tagger.jpg)
+![wd14_tagger](../../assets/images/guide/extra
+/wd14_tagger.jpg)
 
 !!!note
     sd-webui-wd14-tagger 扩展：https://github.com/Akegarasu/sd-webui-wd14-tagger
@@ -26,14 +28,16 @@ title: 杂项
 ## 移除背景
 想要人物的背景移除，可以使用 stable-diffusion-webui-rembg 扩展。在 SD WebUI 的后期处理中，在下方启用移除背景，移除背景选择其中一个算法，再点击生成就可以把图片的背景移除。
 
-![remove_background](../../assets/images/guide/use/extra/remove_background.jpg)
+![remove_background](../../assets/images/guide/extra
+/remove_background.jpg)
 
 !!!note
     stable-diffusion-webui-rembg 扩展下载：https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg
 
 如果有生成蒙版的需求，可以使用 PBRemTools 扩展。在精准背景移除工具选项卡中，导入要移除背景的图片，在后期处理的选项中点击启用，再点提交，这样就可以生成一张移除背景的图片和蒙版。
 
-![rm_background_and_make_mask](../../assets/images/guide/use/extra/rm_background_and_make_mask.jpg)
+![rm_background_and_make_mask](../../assets/images/guide/extra
+/rm_background_and_make_mask.jpg)
 
 !!!note
     PBRemTools 扩展下载：https://github.com/mattyamonaca/PBRemTools
@@ -42,7 +46,8 @@ title: 杂项
 ## 图片处理
 a1111-sd-webui-haku-img 扩展可对图像进行一些处理，如提取图片线稿，图片像素化等。
 
-![haku_img](../../assets/images/guide/use/extra/haku_img.jpg)
+![haku_img](../../assets/images/guide/extra
+/haku_img.jpg)
 
 !!!note
     a1111-sd-webui-haku-img 扩展下载：https://github.com/KohakuBlueleaf/a1111-sd-webui-haku-img
@@ -51,9 +56,10 @@ a1111-sd-webui-haku-img 扩展可对图像进行一些处理，如提取图片�
 ## 面部修复
 在 SD WebUI 1.6 之后，官方将自带的面部修复移除了，因为效果过差，而 adetailer 扩展可作为替代品。在文生图或者图生图左下角中可以看到该扩展的选项卡，勾选后即可启用面部修复。
 
-![adetailer](../../assets/images/guide/use/extra/adetailer.jpg)
+![adetailer](../../assets/images/guide/extra
+/adetailer.jpg)
 
-注意，在局部重绘中该插件并不会生效，因为这个插件的本质是自动检测面部位置并进行局部重绘。
+注意，在局部重绘中该扩展并不会生效，因为这个扩展的本质是自动检测面部位置并进行局部重绘。
 
 !!!note
     adetailer 扩展下载：https://github.com/Bing-su/adetailer
@@ -69,7 +75,8 @@ SD WebUI 1.6 移除了保存提示词预设按钮，所以只能在生成按钮�
 ## 图片浏览
 sd-webui-infinite-image-browsing 扩展作为图片浏览器非常方便。
 
-![infinite_image_browsing](../../assets/images/guide/use/extra/infinite_image_browsing.jpg)
+![infinite_image_browsing](../../assets/images/guide/extra
+/infinite_image_browsing.jpg)
 
 !!!note
     sd-webui-infinite-image-browsing 扩展下载：https://github.com/zanllp/sd-webui-infinite-image-browsing
@@ -85,11 +92,13 @@ multidiffusion-upscaler-for-automatic1111 扩展除了提供 Tiled VAE，也提�
 ## 查找并删除模型里的垃圾数据
 SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 SD 1.5 的模型的大小超过了 2 GB。可以通过 stable-diffusion-webui-model-toolkit 扩展查看模型是否有垃圾数据存在。
 
-![search_model_junk_data](../../assets/images/guide/use/extra/search_model_junk_data.jpg)
+![search_model_junk_data](../../assets/images/guide/extra
+/search_model_junk_data.jpg)
 
 如果模型里有垃圾数据，可以通过 sd-webui-model-converter 扩展删除垃圾数据。在模型转换选项卡中，选择要删除垃圾数据的模型，选择删除 EMA 权重，勾选删除已知垃圾数据，点击运行即可删除模型垃圾数据。
 
-![remove_model_junk_data](../../assets/images/guide/use/extra/remove_model_junk_data.jpg)
+![remove_model_junk_data](../../assets/images/guide/extra
+/remove_model_junk_data.jpg)
 
 有关模型垃圾数据的哔哩哔哩专栏：[【AI绘画】模型修剪教程：8G模型顶级精细？全是垃圾！嘲笑他人命运，尊重他人命运 - 哔哩哔哩](https://www.bilibili.com/read/cv26279169)
 
@@ -108,7 +117,8 @@ SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 
 ## 随机抽卡
 如果对提示词不熟悉，但又想抽出比较好的图，可以试试 z-a1111-sd-webui-dtg 扩展，启用后就可以快乐的抽卡了。
 
-![dtg](../../assets/images/guide/use/extra/dtg.jpg)
+![dtg](../../assets/images/guide/extra
+/dtg.jpg)
 
 !!!note
     z-a1111-sd-webui-dtg 扩展下载：https://github.com/KohakuBlueleaf/z-a1111-sd-webui-dtg
@@ -131,7 +141,8 @@ SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 
 ## 无限生成图片
 右键 SD WebUI 的生成按钮即可看到无限生成 / 停止无限生成的按钮，
 
-![infinite_generate](../../assets/images/guide/use/extra/infinite_generate.jpg)
+![infinite_generate](../../assets/images/guide/extra
+/infinite_generate.jpg)
 
 
 ## 使用 SDXL 模型时特定的提示词组会出现鬼图
@@ -195,3 +206,106 @@ SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径�
     1. SD WebUI 1.5 及以上版本无需扩展即可读取 LyCORIS 文件夹内的 LyCORIS 模型（该文件夹不会自动生成），并显示在 SD WebUI 的 LoRA 栏内。
 	2. 两个文件夹皆可放置 ControlNet 模型。
 	3. 并非所有的 ControlNet 预处理器模型都存储在 downloads 文件夹（例如： depth_anything 预处理器的部分模型会存储在 .cache 文件夹内）。
+
+
+## 使用 X/Y/Z 图
+如果要对提示词、不同模型、参数等坐对比测试时，可以使用 SD WebUI 的 X/Y/Z 图，在 SD WebUI 左下角的脚本中选择 X/Y/Z Plot 即可使用。
+
+下面举个测试不同提示词和提示词引导系数（CFG Scale）的例子。
+
+- 使用的提示词
+```
+1girl,(loli:1.2),vampire,silver hair,very long hair,two side up,bat hair ornament,bangs,red eyes,light smile,closed mouth,blush,flat chest,gothic lolita,long sleeves,frills,
+looking at viewer,heart hands,
+simple background,white background,detail light,chromatic_aberration,sunlight,
+close up,upper body,
+```
+
+- X/Y/Z 图的参数
+
+![xyz_plot_config](../../assets/images/guide/extra/xyz_plot_config.jpg)
+
+Prompr S/R 为提示词替换，这里我填的是`heart hands,"hand on own chin, index finger raised",hand on own chest`，SD WebUI 将第一个逗号前的提示词作为被替换的对象（也就是`heart hands`），生图时将所写的完整提示词中的`heart hands`替换成`heart hands`、`hand on own chin, index finger raised`、`hand on own chest`。
+
+CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中可以看到该选项，生图时将依次设置该值为`7`和`5`。
+
+生图完成后将会得到下面的 X/Y/Z 图。
+
+![xyz_plot](../../assets/images/guide/extra/xyz_plot.jpg)
+
+!!!note
+    关于 X/Y/Z 图的说明可参看：[Features · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#xyz-plot)
+
+
+## 为 SD WebUI 模型列表中的模型添加预览图
+模型在放置在 SD WebUI 的模型目录后，在 SD WebUI 的模型列表中看到模型并没有预览图。
+
+![no_preview_image_for_model](../../assets/images/guide/extra/no_preview_image_for_model.jpg)
+
+这里有几种方法为模型添加模型预览图：
+
+- 方法 1：使用 SD WebUI 的模型管理功能。
+
+生成一张用于添加模型预览图的图片。
+
+![generate_image_for_model_preview_image](../../assets/images/guide/extra/generate_image_for_model_preview_image.jpg)
+
+在 SD WebUI 的模型列表找到要添加模型预览图的模型，并点击右上角的设置图标。
+
+![open_model_info_interface](../../assets/images/guide/extra/open_model_info_interface.jpg)
+
+在模型信息页面点击下方的替换预览图像，这时模型就有了预览图。
+
+![replace_model_preview_image](../../assets/images/guide/extra/replace_model_preview_image.jpg)
+
+- 方法 2：手动将图片命名成和模型一样的并放至在和模型同一个目录下。
+
+将一张图片的文件名命名成和模型一样的名字，然后放在和模型文件放在一起即可。
+
+![rename_image_file_name_and_put_into_model_folder](../../assets/images/guide/extra/rename_image_file_name_and_put_into_model_folder.jpg)
+
+- 方法 3：使用扩展（不推荐）。
+
+可以使用的扩展有 [Stable-Diffusion-Webui-Civitai-Helper](https://github.com/butaixianran/Stable-Diffusion-Webui-Civitai-Helper)、[sd-civitai-browser-plus](https://github.com/BlafKing/sd-civitai-browser-plus)，这里就不做详细的介绍了。
+
+
+## 启用 / 禁用共享显存
+在 Nvidia 显卡驱动大于 525 后，允许 SD WebUI 等基于 SD 的软件调用显卡的共享显存，以弥补显卡的专用显存不足的问题。但是在 SD WebUI 调用共享显存后，出图的速度会大大降低，所以可以禁用共享显存来防止这种情况。
+
+!!!note
+    在禁用共享显存之前，请确保 Nvidia 显卡驱动的版本大于 536。
+
+- 使用绘世启动器禁用
+
+在绘世启动器的`高级选项`中，`性能设置`一栏有个`使用共享显存`的开关，关闭后即可禁用共享显存。
+
+- 使用 Nvidia 显卡驱动面板
+
+参考 Nvidia 官方文档：https://nvidia.custhelp.com/app/answers/detail/a_id/5490
+
+
+## 保存 SD WebUI 预设
+如果需要在进入 SD WebUI 后自动应用之前的参数，可以将这些参数调整好（建议先刷新一遍 SD WebUI 的网页），然后在 SD WebUI 的`设置`->`默认设置`，点击`应用`将这些参数保存到预设中，这些预设将保存在 ui-config.json 文件中，当点击`重载 UI`后预设将生效。
+
+如果想重置预设，可以在 SD WebUI 的目录下把 ui-config.json 文件删除，并重启 SD WebUI。
+
+
+## 将当前的生图参数保存成工作流
+在 SD WebUI 中可以通过安装 LightDiffusionFlow 扩展实现 ComfyUI 的保存工作流的效果，生图调整好后，在 SD WebUI 右下角看到该扩展的选项卡，点击保存按钮即可将当前的所有生图参数保存在一个工作流文件中。更多的工作流可在该网站查看：https://www.lightflow.ai
+
+!!!note
+    LightDiffusionFlow 扩展下载：https://github.com/Tencent/LightDiffusionFlow
+
+
+## 为提示词补全扩展添加词库和中文翻译
+[a1111-sd-webui-tagcomplete](https://github.com/DominikDoom/a1111-sd-webui-tagcomplete) 扩展可以提供提示词补全功能，在 SD WebUI 设置中和该扩展有关的设置中可以更换提示词补全的词库，也可以添加中文翻译，下面是更全的提示词补全词库和对应的中文翻译的下载地址。
+
+|[Tag++ 下载](https://modelscope.cn/api/v1/models/licyks/sdnote/repo?Revision=master&FilePath=tag%2Ftag%2B%2B.csv)|
+|---|
+|[Tag++ 中文翻译下载](https://modelscope.cn/api/v1/models/licyks/sdnote/repo?Revision=master&FilePath=tag%2Ftag%2B%2B_zh.csv)|
+
+将这两个文件下载到本地后，放进`stable-diffusion-webui/extensions/a1111-sd-webui-tagcomplete/tags`文件夹中，然后在 SD WebUI 的`设置`->`标签自动补全`中，在`选择使用的标签文件名`选择`tag++.csv`，`翻译文件名`选择`tag++_zh.csv`，勾选`翻译文件使用旧的三栏式翻译格式，而不是新的二栏式格式`，再点击上方的保存设置使设置生效。
+
+![switch_tag_file_and_add_tag_translation_for_tagcomplete](../../assets/images/guide/extra/switch_tag_file_and_add_tag_translation_for_tagcomplete.jpg)
+
+这样不仅可以看补全的提示词对应的翻译，也可以使用中文来触发提示词补全。
