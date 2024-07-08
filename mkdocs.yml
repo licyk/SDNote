@@ -172,7 +172,7 @@ nav:
     - guide/install/SD_webui.md
     - "其他平台": guide/install/other.md
     - "功能使用":
-        - guide/use/index.md
+        - guide/use/index_SD.md
         - "文生图": guide/use/t2i.md
         - "图生图": guide/use/i2i.md
         - "LoRA 应用": guide/use/lora.md
@@ -182,7 +182,7 @@ nav:
   - "Comfyui部署与使用":
       - guide/install/Comfyui.md
       - "功能使用":
-          - guide/use/index.md
+          - guide/use/index_CF.md
           - "基本逻辑": guide/use/basic_logic.md
           - "基本工作流": guide/use/base_workflows.md
           - "使用导入工作流": guide/use/input_workflows.md
