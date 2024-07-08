@@ -164,27 +164,32 @@ markdown_extensions:
 
 nav:
 - "主页": index.md
-- "AI 绘画部署与使用":
+- "部署与使用":
   - guide/index.md
   - "需求与准备":
     - guide/requirement/index.md
-  - "部署": 
-    - guide/install/index.md
-    - "AMD 用户须知": guide/install/amd_info.md
-    - "Nvidia 用户须知": guide/install/nvidia_info.md
-    - "Intel 用户须知": guide/install/intel_info.md
+  - "SD_webui部署与使用":
+    - guide/install/SD_webui.md
     - "其他平台": guide/install/other.md
+    - "功能使用":
+        - guide/use/index_SD.md
+        - "文生图": guide/use/t2i.md
+        - "图生图": guide/use/i2i.md
+        - "LoRA 应用": guide/use/lora.md
+        - "放大图片": guide/use/upscale.md
+        - "ControlNet 应用": guide/use/controlnet.md
+        - "杂项": guide/use/extra_SD.md
+  - "Comfyui部署与使用":
+      - guide/install/Comfyui.md
+      - "功能使用":
+          - guide/use/index_CF.md
+          - "基本逻辑": guide/use/basic_logic.md
+          - "基本工作流": guide/use/base_workflows.md
+          - "使用导入工作流": guide/use/input_workflows.md
+          - "杂项": guide/use/extra_CF.md
   - "模型指南":
     - guide/model/index.md
     - "模型下载": guide/model/download_model.md
-  - "功能使用":
-    - guide/use/index.md
-    - "文生图": guide/use/t2i.md
-    - "图生图": guide/use/i2i.md
-    - "LoRA 应用": guide/use/lora.md
-    - "放大图片": guide/use/upscale.md
-    - "ControlNet 应用": guide/use/controlnet.md
-    - "杂项": guide/use/extra.md
   - "提示词书写":
     - guide/prompt/index.md
     - "如何书写提示词": guide/prompt/write_prompt.md
@@ -215,5 +220,7 @@ nav:
     - "SD WebUI": help/sd_webui.md
     - "ComfyUI": help/comfyui.md
     - "其他问题": help/other.md
+    - "AMD 运行问题": help/amd_info.md
+    - "Intel 运行问题": help/intel_info.md
 - "附录": appendix.md
 - "关于": about.md

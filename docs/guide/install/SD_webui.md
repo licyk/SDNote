@@ -1,5 +1,5 @@
 ---
-title: Windows 平台
+title: SD_webuiI部署
 ---
 # Windows 平台
 
@@ -23,6 +23,11 @@ title: Windows 平台
 绘世启动器从 2.6.0 开始就支持部署 SD WebUI / ComfyUI 等 WebUI 界面了，可选择使用绘世启动器进行部署。  
 [【AI绘画】拒绝低速网盘下载！使用绘世启动器安装SD-WebUI](https://www.bilibili.com/video/BV1fC411s7Yt)
 
+[AMD用户 的 Windows 用户安装教程](https://www.bilibili.com/video/BV1vK421a7Hf)
+
+[Intel用户 的 Windows 用户安装教程](https://www.bilibili.com/video/BV1rH4y167hs)
 
 ## 官方方法部署
 （不推荐）[AUTOMATIC1111/stable-diffusion-webui - Installation and Running](https://github.com/AUTOMATIC1111/stable-diffusion-webui?tab=readme-ov-file#installation-and-running)
+
+
