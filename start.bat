@@ -7,7 +7,7 @@ if %ERRORLEVEL% NEQ 0 (
     exit /b
 )
 
-python -m pip -V >NUL
+python -c "import pip" > $null
 if %ERRORLEVEL% NEQ 0 (
     echo 未找到 Python Pip 模块，终止运行
     pause

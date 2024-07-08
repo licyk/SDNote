@@ -63,4 +63,4 @@ AMD / Intel：最低 12 GB，建议 16 GB 及以上。
 
 
 ## 网络
-涉及到的部分网站在国内的访问性不佳，建议自备加速工具[Watt Toolkit](https://steampp.net/)。
+涉及到的部分网站在国内的访问性不佳，建议自备加速工具，如 [Watt Toolkit](https://steampp.net/)。

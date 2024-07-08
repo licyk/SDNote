@@ -5,7 +5,7 @@ if ($? -eq 0){
    exit 1
 }
 
-python -m pip -V > $null
+python -c "import pip" > $null
 if ($? -eq 0){
    Write-Host "未找到 Python Pip 模块，终止运行"
    pause
@@ -50,4 +50,4 @@ switch ($args) {
 Write-Host "启动 MKDocs 中..."
 mkdocs serve
 
-pause
+Read-Host | Out-Null
