@@ -164,17 +164,21 @@ markdown_extensions:
 
 nav:
 - "主页": index.md
-- "绘画指南":
+- "AI绘画部署与使用":
   - guide/index.md
-  - "前期准备":
+  - "需求与准备":
     - guide/requirement/index.md
   - "部署": 
     - guide/install/index.md
-    - "Linux / MacOS 平台": guide/install/other.md
-  - "模型":
+    - "amd用户须知": guide/install/amd_info.md
+    - "nvidia用户须知": guide/install/nvidia_info.md
+    - "intel用户须知": guide/install/intel_info.md
+    - "其他平台": guide/install/other.md
+
+  - "模型指南":
     - guide/model/index.md
     - "模型下载": guide/model/download_model.md
-  - "使用":
+  - "功能使用":
     - guide/use/index.md
     - "文生图": guide/use/t2i.md
     - "图生图": guide/use/i2i.md
@@ -200,17 +204,17 @@ nav:
     - "内核": sd_launcher/ver_manager/kernel.md
     - "扩展": sd_launcher/ver_manager/extension.md
     - "安装新扩展": sd_launcher/ver_manager/install.md
-  - "其他功能":
+  - "实用功能":
     - "疑难解答": sd_launcher/other/faq.md
     - "模型管理": sd_launcher/other/model.md
     - "控制台": sd_launcher/other/terminal.md
     - "启动器设置": sd_launcher/other/setting.md
     - sd_launcher/other/index.md
-- "疑难解答": 
+- "使用疑难解答":
     - help/index.md
     - "绘世启动器": help/sd_launcher.md
-    - "SD WebUI": help/sd_webui.md
+    - "SD_WebUI": help/sd_webui.md
     - "ComfyUI": help/comfyui.md
-    - "杂项": help/other.md
+    - "其他问题": help/other.md
 - "附录": appendix.md
 - "关于": about.md
