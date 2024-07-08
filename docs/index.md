@@ -11,7 +11,7 @@ title: 主页
 
 <div class="grid cards" markdown>
 
--   :fontawesome-solid-book:{ .lg .middle } __绘画指南__
+-   :fontawesome-solid-book:{ .lg .middle } __AI 绘画部署与使用__
 
     ---
 
@@ -27,7 +27,7 @@ title: 主页
 
     [:octicons-arrow-right-24: 前往](sd_launcher/index.md)
 
--   :fontawesome-solid-circle-question:{ .lg .middle } __疑难解答__
+-   :fontawesome-solid-circle-question:{ .lg .middle } __使用疑难解答__
 
     ---
 

@@ -164,17 +164,16 @@ markdown_extensions:
 
 nav:
 - "主页": index.md
-- "AI绘画部署与使用":
+- "AI 绘画部署与使用":
   - guide/index.md
   - "需求与准备":
     - guide/requirement/index.md
   - "部署": 
     - guide/install/index.md
-    - "amd用户须知": guide/install/amd_info.md
-    - "nvidia用户须知": guide/install/nvidia_info.md
-    - "intel用户须知": guide/install/intel_info.md
+    - "AMD 用户须知": guide/install/amd_info.md
+    - "Nvidia 用户须知": guide/install/nvidia_info.md
+    - "Intel 用户须知": guide/install/intel_info.md
     - "其他平台": guide/install/other.md
-
   - "模型指南":
     - guide/model/index.md
     - "模型下载": guide/model/download_model.md
@@ -213,7 +212,7 @@ nav:
 - "使用疑难解答":
     - help/index.md
     - "绘世启动器": help/sd_launcher.md
-    - "SD_WebUI": help/sd_webui.md
+    - "SD WebUI": help/sd_webui.md
     - "ComfyUI": help/comfyui.md
     - "其他问题": help/other.md
 - "附录": appendix.md
