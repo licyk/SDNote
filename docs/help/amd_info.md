@@ -1,9 +1,7 @@
 ---
-title: AMD 用户须知
+title: AMD
 ---
 # amd用户须知
-
-[AMD 的 Windows 用户安装教程和启动错误解决方法](https://www.bilibili.com/video/BV1vK421a7Hf)。
 
 ***
 

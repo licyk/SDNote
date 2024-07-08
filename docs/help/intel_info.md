@@ -1,9 +1,7 @@
 ---
-title: Intel 用户须知
+title: Intel
 ---
 # Intel 用户须知
-
-[Intel 的 Windows 用户安装教程](https://www.bilibili.com/video/BV1rH4y167hs)。
 
 ***
 
