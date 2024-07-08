@@ -11,7 +11,7 @@ title: AMD 用户须知
 
 ***
 
-# ZLUDA使用提醒
+## ZLUDA使用提醒
 
 如果系统中同时存在集成的 AMD GPU 和专用的 AMD GPU，则 ZLUDA 将使用集成的 GPU。
 
@@ -37,7 +37,7 @@ ZLUDA 可以使用 AMD 服务器 GPU（通过 Instinct MI200 进行测试），�
 
 ***
 
-# ZLUDA首次启动
+## ZLUDA首次启动
 
 使用ZLUDA的应用程序启动速度很慢。
 
@@ -46,7 +46,7 @@ ZLUDA 可以使用 AMD 服务器 GPU（通过 Instinct MI200 进行测试），�
 
 ***
 
-# 运行 ZLUDA 的应用程序可能会产生略有不同的值
+## 运行 ZLUDA 的应用程序可能会产生略有不同的值
 
 首先，ZLUDA忽略了内核中存在的一些浮点非正态和舍入模式信息。其次，对于CUDA中的某些近似（非IEEE 754）NVIDIA浮点运算，ZLUDA盲目使用近似AMD浮点运算。两者可能具有不同的精度。
 
