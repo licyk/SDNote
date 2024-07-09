@@ -1,7 +1,7 @@
 ---
 title: AMD
 ---
-# amd用户须知
+# AMD 用户须知
 
 ***
 
@@ -9,7 +9,7 @@ title: AMD
 
 ***
 
-## ZLUDA使用提醒
+## ZLUDA 使用提醒
 
 如果系统中同时存在集成的 AMD GPU 和专用的 AMD GPU，则 ZLUDA 将使用集成的 GPU。
 
@@ -35,7 +35,7 @@ ZLUDA 可以使用 AMD 服务器 GPU（通过 Instinct MI200 进行测试），�
 
 ***
 
-## ZLUDA首次启动
+## ZLUDA 首次启动
 
 使用ZLUDA的应用程序启动速度很慢。
 
@@ -57,8 +57,8 @@ ZLUDA 可以使用 AMD 服务器 GPU（通过 Instinct MI200 进行测试），�
 
 ***
 
-## OptiX的
-ZLUDA 为 Arnold 提供了最低限度的 OptiX 实现。有关详细信息，请参阅[Arnold](https://github.com/vosen/ZLUDA#arnold)部分。
+## OptiX 的
+ZLUDA 为 Arnold 提供了最低限度的 OptiX 实现。有关详细信息，请参阅 [Arnold](https://github.com/vosen/ZLUDA#arnold) 部分。
 
 ***
 

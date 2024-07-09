@@ -1,5 +1,5 @@
 ---
-title: SD_webuiI部署
+title: SD WebUI 部署
 ---
 # Windows 平台
 
@@ -31,3 +31,9 @@ title: SD_webuiI部署
 （不推荐）[AUTOMATIC1111/stable-diffusion-webui - Installation and Running](https://github.com/AUTOMATIC1111/stable-diffusion-webui?tab=readme-ov-file#installation-and-running)
 
 
+# Linux平台
+[Install and Run on NVidia GPUs · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-NVidia-GPUs#linux)
+
+
+# MacOS平台
+[Installation on Apple Silicon · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon)
