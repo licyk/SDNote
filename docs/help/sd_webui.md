@@ -463,16 +463,16 @@ sd-webui-prompt-all-in-one 扩展将 LoRA 模型显示为粉红色，并不断�
 ## FileNotFoundError: [Errno 2] No such file or directory: '...\\site-packages\\open_clip\\bpe_simple_vocab_16e6.txt.gz'
 这是因为缺失了 bpe_simple_vocab_16e6.txt.gz 这个文件，可尝试以下其中一种方法恢复。
 
-方法1：重新安装 clip
+方法1：重新安装 clip 和 open-clip-torchp
 
 1. 在绘世启动器的高级选项中，点击右上角的启动命令提示符，打开命令提示符。
 2. 输入下面的命令重新安装 clip。
 ```bash
-python -m pip install %CLIP_PACKAGE% --force-reinstall --no-deps
+python -m pip install open-clip-torch %CLIP_PACKAGE% --force-reinstall --no-deps
 ```
 
 !!!note
-    上述方法基于绘世启动器进行操作，如果不使用绘世启动器，需要将命令换成`python -m pip install git+https://github.com/openai/CLIP --force-reinstall --no-deps`
+    上述方法基于绘世启动器进行操作，如果不使用绘世启动器，需要将命令换成`python -m pip install open-clip-torch git+https://github.com/openai/CLIP --force-reinstall --no-deps`
 
 方法2：直接将缺失文件放到对应位置
 
