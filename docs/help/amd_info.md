@@ -15,7 +15,7 @@ title: AMD
 
 这是底层 ROCm / HIP 运行时中的一个错误。您可以通过禁用核心显卡来解决此问题。
 
-在 Windows 上，我们建议您使用环境变量 `HIP_VISIBLE_DEVICES=1` 或在设备管理器中禁用它，关于环境变量[此处有更多内容]。(https://rocmdocs.amd.com/en/latest/conceptual/gpu-isolation.html#hip-visible-devices)
+在 Windows 上，我们建议您使用环境变量 `HIP_VISIBLE_DEVICES=1` 或在设备管理器中禁用它，关于环境变量[此处有更多内容](https://rocmdocs.amd.com/en/latest/conceptual/gpu-isolation.html#hip-visible-devices)。
 
 核心显卡（经 Radeon 680M 测试）的工作方式有限。一些很少使用的 GPU 操作（abort、printf 等）会挂起或使应用程序崩溃。此外，性能库支持（cuBLAS、cuDNN 等）可能会受到限制，从而导致更复杂的应用程序无法运行。
 
