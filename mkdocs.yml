@@ -186,12 +186,12 @@ nav:
     - "如何书写提示词": guide/prompt/write_prompt.md
     - "提示词高级用法": guide/prompt/advance.md
     - "画师提示词应用": guide/prompt/artist_prompt.md
-  - "Comfyui部署与使用":
+  - "ComfyUI 部署与使用":
     - "部署": guide/comfyui/install.md
     - "功能使用":
       - "概述": guide/comfyui/index.md
-      - "基本逻辑": guide/comfyui/basic_logic.md
-      - "基本工作流": guide/comfyui/base_workflows.md
+      - "界面操作": guide/comfyui/interface_operation.md
+      - "工作流搭建": guide/comfyui/build_workflow.md
       - "使用导入工作流": guide/comfyui/input_workflows.md
       - "杂项": guide/comfyui/extra.md
 - "绘世启动器使用":
