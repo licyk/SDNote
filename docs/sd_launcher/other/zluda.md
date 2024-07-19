@@ -17,6 +17,32 @@ HIP SDK 安装包下载好后，双击打开，等待一会后就可以看到安
 
 如果是其他 AMD 显卡，无需手动下载 ZLUDA 文件，绘世启动器的自我更新模块将自动下载所需的 ZLUDA 文件。
 
+
+## 检查 PyTorch 版本
+在绘世启动器的高级选项里，点击右上角的启动命令提示符，在弹出的命令行窗口输入以下命令。
+
+```
+python -m pip show torch
+```
+
+运行后将输出以下信息。
+
+```
+Name: torch
+Version: 2.3.1+cu118
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: https://pytorch.org/
+Author: PyTorch Team
+Author-email: packages@pytorch.org
+License: BSD-3
+Location: e:\softwares\stable-diffusion-webui\venv\lib\site-packages
+Requires: filelock, fsspec, jinja2, mkl, networkx, sympy, typing-extensions
+Required-by: accelerate, clean-fid, depth_anything, depth_anything_v2, dsine, facexlib, geffnet, kornia, open-clip-torch, pytorch-lightning, segmentation-refinement, spandrel, spandrel_extra_arches, thop, timm, tipo-kgen, tomesd, torchaudio, torchdiffeq, torchmetrics, torchsde, torchvision, ultralytics, xformers
+```
+
+在 Version 部分可以看到 PyTorch 的版本信息，如果显示的是 cu118 就说明 PyTorch 中带的 CUDA 版本为 11.8，能够运行 ZLUDA，如果不是 cu118，需要在绘世启动器的高级选项 -> 环境维护 -> 安装 PyTorch，选择标记为 CUDA 11.8 的 PyTorch 版本进行重装。
+
+
 ## 启用 ZLUDA
 进入绘世启动器的高级选项，在生成引擎可以选择 ZLUDA 开头的生成引擎，选择后即可使用。
 
