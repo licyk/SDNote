@@ -26,7 +26,7 @@ git clone https://github.com/AIGODLIKE/AIGODLIKE-COMFYUI-TRANSLATION
 
 
 ## 设置中文
-安装以上的插件后，在 ComfyUI 界面右侧栏可以看到 Manager 按钮，说明扩展管理器已经成功安装，但是通常情况下 ComfyUI 中文翻译扩展安装后并不会自动设置 ComfyUI 界面为中文，需要手动设置。
+安装以上的扩展后，在 ComfyUI 界面右侧栏可以看到 Manager 按钮，说明扩展管理器已经成功安装，但是通常情况下 ComfyUI 中文翻译扩展安装后并不会自动设置 ComfyUI 界面为中文，需要手动设置。
 
 在 ComfyUI 侧边栏点击右上角的齿轮按钮进入 ComfyUI 设置，找到 AGLTranslation-language 选项，选择 中文[Chinese Simplified] 后 ComfyUI 将自动重启，此时 ComfyUI 的界面就切换成中文了。
 
@@ -71,3 +71,49 @@ git clone https://github.com/AIGODLIKE/AIGODLIKE-COMFYUI-TRANSLATION
 
 ## 侧边栏
 ComfyUI 的侧边栏包含了一些快捷按钮，如 添加提示词队列，这个按钮就类似 Stable Diffusion WebUI 中的生成按钮。
+
+
+## 扩展管理
+安装 ComfyUI-Manager 扩展后，在 ComfyUI 侧边栏可以看到 管理器 按钮，点开后可以看到 ComfyUI-Manager 的界面。
+
+![comfyui_manager_interface](../../assets/images/guide/comfyui/interface_operation/comfyui_manager_interface.jpg)
+
+ComfyUI-Manager 包含了管理 ComfyUI 的各种功能，以下是不同功能的描述。
+
+
+- 节点管理
+
+管理 ComfyUI 的扩展，包含安装 / 卸载 / 禁用 / 启用节点，修复节点缺失依赖的功能。
+
+
+- 安装缺失节点
+
+当导入一个工作流时，如果 ComfyUI 缺少工作流中节点所需要的扩展，ComfyUI 将弹窗提示有节点缺失，这是可以使用该功能扫描工作流需要的节点并安装。
+
+
+- 模型管理
+
+模型管理可以下载一些节点所需的模型。
+
+
+- 通过 Git URL 安装
+
+如果将要安装的插件没有节点管理中搜到，但是知道该节点的 Git 仓库地址，可以通过该功能进行安装。
+
+
+- 更新全部
+
+点击后将更新所有的 ComfyUI 扩展和 ComfyUI 本体。
+
+
+- 更新 ComfyUI
+
+仅更新 ComfyUI 本体。
+
+
+- A1111 替代
+
+下载实现 Stable Diffusion WebUI 部分功能的扩展。
+
+
+ComfyUI-Manager 还有其他实用的功能，如标签显示功能，启用后可以看到节点是来源于哪个扩展。

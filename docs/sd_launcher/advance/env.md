@@ -57,6 +57,8 @@ PyTorch 版本需要和显卡的型号相对应，以保证 SD WebUI，ComfyUI �
 
     AMD 780M 核显无法直接使用 ZLUDA，需要手动添加文件：[适用于绘世启动器的 AMD Radeon 780M 的 ZLUDA 教程 - 哔哩哔哩](https://www.bilibili.com/read/cv33327387)。
 
+    为 AMD 显卡配置 ZLUDA 可参考：[绘世启动器使用 - 配置 ZLUDA - SDNote](../other/zluda.md)。
+
 如果是 Nvidia 显卡，需要注意显卡驱动支持最高的 CUDA 版本是否大于或等于 PyTorch 中所带的 CUDA 版本。
 
 !!!note

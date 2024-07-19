@@ -144,7 +144,8 @@ CLIP文本编码器输出的条件通过 条件采样区域 节点进行控制�
 ![multi_controlnet](../../assets/images/guide/comfyui/build_workflow/multi_controlnet.png)
 
 !!!note
-    工作流使用的 ControlNet 模型：[controlnet-union-sdxl-1.0-promax](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)[(HuggingFace)](https://huggingface.co/xinsir/controlnet-union-sdxl-1.0)
+    工作流使用的 ControlNet 模型：[controlnet-union-sdxl-1.0-promax](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)[(HuggingFace)](https://huggingface.co/xinsir/controlnet-union-sdxl-1.0)。  
+    模型下载后放入`ComfyUI/models/controlnet`文件夹。
 
 这个工作流演示了如何在 ComfyUI 使用 ControlNet 模型控制图片生成。
 

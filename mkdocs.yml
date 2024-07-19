@@ -191,7 +191,7 @@ nav:
     - "功能使用":
       - "概述": guide/comfyui/index.md
       - "界面操作": guide/comfyui/interface_operation.md
-      - "工作流搭建": guide/comfyui/build_workflow.md
+      - "搭建工作流": guide/comfyui/build_workflow.md
       - "使用导入工作流": guide/comfyui/input_workflows.md
       - "杂项": guide/comfyui/extra.md
 - "绘世启动器使用":
@@ -212,6 +212,7 @@ nav:
     - "模型管理": sd_launcher/other/model.md
     - "控制台": sd_launcher/other/terminal.md
     - "启动器设置": sd_launcher/other/setting.md
+    - "配置 ZLUDA": sd_launcher/other/zluda.md
     - sd_launcher/other/index.md
 - "使用疑难解答":
   - help/index.md

@@ -677,3 +677,14 @@ python -m pip install onnxruntime
 2. 禁用部分浏览器插件。
 3. 更换浏览器，这里推荐一些浏览器：[杂项 - 浏览器推荐 - SD Note](./other.md#_5)。
 4. 禁用 SD WebUI 部分扩展。
+
+***
+
+## AMD 使用 ZLUDA 生图时出现 RuntimeError: CUDA error: CUBLAS_STATUS_NOT_SUPPORTED
+AMD 显卡在使用 ZLUDA 作为生成引擎后，在生图时出现以下报错。
+
+```
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_SUPPORTED when call `cublasGemmEx( handle, opa, opb, m, n, k, F, lda, b, CUDA_R16F, ldb, &fbeta, c, CUDA_R_16F, ldc, CUDA_R_32F, CUBLAS_GEMM_DEFAULT_TENSOR_OP)`
+```
+
+这是因为 HIP SDK 不是 5.7 的版本，需要下载 HIP SDK 5.7 并安装，安装后重启电脑，可参看：[绘世启动器使用 - 配置 ZLUDA - SDNote](../sd_launcher/other/zluda.md)。
