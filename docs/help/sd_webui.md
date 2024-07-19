@@ -704,3 +704,15 @@ RuntimeError: CUDA error: CUBLAS_STATUS_NOT_SUPPORTED when call `cublasGemmEx( h
 
 !!!note
     安装 PyTorch 的方法参看：[环境维护 - 安装 PyTorch - SD Note](../sd_launcher/advance/env.md#pytorch)
+
+***
+
+## 在 SD WebUI 扩展管理界面安装插件时出现 AssertionError: extension access disabled because of command line flags
+这是因为 SD WebUI 启用了远程访问或者 Gradio 共享，触发了 SD WebUI 安全保护机制，将这两个功能关闭后可正常在 SD WebUI 安装扩展。
+
+如果使用命令启动，将命令行中的 --share 和 --listen 参数删去。
+
+如果使用的是绘世启动器来启动，可在绘世启动器的高级选项 -> 网络设置 -> 监听设置里，把 开放远程连接 和 通过 Gradio 共享 两个选项关闭。
+
+!!!danger
+    如果想要在启用上述功能的情况下安装扩展，可以在启动 SD WebUI 的命令行参数加入 --enable-insecure-extension-access 或者在绘世启动器的高级选项 -> 安全性选项，将 允许在开放远程访问时安装插件 打开，但是这可能会导致设备遭到恶意攻击。
