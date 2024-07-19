@@ -688,3 +688,19 @@ RuntimeError: CUDA error: CUBLAS_STATUS_NOT_SUPPORTED when call `cublasGemmEx( h
 ```
 
 这是因为 HIP SDK 不是 5.7 的版本，需要下载 HIP SDK 5.7 并安装，安装后重启电脑，可参看：[绘世启动器使用 - 配置 ZLUDA - SDNote](../sd_launcher/other/zluda.md)。
+
+***
+
+## 系统退出代码名称：STACK_BUFFER_OVERRUN
+内存不足导致崩溃，尝试增大虚拟内存或者尝试增加内存条扩大物理内存。
+
+!!!note
+    调整虚拟内存的方法参看：[杂项 - 调整虚拟内存 - SD Note](../help/other.md#_3)
+
+***
+
+## AssertionError: Torch not compiled with CUDA enabled
+安装的 PyTorch 的版本和显卡不对应，需重新选择正确版本的 PyTorch 并安装。
+
+!!!note
+    安装 PyTorch 的方法参看：[环境维护 - 安装 PyTorch - SD Note](../sd_launcher/advance/env.md#pytorch)
