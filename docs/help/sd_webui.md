@@ -348,9 +348,15 @@ B:\Downloads\.subdir\sd.webui
 ## 使用 WD 1.4 反推器反推提示词时出现报错
 如果报错信息中看到`Please check your connection and try again or make sure your Internet connection is on`，这说明是无法连接到 Huggingface，导致下载反推模型失败，尝试配置代理解决。
 
-如果报错信息中看到`ValueError: An event handler (on_interrogate) didn't receive enough output values (needed: 4, received: 3)`，这可能是因为环境中 onnxruntime 的版本过低，在绘世启动器的高级选项中，点击右上角的启动命令提示符，输入以下命令更新 onnxruntime。
+如果报错信息中看到`ValueError: An event handler (on_interrogate) didn't receive enough output values (needed: 4, received: 3)`，并且还有 onnxruntime 的错误。
+
+```
+ onnxruntime.capi.onnxruntime_pybind11_state.Fail: [ONNXRuntimeError] : 1 : FAIL : Load model from E:\Softwares\term-sd\cache\huggingface\hub\models--SmilingWolf--wd-swinv2-tagger-v3\snapshots\627aef95638667ddcaa3ac8ae625e88ea5b02f51\model.onnx failed:C:\a\_work\2\s\onnxruntime\core/graph/model_load_utils.h:56 onnxruntime::model_load_utils::ValidateOpsetForDomain ONNX Runtime only *guarantees* support for models stamped with official released onnx opset versions. Opset 4 is under development and support for this is limited. The operator schemas and or other functionality may change before next ONNX release and in this case ONNX Runtime will not guarantee backward compatibility. Current official support for domain ai.onnx.ml is till opset 3.
+```
+
+这可能是因为环境中 onnxruntime 的版本过低或者 onnxruntime 和 onnxruntime-gpu 版本不匹配，在绘世启动器的高级选项中，点击右上角的启动命令提示符，输入以下命令更新 onnxruntime 和 onnxruntime-gpu。
 ```bash
-python -m pip install onnxruntime -U
+python -m pip install onnxruntime onnxruntime-gpu -U
 ```
 
 ***
