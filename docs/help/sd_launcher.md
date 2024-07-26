@@ -108,6 +108,11 @@ title: 绘世启动器
 ![close_sd_launcher_mirror](../assets/images/help/sd_launcher
 /close_sd_launcher_mirror.jpg)
 
+配置好后的设置如下。
+
+![use_tun_to_config_proxy](../assets/images/help/sd_launcher
+/use_tun_to_config_proxy.jpg)
+
 !!!note
     有 TUN 模式 / 虚拟网卡模式的代理软件也可以用下面的方法来配置绘世启动器的代理。如果该方法无法配置代理，请使用下面的方法来配置代理。
 
@@ -121,6 +126,19 @@ title: 绘世启动器
     这里的代理服务器地址为`http://127.0.0.1:10809`，这个地址的代理协议和代理端口和上面的代理软件的截图一致。如果不一致时，可以点击代理服务器地址输入框右侧的`x`按钮将代理服务器地址清空，这时绘世启动器将重新读取代理服务器地址。
 
 再把 PyPI 国内镜像、Git 国内镜像、Huggingface 国内镜像、替换扩展列表链接这 4 个按钮关上。
+
+配置好后的设置如下。
+
+![config_proxy_without_tun](../assets/images/help/sd_launcher
+/config_proxy_without_tun.jpg)
+
+### 取消配置绘世启动器代理
+打开绘世启动器的`设置` -> `代理设置`，把将代理应用到 Git、将代理应用到 Pip、将代理应用到环境变量、将代理应用到模型下载这 4 个按钮关闭，再把 PyPI 国内镜像、Git 国内镜像、Huggingface 国内镜像、替换扩展列表链接这 4 个按钮打开。
+
+配置好后的设置如下。
+
+![disable_proxy](../assets/images/help/sd_launcher
+/disable_proxy.jpg)
 
 !!!note
     哔哩哔哩专栏版教程：[网络错误？下载失败？配置绘世启动器的代理服务器！ - 哔哩哔哩](https://www.bilibili.com/read/cv33230985)
