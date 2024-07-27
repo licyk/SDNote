@@ -150,6 +150,10 @@ hide:
 - [C站/社区常用高质量提示词](https://civitai.com/models/62473)
 - [SD优质提示词库](https://docs.qq.com/sheet/DYUtXVGJJSFZ1R3FF?tab=ss_0gqnt7&viewId=vig5co)
 - [衣服的提示词百科(上下身)](https://www.notion.so/ea163bebdce44785adf38041ac35ed6e#6cd3e15dfc3347fb9811bec8bc910c02)
+- [Tag - Safebooru](https://safebooru.org)
+- [画师 Tag - Safebooru](https://safebooru.donmai.us/artist)
+- [Tag 强度查询](https://raideninfinity.pythonanywhere.com/naidv3_tag_search)
+- [AI绘图查表](https://docs.google.com/spreadsheets/d/1eGBy8WKavBtG2SKz8p8coP4k-kMilweR70zCMj-QGbM/edit?gid=1674089997#gid=1674089997)
 
 
 ## 图库
