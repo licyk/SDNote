@@ -131,6 +131,19 @@ title: 启动器设置
 检测是否安装了重复的扩展，并弹窗提示。
 
 
+## 安全性设置
+防范软件可能存在对设备的恶意攻击。
+
+![security_setting](../../assets/images/sd_launcher/other/security_setting.jpg)
+
+### 应用隔离沙盒
+限制软件对系统及其他文件的访问权限，避免病毒渗透。
+
+!!!note
+    在 ComfyUI 中曾出现过 ComfyUI_LLMVISION 扩展攻击设备的事件，安装该扩展后设备中保存的隐私信息将被泄露出去，有关的消息：[PSA: If you've used the ComfyUI_LLMVISION node from u/AppleBotzz, you've been hacked - Reddit](https://www.reddit.com/r/comfyui/comments/1dbls5n/psa_if_youve_used_the_comfyui_llmvision_node_from/)。  
+    启用该功能后可防范类似的恶意攻击。
+
+
 ## 环境设置
 自定义组件的路径。
 
