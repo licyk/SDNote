@@ -722,3 +722,23 @@ RuntimeError: CUDA error: CUBLAS_STATUS_NOT_SUPPORTED when call `cublasGemmEx( h
 
 !!!danger
     如果想要在启用上述功能的情况下安装扩展，可以在启动 SD WebUI 的命令行参数加入 --enable-insecure-extension-access 或者在绘世启动器的高级选项 -> 安全性选项，将 允许在开放远程访问时安装插件 打开，但是这可能会导致设备遭到恶意攻击。
+
+***
+
+## ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE
+Pip 在安装软件包时出现以下类似的错误。
+
+```
+ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, please update the hashes. Otherwise, examine the package contents carefully; someone may have tampered with them.
+    rsa<5,>=3.1.4 from https://mirrors.cloud.tencent.com/pypi/packages/49/97/fa78e3d2f65c02c8e1268b9aba606569fe97f6c8f7c2d74394553347c145/rsa-4.9-py3-none-any.whl#sha256=90260d9058e514786967344d0ef75fa8727eed8a7d2e43ce9f4bcf1b536174f7 (from google-auth<3,>=1.6.3->tensorboard==2.10.1->-r requirements.txt (line 12)):
+        Expected sha256 90260d9058e514786967344d0ef75fa8727eed8a7d2e43ce9f4bcf1b536174f7
+             Got        b7593b59699588c6ce7347aecf17263295c079efb3677553c2a81b08e857f838
+```
+
+这是因为下载的软件包出现了损坏，需要清除缓存让 Pip 重新下载。点击启动器高级选项 -> 启动命令提示符，输入以下命令。
+
+```
+python -m pip cache purge
+```
+
+执行完命令后再重试。
