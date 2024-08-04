@@ -742,3 +742,12 @@ python -m pip cache purge
 ```
 
 执行完命令后再重试。
+
+***
+
+## ModuleNotFound: No module named 'jsonmerge'
+这可能是 jsonmerge 软件包版本有问题 / 未安装，需要重新安装。点击启动器的高级选项 -> 环境维护 -> 重装单个 Python 组件，输入`jsonmerge==1.8.0`后点击重新安装。
+
+如果重新安装后重新启动还出现该问题，可以尝试将关闭镜像源，在绘世启动器的设置中将 PyPI 国内镜像关闭，再重新使用上面的步骤重新安装 jsonmerge。
+
+如果问题依旧存在，可尝试禁用一些插件后重新安装 jsonmerge。
