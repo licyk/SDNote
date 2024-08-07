@@ -29,7 +29,7 @@ python -m pip show torch
 
 ```
 Name: torch
-Version: 2.3.1+cu118
+Version: 2.3.1+cu118        <----- 这里显示的是 PyTorch 的版本信息，内置的 CUDA 版本为 11.8
 Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
 Home-page: https://pytorch.org/
 Author: PyTorch Team
