@@ -13,7 +13,7 @@ HIP SDK 安装包下载好后，双击打开，等待一会后就可以看到安
 
 
 ## 下载 ZLUDA
-如果 AMD 显卡为 AMD 780m，需要手动下载 ZLUDA 文件，点击此处下载 [780m_20240321_163205.7z](https://modelscope.cn/models/licyks/sdnote/resolve/master/other/780m_20240321_163205.7z)，下载该文件完成后，使用 [Bandizip](https://www.bandisoft.com/bandizip) / [7zip](https://7-zip.org/) / 其他解压缩软件 将该压缩包内的所有文件解压到绘世启动器所在目录。
+如果 AMD 显卡型号为 AMD 780m / AMD 760m / AMD 680m，需要手动下载 ZLUDA 文件，点击此处下载 [780m_20240321_163205.7z](https://modelscope.cn/models/licyks/sdnote/resolve/master/other/780m_20240321_163205.7z)，下载该文件完成后，使用 [Bandizip](https://www.bandisoft.com/bandizip) / [7zip](https://7-zip.org/) / 其他解压缩软件 将该压缩包内的所有文件解压到绘世启动器所在目录。
 
 如果是其他 AMD 显卡，无需手动下载 ZLUDA 文件，绘世启动器的自我更新模块将自动下载所需的 ZLUDA 文件。
 
@@ -46,4 +46,4 @@ Required-by: accelerate, clean-fid, depth_anything, depth_anything_v2, dsine, fa
 ## 启用 ZLUDA
 进入绘世启动器的高级选项，在生成引擎可以选择 ZLUDA 开头的生成引擎，选择后即可使用。
 
-在初次使用 ZLUDA 引擎进行生图时，需要编译 ZLUDA 所需的文件，此时在绘世启动器控制台将显示编译进度。ZLUDA 编译时间较长，需要等待 30 分钟左右，编译完成后将开始进行生图。
+在初次使用 ZLUDA 引擎进行生图时，需要编译 ZLUDA 所需的文件，此时在绘世启动器控制台将显示编译进度（编译时会显示`正在编译到 AMD 显卡架构`）。ZLUDA 编译时间较长，需要等待 30 分钟左右，编译完成后将开始进行生图。
