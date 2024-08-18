@@ -32,8 +32,16 @@ title: SD WebUI 部署
 
 
 # Linux平台
+## 使用安装器
+[licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
+
+## 官方方法部署
 [Install and Run on NVidia GPUs · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-NVidia-GPUs#linux)
 
 
 # MacOS平台
+## 使用安装器
+[licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
+
+## 官方方法部署
 [Installation on Apple Silicon · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon)

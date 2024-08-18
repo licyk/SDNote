@@ -209,8 +209,8 @@ python -m pip install tqdm
 ## The size of tensor a (96) must match the size of tensor b(250) at non-sinaleton dimension 3
 可能有以下原因。
 
-1. Lora 模型和大模型版本不匹配。
-2. 扩展和 SD WeUI 未更到最新版本，请在绘世启动器的版本管理中进行更新。
+1. LoRA 模型和大模型版本不匹配。
+2. 扩展和 SD WebUI 未更到最新版本，请在绘世启动器的版本管理中进行更新。
 
 ***
 
