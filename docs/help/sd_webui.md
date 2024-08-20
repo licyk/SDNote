@@ -751,3 +751,20 @@ python -m pip cache purge
 如果重新安装后重新启动还出现该问题，可以尝试将关闭镜像源，在绘世启动器的设置中将 PyPI 国内镜像关闭，再重新使用上面的步骤重新安装 jsonmerge。
 
 如果问题依旧存在，可尝试禁用一些插件后重新安装 jsonmerge。
+
+***
+
+## 在 SD WebUI Forge 使用 FLUX 模型时出现 AssertionError: You do not have CLIP / VAE state dict!
+这是因为某些版本的 FLUX 模型只包含了 UNet 组件，缺少了 CLIP / VAE 组件，导致无法完成整个生图流程，需要外乖 CLIP / VAE。
+
+|FLUX CLIP / VAE 模型下载|模型放置路径|
+|---|---|
+|[clip_l.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/clip_l.safetensors)|stable-diffusion-webui-forge/models/text_encoder|
+|[t5xxl_fp8_e4m3fn.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp8_e4m3fn.safetensors)|stable-diffusion-webui-forge/models/text_encoder|
+|[ae.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_vae/ae.safetensors)|stable-diffusion-webui-forge/models/VAE|
+
+将模型下载并放到对应路径后，在 SD WebUI Forge 界面顶部的 VAE / Text Encoder 选项选择 clip_l.safetensors、t5xxl_fp8_e4m3fn.safetensors、ae.safetensors。
+
+![select_clip_and_vae_model_on_sd_webui_forge](../assets/images/help/sd_webui/select_clip_and_vae_model_on_sd_webui_forge.jpg)
+
+选择后即可正常使用 FLUX 模型。
