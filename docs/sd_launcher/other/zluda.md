@@ -15,6 +15,8 @@ HIP SDK 安装包下载好后，双击打开，等待一会后就可以看到安
 ## 下载 ZLUDA
 如果 AMD 显卡型号为 AMD 780m / AMD 760m / AMD 680m，需要手动下载 ZLUDA 文件，点击此处下载 [780m_20240321_163205.7z](https://modelscope.cn/models/licyks/sdnote/resolve/master/other/780m_20240321_163205.7z)，下载该文件完成后，使用 [Bandizip](https://www.bandisoft.com/bandizip) / [7zip](https://7-zip.org/) / 其他解压缩软件 将该压缩包内的所有文件解压到绘世启动器所在目录。
 
+![unzip_zluda_patch_to_sd_webui_path](../../assets/images/sd_launcher/other/unzip_zluda_patch_to_sd_webui_path.jpg)
+
 如果是其他 AMD 显卡，无需手动下载 ZLUDA 文件，绘世启动器的自我更新模块将自动下载所需的 ZLUDA 文件。
 
 
