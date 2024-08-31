@@ -154,3 +154,20 @@ export no_proxy="localhost,127.0.0.1,::1"
 !!!note
     设置 no_proxy 变量是为了避免本地的 IP 也使用代理。
 
+***
+
+## 设置 Git 全局安全目录
+如果运行 Git 出现以下提示：
+```
+fatal: detected dubious ownership in respository at 'xxx/xxx/xxx'
+    ...
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory 'xxx/xxxx/xxxx'
+```
+
+可运行该命令设置所有目录为 Git 安全目录。
+
+```bash
+git config --global --add safe.directory "*"
+```

@@ -307,3 +307,19 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 ![switch_tag_file_and_add_tag_translation_for_tagcomplete](../../assets/images/guide/extra/switch_tag_file_and_add_tag_translation_for_tagcomplete.jpg)
 
 这样不仅可以看补全的提示词对应的翻译，也可以使用中文来触发提示词补全。
+
+
+## SD WebUI Forge 共享 SD WebUI 模型
+[stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge) 为 [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) 的其中一个分支，优化了显存占用，并且在某些显卡上拥有更快的速度。
+
+SD WebUI Forge 可以共享 SD WebUI 的模型，如果需要设置共享模型，在绘世启动器的设置里将配置模式调成`高级`，再进入绘世启动器的高级选项，找到`自定义参数选项`，填入以下内容：
+
+```
+--forge-ref-a1111-home "SD WebUI 的路径"
+```
+
+重新启动 SD WebUI Forge 后即可共享 SD WebUI 的模型。
+
+!!!note
+    该自定义参数可参考：[Single cmd arg to reference models in existing A1111 checkout · lllyasviel/stable-diffusion-webui-forge · Discussion #206](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/206)。  
+    如果想要安装 SD WebUI Forge，可参考该教程：[【AI 绘画】更快？更省显存？支持 FLUX？使用绘世启动器安装 SD WebUI Forge_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1rNYre4E5B)。
