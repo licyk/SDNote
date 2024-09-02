@@ -768,3 +768,16 @@ python -m pip cache purge
 ![select_clip_and_vae_model_on_sd_webui_forge](../assets/images/help/sd_webui/select_clip_and_vae_model_on_sd_webui_forge.jpg)
 
 选择后即可正常使用 FLUX 模型。
+
+***
+
+## rocBLAS error: Could not initialize Tensile library
+在 AMD 显卡上使用 ZLUDA 时出现以下报错。
+
+```
+rocBLAS error: Could not load C:\Users\xxxxx\AppData\Local\Temp\xxxx/TensileLibrary_lazy_gfx1103.dat
+
+rocBLAS error: Could not initialize Tensile library
+```
+
+这是因为缺少对应的 ZLUDA 文件，需要手动补全，参考：[配置 ZLUDA - SD Note](../sd_launcher/other/zluda.md#zluda)
