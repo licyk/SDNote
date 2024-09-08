@@ -781,3 +781,12 @@ rocBLAS error: Could not initialize Tensile library
 ```
 
 这是因为缺少对应的 ZLUDA 文件，需要手动补全，参考：[配置 ZLUDA - SD Note](../sd_launcher/other/zluda.md#zluda)
+
+***
+
+## 使用 WD 1.4 反推器时出现 ImpoetError: DLL load failed while importing onnxruntime_pybindll_state: 动态链接库(DLL)初始化例程失败
+尝试更新 onnxruntime。在绘世启动器的高级选项点击右上角启动命令提示符，输入以下命令后回车。
+
+```
+python -m pip install onnxruntime onnxruntime-gpu -U
+```
