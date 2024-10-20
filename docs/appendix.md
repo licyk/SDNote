@@ -154,6 +154,7 @@ hide:
 - [画师 Tag - Safebooru](https://safebooru.donmai.us/artist)
 - [Tag 强度查询](https://raideninfinity.pythonanywhere.com/naidv3_tag_search)
 - [AI绘图查表](https://docs.google.com/spreadsheets/d/1eGBy8WKavBtG2SKz8p8coP4k-kMilweR70zCMj-QGbM/edit?gid=1674089997#gid=1674089997)
+- [300画风法典：NAI3画风收集和研究](https://docs.qq.com/sheet/DZWZMemxNZkpVR0VB?tab=BB08J2&groupUin=U2kyqgspEHKsGcuX2t%25252BCiQ%25253D%25253D&ADUIN=1641529923&ADSESSION=1709595466&ADTAG=CLIENT.QQ.6061_.0&ADPUBNO=27400&_t=1729406668370&u=0e8b4190f32d47beaea0cb7ed4befcc1)
 
 
 ## 图库
