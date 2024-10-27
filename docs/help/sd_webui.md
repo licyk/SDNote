@@ -31,7 +31,9 @@ title: SD WebUI
 
 平常下载模型的时候总会看到 1.5、XL 这些版本，这里指的是模型基于 Stable Diffusion 1.5 / XL 模型进行训练 / 融合。在跑图的时候，使用的大模型就是 Stable Diffusion 模型。
 
-这里把 Stable Diffusion 简称 SD，[Stability AI](https://stability.ai) 目前推出的 SD 版本有 1.4、1.5、2.0、2.1、XL、3、FLUX、3.5在之后将会发布 SD 3，
+这里把 Stable Diffusion 简称 SD，[Stability AI](https://stability.ai) 目前推出的 SD 版本有 1.4、1.5、2.0、2.1、XL、3、3.5。
+
+[Black Forest Labs](https://blackforestlabs.ai/)推出的有 FLUX.1。
 
 ***
 
@@ -211,6 +213,8 @@ python -m pip install tqdm
 ## Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0!
 尝试重启 SD WebUI，如果未解决，尝试禁用一些扩展（经常出现在使用控制网Controlnet）。
 
+在爆显存后可以也会出现这种问题，可尝试重启 SD WebUI 解决。
+
 ***
 
 ## The size of tensor a (96) must match the size of tensor b(250) at non-sinaleton dimension 3
@@ -379,7 +383,7 @@ python -m pip install onnxruntime onnxruntime-gpu -U
 ***
 
 ## xFormers can't load C++/CUDA extensions
-这是因为你安装了不匹配 PyTorch 版本 xFormers，前往绘世启动器的`高级选项`->`环境维护`->`安装 PyTorch`，安装对应版本的 PyTorch和xformers。
+这是因为你安装了不匹配 PyTorch 版本 xFormers，前往绘世启动器的`高级选项`->`环境维护`->`安装 PyTorch`，安装对应版本的 PyTorch 和 xformers。
 
 !!!note
     安装 PyTorch 的方法参看：[环境维护 - 安装 PyTorch - SD Note](../sd_launcher/advance/env.md#pytorch)

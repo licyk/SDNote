@@ -15,13 +15,15 @@ The mainline development will happen on AMD GPUs as that's what most of our user
 Still, I do realize there is lot of interest in other GPUs (e.g. Intel) and hopefully this will lead to more code contributions and new backends.
 Pre-rollback ZLUDA stayed on ROCm 5 mainly because I did not want to re-test all the version-specific workarounds. Since we are starting with a clean slate, AMD backend will target ROCm 6.1+.
 
+<!-- TODO: 需要翻译 -->
+
 ## ZLUDA 使用提醒
 
 如果系统中同时存在 AMD 的核心显卡和独立显卡，则 ZLUDA 将使用核心显卡。
 
 这是底层 ROCm / HIP 运行时中的一个错误。您可以通过禁用核心显卡(核显)来解决此问题。
 
-在 Windows 上，我们建议您使用环境变量 `$env: HIP_VISIBLE_DEVICES=1` 或在设备管理器中禁用它，关于环境变量[此处有更多内容](https://rocmdocs.amd.com/en/latest/conceptual/gpu-isolation.html#hip-visible-devices)。
+在 Windows 上，我们建议您使用环境变量 `HIP_VISIBLE_DEVICES=1` 或在设备管理器中禁用它，关于环境变量[此处有更多内容](https://rocmdocs.amd.com/en/latest/conceptual/gpu-isolation.html#hip-visible-devices)。
 
 核心显卡（经 Radeon 680M 测试）的工作方式有限。一些很少使用的 GPU 操作（abort、printf 等）会挂起或使应用程序崩溃。此外，性能库支持（cuBLAS、cuDNN 等）可能会受到限制，从而导致更复杂的应用程序无法运行。
 
@@ -35,7 +37,7 @@ ZLUDA 可以使用 AMD 计算卡（通过 Instinct MI200 进行测试），但�
 
 性能差异很大，快速模式可以快两倍。
 在多个项目(SPECFEM3D, QUDA, CHroma, MILC, Kokkos, LAMMPS, OpenFOAM, XGBoost, NAMD, LAMMPS)中没有遇到可以跳闸快速模式的代码模式。
-您可以使用环境变量 `$env: ZLUDA_WAVE64_SLOW_MODE=1` 强制在慢速模式下编译。
+您可以使用环境变量 `ZLUDA_WAVE64_SLOW_MODE=1` 强制在慢速模式下编译。
 
 这些都不适用于家用级显卡（RDNA 系列）
 
@@ -46,7 +48,7 @@ ZLUDA 可以使用 AMD 计算卡（通过 Instinct MI200 进行测试），但�
 使用 ZLUDA 的应用程序启动速度很慢。
 
 在第一次启动时，ZLUDA 需要为应用程序编译 GPU 代码。这是一次性成本，编译后的 GPU 代码缓存在 Windows 的 `%LOCALAPPDATA%` 中和 Linux 的 `$XDG_CACHE_HOME` 或 `$HOME/.cache` 中。
-某些应用程序会在使用 GPU 代码时逐渐加载它。如果不希望这样做，您可以尝试设置环境变量 `$env: CUDA_MODULE_LOADING=EAGER`。这取决于应用程序的编程方式，但它可能会强制在启动时加载（和编译）所有内核，无论它们是否被使用。
+某些应用程序会在使用 GPU 代码时逐渐加载它。如果不希望这样做，您可以尝试设置环境变量 `CUDA_MODULE_LOADING=EAGER`。这取决于应用程序的编程方式，但它可能会强制在启动时加载（和编译）所有内核，无论它们是否被使用。
 
 ***
 
