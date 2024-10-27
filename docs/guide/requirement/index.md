@@ -27,21 +27,65 @@ title: 起步配置推荐
 
 ## 显卡
 
-### 核心选择
+### 显卡选择
 个人建议选择显卡核心的优先级：Nvidia > AMD ≈ Intel
 
 
-### Nvidia 核心
+### Nvidia 显卡
 最低20系起步，如果您准备购买显卡，建议30系起步.
 
 
-### AMD 核心
+### AMD 显卡
 建议 **能使用 ZLUDA** 的显卡(新发布版显卡)，如果您准备购买显卡，并不推荐 AMD 核心的显卡。
 
 
-### Intel 核心
+### Intel 显卡
 Intel Arc A770，如果您准备购买显卡，并不推荐 Intel 核心的显卡。
 
+### 魔改 Nvidia 显卡
+需求：新版驱动，压缩软件，驱动卸载软件 Display Driver Uninstaller
+
+官网驱动下载地址: https://www.nvidia.cn/geforce/drivers/
+
+1.选择对应的产品系列，产品然后下载驱动安装程序，在下载完后右键解压 exe 文件到一个文件夹中。
+
+2.启动驱动卸载软件，卸载驱动并重启电脑后右键此电脑，选择管理然后选择设备管理器点击显示设备。
+
+3.右键点击更新驱动程序
+
+![01](../../assets/images/guide/requirement/01.png)
+
+4.点击浏览我的电脑以查找驱动程序
+
+![02](../../assets/images/guide/requirement/02.png)
+
+5.点击让我从计算机上可用驱动程序列表表中选取
+
+![03](../../assets/images/guide/requirement/03.png)
+
+6.点击从磁盘安装
+
+![04](../../assets/images/guide/requirement/04.png)
+
+7.点击浏览
+
+![05](../../assets/images/guide/requirement/05.png)
+
+8.进入你解压的驱动文件夹里面选择Display.Driver文件夹的第一个用.inf结尾的文件
+
+![06](../../assets/images/guide/requirement/06.png)
+
+9.去掉检查兼容硬件
+
+![07](../../assets/images/guide/requirement/07.png)
+
+10.在型号里面寻找并安装 NVIDIA GeFoRce GTX 1660 忽略警告并安装（所有显卡都先进行这一步）
+
+![06](../../assets/images/guide/requirement/06.png)
+
+11.安装成功后，重复 3~9 步骤然后按照自己显卡的对应版本安装对应型号，名称相同的最上面的为最新。
+
+<!-- TODO: 图片需要更换 -->
 
 ### 显存要求
 Nvidia：最低 8 GB，建议 12 GB 及以上。

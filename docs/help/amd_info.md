@@ -5,15 +5,23 @@ title: AMD
 
 ***
 
-下面文章均取至 [ZLUDA 的 README 文件](https://github.com/vosen/ZLUDA)，文件经过翻译，原文点击点击高亮文字查看。
+下面文章均取至 [ZLUDA 的 zludas-third-life 文件](https://vosen.github.io/ZLUDA/blog/zludas-third-life/)，文件经过翻译，原文点击点击高亮文字查看。
 
 ***
+## ZLUDA GPU支持
+
+The new ZLUDA will be built to support multiple GPU architectures. 
+The mainline development will happen on AMD GPUs as that's what most of our users have. 
+Still, I do realize there is lot of interest in other GPUs (e.g. Intel) and hopefully this will lead to more code contributions and new backends.
+Pre-rollback ZLUDA stayed on ROCm 5 mainly because I did not want to re-test all the version-specific workarounds. Since we are starting with a clean slate, AMD backend will target ROCm 6.1+.
+
+<!-- TODO: 需要翻译 -->
 
 ## ZLUDA 使用提醒
 
 如果系统中同时存在 AMD 的核心显卡和独立显卡，则 ZLUDA 将使用核心显卡。
 
-这是底层 ROCm / HIP 运行时中的一个错误。您可以通过禁用核心显卡来解决此问题。
+这是底层 ROCm / HIP 运行时中的一个错误。您可以通过禁用核心显卡(核显)来解决此问题。
 
 在 Windows 上，我们建议您使用环境变量 `HIP_VISIBLE_DEVICES=1` 或在设备管理器中禁用它，关于环境变量[此处有更多内容](https://rocmdocs.amd.com/en/latest/conceptual/gpu-isolation.html#hip-visible-devices)。
 
