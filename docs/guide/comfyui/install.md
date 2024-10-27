@@ -1,9 +1,7 @@
 ---
 title: ComfyUI 部署
 ---
-# 部署
-部署 ComfyUI 可以通过以下途径。
-
+# Windwos 平台
 ## 整合包部署
 [【AI绘画】ComfyUI整合包发布！解压即用 一键启动 工作流版界面 超多节点 ☆更新 ☆汉化 秋叶整合包_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ew411776J)
 
@@ -14,3 +12,36 @@ title: ComfyUI 部署
 
 ## 从源码部署
 [comfyanonymous/ComfyUI - Installing](https://github.com/comfyanonymous/ComfyUI?tab=readme-ov-file#installing)
+
+
+## ComfyUI 官方安装器
+!!!note
+    待官方发布。
+
+
+# Linux 平台
+## 使用安装器
+[licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
+
+
+## 从源码部署
+[comfyanonymous/ComfyUI - Installing](https://github.com/comfyanonymous/ComfyUI?tab=readme-ov-file#installing)
+
+
+## ComfyUI 官方安装器
+!!!note
+    待官方发布。
+
+
+# MacOS 平台
+## 使用安装器
+[licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
+
+
+## 从源码部署
+[comfyanonymous/ComfyUI - Installing](https://github.com/comfyanonymous/ComfyUI?tab=readme-ov-file#installing)
+
+
+## ComfyUI 官方安装器
+!!!note
+    待官方发布。

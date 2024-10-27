@@ -116,3 +116,5 @@ ControlNet 模型在控制图片的生成时，需要使用一张图作为参考
 ControlNet 预处理器后的图片如上方[不同 ControlNet 的作用](./controlnet.md#controlnet_2)部分中表格的处理后的控制图片的一样的效果。如果给 ControlNet 模型参考的图片是已经经过 ControlNet 处理过的图片时，就不需要再次经过 ControlNet 预处理器进行处理。
 
 ControlNet 预处理器并不参与生图的采样过程，所以并不存在只兼容 Stable Diffusion 1.5 或者 Stable Diffusion XL 的说法。而 ControlNet 模型参与生图过程的采样过程，所以需要使用匹配版本的 Stable Diffusion 模型，如果出现`mat1 and mat2 shapes cannot be multiplied`这种报错，这就说明 ControlNet 模型和 Stable Diffusion 模型的版本不匹配。
+
+<!-- TODO: 补充 ControlNet 的实际应用-->
