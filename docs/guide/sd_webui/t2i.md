@@ -93,3 +93,6 @@ lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits
 调整完这些参数后，点击右侧的生成按钮就开始生图了，生成完成后即可在图片预览区域看见生成好的图片。
 
 ![finish_generate_image](../../assets/images/guide/t2i/finish_generate_image.jpg)
+
+
+<!-- TODO: 需要更详细的说明 -->

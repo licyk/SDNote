@@ -194,10 +194,12 @@ nav:
       - "搭建工作流": guide/comfyui/build_workflow.md
       - "使用导入工作流": guide/comfyui/input_workflows.md
       - "杂项": guide/comfyui/extra.md
-  - "SD WebUI 部署与使用":
+  - "SD WebUI Forge 部署与使用":
     - "部署": guide/sd_webui_forge/install.md
     - "功能使用":
       - guide/sd_webui_forge/index.md
+    - "常见功能使用":
+      - guide/sd_webui_forge/common_use.md
 - "绘世启动器使用":
   - sd_launcher/index.md
   - "部署功能": 
