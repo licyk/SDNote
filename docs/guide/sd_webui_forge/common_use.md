@@ -117,3 +117,27 @@ masterpiece,best quality,newest,
 调整好参数后就可以进行图片生成，生成结束后可以看到 2 个 LoRA 可以共同起作用调整出图效果。
 
 ![use_character_lora_and_style_lora](../../assets/images/guide/sd_webui_forge/use_character_lora_and_style_lora.png)
+
+
+## ControlNet 使用
+除了使用提示词控制图片的生成，还可以借助 ControlNet 将图片也作为控制图片的条件，和提示词共同控制图片的生成。
+
+提示词写好后，在左下角找到 ControlNet Integrated 选项，勾选一个 ControlNet 单元，在图片导入处可导入用于作为控制条件的图片，这里我使用 ControlNet 的线稿模式控制图片生成，导入一张图片后，控制类型选择 Lineart（线稿），此时预处理器将自动选择成对应线稿的预处理器，ControlNet 模型也会选择对应控制类型的模型，如果没有自动选择，需要点击右侧的刷新，再手动选择对应的 ControlNet 模型。
+
+预处理器用于将导入的图片转换为 ControlNet 模型能够识别的图片，点击 💥 按钮将使用预处理器将导入的图片处理为 ControlNet 可识别的控制图片，处理完整后可以在右侧看到处理好的控制图片。使用不同的预处理器得到的控制图片都不一样，根据需要的效果进行选择。
+
+控制权重用于设置 ControlNet 控制图片生成的强度，该值越高，控制效果越强。Timestep Range 用于设置控制时机，也就是设置 ControlNet 在生图的哪个过程进行控制，
+
+Resolution 设置预处理器处理图片时使用的分辨率，较低的值可能效果不太好，可根据出图时使用的分辨率，适当调高该值，或者使用完美像素模式，此时将根据出图使用的分辨率自动设置 Resolution 为最佳值。
+
+缩放模式用于调整预处理器在处理图片时如何对图片进行缩放。
+
+控制模型设置提示词和 ControlNet 的控制权重。当启用 ControlNet 后，控制图片生成的条件变成了提示词和 ControlNet，根据自己的需求进行选择。
+
+设置完成后，就可以点击生成进行生图了。
+
+![use_controlnet_to_generate_image](../../assets/images/guide/sd_webui_forge/use_controlnet_to_generate_image.png)
+
+
+## 图生图
+⛶📂🗑️✠🔄↩️↪️ 📐⇅

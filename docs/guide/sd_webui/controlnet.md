@@ -118,3 +118,4 @@ ControlNet 预处理器后的图片如上方[不同 ControlNet 的作用](./cont
 ControlNet 预处理器并不参与生图的采样过程，所以并不存在只兼容 Stable Diffusion 1.5 或者 Stable Diffusion XL 的说法。而 ControlNet 模型参与生图过程的采样过程，所以需要使用匹配版本的 Stable Diffusion 模型，如果出现`mat1 and mat2 shapes cannot be multiplied`这种报错，这就说明 ControlNet 模型和 Stable Diffusion 模型的版本不匹配。
 
 <!-- TODO: 补充 ControlNet 的实际应用-->
+<!-- TODO: 蒙版的作用 https://github.com/Mikubill/sd-webui-controlnet/discussions/2793 -->
