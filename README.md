@@ -18,6 +18,8 @@
 
 本文档持续更新中，欢迎您参与贡献本项目！
 
+**本文档正在进行重构，文档主分支将不再更新（仍然接受 PR），待重构结束后恢复更新。**
+
 ## 文档地址
 - https://licyk.github.io/SDNote
 - https://sdnote.netlify.app
