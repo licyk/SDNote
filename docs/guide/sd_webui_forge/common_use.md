@@ -176,10 +176,15 @@ Resolution 设置预处理器处理图片时使用的分辨率，较低的值可
 
 画布的下方用于设置出图的参数，宽度和高度的比值需要保持和原图宽度和高度的比值相同，如果要快速调整宽度和高度与导入的图片的宽度和高度相同，可以点击 📐 按钮，这将自动设置和导入的图片相同的宽度和高度。
 
+!!!note
+    SD WebUI Forge 使用了 Gradio 4 作为前端框架，改善了图生图的画布界面操作等，详见：[Major Update #1: Gradio 4 Engine · lllyasviel/stable-diffusion-webui-forge · Discussion #853](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/853)
+
+### 图片放大
 在图生图模式下想要放大图片，推荐使用尺寸倍数调整缩放后的分辨率，重绘幅度调整为 0.2~0.4 之间的值。在 SD WebUI Forge 的设置 -> 放大 -> 图生图放大算法中选择合适的放大算法，如 R-ESRGAN 4x+ Anime6B。设置完成后就可以进行图片放大了。
 
 ![use_img2img_to_upscale_image](../../assets/images/guide/sd_webui_forge/use_img2img_to_upscale_image.png)
 
+### 局部重绘
 如果需要对图片部分内容进行修改，如修手，可以使用局部重绘或者涂鸦 + 局部重绘的方式进行修改，这里演示使用涂鸦 + 局部重绘进行修手。
 
 进入涂鸦画布中，导入一张想要修复手指的图片，这张图片的手存在一些问题，所以可以通过简单的涂鸦进行修改。
@@ -205,3 +210,14 @@ Resolution 设置预处理器处理图片时使用的分辨率，较低的值可
 提示词写上对图片内容的描述，蒙版模式选择重绘蒙版内容后可以点击生成进行图片重绘。
 
 ![use_inpaint_to_modify_image](../../assets/images/guide/sd_webui_forge/use_inpaint_to_modify_image.png)
+
+### 使用蒙版图片
+蒙版除了可以通过局部重绘画布进行绘制，还可以直接使用蒙版图片，
+
+这里我准备了要进行重绘的图片和蒙版图片，蒙版图片可通过插件或者图片编辑软件进行制作，计划将人物的背景进行重绘，进入上传重绘蒙版功能，将进行重绘的图片和蒙版图片分别导入。
+
+![upload_image_and_mask](../../assets/images/guide/sd_webui_forge/upload_image_and_mask.png)
+
+提示词描写人物和要重绘成的背景，在蒙版模式选择重绘非蒙版内容，就可以点击生成对图片背景进行重绘。
+
+![use_mask_to_inpaint_image](../../assets/images/guide/sd_webui_forge/use_mask_to_inpaint_image.png)

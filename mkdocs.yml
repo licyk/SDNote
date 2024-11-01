@@ -197,9 +197,11 @@ nav:
   - "SD WebUI Forge 部署与使用":
     - "部署": guide/sd_webui_forge/install.md
     - "功能使用":
-      - guide/sd_webui_forge/index.md
-    - "常见功能使用":
-      - guide/sd_webui_forge/common_use.md
+      - "概述": guide/sd_webui_forge/index.md
+      - "常见功能使用": guide/sd_webui_forge/common_use.md
+      - "FLUX 模型使用": guide/sd_webui_forge/flux.md
+      - "显存优化": guide/sd_webui_forge/video_momory_optimization.md
+      - "内置插件使用": guide/sd_webui_forge/use_build_in_extension.md
 - "绘世启动器使用":
   - sd_launcher/index.md
   - "部署功能": 
