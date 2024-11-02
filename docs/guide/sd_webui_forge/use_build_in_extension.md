@@ -78,3 +78,21 @@ SD WebUI Forge 内置了一些扩展可供使用，下面就简单介绍内置�
 
 !!!note
     DynamicThresholding 相关的说明：[mcmonkeyprojects/sd-dynamic-thresholding Wiki](https://github.com/mcmonkeyprojects/sd-dynamic-thresholding/wiki)
+
+
+## SelfAttentionGuidance Integrated (SD 1.x, SD 2.x, SDXL)
+该扩展用于提升生成图片的细节，改善出图效果。
+
+![_self_attention_guidance_interface](../../assets/images/guide/sd_webui_forge/_self_attention_guidance_interface.png)
+
+启用后使用默认值可得到比较好的效果，也可以自己调整这些值，测试哪些参数更好。
+
+|启用前|启用后|
+|---|---|
+|![generate_image_without_self_attention_guidance](../../assets/images/guide/sd_webui_forge/generate_image_without_self_attention_guidance.png)|![generate_image_with_self_attention_guidance](../../assets/images/guide/sd_webui_forge/generate_image_with_self_attention_guidance.png)|
+
+!!!note
+    Self-Attention Guidance 相关论文：[[2210.00939] Improving Sample Quality of Diffusion Models Using Self-Attention Guidance](https://arxiv.org/abs/2210.00939)
+
+
+## 
