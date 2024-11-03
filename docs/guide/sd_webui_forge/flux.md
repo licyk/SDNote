@@ -35,6 +35,8 @@ FLUX 模型因为体积很大，所以模型的 CLIP，Unet，VAE 组件被拆�
 
 因为 FLUX 模型的巨大体积，显存大小的要求被大大提高，但是通过模型量化技术，可以大大降低模型体积，降低了显存大小要求。常见的 gguf 格式的模型就是量化模型。
 
+!!!note
+    关于 FLUX 完整版模型，量化模型的说明：[Flux Tutorial 2 (Seperated Full Models, GGUF, Technically Correct Comparison between GGUF and NF4, etc)](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/1050)。
 
 ## 使用
 在 SD WebUI Forge 顶部的 UI 选项选择 flux，SD WebUI Forge 将会自动选择针对 FLUX 模型的最佳配置，或者 UI 选择全部，手动调整参数也可以。
