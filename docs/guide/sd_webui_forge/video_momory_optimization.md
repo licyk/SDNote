@@ -31,6 +31,8 @@ SD WebUI Forge 拥有很强的显存优化功能，可以降低 Stable Diffusion
 |float8-e5m2|将 Stable Diffusion 模型精度转换为 fp8-e5m2 精度|
 |float8-e5m2 (fp16 LoRA)|将 Stable Diffusion 模型精度转换为 fp8-e5m2 精度，但 LoRA 模型精度保持在 fp16|
 
+不同精度对显存的需求大小：fp32 > fp16 > fp8-e4m3fn ≈ fp8-e5m2 > fp4 ≈ nf4
+
 如果不将 LoRA 模型保持在 fp16 精度，这将会使 LoRA 模型和 Stable Diffusion 模型使用同样的精度进行计算，LoRA 将会合并进 Stable Diffusion 中。
 
 如果将 LoRA 模型保持在 fp16 精度下，无论 Stable Diffusion 的精度是什么，LoRA 模型的精度都会保持在 fp16，在每次 Stable Diffusion 模型进行扩散时，LoRA 模型都需要动态计算，所以在使用多个 LoRA 时，将 LoRA 模型保持在 fp16 精度时会导致出图速度降低。

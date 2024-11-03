@@ -95,4 +95,49 @@ SD WebUI Forge 内置了一些扩展可供使用，下面就简单介绍内置�
     Self-Attention Guidance 相关论文：[[2210.00939] Improving Sample Quality of Diffusion Models Using Self-Attention Guidance](https://arxiv.org/abs/2210.00939)
 
 
-## 
+## PerturbedAttentionGuidance Integrated
+该扩展用于优化图片细节，增加图片对比度，提高图片质量。
+
+![perturbed_attention_guidance_interface](../../assets/images/guide/sd_webui_forge/perturbed_attention_guidance_interface.png)
+
+通常使用默认值就有比较好的效果，当然可以尝试调整参数测试哪个参数效果较好。
+
+|PerturbedAttentionGuidance|无|3|5|
+|---|---|---|---|
+|效果图|![generate_image_without_perturbed_attention_guidance](../../assets/images/guide/sd_webui_forge/generate_image_without_perturbed_attention_guidance.png)|![generate_image_with_perturbed_attention_guidance_3](../../assets/images/guide/sd_webui_forge/generate_image_with_perturbed_attention_guidance_3.png)|![generate_image_with_perturbed_attention_guidance_5](../../assets/images/guide/sd_webui_forge/generate_image_with_perturbed_attention_guidance_5.png)|
+
+!!!note
+    Perturbed Attention Guidance 相关论文：[[2403.17377] Self-Rectifying Diffusion Sampling with Perturbed-Attention Guidance](https://arxiv.org/abs/2403.17377)
+
+
+## Kohya HRFix Integrated
+当想要直出 1920x1080 这样的高分辨率，但是所使用的 SDXL 模型是在 1024x1024 分辨率下进行训练的，这可能会出现画面元素异常，此时可以通过该扩展修复该问题。
+
+![kohya_hrfix_interface](../../assets/images/guide/sd_webui_forge/kohya_hrfix_interface.png)
+
+使用默认值就可以得到比较好的效果，也可以尝试自己调整参数，有些参数组合可以提高画面的细节。
+
+|禁用 Kohya HRFix|启用 Kohya HRFix|
+|---|---|
+|![generate_image_without_kohya_hrfix](../../assets/images/guide/sd_webui_forge/generate_image_without_kohya_hrfix.png)|![generate_image_with_kohya_hrfix](../../assets/images/guide/sd_webui_forge/generate_image_with_kohya_hrfix.png)|
+
+!!!note
+    Kohya HRFix 实现源码：[SDXLで高解像度での構図の破綻を軽減する](https://gist.github.com/kohya-ss/3f774da220df102548093a7abc8538ed)
+
+## LatentModifier Integrated
+该扩展可将滤镜应用于潜空间图像中，调整出图效果，可调节的效果有锐化等。
+
+![latent_modifier_interface](../../assets/images/guide/sd_webui_forge/latent_modifier_interface.png)
+
+使用时根据自己需求调整参数即可。
+
+## StyleAlign Integrated
+该扩展用于同时生成多张图片中，即单批数量大于 1 时能够起作用。
+
+![style_align_interface](../../assets/images/guide/sd_webui_forge/style_align_interface.png)
+
+启用该扩展后，如果设置单批数量同时生成多张图片，则该扩展将会在批次中分享注意力，使批次中每张图片的风格相似。
+
+|禁用 StyleAlign|启用 StyleAlign|
+|---|---|
+|![generate_image_without_style_align](../../assets/images/guide/sd_webui_forge/generate_image_without_style_align.png)|![generate_image_with_style_align](../../assets/images/guide/sd_webui_forge/generate_image_with_style_align.png)|
