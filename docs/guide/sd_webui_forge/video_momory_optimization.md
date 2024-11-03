@@ -39,6 +39,9 @@ SD WebUI Forge 拥有很强的显存优化功能，可以降低 Stable Diffusion
 
 如果修改 LoRA 模型的权重后（或者新加了一个 LoRA 模型），需要重新为 LoRA 进行一次计算，这使修改权重后第一次出图的时间稍微长一点，在第二次出图后将恢复正常速度。
 
+!!!note
+    关于 SD WebUI Forge 对 LoRA 模型的处理：[How to make LoRAs more precise on low-bit models; How to Skip" Patching LoRAs"; How to only load LoRA one time rather than each generation; How to report LoRAs that do not work](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/1038)。
+
 在模型进行一次精度转换时，可能会导致较高的显存占用。如 Stable Diffusion 模型的精度为 fp16，将模型精度设置为 float8-e4m3fn，第一次出图时将发生一次精度转换，这时候可以看到显存有较高的占用，但在出图几次后将恢复正常占用。
 
 !!!note
@@ -77,6 +80,9 @@ ASYNC 模式一般会比 Queue 模式快一点，但是在某些情况下，ASYN
 设置为更大的值可以获得更快的速度，因为这将减少使用内存临时交换模型权重的次数，但是过大的值将会导致显存不足使计算的速度变得很慢，出图所需的时间更多。
 
 设置为更小的值将更积极的使用内存临时交换模型权重，虽然会使出图的时间变慢，但是这将拥有更多空间的显存，可以生成更大的图片。
+
+!!!note
+    关于优化参数的说明：[Flux Tutorial (BitsandBytes Models, NF4, "GPU Weight", "Offload Location", "Offload Method", etc)](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/981)、[Report Flux Performance Problems (TLDR: DO NOT set "GPU Weight" too high! Lower "GPU Weight" solves 99% problems!)](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/1181)。
 
 
 ## Never OOM Integrated

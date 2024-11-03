@@ -111,7 +111,7 @@ SD WebUI Forge 内置了一些扩展可供使用，下面就简单介绍内置�
 
 
 ## Kohya HRFix Integrated
-当想要直出 1920x1080 这样的高分辨率，但是所使用的 SDXL 模型是在 1024x1024 分辨率下进行训练的，这可能会出现画面元素异常，此时可以通过该扩展修复该问题。
+当想要直出 1920x1080 这样的高分辨率，但是所使用的 SDXL 模型是在 1024x1024 分辨率下进行训练的，这可能会出现画面崩坏，此时可以通过该扩展修复该问题。
 
 ![kohya_hrfix_interface](../../assets/images/guide/sd_webui_forge/kohya_hrfix_interface.png)
 
@@ -141,3 +141,62 @@ SD WebUI Forge 内置了一些扩展可供使用，下面就简单介绍内置�
 |禁用 StyleAlign|启用 StyleAlign|
 |---|---|
 |![generate_image_without_style_align](../../assets/images/guide/sd_webui_forge/generate_image_without_style_align.png)|![generate_image_with_style_align](../../assets/images/guide/sd_webui_forge/generate_image_with_style_align.png)|
+
+## MultiDiffusion Integrated
+该插件将潜空间图像进行分块，进行采样后再合并成一张完成的潜空间图像，可用于文生图生成超高分辨率图像或者在图生图中对图片进行放大。
+
+![multidiffusion_interface](../../assets/images/guide/sd_webui_forge/multidiffusion_interface.png)
+
+下面给出一些 MultiDiffusion 的参数配置。
+
+|参数 1||
+|---|---|
+|方案|MultiDiffusion|
+|Tile Width|1024|
+|Tile Height|1024|
+|Tile Overlap|256|
+|Tile Batch Size|8|
+
+|参数 2||
+|---|---|
+|方案|Mixture of Diffusers|
+|Tile Width|1024|
+|Tile Height|1024|
+|Tile Overlap|96|
+|Tile Batch Size|8|
+
+Tile Width 和 Tile Height 为分割图像的分辨率，Tile Overlap 为每个分块图像之间重叠的分辨率，较高的值可以减少接缝的产生，但是会增加图片生成的时长。
+
+如果出现显存不足的情况，需要将 Tile Batch Size 的值调低。
+
+
+### 文生图
+在文生图可以用来生成超大分辨率图像，但单纯使用 MultiDiffusion 生成超大图像不适合生成单人物图像，因为分块会导致出现多人的情况，需要通过 ControlNet Canny / Lineart 进行控制。
+
+如果单纯使用 MultiDiffusion 生成超大分辨率图像。比较适合生成风景图，不过画面的连贯性可能不是很好。
+
+### 图生图
+MultiDiffusion 用在图生图中放大图片比较好。
+
+导入图片后并写上提示词，在重绘尺寸倍数设置好倍数，重绘幅度设置为 0.35，启用 MultiDiffusion Integrated 并设置好参数就可以进行图片放大了。
+
+如果放大后的图片出现了鬼影，可以尝试将提示词中具体描述画面元素的提示词删去，或者加上 ControlNet Tile，重绘幅度修改为 0.6。如果 MuitlDiffusion Integrated 的方案选择 MultiDiffusion，则 Tile Overlap 调成 64，如果选择的是 Mixture of Diffusers，则 Tile Overlap 调成 32。这样就可以进行图片放大了。
+
+对图片进行放大时，建议把 Never OOM Integrated 的 Enabled for VAE (always tiled) 勾选上，防止 VAE 阶段出现显存不足。
+
+
+!!!note
+    MultiDiffusion 扩展的说明：[分片扩散 · pkuliyi2015/multidiffusion-upscaler-for-automatic1111 Wiki](https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111/wiki/%E5%88%86%E7%89%87%E6%89%A9%E6%95%A3)。  
+    MultiDiffusion 算法：[MultiDiffusion: Fusing Diffusion Paths for Controlled Image Generation](https://multidiffusion.github.io/)。  
+    Mixture of Diffusers 算法：[albarji/mixture-of-diffusers: Mixture of Diffusers for scene composition and high resolution image generation](https://github.com/albarji/mixture-of-diffusers)。
+
+
+## 模型融合
+该扩展可用于将两个融合在一起，或者将模型中的 VAE 进行替换。
+
+在 SD WebUI Forge 中，模型融合扩展支持将 FLUX 模型进行量化并保存。模型选择 flux-1-dev.safetensors，VAE / Text Encoder 选择 t5xxl_fp16.safetensors、clip_l.safetensors、ae.safetensors，Diffusion in Low Bits 选择 bnb-nf4 后，在模型融合的 Save Current Checkpoint (including all quantization) 选项点击 Save Checkpoint 将选中的模型量化成 nf4 精度并保存成一个模型文件。
+
+![mode_merge_interface](../../assets/images/guide/sd_webui_forge/mode_merge_interface.png)
+
+!!!note
+    该扩展的相关说明：[(Save Flux BitsandBytes UNet/Checkpoint)](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/1224#discussioncomment-10384104)。
