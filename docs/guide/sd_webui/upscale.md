@@ -6,11 +6,19 @@ title: 图片放大
 
 
 ## 高分辨率修复
-这个功能仅在文生图界面中可以看到，因为高分辨率修复的本质为图生图，所以在图生图界面是看不到这个功能的。
+该功能使用图生图的方式对图片进行放大。启用该功能后，在文生图结束时，根据所选的放大算法对图片进行放大，再根据降噪强度对图片进行加噪再进行图生图，最终得到高清的图像。
 
 ![hires_fix](../../assets/images/guide/upscale/hires_fix.jpg)
 
+因为高分辨率修复的本质是图生图，所以这个选项只会在文生图的选项中出现，在图生图选项中就看不到这个选项。
+
 启用后一般只用调整`放大算法`、`重绘幅度`、`放大倍数`这三个选项。
+
+放大算法总共分三类，Latent 算法、传统 OpenCV 算法和 GAN 算法。在放大算法中带 Latent 的算法都属于 Latent 算法，Lanczos 算法和 Nearest 算法属于传统 OpenCV 算法，其他算法都属于 GAN 算法。
+
+Latent 放大算法在潜空间中将潜空间图像进行放大，但是放大之后原来的潜空间出现的偏移，不再是原来的潜空间，所以需要更高的重绘幅度使其回到原来的状态，通常需要大于 0.55 的重绘幅度。
+
+传统 OpenCV 算法和 GAN 算法是在像素空间对图片进行放大，不会出现使用 Latent 算法放大导致的问题。一般使用 0.2~0.4 的重绘幅度即可。
 
 放大倍数决定了放大之后图片的分辨率，但该值越高，需要的显存越多，所以建议启用 Tiled VAE 来降低显存的占用，降低爆显存的概率。
 
@@ -22,16 +30,22 @@ title: 图片放大
 |放大算法|重绘幅度|放大模型文件存放路径|
 |---|---|---|
 |Latent|> 0.55|无需下载|
+|Lanczos|0.2~0.4|无需下载|
 |[SwinIR_4x](https://modelscope.cn/api/v1/models/licyks/sd-upscaler-models/repo?Revision=master&FilePath=SwinIR%2FSwinIR_4x.pth)|0.2~0.4|stable-diffusion-webui/models/SwinIR|
 |[R-ESRGAN 4x+](https://modelscope.cn/api/v1/models/licyks/sd-upscaler-models/repo?Revision=master&FilePath=RealESRGAN%2FRealESRGAN_x4plus.pth)|0.2~0.4|stable-diffusion-webui/models/RealESRGAN|
 |[R-ESRGAN 4x+ Anime6B](https://modelscope.cn/api/v1/models/licyks/sd-upscaler-models/repo?Revision=master&FilePath=RealESRGAN%2FRealESRGAN_x4plus_anime_6B.pth)|0.2~0.4|stable-diffusion-webui/models/RealESRGAN|
 |[4x_NMKD-Superscale-SP_178000_G](https://modelscope.cn/api/v1/models/licyks/sd-upscaler-models/repo?Revision=master&FilePath=ESRGAN%2F4x_NMKD-Superscale-SP_178000_G.pth)|0.2~0.4|stable-diffusion-webui/models/ESRGAN|
 |[DAT_x4](https://modelscope.cn/api/v1/models/licyks/sd-upscaler-models/repo?Revision=master&FilePath=DAT%2FDAT_x4.pth)|0.2~0.4|stable-diffusion-webui/models/DAT|
 
+如果在文生图中出了一张比较好的图，但是没启用高分辨率修复，也可以在高分辨率的选项卡调整好参数后，在图片预览框下面的功能按钮点击 ✨ 按钮，这时将会根据高分辨率修复的选项对当前的图片进行放大。
+
+![hires_fix](../../assets/images/guide/upscale/hires_fix_bottom_in_t2i.png)
+
 不过这个方法有也有局限性，因为直接文生图出来的图并不一定达到自己想要的效果，需要使用图生图里的局部重绘来修改图片，这时候放大就没太大意义，不过只是单纯的文生图抽卡可以忽略。
 
 !!!note
-    个人觉得图片放大这个步骤应该放在制作图片的最后一个阶段，因为用高分辨率的图片来进行重绘会占用大量的显存，这时又不得不缩小图片的分辨率，所以显得这么早就放大就没有太大意义。当然你可以启用 Tiled VAE 来降低显存占用，只不过高分辨率图片的重绘会比低分辨率图片的重绘慢很多。
+    1. 个人觉得图片放大这个步骤应该放在制作图片的最后一个阶段，因为用高分辨率的图片来进行重绘会占用大量的显存，这时又不得不缩小图片的分辨率，所以显得这么早就放大就没有太大意义。当然你可以启用 Tiled VAE 来降低显存占用，只不过高分辨率图片的重绘会比低分辨率图片的重绘慢很多。  
+    2. 如果发现实现的迭代步数和设置的迭代步数不一致，这是因为默认设置下`实际的迭代步数 = 设定的迭代步数 x 重绘幅度 + 1`，如果想要实际的迭代步数和设置的迭代一致，可以在 SD WebUI 设置  -> 图生图，将`图生图时，准确执行滑块指定的迭代步数 (正常情况下越小的重绘幅度需要的迭代步数更少)`选项勾选上并保存 SD WebUI 设置。
 
 
 ## 后期处理的放大
@@ -39,7 +53,7 @@ title: 图片放大
 
 ![extra_upscale](../../assets/images/guide/upscale/extra_upscale.jpg)
 
-不过这个放大功能使用的仅仅是 GAN ，并没有用到 Stable Diffusion，所以直接用这个功能来放大低分辨率的图片，放大后效果不是很行。如果去放大高分辨率的图片（比如从 1080p 放大到 4k），效果就会比较好。
+不过这个放大功能使用的仅仅是 GAN 算法进行放大，并没有用到 Stable Diffusion，所以直接用这个功能来放大低分辨率的图片，放大后效果不是很行。如果去放大高分辨率的图片（比如从 1080p 放大到 4k），效果就会比较好。
 
 !!!note
     下面介绍的放大方法都在图生图选项卡中进行。
