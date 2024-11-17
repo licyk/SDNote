@@ -18,49 +18,49 @@ title: ControlNet 应用
 如果您打算主动下载预处理器模型文件，请将下载的文件按照以下折叠内容放置到对应的文件夹内。
 
 ???点击展开
-    stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads/<br />
-	├anime_face_segment/UNet.pth<br />
-	├clip_vision/clip_g.pth<br />
-	├clip_vision/clip_h.pth<br />
-	├clip_vision/clip_vitl.pth<br />
-	├densepose/densepose_r50_fpn_dl.torchscript<br />
-	├depth_anything/depth_anything_vitl14.pth<br />
-	├hand_refiner/hr16/ControlNet-HandRefiner-pruned/graphormer_hand_state_dict.bin<br />
-	├hand_refiner/hr16/ControlNet-HandRefiner-pruned/hrnetv2_w64_imagenet_pretrained.pth<br />
-	├hed/ControlNetHED.pth<br />
-	├insightface/models/antelopev2/1k3d68.onnx<br />
-	├insightface/models/antelopev2/2d106det.onnx<br />
-	├insightface/models/antelopev2/genderage.onnx<br />
-	├insightface/models/antelopev2/glintr100.onnx<br />
-	├insightface/models/antelopev2/scrfd_10g_bnkps.onnx<br />
-	├insightface/models/buffalo_l/1k3d68.onnx<br />
-	├insightface/models/buffalo_l/2d106det.onnx<br />
-	├insightface/models/buffalo_l/det_10g.onnx<br />
-	├insightface/models/buffalo_l/genderage.onnx<br />
-	├insightface/models/buffalo_l/w600k_r50.onnx<br />
-	├lama/ControlNetLama.pth<br />
-	├leres/latest_net_G.pth<br />
-	├leres/res101.pth<br />
-	├lineart/sk_model.pth<br />
-	├lineart/sk_model2.pth<br />
-	├lineart_anime/netG.pth<br />
-	├manga_line/erika.pth<br />
-	├midas/dpt_hybrid-midas-501f0c75.pt<br />
-	├mlsd/mlsd_large_512_fp32.pth<br />
-	├normal_bae/scannet.pt<br />
-	├normal_dsine/dsine.pt<br />
-	├oneformer/150_16_swin_l_oneformer_coco_100ep.pth<br />
-	├oneformer/250_16_swin_l_oneformer_ade20k_160k.pth<br />
-	├openpose/body_pose_model.pth<br />
-	├openpose/dw-ll_ucoco_384.onnx<br />
-	├openpose/facenet.pth<br />
-	├openpose/hand_pose_model.pth<br />
-	├openpose/rtmpose-m_simcc-ap10k_pt-aic-coco_210e-256x256-7a041aa1_20230206.onnx<br />
-	├openpose/yolox_l.onnx<br />
-	├pidinet/table5_pidinet.pth<br />
-	├TEED/7_model.pth<br />
-	├uniformer/upernet_global_small.pth<br />
-	└zoedepth/ZoeD_M12_N.pt
+    stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads <br/>
+	├── [anime_face_segment/UNet.pth]([das](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/anime_face_segment/UNet.pth)) <br/>
+	├── [clip_vision/clip_g.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/clip_g.pth) <br/>
+	├── [clip_vision/clip_h.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/clip_h.pth) <br/>
+	├── [clip_vision/clip_vitl.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/clip_vitl.pth) <br/>
+	├── [densepose/densepose_r50_fpn_dl.torchscript](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/densepose/densepose_r50_fpn_dl.torchscript) <br/>
+	├── [depth_anything/depth_anything_vitl14.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/depth_anything/depth_anything_vitl14.pth) <br/>
+	├── [hand_refiner/hr16/ControlNet-HandRefiner-pruned/graphormer_hand_state_dict.bin](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/hand_refiner/hr16/ControlNet-HandRefiner-pruned/graphormer_hand_state_dict.bin) <br/>
+	├── [hand_refiner/hr16/ControlNet-HandRefiner-pruned/hrnetv2_w64_imagenet_pretrained.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/hand_refiner/hr16/ControlNet-HandRefiner-pruned/hrnetv2_w64_imagenet_pretrained.pth) <br/>
+	├── [hed/ControlNetHED.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/hed/ControlNetHED.pth) <br/>
+	├── [insightface/models/antelopev2/1k3d68.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/antelopev2/1k3d68.onnx) <br/>
+	├── [insightface/models/antelopev2/2d106det.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/antelopev2/2d106det.onnx) <br/>
+	├── [insightface/models/antelopev2/genderage.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/antelopev2/genderage.onnx) <br/>
+	├── [insightface/models/antelopev2/glintr100.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/antelopev2/glintr100.onnx) <br/>
+	├── [insightface/models/antelopev2/scrfd_10g_bnkps.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/antelopev2/scrfd_10g_bnkps.onnx) <br/>
+	├── [insightface/models/buffalo_l/1k3d68.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/buffalo_l/1k3d68.onnx) <br/>
+	├── [insightface/models/buffalo_l/2d106det.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/buffalo_l/2d106det.onnx) <br/>
+	├── [insightface/models/buffalo_l/det_10g.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/buffalo_l/det_10g.onnx) <br/>
+	├── [insightface/models/buffalo_l/genderage.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/buffalo_l/genderage.onnx) <br/>
+	├── [insightface/models/buffalo_l/w600k_r50.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/buffalo_l/w600k_r50.onnx) <br/>
+	├── [lama/ControlNetLama.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/lama/ControlNetLama.pth) <br/>
+	├── [leres/latest_net_G.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/leres/latest_net_G.pth) <br/>
+	├── [leres/res101.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/leres/res101.pth) <br/>
+	├── [lineart/sk_model.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/lineart/sk_model.pth) <br/>
+	├── [lineart/sk_model2.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/lineart/sk_model2.pth) <br/>
+	├── [lineart_anime/netG.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/lineart_anime/netG.pth) <br/>
+	├── [manga_line/erika.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/manga_line/erika.pth) <br/>
+	├── [midas/dpt_hybrid-midas-501f0c75.pt](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/midas/dpt_hybrid-midas-501f0c75.pt) <br/>
+	├── [mlsd/mlsd_large_512_fp32.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/mlsd/mlsd_large_512_fp32.pth) <br/>
+	├── [normal_bae/scannet.pt](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/normal_bae/scannet.pt) <br/>
+	├── [normal_dsine/dsine.pt](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/normal_dsine/dsine.pt) <br/>
+	├── [oneformer/150_16_swin_l_oneformer_coco_100ep.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/oneformer/150_16_swin_l_oneformer_coco_100ep.pth) <br/>
+	├── [oneformer/250_16_swin_l_oneformer_ade20k_160k.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/oneformer/250_16_swin_l_oneformer_ade20k_160k.pth) <br/>
+	├── [openpose/body_pose_model.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/body_pose_model.pth) <br/>
+	├── [openpose/dw-ll_ucoco_384.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/dw-ll_ucoco_384.onnx) <br/>
+	├── [openpose/facenet.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/facenet.pth) <br/>
+	├── [openpose/hand_pose_model.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/hand_pose_model.pth) <br/>
+	├── [openpose/rtmpose-m_simcc-ap10k_pt-aic-coco_210e-256x256-7a041aa1_20230206.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/rtmpose-m_simcc-ap10k_pt-aic-coco_210e-256x256-7a041aa1_20230206.onnx) <br/>
+	├── [openpose/yolox_l.onnx](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/yolox_l.onnx) <br/>
+	├── [pidinet/table5_pidinet.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/pidinet/table5_pidinet.pth) <br/>
+	├── [TEED/7_model.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/TEED/MTEED.pth) <br/>
+	├── [uniformer/upernet_global_small.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/uniformer/upernet_global_small.pth) <br/>
+	└── [zoedepth/ZoeD_M12_N.pt](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/zoedepth/ZoeD_M12_N.pt)
 
 安装后可在 SD WebUI 左下角的选项找到 ControNet 选项。
 

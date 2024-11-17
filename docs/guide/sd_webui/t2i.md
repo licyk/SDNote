@@ -65,6 +65,7 @@ SD WebUI 的界面大致分为几个部分。
     sd-webui-prompt-all-in-one 扩展：https://github.com/Physton/sd-webui-prompt-all-in-one
 
 下面是我输入的正向提示词，描写了人物、动作、场景、镜头。
+
 ```
 1girl,animal ears,animal ear fluff,cat ears,pink hair,short hair,bangs,blush,closed mouth,light smile,purple eyes,hair between eyes,collar,white hoodie,flat chest,
 looking at viewer,waving,under the tree,
@@ -73,6 +74,7 @@ close-up,upper body,dynamic_angle,
 ```
 
 接下来输入反向提示词，反向提示词用于描述不想让 AI 画出来的东西。下面的反向提示词在大部分情况下通用，无需修改直接使用。如果有什么不想出现的东西可以在这个反向提示词的基础上进行修改。
+
 ```
 lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits,cropped,worst quality,low quality,normal quality,jpeg artifacts,signature,watermark,username,blurry,bad feet,
 ```
@@ -116,7 +118,10 @@ lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits
 
 提示词引导系数（CFG Scale）控制图像和提示词的匹配程度。这个值越高，出图更接近提示词（不同的模型效果不同），过高的值可能会导致出图的质量下降，不同的模型需要不同的提示词引导系数，需要自行测试。这里我使用的 cetusMix_Whalefall2 模型使用默认的 7 比较适合。
 
-决定噪声。当种子保持不变是，每次生成都会生成几乎一致的图片。
+随机数种子决定噪声。当种子保持不变，其他参数也保存不变时，每次生成都会生成几乎一致的图片。
+
+CLIP 终止层数设置 CLIP 处理到哪一层终止，通常设置为 2 即可，也就处理到倒数第 2 层，跳过最后一层。这个值越高，跳过的 CLIP 层数越多，AI 对提示词的响应程度越低。
+
 
 ## 生图
 调整完这些参数后，点击右侧的生成按钮就开始生图了，生成完成后即可在图片预览区域看见生成好的图片。
