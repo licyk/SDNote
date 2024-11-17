@@ -40,6 +40,7 @@ title: 图生图
 
 ![image2image_configure_interface](../../assets/images/guide/i2i/image2image_configure_interface.png)
 
+
 ### 缩放模式
 调节对图片的大小的调节，以下是对不同缩放模式的介绍。
 
@@ -74,6 +75,7 @@ title: 图生图
 ### 蒙版模式
 用于设置进行重绘时是对蒙版部分进行重绘，还是对蒙版之外的部分进行重绘。
 
+
 ### 蒙版区域内容处理
 用于设置进行重绘前对蒙版内容的处理方法，下面是不同方法的作用。
 
@@ -86,14 +88,21 @@ title: 图生图
 
 下面将导入一张图片，把重绘幅度设置为 0 后观察不同蒙版区域内容处理方式的效果。
 
-|处理方法|原图|原版|填充|潜空间噪声|空白潜空间|
-|---|---|---|---|---|---|
+|处理方法|原版|填充|潜空间噪声|空白潜空间|
+|---|---|---|---|---|
 |效果图|![origin_image_before_mask_preprocess](../../assets/images/guide/i2i/origin_image_before_mask_preprocess.png)|![use_origin_for_mask_area](../../assets/images/guide/i2i/use_origin_for_mask_area.png)|![use_fill_color_for_mask_area](../../assets/images/guide/i2i/use_fill_color_for_mask_area.png)|![use_latent_noise_for_mask_area](../../assets/images/guide/i2i/use_latent_noise_for_mask_area.png)|![use_blank_latent_for_mask_area](../../assets/images/guide/i2i/use_blank_latent_for_mask_area.png)|
 
 !!!note
     1. 此部分的图片是潜空间图像经过了 VAE 解码得到的。  
     2. 对于不同的重绘需求，选择不同的蒙版区域内容处理方式可以得到不同的效果。
     3. 除了**原版**处理方式，其他处理方式需要更高的重绘幅度，较低的重绘幅度可能会导致重绘部分的内容和非重绘部分的内容之间的融合度低，使图片质量变差。
+
+使用**潜空间噪声**或者**空白潜空间**时，局部重绘的结果更加倾向于填满整个蒙版，下面对一张图片进行重绘，重绘幅度设置为 0.85 进行测试。
+
+|处理方法|原版|填充|潜空间噪声|空白潜空间|
+|---|---|---|---|---|
+|效果图|![use_origin_in_inpaint](../../assets/images/guide/i2i/use_origin_in_inpaint.png)|![use_fill_color_in_inpaint](../../assets/images/guide/i2i/use_fill_color_in_inpaint.png)|![use_latent_noise_in_inpaint](../../assets/images/guide/i2i/use_latent_noise_in_inpaint.png)|![use_blank_latent_in_inpaint](../../assets/images/guide/i2i/use_blank_latent_in_inpaint.png)|
+
 
 ### 重绘区域
 用于设置重绘时是对整张图片进行采样还是对图片部分区域进行采样。
@@ -132,6 +141,21 @@ title: 图生图
 
 ### 重绘幅度
 设置图生图对图片的改变幅度。进行图生图时，根据重绘幅度的大小，对图片加上噪声，值越高，加噪的强度越高，加载完成后图片将在潜空间中进行降噪。较低的值对原图的改变较小，较高的值对原图的改变交大。
+
+
+## 图生图的理论
+1. Stable Diffusion 模型对于画面占比越大的事物越容易画好，反之占比越小就越画不好，举个例子，中远景人物崩脸的概率显著高于特写，另一个例子是，以画不好手出名的 AI，在强调手的提示词下，例如 beckoning 之类，出好手的概率顿时暴增，这是由Stable Diffusion 本身的性质决定的，而我们可以顺应这种特性。例如，将手部裁剪下来，这不就是一张手部特写图了吗？再请 AI 重绘，抽卡难度瞬间下降。同理，AI 画大的事物清晰，小的不清晰，同样将小的物品转化为大物品经过重绘再放回原图，就可
+以保证处处清晰。
+
+2. 图生图也是需要提示词的，虽然在多维度约束下，提示词对于 AI 的参考意义一定程度上被削弱，但这仍然是参考的主要成分。提示词可以反推，但相比反推模型，一定是你的眼睛分辨更加精准，只有传递给模型正确的指引——至少不要和重绘内容打架，才能抽卡出好的结果。图生图使用的提示词应该是希望 AI 画成的内容，比如说，图生图更换风格，那么你就需要描述画面中不希望改动的内容，并且加上风格词，甚至还需要加权；再比方说，将车局部重绘成马，那么你的提示词就应该是有关马的详细描述；最好，当你发现局部重绘的对象丧失了与全图的关联，那么你还需要适当描述一点蒙版以外的内容，便于模型理解。
+
+3.  图生图修图的本质是施加多维约束。试想，当你写上提示词生图的时候、当你涂上蒙版重绘的时候，你究竟告诉了 AI 多少信息？这些信息能够唯一的锁定你要的东西吗？显然不是的，一个很简单的道理，如果你不告诉画师更具体的要求，那么他就只能猜来猜去，当你所给信息较少，那么实际上只是在挤眉弄眼的暗示，怎么可能一发命中呢。所以越强的约束操控者的自主性越强，相应的，AI的发散性就越差。如果你不满 AI 的天马行空了，那就应该有色蒙版 / PS / ConntrolNet 结合着灵魂画技给它比划，总好过使眼色对吧。
+
+4. 图生图需要将原图反推为潜空间数据，因此占用会比文生图更高，并且参考图尺寸越大占用越高。对于局部重绘，占用会比单纯图生图再略高，但这并不意味着低显存就不能局部重绘，实际上只要采用将重绘区域裁剪下来的方法就可以实现低显存重绘。并且由于图生图会经过两次 VAE，在使用 VAE 异常的模型时，每次重绘都会导致画面变得更灰，反复迭代将灰到不能看，最好保持外挂 VAE。 
+
+5. 图生图的模型选择要符合参考图画风，或者至少接近、不矛盾。例如你不能用 Stable Diffusion 1.5 官方模型来重绘一张纸片人图。但不代表就必须要一模一样，相反用截然不同的模型来出图和重绘，偶尔还能做出风格交融的效果。
+
+6. 用图生图的方法应该具有一种阶段性的思想，即：不强求一次成图，可以分别抽出好的背景、好的人物、好的构图、好的姿势，通过图生图将它们有机结合在一起。而且也并非只能出全图，比如可以让AI产生某些素材，用来贴进画面。最后，实际上模型的能力也是有限的。当模型中根本就没有相关数据，那么这就是不可能画出来的，比如某些特殊视角、构图。那么此时，就只有通过手中的笔了。
 
 
 ## 图生图应用
@@ -236,7 +260,7 @@ outdoors,landscape,park,tree,bench,falling petals,path,blue sky,grass,flower,pat
 
 ![origin_image_to_modify_object](../../assets/images/guide/i2i/origin_image_to_modify_object.png)
 
-现在想修改图片中人物的动作，所以在图生图中将这张图片导入进涂鸦画布中，使用涂鸦对人物的动作进行简单的绘制。
+现在想修改图片中人物的动作，让人物对镜头比个耶，所以在图生图中将这张图片导入进涂鸦画布中，使用涂鸦对人物的动作进行简单的绘制。
 
 ![sketch_to_modify_object](../../assets/images/guide/i2i/sketch_to_modify_object.png)
 
@@ -244,6 +268,7 @@ outdoors,landscape,park,tree,bench,falling petals,path,blue sky,grass,flower,pat
 
 ![sketch_to_modify_object_result](../../assets/images/guide/i2i/sketch_to_modify_object_result.png)
 
+现在人物的动作就修改好了。
 
 ### 从涂鸦到壁纸
 除了使用文生图得到一张好看的壁纸，也可以通过图生图的方式将一张涂鸦制作成一张好看的壁纸。
@@ -298,8 +323,30 @@ upper body,close-up,from side,
 
 现在一张好看的壁纸就制作出来了。
 
-<!-- TODO: 将图生图的用法进行完善 -->
-下面的文档详细的讲解了图生图的用法。~~（自己懒得写了）~~
+
+### 图片放大
+如果图片的清晰度不够高，可以通过图生图进行放大。
+
+这里推荐修改一下 SD WebUI 的图生图界面，在**设置 -> UI 便捷设置 -> 图生图设置项**，将 upscaler_for_img2img、 img2img_color_correction、img2img_fix_steps 添加进去，保存 SD WebUI 设置后点击重载 UI 使修改后的界面生效，重载完成后，在图生图界面就可以看到**图生图放大算法**、**对图生图结果应用颜色校正以匹配原始颜色**、**图生图时，准确执行滑块指定的迭代步数**三个选项。
+
+将图片导入图生图画布后，提示词描述要放大的图片内容，图生图放大算法选择一个合适的算法，这里推荐 Lanczos、4x-UltraSharp、DAT_x4、4x_NMKD-Superscale-SP_178000_G、R-ESRGAN 4x+ Anime6B。
+
+!!!note
+    4x-UltraSharp 下载：[4x-UltraSharp.pth](https://modelscope.cn/models/licyks/sd-upscaler-models/resolve/master/ESRGAN/4x-UltraSharp.pth)，模型放在`stable-diffusion-webui/models/ESRGAN`。  
+    DAT_x4 下载：[DAT_x4.pth](https://modelscope.cn/models/licyks/sd-upscaler-models/resolve/master/DAT/DAT_x4.pth)，模型放在`stable-diffusion-webui/models/DAT`。  
+    4x_NMKD-Superscale-SP_178000_G 下载：[4x_NMKD-Superscale-SP_178000_G.pth](https://modelscope.cn/models/licyks/sd-upscaler-models/resolve/master/ESRGAN/4x_NMKD-Superscale-SP_178000_G.pth)，模型放在`stable-diffusion-webui/models/ESRGAN`。  
+    R-ESRGAN 4x+ Anime6B 下载：[RealESRGAN_x4plus_anime_6B.pth](https://modelscope.cn/models/licyks/sd-upscaler-models/resolve/master/RealESRGAN/RealESRGAN_x4plus_anime_6B.pth)，模型放在`stable-diffusion-webui/models/RealESRGAN`。
+
+重绘幅度推荐 0.2~0.4，重绘尺寸倍数设置要放大到的倍数。如果想要防止放大后偏色，可以启用**对图生图结果应用颜色校正以匹配原始颜色**。如果想要放大时执行的迭代步数和设置的迭代步数相同，可以启用**图生图时，准确执行滑块指定的迭代步数**。
+
+在图生图放大算法中没有看到在文生图高分辨率修复 Latent 放大算法，但实际上可以通过另一种方式来实现。在**缩放模式**选择**调整大小 (潜空间放大)**后放大算法就变成了 Latent 放大算法，此时需要的重绘幅度要大于 0.55。
+
+!!!note
+    使用了**调整大小 (潜空间放大)**后，**图生图放大算法**设置的选项将失效。
+
+
+## 其他图生图使用参考
+下面的文档详细的讲解了图生图的用法。
 
 -   :fontawesome-solid-file-pdf:{ .lg .middle } __重绘学派法术绪论1.2__
 
