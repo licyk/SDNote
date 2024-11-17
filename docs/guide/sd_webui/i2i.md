@@ -346,7 +346,7 @@ upper body,close-up,from side,
 
 
 ## 其他图生图使用参考
-下面的文档详细的讲解了图生图的用法。
+下面的文档详细的讲解了图生图的用法，作为本文章的内容补充。
 
 -   :fontawesome-solid-file-pdf:{ .lg .middle } __重绘学派法术绪论1.2__
 

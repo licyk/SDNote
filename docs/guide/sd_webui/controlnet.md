@@ -13,13 +13,13 @@ title: ControlNet 应用
 	2. sd-webui-controlnet 扩展部分预处理器模型文件官方下载地址：https://huggingface.co/lllyasviel/Annotators/tree/main。
 	3. sd-webui-controlnet 扩展模型文件官方下载地址：https://github.com/Mikubill/sd-webui-controlnet/wiki/Model-download。
 	4. **预处理器模型文件** 用于 **预处理器** 项，**模型文件** 用于 **模型** 项。
-	5. sd-webui-controlnet 扩展 **并不会** 主动下载预 处理器模型文件 / 模型文件，默认情况下，您需要主动的去下载模型文件并放置到对应的文件夹。而预处理器文件在首次使用对应预处理器时从网络下载。
+	5. sd-webui-controlnet 扩展 **并不会** 主动下载预处理器模型文件 / 模型文件，默认情况下，您需要主动的去下载模型文件并放置到对应的文件夹。而预处理器文件在首次使用对应预处理器时从网络下载。
 
 如果您打算主动下载预处理器模型文件，请将下载的文件按照以下折叠内容放置到对应的文件夹内。
 
 ???点击展开
     stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads <br/>
-	├── [anime_face_segment/UNet.pth]([das](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/anime_face_segment/UNet.pth)) <br/>
+	├── [anime_face_segment/UNet.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/anime_face_segment/UNet.pth) <br/>
 	├── [clip_vision/clip_g.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/clip_g.pth) <br/>
 	├── [clip_vision/clip_h.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/clip_h.pth) <br/>
 	├── [clip_vision/clip_vitl.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/clip_vitl.pth) <br/>
@@ -116,6 +116,17 @@ ControlNet 模型在控制图片的生成时，需要使用一张图作为参考
 ControlNet 预处理器后的图片如上方[不同 ControlNet 的作用](./controlnet.md#controlnet_2)部分中表格的处理后的控制图片的一样的效果。如果给 ControlNet 模型参考的图片是已经经过 ControlNet 处理过的图片时，就不需要再次经过 ControlNet 预处理器进行处理。
 
 ControlNet 预处理器并不参与生图的采样过程，所以并不存在只兼容 Stable Diffusion 1.5 或者 Stable Diffusion XL 的说法。而 ControlNet 模型参与生图过程的采样过程，所以需要使用匹配版本的 Stable Diffusion 模型，如果出现`mat1 and mat2 shapes cannot be multiplied`这种报错，这就说明 ControlNet 模型和 Stable Diffusion 模型的版本不匹配。
+
+## ControlNet 使用
+
+### ControlNet Scribble / Canny / MLSD / Softedge / Lineart
+该控制类型属于线稿类控制，Scribble / Canny / MLSD / Softedge / Lineart 控制的精度各不同。
+
+对画面的控制的精度：Scribble < Canny < Softedge < MLSD < Lineart
+
+MLSD 比较特殊，使用 MLSD 的预处理图片时，预处理器只会识别到图片中包含直线的部分（通常是建筑，物体），其他部分并不会识别到（如人物），所以这个控制类型适合控制建筑类的生成。
+
+
 
 <!-- TODO: 补充 ControlNet 的实际应用-->
 <!-- TODO: 蒙版的作用 https://github.com/Mikubill/sd-webui-controlnet/discussions/2793 -->
