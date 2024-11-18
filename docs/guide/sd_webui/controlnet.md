@@ -2,7 +2,7 @@
 title: ControlNet 应用
 ---
 # ControlNet 应用
-在 ControlNet 出现之前，控制图片的生成靠的是提示词，再加上图生图的局部重绘辅助。但在 ControlNet 出现后，控制图片变得简单了，通过图片 + 提示词的方式来更好的控制图片生成。
+在 ControlNet 出现之前，控制图片的生成靠的是提示词，再加上图生图的局部重绘辅助。但在 ControlNet 出现后，控制图片变得简单了，通过图片 + 提示词的方式来更好的控制图片生成，还可以配合图生图进行生图。
 
 
 ## ControlNet 扩展
@@ -72,16 +72,15 @@ title: ControlNet 应用
 |功能|作用|
 |---|---|
 |图片导入框|上方导入图片的框就是导入作为控制条件的图片。|
-|完美像素模式|可解决导入的控制图片和生成图片设置的宽高比例不同的问题。Resolution|
-|控制类型|调节不同的控制效果，一般选择后 ControlNet 扩展会自动选择相对应的预处理器和模型。|
-|预处理器|处理导入的控制图片，使控制图片成为 ControlNet 模型可识别的控制条件。如果导入的控制图片已经经过预处理器处理过，则预处理器应选择无。|
+|完美像素模式|可解决导入的控制图片和生成图片设置的宽高比例不同的问题。启用后 ControlNet 插件后，ControlNet 将会自动设置 Resolution 值（预处理器的分辨率），通常为最低可用分辨率。如果需要更高精度的预处理结果，需要禁用完美像素模式，手动调节  Resolution。|
+|控制类型|调节不同的控制效果，一般选择后 ControlNet 扩展会自动选择相对应的预处理器和模型，部分情况下可能需要手动选择模型。|
+|预处理器|处理导入的控制图片，使控制图片成为 ControlNet 模型可识别的控制条件。如果导入的控制图片已经经过预处理器处理过，则预处理器应选择无。预处理器有许多种，预处理图片的精度各不相同，可根据自己的需求进行选择。|
 |模型|选择要使用的 ControlNet 模型。|
 |中间的爆炸按钮（💥）|点击后可显示预处理器处理后的控制图片。|
 |控制权重|调节 ControlNet 控制的强度。|
 |引导介入 / 终止时机|调节 ControlNet 介入图片生成过程的时机。|
 |控制模式|调节生图时提示词和 ControlNet 这两者所占的控制强度。|
 
-<!-- TODO: 需要补充 -->
 
 ## 不同 ControlNet 的作用
 下面列出不同 ControlNet 的作用。
@@ -95,7 +94,7 @@ title: ControlNet 应用
 |[MLSD](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11p_sd15_mlsd_fp16.safetensors)|将图片中的场景（不包括人物）使用直线进行轮廓的大致描绘，生成大致的线条结构图。在生图过程通过线条结构图约束场景中大物件的边缘，常用于场景设计。|![origin_mlsd](../../assets/images/guide/controlnet/origin_mlsd.jpg)|![preprocess_mlsd](../../assets/images/guide/controlnet/preprocess_mlsd.jpg)|![output_mlsd](../../assets/images/guide/controlnet/output_mlsd.jpg)|
 |[Lineart](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11p_sd15s2_lineart_anime_fp16.safetensors)|使用更加精细的线条对图片进行描绘，生成线稿图。在生图过程中通过线稿图约束物体的边缘，常用于比较精细地还原物品的结构，保持构图结构。|![origin_lineart](../../assets/images/guide/controlnet/origin_lineart.jpg)|![preprocess_lineart](../../assets/images/guide/controlnet/preprocess_lineart.jpg)|![output_lineart](../../assets/images/guide/controlnet/output_lineart.jpg)|
 |[Softedge](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11p_sd15_softedge_fp16.safetensors)|将图片中物体的边缘用软边缘线条进行描绘，生成线条图。在生图过程中通过线条图约束物体的边缘，常用于还原物品的大致结构，保持构图结构。|![origin_softedge](../../assets/images/guide/controlnet/origin_softedge.jpg)|![preprocess_softedge](../../assets/images/guide/controlnet/preprocess_softedge.jpg)|![output_softedge](../../assets/images/guide/controlnet/output_softedge.jpg)|
-|[Scribble/Sketch](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11p_sd15_scribble_fp16.safetensors)|将图片处理成涂鸦，类似手绘的效果，然后利用生成的涂鸦图片指导大模型生图，常用于自己画一张粗糙的涂鸦，使用该涂鸦来生成一张效果不错的图片。|![origin_scribble](../../assets/images/guide/controlnet/origin_scribble.jpg)|![preprocess_scribble](../../assets/images/guide/controlnet/preprocess_scribble.jpg)|![output_scribble](../../assets/images/guide/controlnet/output_scribble.jpg)|
+|[Scribble](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11p_sd15_scribble_fp16.safetensors)|将图片处理成涂鸦，类似手绘的效果，然后利用生成的涂鸦图片指导大模型生图，常用于自己画一张粗糙的涂鸦，使用该涂鸦来生成一张效果不错的图片。|![origin_scribble](../../assets/images/guide/controlnet/origin_scribble.jpg)|![preprocess_scribble](../../assets/images/guide/controlnet/preprocess_scribble.jpg)|![output_scribble](../../assets/images/guide/controlnet/output_scribble.jpg)|
 |[Segmentation](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11p_sd15_seg_fp16.safetensors)|将图片进行语义分割，将不同的画面元素用不同的颜色进行标注，生成语义分割图。在生图的过程中使用语义分割图指导大模型在对应的区域绘制不同颜色对应的物品，常用于大致规划图片构图。|![origin_segmentation](../../assets/images/guide/controlnet/origin_segmentation.jpg)|![preprocess_segmentation](../../assets/images/guide/controlnet/preprocess_segmentation.jpg)|![output_segmentation](../../assets/images/guide/controlnet/output_segmentation.jpg)|
 |[Shuffle](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11e_sd15_shuffle_fp16.safetensors)|将图片进行随机变换，然后将变换后的图像作为参考，指导图片生成的过程（风格迁移）。|![origin_shuffle](../../assets/images/guide/controlnet/origin_shuffle.jpg)|![preprocess_shuffle](../../assets/images/guide/controlnet/preprocess_shuffle.jpg)|![output_shuffle](../../assets/images/guide/controlnet/output_shuffle.jpg)|
 |[Tile/Blur](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11f1e_sd15_tile_fp16.safetensors)|Tile 将图片分割成一个个小区快，在对每个小区快进行重绘。Tile 不仅可以用作图片放大，增加图片的细节，也可以保持图片的整体构图不被改变，可用于风格转换。Blur 将图片进行高斯模糊，用作生成图片的参考，有点类似图生图，但整体构图不会改变太多。|![origin_tile](../../assets/images/guide/controlnet/origin_tile.jpg)|![preprocess_tile](../../assets/images/guide/controlnet/preprocess_tile.jpg)|![origin_tile](../../assets/images/guide/controlnet/origin_tile.jpg)|
@@ -120,14 +119,49 @@ ControlNet 预处理器后的图片如上方[不同 ControlNet 的作用](./cont
 
 ControlNet 预处理器并不参与生图的采样过程，所以并不存在只兼容 Stable Diffusion 1.5 或者 Stable Diffusion XL 的说法。而 ControlNet 模型参与生图过程的采样过程，所以需要使用匹配版本的 Stable Diffusion 模型，如果出现`mat1 and mat2 shapes cannot be multiplied`这种报错，这就说明 ControlNet 模型和 Stable Diffusion 模型的版本不匹配。
 
+
 ## ControlNet 使用
+下面介绍不同 ControlNet 控制类型的使用。
 
 ### ControlNet Scribble / Canny / MLSD / Softedge / Lineart
 该控制类型属于线稿类控制，Scribble / Canny / MLSD / Softedge / Lineart 控制的精度各不同。
 
 对画面的控制的精度：Scribble < Canny < Softedge < MLSD < Lineart
 
+
+#### Scribble
+这个 ControlNet 类型通常用于将涂鸦转换为图片，可以发挥自己的灵魂画技画一张草稿，再用 ControlNet Scribble 将涂鸦转换为一张想要的壁纸。
+
+![use_scribble_controlnet_type](../../assets/images/guide/controlnet/use_scribble_controlnet_type.png)
+
+ControlNet 扩展下方可以调节 Scribble 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|XDoG Threshold（scribble_xdog 预处理器）|设置边缘检测灵敏度。较低的值将导致检测到更多的边缘，从而可能捕获更精细的细节，而较高的值将集中在更突出的边缘上，从而减少杂色。|
+
+下面是不同预处理器效果。
+
+|预处理器|无|scribble_pidinet|scribble_xdog|scribble_hed|
+|---|---|---|---|---|
+|效果图|![image_before_preprocess_for_scribble](../../assets/images/guide/controlnet/image_before_preprocess_for_scribble.png)|![scribble_pidinet_preprocess](../../assets/images/guide/controlnet/scribble_pidinet_preprocess.png)|![scribble_xdog_preprocess](../../assets/images/guide/controlnet/scribble_xdog_preprocess.png)|![scribble_hed_preprocess](../../assets/images/guide/controlnet/scribble_hed_preprocess.png)|
+
+
+#### MLSD
 MLSD 比较特殊，使用 MLSD 的预处理图片时，预处理器只会识别到图片中包含直线的部分（通常是建筑，物体），其他部分并不会识别到（如人物），所以这个控制类型适合控制建筑类的生成。
+
+|![use_mlsd_controlnet_type_1](../../assets/images/guide/controlnet/use_mlsd_controlnet_type_1.png)|![use_mlsd_controlnet_type_2](../../assets/images/guide/controlnet/use_mlsd_controlnet_type_2.png)|
+|---|---|
+
+ControlNet 扩展下方可以调节 MLSD 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|MLSD Value Threshold|直线阈值。值越低，检测的直线越多。|
+|MLSD Distance Threshold|距离阈值。对检测的之间进行距离筛选。|
+
 
 
 
