@@ -124,7 +124,7 @@ ControlNet 预处理器并不参与生图的采样过程，所以并不存在只
 下面介绍不同 ControlNet 控制类型的使用。
 
 ### ControlNet Scribble / Canny / MLSD / Softedge / Lineart
-该控制类型属于线稿类控制，Scribble / Canny / MLSD / Softedge / Lineart 控制的精度各不同。
+该控制类型属于边缘类控制，Scribble / Canny / MLSD / Softedge / Lineart 控制的精度各不同。
 
 对画面的控制的精度：Scribble < Canny < Softedge < MLSD < Lineart
 
@@ -148,6 +148,21 @@ ControlNet 扩展下方可以调节 Scribble 预处理器的效果。
 |效果图|![image_before_preprocess_for_scribble](../../assets/images/guide/controlnet/image_before_preprocess_for_scribble.png)|![scribble_pidinet_preprocess](../../assets/images/guide/controlnet/scribble_pidinet_preprocess.png)|![scribble_xdog_preprocess](../../assets/images/guide/controlnet/scribble_xdog_preprocess.png)|![scribble_hed_preprocess](../../assets/images/guide/controlnet/scribble_hed_preprocess.png)|
 
 
+#### Canny
+Canny 控制类型的相比于 Scribble，精确度就比较高，可以用于复刻图片或者做艺术字等。
+
+|![use_canny_controlnet_type_1](../../assets/images/guide/controlnet/use_canny_controlnet_type_1.png)|![use_canny_controlnet_type_2](../../assets/images/guide/controlnet/use_canny_controlnet_type_2.png)|
+|---|---|
+
+ControlNet 扩展下方可以调节 Canny 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|Low Threshold|去掉过细的线段。大于低阈值的线段被认定为边缘。|
+|High Threshold|去掉零散的线段。大于高阈值的线段被认定为强边缘，全部保留；高阈值和低阈值之间的线段认定为弱边缘，只保留强边缘相邻的弱边缘。|
+
+
 #### MLSD
 MLSD 比较特殊，使用 MLSD 的预处理图片时，预处理器只会识别到图片中包含直线的部分（通常是建筑，物体），其他部分并不会识别到（如人物），所以这个控制类型适合控制建筑类的生成。
 
@@ -163,7 +178,54 @@ ControlNet 扩展下方可以调节 MLSD 预处理器的效果。
 |MLSD Distance Threshold|距离阈值。对检测的之间进行距离筛选。|
 
 
+#### Softedge
+Softedge 的精度较高，预处理出的控制图片的边缘更加平滑，并且忽略内部的细节，可以让 AI 有更多的发挥空间。
+
+![use_softedge_controlnet_type](../../assets/images/guide/controlnet/use_softedge_controlnet_type.png)
+
+ControlNet 下方可以调节 Softedge 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|Safe Steps（softedge_teed、softedge_anyline 预处理器）|这个值越大，预处理得到的图片画面越干净。|
+
+下面是不同预处理器效果。
+
+|预处理器|无|softedge_pidinet|softedge_teed|softedge_pidisafe|softedge_hedsafe|softedge_hed|softedge_anyline|
+|---|---|---|---|---|---|---|---|
+|效果图|![image_before_preprocess_for_softedge](../../assets/images/guide/controlnet/image_before_preprocess_for_softedge.png)|![softedge_pidinet](../../assets/images/guide/controlnet/softedge_pidinet.png)|![softedge_teed](../../assets/images/guide/controlnet/softedge_teed.png)|![softedge_pidisafe](../../assets/images/guide/controlnet/softedge_pidisafe.png)|![softedge_hedsafe](../../assets/images/guide/controlnet/softedge_hedsafe.png)|![softedge_hed](../../assets/images/guide/controlnet/softedge_hed.png)|![softedge_anyline](../../assets/images/guide/controlnet/softedge_anyline.png)|
+
+
+#### Lineart
+Lineart 控制类型的精度最高，可以用于线稿上色等。
+
+![use_lineart_controlnet_type](../../assets/images/guide/controlnet/use_lineart_controlnet_type.png)
+
+!!!note
+	如果控制图片是白底线稿，只需要 invert 预处理器将导入的图片进行反色就成为 ControlNet Lineart 的控制图片了。
+
+ControlNet 下方可以调节 Lineart 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+
+下面是不同 Lineart 预处理器的效果。
+
+|预处理器|无|lineart_standard|lineart_realistic|lineart_coarse|lineart_anime_denoise|lineart_anime|
+|---|---|---|---|---|---|---|
+|效果图|![image_before_preprocess_for_lineart](../../assets/images/guide/controlnet/image_before_preprocess_for_lineart.png)|![lineart_standard](../../assets/images/guide/controlnet/lineart_standard.png)|![lineart_realistic](../../assets/images/guide/controlnet/lineart_realistic.png)|![lineart_coarse](../../assets/images/guide/controlnet/lineart_coarse.png)|![lineart_anime_denoise](../../assets/images/guide/controlnet/lineart_anime_denoise.png)|![lineart_anime](../../assets/images/guide/controlnet/lineart_anime.png)|
+
+
+### ControlNet NormalMap / Depth / Segmentation
+这类控制类型类似边缘控制，也能提供比较高的精度控制。
+
+### ControlNet NormalMap
+该控制类型通过法线贴图进行控制，可以为 AI 提供方位信息用于生成，可以更加精准的控制生成的图片中的元素方位，如人物面向的方向等。
+
 
 
 <!-- TODO: 补充 ControlNet 的实际应用-->
 <!-- TODO: 蒙版的作用 https://github.com/Mikubill/sd-webui-controlnet/discussions/2793 -->
+<!-- TODO: 补充模型链接和选择 -->
