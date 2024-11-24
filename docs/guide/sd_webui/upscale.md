@@ -86,10 +86,9 @@ multidiffusion-upscaler-for-automatic1111 扩展提供了 Tiled Diffusion 功能
 如果想要放大后获得比较干净的画面，可以勾选 Tiled Diffusion 选项卡下方的噪声反转。
 
 !!!note
-    噪声反转会导致一些笔触被破坏，比如你的图片是厚涂风格的，放大时启用噪声反转后，图片那些涂抹风格就会被抹干净。
-
-!!!note
-    multidiffusion-upscaler-for-automatic1111 扩展关于图片放大的具体说明：https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111/wiki/%E5%88%86%E7%89%87%E6%89%A9%E6%95%A3
+    1. 噪声反转会导致一些笔触被破坏，比如你的图片是厚涂风格的，放大时启用噪声反转后，图片那些涂抹风格就会被抹干净。  
+    2. multidiffusion-upscaler-for-automatic1111 扩展关于图片放大的具体说明：https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111/wiki/%E5%88%86%E7%89%87%E6%89%A9%E6%95%A3  
+    3. 因为 Tiled Diffusion 是将潜空间图像进行分块，并对每个分块分别进行采样，但是每个分块的提示内容都是完整图片的提示内容而不是只属于那个分块的提示内容，所以这会导致在对分块进行采样时，模型总会尝试在分块上绘制完整的图片内容，这就导致了放大后鬼影的产生，可以通过降低重绘幅度 / 删除提示词中具体描述画面的提示词 / 使用 ControlNet 保持一致性来减少鬼影的产生。
 
 
 ## StableSR 放大
