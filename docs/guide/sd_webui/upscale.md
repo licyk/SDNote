@@ -8,7 +8,7 @@ title: 图片放大
 ## 高分辨率修复
 该功能使用图生图的方式对图片进行放大。启用该功能后，在文生图结束时，根据所选的放大算法对图片进行放大，再根据降噪强度对图片进行加噪再进行图生图，最终得到高清的图像。
 
-![hires_fix](../../assets/images/guide/upscale/hires_fix.jpg)
+![hires_fix](../../assets/images/guide/sd_webui/upscale/hires_fix.jpg)
 
 因为高分辨率修复的本质是图生图，所以这个选项只会在文生图的选项中出现，在图生图选项中就看不到这个选项。
 
@@ -39,7 +39,7 @@ Latent 放大算法在潜空间中将潜空间图像进行放大，但是放大�
 
 如果在文生图中出了一张比较好的图，但是没启用高分辨率修复，也可以在高分辨率的选项卡调整好参数后，在图片预览框下面的功能按钮点击 ✨ 按钮，这时将会根据高分辨率修复的选项对当前的图片进行放大。
 
-![hires_fix](../../assets/images/guide/upscale/hires_fix_bottom_in_t2i.png)
+![hires_fix](../../assets/images/guide/sd_webui/upscale/hires_fix_bottom_in_t2i.png)
 
 不过这个方法有也有局限性，因为直接文生图出来的图并不一定达到自己想要的效果，需要使用图生图里的局部重绘来修改图片，这时候放大就没太大意义，不过只是单纯的文生图抽卡可以忽略。
 
@@ -51,7 +51,7 @@ Latent 放大算法在潜空间中将潜空间图像进行放大，但是放大�
 ## 后期处理的放大
 在 SD WebUI 的后期处理选项卡中，也有一个放大功能。
 
-![extra_upscale](../../assets/images/guide/upscale/extra_upscale.jpg)
+![extra_upscale](../../assets/images/guide/sd_webui/upscale/extra_upscale.jpg)
 
 不过这个放大功能使用的仅仅是 GAN 算法进行放大，并没有用到 Stable Diffusion，所以直接用这个功能来放大低分辨率的图片，放大后效果不是很行。如果去放大高分辨率的图片（比如从 1080p 放大到 4k），效果就会比较好。
 
@@ -62,7 +62,7 @@ Latent 放大算法在潜空间中将潜空间图像进行放大，但是放大�
 ## 图生图直接放大
 在图生图界面中，可以直接调整重绘尺寸或者重绘尺寸倍数来实现图片放大。
 
-![i2i_direct_upscale](../../assets/images/guide/upscale/i2i_direct_upscale.jpg)
+![i2i_direct_upscale](../../assets/images/guide/sd_webui/upscale/i2i_direct_upscale.jpg)
 
 不过在 SD WebUI 的默认设置下，放大后的图片效果可能不如意，此时可以在 SD WebUI 的`设置`->`放大`->`图生图放大算法`，选择一个算法，这样出图的效果就会比较好。
 
@@ -70,7 +70,7 @@ Latent 放大算法在潜空间中将潜空间图像进行放大，但是放大�
 ## Tiled Diffusion 放大
 multidiffusion-upscaler-for-automatic1111 扩展提供了 Tiled Diffusion 功能用于图片放大，不过该功能必须搭配 Tiled VAE 一起使用。下面为 Tiled Diffusion 的设置界面。
 
-![tiled_diffusion_interface](../../assets/images/guide/upscale/tiled_diffusion_interface.jpg)
+![tiled_diffusion_interface](../../assets/images/guide/sd_webui/upscale/tiled_diffusion_interface.jpg)
 
 使用 Tiled Diffusion 进行图片放大时，勾选 Tiled Diffusion 选项，设置参数可以照抄下面的
 
@@ -105,7 +105,7 @@ sd-webui-stablesr 扩展提供的 StableSR 放大方法也可以提供不错的�
 
 使用时需要在 SD WebUI 界面的左上角将 Stable Diffusion 模型切换成 v2-1_768-ema-pruned 模型，接下来将重绘幅度调至 0.2~0.4之间的值（推荐 0.4），翻到 SD WebUI 界面的最下面，在脚本选项选择 StableSR，SR 模型选择 webui-768v_139，再设置放大倍数，这时候点击生成就可以进行图片放大了。
 
-![stablesr_interface](../../assets/images/guide/upscale/stablesr_interface.jpg)
+![stablesr_interface](../../assets/images/guide/sd_webui/upscale/stablesr_interface.jpg)
 
 
 ## ControlNet Tile 放大
@@ -119,7 +119,7 @@ ControlNet Tile 模型可以保证图片的一致性，同时也可以用于增�
 !!!note
     使用 ControlNet Tile 前需要下载 [control_v11f1e_sd15_tile_fp16](https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&FilePath=control_v11f1e_sd15_tile_fp16.safetensors)，并将模型放到 stable-diffusion-webui/models/ControlNet 路径里
 
-![controlnet_tile](../../assets/images/guide/upscale/controlnet_tile.jpg)
+![controlnet_tile](../../assets/images/guide/sd_webui/upscale/controlnet_tile.jpg)
 
 再将重绘幅度调整到 0.4~0.7 之间的值（推荐0.5），点击生成就可以进行放大了。
 
@@ -140,7 +140,7 @@ ultimate-upscale-for-automatic1111 扩展提供的放大方案将图片分块后
 - 蒙版边缘模糊度：24
 - Padding：32
 
-![ultimate_sd_upscale](../../assets/images/guide/upscale/ultimate_sd_upscale.jpg)
+![ultimate_sd_upscale](../../assets/images/guide/sd_webui/upscale/ultimate_sd_upscale.jpg)
 
 再将重绘幅度调至 0.2~0.4之间的值（推荐 0.4），重绘尺寸倍数设置好尺度，就可以进行图片放大了。
 

@@ -10,7 +10,7 @@ title: 图生图
 ## 图生图画布
 画布用于导入进行图生图的图片，下面是不同画布的作用。
 
-![image2image_canvas](../../assets/images/guide/i2i/image2image_canvas.png)
+![image2image_canvas](../../assets/images/guide/sd_webui/i2i/image2image_canvas.png)
 
 |模式|作用|
 |---|---|
@@ -24,7 +24,7 @@ title: 图生图
 ## 画布工具
 在图生图的画布中提供了不同的工具对导入画布的图片进行处理。
 
-![image2image_canvas_tool](../../assets/images/guide/i2i/image2image_canvas_tool.png)
+![image2image_canvas_tool](../../assets/images/guide/sd_webui/i2i/image2image_canvas_tool.png)
 
 |功能|作用|
 |---|---|
@@ -38,7 +38,7 @@ title: 图生图
 ## 图生图参数
 图生图界面提供了不同参数用于调节图生图的效果。
 
-![image2image_configure_interface](../../assets/images/guide/i2i/image2image_configure_interface.png)
+![image2image_configure_interface](../../assets/images/guide/sd_webui/i2i/image2image_configure_interface.png)
 
 
 ### 缩放模式
@@ -55,7 +55,7 @@ title: 图生图
 
 |模式|原图|仅调节大小|裁剪后缩放|缩放后填充空白|调整大小（潜空间放大）|
 |---|---|---|---|---|---|
-|效果图|![origin_image](../../assets/images/guide/i2i/origin_image.png)|![only_resize_mode](../../assets/images/guide/i2i/only_resize_mode.png)|![crop_and_resize_mode](../../assets/images/guide/i2i/crop_and_resize_mode.png)|![crop_and_fill_blank_block_mode](../../assets/images/guide/i2i/crop_and_fill_blank_block_mode.png)|![resize_image_in_latent_mode](../../assets/images/guide/i2i/resize_image_in_latent_mode.png)|
+|效果图|![origin_image](../../assets/images/guide/sd_webui/i2i/origin_image.png)|![only_resize_mode](../../assets/images/guide/sd_webui/i2i/only_resize_mode.png)|![crop_and_resize_mode](../../assets/images/guide/sd_webui/i2i/crop_and_resize_mode.png)|![crop_and_fill_blank_block_mode](../../assets/images/guide/sd_webui/i2i/crop_and_fill_blank_block_mode.png)|![resize_image_in_latent_mode](../../assets/images/guide/sd_webui/i2i/resize_image_in_latent_mode.png)|
 
 
 ### 蒙版边缘模糊度
@@ -69,7 +69,7 @@ title: 图生图
 
 |蒙版透明度：0|蒙版透明度：50|
 |---|---|
-|![use_low_mask_transparency](../../assets/images/guide/i2i/use_low_mask_transparency.png)|![use_high_mask_transparency](../../assets/images/guide/i2i/use_high_mask_transparency.png)|
+|![use_low_mask_transparency](../../assets/images/guide/sd_webui/i2i/use_low_mask_transparency.png)|![use_high_mask_transparency](../../assets/images/guide/sd_webui/i2i/use_high_mask_transparency.png)|
 
 
 ### 蒙版模式
@@ -90,7 +90,7 @@ title: 图生图
 
 |处理方法|原版|填充|潜空间噪声|空白潜空间|
 |---|---|---|---|---|
-|效果图|![origin_image_before_mask_preprocess](../../assets/images/guide/i2i/origin_image_before_mask_preprocess.png)|![use_origin_for_mask_area](../../assets/images/guide/i2i/use_origin_for_mask_area.png)|![use_fill_color_for_mask_area](../../assets/images/guide/i2i/use_fill_color_for_mask_area.png)|![use_latent_noise_for_mask_area](../../assets/images/guide/i2i/use_latent_noise_for_mask_area.png)|![use_blank_latent_for_mask_area](../../assets/images/guide/i2i/use_blank_latent_for_mask_area.png)|
+|效果图|![origin_image_before_mask_preprocess](../../assets/images/guide/sd_webui/i2i/origin_image_before_mask_preprocess.png)|![use_origin_for_mask_area](../../assets/images/guide/sd_webui/i2i/use_origin_for_mask_area.png)|![use_fill_color_for_mask_area](../../assets/images/guide/sd_webui/i2i/use_fill_color_for_mask_area.png)|![use_latent_noise_for_mask_area](../../assets/images/guide/sd_webui/i2i/use_latent_noise_for_mask_area.png)|![use_blank_latent_for_mask_area](../../assets/images/guide/sd_webui/i2i/use_blank_latent_for_mask_area.png)|
 
 !!!note
     1. 此部分的图片是潜空间图像经过了 VAE 解码得到的。  
@@ -101,7 +101,7 @@ title: 图生图
 
 |处理方法|原版|填充|潜空间噪声|空白潜空间|
 |---|---|---|---|---|
-|效果图|![use_origin_in_inpaint](../../assets/images/guide/i2i/use_origin_in_inpaint.png)|![use_fill_color_in_inpaint](../../assets/images/guide/i2i/use_fill_color_in_inpaint.png)|![use_latent_noise_in_inpaint](../../assets/images/guide/i2i/use_latent_noise_in_inpaint.png)|![use_blank_latent_in_inpaint](../../assets/images/guide/i2i/use_blank_latent_in_inpaint.png)|
+|效果图|![use_origin_in_inpaint](../../assets/images/guide/sd_webui/i2i/use_origin_in_inpaint.png)|![use_fill_color_in_inpaint](../../assets/images/guide/sd_webui/i2i/use_fill_color_in_inpaint.png)|![use_latent_noise_in_inpaint](../../assets/images/guide/sd_webui/i2i/use_latent_noise_in_inpaint.png)|![use_blank_latent_in_inpaint](../../assets/images/guide/sd_webui/i2i/use_blank_latent_in_inpaint.png)|
 
 
 ### 重绘区域
@@ -174,7 +174,7 @@ upper body,
 
 这里抽了一张细节有问题的图片用于演示。
 
-![origin_image_for_image2image](../../assets/images/guide/i2i/origin_image_for_image2image.png)
+![origin_image_for_image2image](../../assets/images/guide/sd_webui/i2i/origin_image_for_image2image.png)
 
 !!!note
     这里我使用的模型：  
@@ -185,18 +185,18 @@ upper body,
 
 进入图生图界面后，在画布部分选择涂鸦，把图片导入画布中。现在需要对有问题的部分进行涂鸦，点击右上角画布工具中的画笔颜色调节按钮，根据要修复有问题部分的颜色进行调节，调节后使用画笔对图片进行简单涂鸦。
 
-![sketch_image_in_sketch_canvas](../../assets/images/guide/i2i/sketch_image_in_sketch_canvas.png)
+![sketch_image_in_sketch_canvas](../../assets/images/guide/sd_webui/i2i/sketch_image_in_sketch_canvas.png)
 
 !!!note
     这步可以在 PhotoShop 之类的图片编辑软件中进行。
 
 涂鸦完成后，点击下方按钮复制当前图像到局部重绘。现在使用画笔对涂鸦的部分进行蒙版绘制。
 
-![inpaint_image_in_inpaint_canvas](../../assets/images/guide/i2i/inpaint_image_in_inpaint_canvas.png)
+![inpaint_image_in_inpaint_canvas](../../assets/images/guide/sd_webui/i2i/inpaint_image_in_inpaint_canvas.png)
 
 绘制蒙版后，提示词写上对整张图片的描述（可以直接使用上面文生图的提示词），重绘幅度调低一些，启用柔和重绘，接下来就可以进行图生图了。
 
-![use_sketch_and_inpaint_to_fix_image](../../assets/images/guide/i2i/use_sketch_and_inpaint_to_fix_image.png)
+![use_sketch_and_inpaint_to_fix_image](../../assets/images/guide/sd_webui/i2i/use_sketch_and_inpaint_to_fix_image.png)
 
 现在手部的细节可以提高一下，所以在图生图的结果展示界面点击 🖼️ 将图生图后的图片发送回图生图中，此时图片将出现在图生图画布中，点击下方复制当前图像发送到局部重绘中，对手部绘制蒙版。
 
@@ -209,7 +209,7 @@ hand,index finger raised,
 
 重绘幅度设置为比较低的值，如 0.35，就可以进行图生图了。
 
-![make_image_detail_by_image2image](../../assets/images/guide/i2i/make_image_detail_by_image2image.png)
+![make_image_detail_by_image2image](../../assets/images/guide/sd_webui/i2i/make_image_detail_by_image2image.png)
 
 !!!note
     这步用于提升图片细节的方法就是 [adetailer](https://github.com/Bing-su/adetailer) 扩展的原理，只不过 adetailer 扩展是自动对图片进行局部重绘。
@@ -220,7 +220,7 @@ hand,index finger raised,
 
 将刚刚的图片导入涂鸦重绘画布中，使用画笔在人物的头上简单绘制一个樱花，绘制好后勾选一下柔和重绘，使用较低的重绘幅度，如 0.5，再进行图生图。
 
-![use_sketch_inpaint_add_flower_for_character](../../assets/images/guide/i2i/use_sketch_inpaint_add_flower_for_character.png)
+![use_sketch_inpaint_add_flower_for_character](../../assets/images/guide/sd_webui/i2i/use_sketch_inpaint_add_flower_for_character.png)
 
 现在可以看到刚刚画上去的樱花添加到人物的头上了。
 
@@ -240,7 +240,7 @@ upper body,
 
 现在就可以进行图生图了。
 
-![use_inpaint_to_remove_object](../../assets/images/guide/i2i/use_inpaint_to_remove_object.png)
+![use_inpaint_to_remove_object](../../assets/images/guide/sd_webui/i2i/use_inpaint_to_remove_object.png)
 
 现在图片中的花瓶被移除了。
 
@@ -258,15 +258,15 @@ outdoors,landscape,park,tree,bench,falling petals,path,blue sky,grass,flower,pat
 !!!note
     使用的 LoRA 模型：[ill-xl-01-kagawayusaku_1](https://modelscope.cn/models/licyks/sd-lora/resolve/master/sdxl/style/ill-xl-01-kagawayusaku_1-000034.safetensors)[(Civitai)](https://civitai.com/models/865757/artist-style)，模型放在`stable-diffusion-webui/models/Lora`。
 
-![origin_image_to_modify_object](../../assets/images/guide/i2i/origin_image_to_modify_object.png)
+![origin_image_to_modify_object](../../assets/images/guide/sd_webui/i2i/origin_image_to_modify_object.png)
 
 现在想修改图片中人物的动作，让人物对镜头比个耶，所以在图生图中将这张图片导入进涂鸦画布中，使用涂鸦对人物的动作进行简单的绘制。
 
-![sketch_to_modify_object](../../assets/images/guide/i2i/sketch_to_modify_object.png)
+![sketch_to_modify_object](../../assets/images/guide/sd_webui/i2i/sketch_to_modify_object.png)
 
 再点击画布下面的按钮复制当前图像到局部重绘中，将涂鸦部分绘制蒙版，**蒙版区域内容处理**选择**原版**，重绘幅度设置为比较高的值，如 0.7，再启用柔和重绘，就可以进行图生图了。
 
-![sketch_to_modify_object_result](../../assets/images/guide/i2i/sketch_to_modify_object_result.png)
+![sketch_to_modify_object_result](../../assets/images/guide/sd_webui/i2i/sketch_to_modify_object_result.png)
 
 现在人物的动作就修改好了。
 
@@ -275,7 +275,7 @@ outdoors,landscape,park,tree,bench,falling petals,path,blue sky,grass,flower,pat
 
 这里使用灵魂画技画出一张涂鸦。
 
-![sketch_to_image2image](../../assets/images/guide/i2i/sketch_to_image2image.png)
+![sketch_to_image2image](../../assets/images/guide/sd_webui/i2i/sketch_to_image2image.png)
 
 将这张涂鸦导入图生图中，填写相应的提示词描述画面。
 
@@ -288,7 +288,7 @@ no humans,cherry blossoms,tree,mountain,blue sky,flower,landscape,falling petals
 
 因为需要将涂鸦转换为一张壁纸，需要对涂鸦做大改动，所以重绘幅度设置为比较高的值，如 0.85，设置完后进行一次图生图。
 
-![sketch_to_picture](../../assets/images/guide/i2i/sketch_to_picture.png)
+![sketch_to_picture](../../assets/images/guide/sd_webui/i2i/sketch_to_picture.png)
 
 这里涂鸦已经变成一张比较好看的图片，但是想对图片添加一些元素，就可以点击图片预览界面下方的 🖼️ 将生成的图片发送值图生图，在图生图画布下面点击复制当前图像到局部重绘。
 
@@ -306,20 +306,20 @@ upper body,close-up,from side,
 
 修改后再进行一次图生图。
 
-![use_inpaint_to_add_character_in_image](../../assets/images/guide/i2i/use_inpaint_to_add_character_in_image.png)
+![use_inpaint_to_add_character_in_image](../../assets/images/guide/sd_webui/i2i/use_inpaint_to_add_character_in_image.png)
 
 !!!note
     如果绘制出来的图片出现的偏色，如刚刚添加进去的人物发绿，看起来受到背景的影响，如：  
-    ![inpaint_object_ affectt_by_img2img_color_correction](../../assets/images/guide/i2i/inpaint_object_ affectt_by_img2img_color_correction.png)  
+    ![inpaint_object_ affectt_by_img2img_color_correction](../../assets/images/guide/sd_webui/i2i/inpaint_object_ affectt_by_img2img_color_correction.png)  
     这可能是因为图生图的颜色校正功能影响的重绘之后的画面，可通过**设置 -> 图生图**，将**对图生图结果应用颜色校正以匹配原始颜色**禁用后再试。
 
 现在人物添加到了图片中，但是重绘部分的原版内容的衔接有些问题，此时可以通过局部重绘继续修复。
 
 使用之前的方法将图片发送回局部重绘画布中，对图片周围衔接不好的地方绘制蒙版，将**蒙版区域内容处理**设置为**原版**，启用柔和重绘，再将重绘幅度稍微降低，如降到 0.7，再进行图生图，反复这个步骤修复图片中衔接不好的地方。
 
-![use_inpaint_to_fix_connection_point_1](../../assets/images/guide/i2i/use_inpaint_to_fix_connection_point_1.png)
+![use_inpaint_to_fix_connection_point_1](../../assets/images/guide/sd_webui/i2i/use_inpaint_to_fix_connection_point_1.png)
 
-![use_inpaint_to_fix_connection_point_2](../../assets/images/guide/i2i/use_inpaint_to_fix_connection_point_2.png)
+![use_inpaint_to_fix_connection_point_2](../../assets/images/guide/sd_webui/i2i/use_inpaint_to_fix_connection_point_2.png)
 
 现在一张好看的壁纸就制作出来了。
 

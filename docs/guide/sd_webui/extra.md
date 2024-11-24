@@ -8,8 +8,7 @@ title: 杂项
 ## 图片信息查看
 如果想要查看一张由 SD WebUI 生成的图片的参数，可以在 SD WebUI 的 PNG 图片信息里，导入图片后即可查看生图参数。
 
-![png_info_view](../../assets/images/guide/extra
-/png_info_view.jpg)
+![png_info_view](../../assets/images/guide/sd_webui/extra/png_info_view.jpg)
 
 !!!note
     ComfyUI、InvokeAI、NovelAI 等生成的图片也可以查看生图信息，但是要保证图片未被压缩或者被其他图像工具处理过。
@@ -18,8 +17,7 @@ title: 杂项
 ## 图片提示词反推
 想知道一张图片的提示词怎么写，可以通过 sd-webui-wd14-tagger 扩展将提示词反推出来。将图片导入后扩展将自动反推提示词，反推完成后最好点一下卸载所有反推模型来释放显存。
 
-![wd14_tagger](../../assets/images/guide/extra
-/wd14_tagger.jpg)
+![wd14_tagger](../../assets/images/guide/sd_webui/extra/wd14_tagger.jpg)
 
 !!!note
     sd-webui-wd14-tagger 扩展：https://github.com/Akegarasu/sd-webui-wd14-tagger
@@ -28,16 +26,14 @@ title: 杂项
 ## 移除背景
 想要人物的背景移除，可以使用 stable-diffusion-webui-rembg 扩展。在 SD WebUI 的后期处理中，在下方启用移除背景，移除背景选择其中一个算法，再点击生成就可以把图片的背景移除。
 
-![remove_background](../../assets/images/guide/extra
-/remove_background.jpg)
+![remove_background](../../assets/images/guide/sd_webui/extra/remove_background.jpg)
 
 !!!note
     stable-diffusion-webui-rembg 扩展下载：https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg
 
 如果有生成蒙版的需求，可以使用 PBRemTools 扩展。在精准背景移除工具选项卡中，导入要移除背景的图片，在后期处理的选项中点击启用，再点提交，这样就可以生成一张移除背景的图片和蒙版。
 
-![rm_background_and_make_mask](../../assets/images/guide/extra
-/rm_background_and_make_mask.jpg)
+![rm_background_and_make_mask](../../assets/images/guide/sd_webui/extra/rm_background_and_make_mask.jpg)
 
 !!!note
     PBRemTools 扩展下载：https://github.com/mattyamonaca/PBRemTools
@@ -46,8 +42,7 @@ title: 杂项
 ## 图片处理
 a1111-sd-webui-haku-img 扩展可对图像进行一些处理，如提取图片线稿，图片像素化等。
 
-![haku_img](../../assets/images/guide/extra
-/haku_img.jpg)
+![haku_img](../../assets/images/guide/sd_webui/extra/haku_img.jpg)
 
 !!!note
     a1111-sd-webui-haku-img 扩展下载：https://github.com/KohakuBlueleaf/a1111-sd-webui-haku-img
@@ -56,8 +51,7 @@ a1111-sd-webui-haku-img 扩展可对图像进行一些处理，如提取图片�
 ## 面部修复
 在 SD WebUI 1.6 之后，官方将自带的面部修复移除了，因为效果过差，而 adetailer 扩展可作为替代品。在文生图或者图生图左下角中可以看到该扩展的选项卡，勾选后即可启用面部修复。
 
-![adetailer](../../assets/images/guide/extra
-/adetailer.jpg)
+![adetailer](../../assets/images/guide/sd_webui/extra/adetailer.jpg)
 
 注意，在局部重绘中该扩展并不会生效，因为这个扩展的本质是自动检测面部位置并进行局部重绘。
 
@@ -75,8 +69,7 @@ SD WebUI 1.6 移除了保存提示词预设按钮，所以只能在生成按钮�
 ## 图片浏览
 sd-webui-infinite-image-browsing 扩展作为图片浏览器非常方便。
 
-![infinite_image_browsing](../../assets/images/guide/extra
-/infinite_image_browsing.jpg)
+![infinite_image_browsing](../../assets/images/guide/sd_webui/extra/infinite_image_browsing.jpg)
 
 !!!note
     sd-webui-infinite-image-browsing 扩展下载：https://github.com/zanllp/sd-webui-infinite-image-browsing
@@ -92,13 +85,11 @@ multidiffusion-upscaler-for-automatic1111 扩展除了提供 Tiled VAE，也提�
 ## 查找并删除模型里的垃圾数据
 SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 SD 1.5 的模型的大小超过了 2 GB。可以通过 stable-diffusion-webui-model-toolkit 扩展查看模型是否有垃圾数据存在。
 
-![search_model_junk_data](../../assets/images/guide/extra
-/search_model_junk_data.jpg)
+![search_model_junk_data](../../assets/images/guide/sd_webui/extra/search_model_junk_data.jpg)
 
 如果模型里有垃圾数据，可以通过 sd-webui-model-converter 扩展删除垃圾数据。在模型转换选项卡中，选择要删除垃圾数据的模型，选择删除 EMA 权重，勾选删除已知垃圾数据，点击运行即可删除模型垃圾数据。
 
-![remove_model_junk_data](../../assets/images/guide/extra
-/remove_model_junk_data.jpg)
+![remove_model_junk_data](../../assets/images/guide/sd_webui/extra/remove_model_junk_data.jpg)
 
 有关模型垃圾数据的哔哩哔哩专栏：[【AI绘画】模型修剪教程：8G模型顶级精细？全是垃圾！嘲笑他人命运，尊重他人命运 - 哔哩哔哩](https://www.bilibili.com/read/cv26279169)
 
@@ -117,8 +108,7 @@ SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 
 ## 随机抽卡
 如果对提示词不熟悉，但又想抽出比较好的图，可以试试 z-a1111-sd-webui-dtg 扩展，启用后就可以快乐的抽卡了。
 
-![dtg](../../assets/images/guide/extra
-/dtg.jpg)
+![dtg](../../assets/images/guide/sd_webui/extra/dtg.jpg)
 
 !!!note
     z-a1111-sd-webui-dtg 扩展下载：https://github.com/KohakuBlueleaf/z-a1111-sd-webui-dtg
@@ -141,8 +131,7 @@ SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 
 ## 无限生成图片
 右键 SD WebUI 的生成按钮即可看到无限生成 / 停止无限生成的按钮，
 
-![infinite_generate](../../assets/images/guide/extra
-/infinite_generate.jpg)
+![infinite_generate](../../assets/images/guide/sd_webui/extra/infinite_generate.jpg)
 
 
 ## 使用 SDXL 模型时特定的提示词组会出现鬼图
@@ -223,7 +212,7 @@ close up,upper body,
 
 - X/Y/Z 图的参数
 
-![xyz_plot_config](../../assets/images/guide/extra/xyz_plot_config.jpg)
+![xyz_plot_config](../../assets/images/guide/sd_webui/extra/xyz_plot_config.jpg)
 
 Prompr S/R 为提示词替换，这里我填的是`heart hands,"hand on own chin, index finger raised",hand on own chest`，SD WebUI 将第一个逗号前的提示词作为被替换的对象（也就是`heart hands`），生图时将所写的完整提示词中的`heart hands`替换成`heart hands`、`hand on own chin, index finger raised`、`hand on own chest`。
 
@@ -231,7 +220,7 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 
 生图完成后将会得到下面的 X/Y/Z 图。
 
-![xyz_plot](../../assets/images/guide/extra/xyz_plot.jpg)
+![xyz_plot](../../assets/images/guide/sd_webui/extra/xyz_plot.jpg)
 
 !!!note
     关于 X/Y/Z 图的说明可参看：[Features · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#xyz-plot)
@@ -240,7 +229,7 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 ## 为 SD WebUI 模型列表中的模型添加预览图
 模型在放置在 SD WebUI 的模型目录后，在 SD WebUI 的模型列表中看到模型并没有预览图。
 
-![no_preview_image_for_model](../../assets/images/guide/extra/no_preview_image_for_model.jpg)
+![no_preview_image_for_model](../../assets/images/guide/sd_webui/extra/no_preview_image_for_model.jpg)
 
 这里有几种方法为模型添加模型预览图：
 
@@ -248,21 +237,21 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 
 生成一张用于添加模型预览图的图片。
 
-![generate_image_for_model_preview_image](../../assets/images/guide/extra/generate_image_for_model_preview_image.jpg)
+![generate_image_for_model_preview_image](../../assets/images/guide/sd_webui/extra/generate_image_for_model_preview_image.jpg)
 
 在 SD WebUI 的模型列表找到要添加模型预览图的模型，并点击右上角的设置图标。
 
-![open_model_info_interface](../../assets/images/guide/extra/open_model_info_interface.jpg)
+![open_model_info_interface](../../assets/images/guide/sd_webui/extra/open_model_info_interface.jpg)
 
 在模型信息页面点击下方的替换预览图像，这时模型就有了预览图。
 
-![replace_model_preview_image](../../assets/images/guide/extra/replace_model_preview_image.jpg)
+![replace_model_preview_image](../../assets/images/guide/sd_webui/extra/replace_model_preview_image.jpg)
 
 - 方法 2：手动将图片命名成和模型一样的并放至在和模型同一个目录下。
 
 将一张图片的文件名命名成和模型一样的名字，然后放在和模型文件放在一起即可。
 
-![rename_image_file_name_and_put_into_model_folder](../../assets/images/guide/extra/rename_image_file_name_and_put_into_model_folder.jpg)
+![rename_image_file_name_and_put_into_model_folder](../../assets/images/guide/sd_webui/extra/rename_image_file_name_and_put_into_model_folder.jpg)
 
 - 方法 3：使用扩展（不推荐）。
 
@@ -304,7 +293,7 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 
 将这个文件下载到本地并解压后，放进`stable-diffusion-webui/extensions/a1111-sd-webui-tagcomplete/tags`文件夹中，然后在 SD WebUI 的`设置`->`标签自动补全`中，在`选择使用的标签文件名`选择`tag++.csv`，`翻译文件名`选择`tag++_zh.csv`，勾选`翻译文件使用旧的三栏式翻译格式，而不是新的二栏式格式`，再点击上方的保存设置使设置生效。
 
-![switch_tag_file_and_add_tag_translation_for_tagcomplete](../../assets/images/guide/extra/switch_tag_file_and_add_tag_translation_for_tagcomplete.jpg)
+![switch_tag_file_and_add_tag_translation_for_tagcomplete](../../assets/images/guide/sd_webui/extra/switch_tag_file_and_add_tag_translation_for_tagcomplete.jpg)
 
 这样不仅可以看补全的提示词对应的翻译，也可以使用中文来触发提示词补全。
 
