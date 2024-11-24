@@ -25,6 +25,7 @@ title: ControlNet 应用
 	├── [clip_vision/clip_vitl.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/clip_vitl.pth) <br/>
 	├── [densepose/densepose_r50_fpn_dl.torchscript](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/densepose/densepose_r50_fpn_dl.torchscript) <br/>
 	├── [depth_anything/depth_anything_vitl14.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/depth_anything/depth_anything_vitl14.pth) <br/>
+	├── [depth_anything_v2/depth_anything_v2_vitl.safetensors](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/depth_anything_v2/depth_anything_v2_vitl.safetensors) <br/>
 	├── [hand_refiner/hr16/ControlNet-HandRefiner-pruned/graphormer_hand_state_dict.bin](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/hand_refiner/hr16/ControlNet-HandRefiner-pruned/graphormer_hand_state_dict.bin) <br/>
 	├── [hand_refiner/hr16/ControlNet-HandRefiner-pruned/hrnetv2_w64_imagenet_pretrained.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/hand_refiner/hr16/ControlNet-HandRefiner-pruned/hrnetv2_w64_imagenet_pretrained.pth) <br/>
 	├── [hed/ControlNetHED.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/hed/ControlNetHED.pth) <br/>
@@ -47,6 +48,7 @@ title: ControlNet 应用
 	├── [manga_line/erika.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/manga_line/erika.pth) <br/>
 	├── [midas/dpt_hybrid-midas-501f0c75.pt](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/midas/dpt_hybrid-midas-501f0c75.pt) <br/>
 	├── [mlsd/mlsd_large_512_fp32.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/mlsd/mlsd_large_512_fp32.pth) <br/>
+	├── [mobile_sam/mobile_sam.pt](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/mobile_sam/mobile_sam.pt) <br/>
 	├── [normal_bae/scannet.pt](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/normal_bae/scannet.pt) <br/>
 	├── [normal_dsine/dsine.pt](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/normal_dsine/dsine.pt) <br/>
 	├── [oneformer/150_16_swin_l_oneformer_coco_100ep.pth](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/oneformer/150_16_swin_l_oneformer_coco_100ep.pth) <br/>
@@ -73,6 +75,8 @@ title: ControlNet 应用
 |---|---|
 |图片导入框|上方导入图片的框就是导入作为控制条件的图片。|
 |完美像素模式|可解决导入的控制图片和生成图片设置的宽高比例不同的问题。启用后 ControlNet 插件后，ControlNet 将会自动设置 Resolution 值（预处理器的分辨率），通常为最低可用分辨率。如果需要更高精度的预处理结果，需要禁用完美像素模式，手动调节  Resolution。|
+|高效子区蒙版|该功能用于 ControlNet Inpaint / IP Adapter 控制类型中，用于上传预绘制的蒙版。可查看关于该选项的说明：[What does mask upload do? · Mikubill/sd-webui-controlnet · Discussion #2793](https://github.com/Mikubill/sd-webui-controlnet/discussions/2793)。|
+|上传独立的控制图像|该选项只在图生图的 ControlNet 选项中出现，当不启用该选项时， ControlNet 使用图生图中导入的图像作为 ControlNet 图像。如果启用该选项，则而外导入一张图像作为 ControlNet 图像。|
 |控制类型|调节不同的控制效果，一般选择后 ControlNet 扩展会自动选择相对应的预处理器和模型，部分情况下可能需要手动选择模型。|
 |预处理器|处理导入的控制图片，使控制图片成为 ControlNet 模型可识别的控制条件。如果导入的控制图片已经经过预处理器处理过，则预处理器应选择无。预处理器有许多种，预处理图片的精度各不相同，可根据自己的需求进行选择。|
 |模型|选择要使用的 ControlNet 模型。|
@@ -134,6 +138,12 @@ ControlNet 预处理器并不参与生图的采样过程，所以并不存在只
 
 ![use_scribble_controlnet_type](../../assets/images/guide/controlnet/use_scribble_controlnet_type.png)
 
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
+
+
 ControlNet 扩展下方可以调节 Scribble 预处理器的效果。
 
 |参数|作用|
@@ -154,6 +164,11 @@ Canny 控制类型的相比于 Scribble，精确度就比较高，可以用于�
 |![use_canny_controlnet_type_1](../../assets/images/guide/controlnet/use_canny_controlnet_type_1.png)|![use_canny_controlnet_type_2](../../assets/images/guide/controlnet/use_canny_controlnet_type_2.png)|
 |---|---|
 
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
+
 ControlNet 扩展下方可以调节 Canny 预处理器的效果。
 
 |参数|作用|
@@ -163,11 +178,23 @@ ControlNet 扩展下方可以调节 Canny 预处理器的效果。
 |High Threshold|去掉零散的线段。大于高阈值的线段被认定为强边缘，全部保留；高阈值和低阈值之间的线段认定为弱边缘，只保留强边缘相邻的弱边缘。|
 
 
+下面是不同预处理器的效果。
+
+|预处理器|无|canny|
+|---|---|---|
+|效果图|![image_before_preprocess_for_canny](../../assets/images/guide/controlnet/image_before_preprocess_for_canny.png)|![canny](../../assets/images/guide/controlnet/canny.png)|
+
+
 #### MLSD
 MLSD 比较特殊，使用 MLSD 的预处理图片时，预处理器只会识别到图片中包含直线的部分（通常是建筑，物体），其他部分并不会识别到（如人物），所以这个控制类型适合控制建筑类的生成。
 
 |![use_mlsd_controlnet_type_1](../../assets/images/guide/controlnet/use_mlsd_controlnet_type_1.png)|![use_mlsd_controlnet_type_2](../../assets/images/guide/controlnet/use_mlsd_controlnet_type_2.png)|
 |---|---|
+
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
 
 ControlNet 扩展下方可以调节 MLSD 预处理器的效果。
 
@@ -177,11 +204,22 @@ ControlNet 扩展下方可以调节 MLSD 预处理器的效果。
 |MLSD Value Threshold|直线阈值。值越低，检测的直线越多。|
 |MLSD Distance Threshold|距离阈值。对检测的之间进行距离筛选。|
 
+下面是不同预处理器的效果。
+
+|预处理器|无|mlsd|
+|---|---|---|
+|效果图|![image_before_preprocess_for_mlsd](../../assets/images/guide/controlnet/image_before_preprocess_for_mlsd.png)|![mlsd](../../assets/images/guide/controlnet/mlsd.png)|
+
 
 #### Softedge
 Softedge 的精度较高，预处理出的控制图片的边缘更加平滑，并且忽略内部的细节，可以让 AI 有更多的发挥空间。
 
 ![use_softedge_controlnet_type](../../assets/images/guide/controlnet/use_softedge_controlnet_type.png)
+
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
 
 ControlNet 下方可以调节 Softedge 预处理器的效果。
 
@@ -203,7 +241,10 @@ Lineart 控制类型的精度最高，可以用于线稿上色等。
 ![use_lineart_controlnet_type](../../assets/images/guide/controlnet/use_lineart_controlnet_type.png)
 
 !!!note
-	如果控制图片是白底线稿，只需要 invert 预处理器将导入的图片进行反色就成为 ControlNet Lineart 的控制图片了。
+	1. 使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。  
+	2. 如果控制图片是白底线稿，只需要 invert 预处理器将导入的图片进行反色就成为 ControlNet Lineart 的控制图片了。
 
 ControlNet 下方可以调节 Lineart 预处理器的效果。
 
@@ -226,6 +267,11 @@ ControlNet 下方可以调节 Lineart 预处理器的效果。
 
 ![use_normal_map_controlnet_type](../../assets/images/guide/controlnet/use_normal_map_controlnet_type.png)
 
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
+
 ControlNet 下方可以调节 NormalMap 预处理器的效果。
 
 |参数|作用|
@@ -246,6 +292,11 @@ ControlNet 下方可以调节 NormalMap 预处理器的效果。
 该控制类型通过灰度图中带的远近前后关系，控制 AI 生成元素时的远近前后关系。
 
 ![use_depth_controlnet_type](../../assets/images/guide/controlnet/use_depth_controlnet_type.png)
+
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
 
 ControlNet 下方可以调节 Depth 预处理器的效果。
 
@@ -271,7 +322,10 @@ ControlNet 下方可以调节 Depth 预处理器的效果。
 ![use_segmentation_controlnet_type](../../assets/images/guide/controlnet/use_segmentation_controlnet_type.png)
 
 !!!note
-	Segmentation 分割图像使用的颜色对应的元素可参考：[大江户战士整理的Seg分隔.pdf](https://modelscope.cn/models/licyks/sdnote/resolve/master/other/%E5%A4%A7%E6%B1%9F%E6%88%B7%E6%88%98%E5%A3%AB%E6%95%B4%E7%90%86%E7%9A%84Seg%E5%88%86%E9%9A%94.pdf)。
+	1. 使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。  
+	2. Segmentation 分割图像使用的颜色对应的元素可参考：[大江户战士整理的Seg分隔.pdf](https://modelscope.cn/models/licyks/sdnote/resolve/master/other/%E5%A4%A7%E6%B1%9F%E6%88%B7%E6%88%98%E5%A3%AB%E6%95%B4%E7%90%86%E7%9A%84Seg%E5%88%86%E9%9A%94.pdf)。
 
 ControlNet 下方可以调节 Segmentation 预处理器的效果。
 
@@ -291,6 +345,11 @@ ControlNet 下方可以调节 Segmentation 预处理器的效果。
 该控制类型通过骨架图，精准地控制人物动作。
 
 ![use_openpose_controlnet_type](../../assets/images/guide/controlnet/use_openpose_controlnet_type.png)
+
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
 
 ControlNet 下方可以调节 OpenPose 预处理器的效果。
 
@@ -312,7 +371,172 @@ ControlNet 下方可以调节 OpenPose 预处理器的效果。
 	3. sd-webui-openpose-editor 扩展下载：https://github.com/huchenlei/sd-webui-openpose-editor
 
 
+### ControlNet Inpaint
+该功能类似图生图的局部重绘功能，用于对图片进行重绘。
 
-<!-- TODO: 补充 ControlNet 的实际应用-->
-<!-- TODO: 蒙版的作用 https://github.com/Mikubill/sd-webui-controlnet/discussions/2793 -->
-<!-- TODO: 补充模型链接和选择 -->
+![use_inpaint_controlnet_type](../../assets/images/guide/controlnet/use_inpaint_controlnet_type.png)
+
+!!!note
+	使用的模型：  
+	Stable Diffusion 1.5 模型：[nai1-artist_all_in_one_merge.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sd_1.5/nai1-artist_all_in_one_merge.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[control_v11p_sd15_inpaint_fp16.safetensors](https://modelscope.cn/models/licyks/controlnet_v1.1/resolve/master/control_v11p_sd15_inpaint_fp16.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
+
+下面是不同预处理器的效果。
+
+|预处理器|无|inpaint_only|inpaint_only+lama|inpaint_global_harmonious|
+|---|---|---|---|---|
+|效果图|![image_before_preprocess_for_inpaint](../../assets/images/guide/controlnet/image_before_preprocess_for_inpaint.png)|![inpaint_only](../../assets/images/guide/controlnet/inpaint_only.png)|![inpaint_only+lama](../../assets/images/guide/controlnet/inpaint_only+lama.png)|![inpaint_global_harmonious](../../assets/images/guide/controlnet/inpaint_global_harmonious.png)|
+
+!!!note
+	1. ControlNet Inpaint 的效果可在图生图中做到，在图生图界面中，将**蒙版区域内容处理**选择为**潜空间噪声**或者**空白潜空间**即可得到一样的效果。  
+	2. inpaint_only 预处理仅仅是对图片进行重绘，inpaint_only+lama 通过 Lama 模型对要局部重回的区域进行元素消除后再进行局部重绘，inpaint_global_harmonious 在对图片进行局部重绘后，根据重绘部分的结果，对非重绘部分进行整体调色，使重绘部分和非重绘部分的衔接更好。
+
+
+### ControlNet InstructP2P
+通过提示词定向修改图片中某个元素，但保持基本构图一致。
+
+![use_instructp2p_controlnet_type](../../assets/images/guide/controlnet/use_instructp2p_controlnet_type.png)
+
+!!!note
+	使用的模型：  
+	Stable Diffusion 1.5 模型：[nai1-artist_all_in_one_merge.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sd_1.5/nai1-artist_all_in_one_merge.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[control_v11e_sd15_ip2p_fp16.safetensors](https://modelscope.cn/models/licyks/controlnet_v1.1/resolve/master/control_v11e_sd15_ip2p_fp16.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
+
+
+### ControlNet Reclor
+该控制类型用于对黑白图片进行重上色，根据提示词对图片的色彩进行还原，但保持原图的一致性。
+
+![use_recolor_controlnet_type](../../assets/images/guide/controlnet/use_recolor_controlnet_type.png)
+
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[control-lora-recolor-rank128-sdxl.safetensors](https://modelscope.cn/models/licyks/control-lora/resolve/master/control-lora-recolor-rank128-sdxl.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
+
+ControlNet 下方可以调节 OpenPose 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|Gamma Correction|调整预处理得到的图片亮度和对比度。|
+
+下面是不同预处理器的效果。
+
+|预处理器|无|recolor_luminance|recolor_intensity|
+|---|---|---|---|
+|效果图|![image_before_preprocess_for_recolor](../../assets/images/guide/controlnet/image_before_preprocess_for_recolor.png)|![recolor_luminance](../../assets/images/guide/controlnet/recolor_luminance.png)|![recolor_intensity](../../assets/images/guide/controlnet/recolor_intensity.png)|
+
+
+### ControlNet Tile
+该控制类型能够保持和原图的一致性，并且能够为原图增加细节。在低 ControlNet 权重下可用于风格转换，高 ControlNet 权重下为图片增加细节。
+
+|![use_tile_controlnet_type_1](../../assets/images/guide/controlnet/use_tile_controlnet_type_1.png)|![use_tile_controlnet_type_2](../../assets/images/guide/controlnet/use_tile_controlnet_type_2.png)|
+|---|---|
+
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
+
+ControlNet 下方可以调节 Tile 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|Down Sampling Rate（tile_resample 预处理器）|增加预处理器得到的图片模糊度，有助于 ControlNet Tile 为图片增加细节。值越高，模糊效果越强。|
+|Variation（tile_colorfix+sharp / tile_colorfix 预处理器）|调节变化的程度。|
+|Sharpness（tile_colorfix+sharp 预处理器）|为预处理后的图片增加锐化效果。|
+|Sigma（blur_gaussian 预处理器）|调节模糊效果。值越大，模糊效果越强。|
+
+下面是不同预处理器的效果。
+
+|预处理器|无|tile_resample|tile_colorfix+sharp|tile_colorfix|blur_gaussian|
+|---|---|---|---|---|---|
+|效果图|![image_before_preprocess_for_tile](../../assets/images/guide/controlnet/image_before_preprocess_for_tile.png)|![tile_resample](../../assets/images/guide/controlnet/tile_resample.png)|![tile_colorfix+sharp](../../assets/images/guide/controlnet/tile_colorfix+sharp.png)|![tile_colorfix](../../assets/images/guide/controlnet/tile_colorfix.png)|![blur_gaussian](../../assets/images/guide/controlnet/blur_gaussian.png)|
+
+
+### ControlNet Shuffle
+该控制类型通过打乱元素的图片，实现风格迁移（在整体上色方面）。
+
+![use_shuffle_controlnet_type](../../assets/images/guide/controlnet/use_shuffle_controlnet_type.png)
+
+!!!note
+	使用的模型：  
+	Stable Diffusion 1.5 模型：[nai1-artist_all_in_one_merge.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sd_1.5/nai1-artist_all_in_one_merge.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[control_v11e_sd15_shuffle_fp16.safetensors](https://modelscope.cn/models/licyks/controlnet_v1.1/resolve/master/control_v11e_sd15_shuffle_fp16.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
+
+下面是不同预处理器的效果。
+
+|预处理器|无|shuffle|
+|---|---|---|
+|效果图|![image_before_preprocess_for_shuffle](../../assets/images/guide/controlnet/image_before_preprocess_for_shuffle.png)|![shuffle](../../assets/images/guide/controlnet/shuffle.png)|
+
+
+### ControlNet Reference
+该控制类型通过参考导入 ControlNet 的图片，将图片中的画风进行迁移。
+
+![use_reference_controlnet_type](../../assets/images/guide/controlnet/use_shuffle_controlnet_type.png)
+
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。
+
+ControlNet 下方可以调节 Reference 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|Style Fidelity (only for Balanced mode)（仅在 ControlNet 控制模式为**均衡**模式下生效）|调节风格迁移的强度。值越高，迁移画风的效果越强烈。|
+
+下面是不同预处理器下生成的结果。
+
+|预处理器|无（参考图）|reference_only|reference_adain+attn|reference_adain|
+|---|---|---|---|---|
+|效果图|![image_before_preprocess_for_reference](../../assets/images/guide/controlnet/image_before_preprocess_for_reference.png)|![reference_only](../../assets/images/guide/controlnet/reference_only.png)|![reference_adain+attn](../../assets/images/guide/controlnet/reference_adain+attn.png)|![reference_adain](../../assets/images/guide/controlnet/reference_adain.png)|
+
+
+### ControlNet Revision
+使用 CLIP Vision 理解导入 COntrolNet 扩展的图片，并作为提示词进行图片生成。
+
+ControlNet 下方可以调节 Revision 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|Noise Augmentation|类似图生图中重绘幅度。|
+
+预处理器中 revision_clipvision 是将 CLIP Vision 解析图片得到的提示信息和原有的提示词共同控制图片生成，而 revision_ignore_prompt 则忽略原有的提示词，只使用 CLIP Vision 解析图片得到的提示信息进行图片生成。
+
+
+### IP Adapter
+这个控制类型拥有较强的风格迁移效果，可用于保持人物特征一致性或者进行风格迁移。
+
+![use_ip_adapter_controlnet_type](../../assets/images/guide/controlnet/use_ip_adapter_controlnet_type.png)
+
+!!!note
+	使用的模型：  
+	Stable Diffusion XL 模型：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)，模型放在`stable-diffusion-webui/models/Stable-diffusion`路径中。  
+	ControlNet 模型：[ip-adapter-plus_sdxl_vit-h.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/ip-adapter-plus_sdxl_vit-h.safetensors)，模型放在`stable-diffusion-webui/models/ControlNet`路径中。
+
+ControlNet 下方可以调节 Tile 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|Weight Type|调节 IP Adapter 对模型权重的控制方式。|
+
+
+## 多 ControlNet 使用
+不同的 ControlNet 类型可以共同控制图片的生成，在 ControlNet 扩展界面中可以看到 3 个 ControlNet 控制单元，可以将这些控制单元启用，并分别设置好不同的参数，即可使用多重 ControlNet 控制图片的生成。
+
+下面是使用 ControlNet Reference + ControlNet Lineart 进行生图，可以根据自己的需求选择要使用 ControlNet。
+
+![use_controlnet_reference_and_lineart_type](../../assets/images/guide/controlnet/use_controlnet_reference_and_lineart_type.png)
+
+如果需要使用 3 个以上的 ControlNet，可以在 SD WebUI 的**设置 -> ControlNet -> Multi-ControlNet: ControlNet 单元数量**调节要显示的 ControlNet 单元数量。
+
+
+## 文生图和图生图中 ControlNet 的区别
+在文生图中使用 ControlNet。相当于在图生图中将重绘幅度设置为 1 后使用 ControlNet。
+
+所以，在图生图中如果重绘幅度低于 1，使用 ControlNet 时控制图片生成的条件为**提示词 + 图片 + ControlNet**，而在文生图中，使用 ControlNet 时控制图片生成的条件为**提示词 + ControlNet**。
