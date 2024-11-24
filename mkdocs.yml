@@ -176,16 +176,14 @@ nav:
     - "功能使用":
       - guide/sd_webui/index.md
       - "文生图": guide/sd_webui/t2i.md
+      - "提示词书写": guide/sd_webui/prompt.md
+      - "高级提示词语法": guide/sd_webui/advance_prompt.md
+      - "画师提示词应用": guide/sd_webui/artist_prompt.md
       - "图生图": guide/sd_webui/i2i.md
       - "LoRA 应用": guide/sd_webui/lora.md
       - "放大图片": guide/sd_webui/upscale.md
       - "ControlNet 应用": guide/sd_webui/controlnet.md
       - "杂项": guide/sd_webui/extra.md
-  - "提示词书写":
-    - guide/prompt/index.md
-    - "如何书写提示词": guide/prompt/write_prompt.md
-    - "提示词高级用法": guide/prompt/advance.md
-    - "画师提示词应用": guide/prompt/artist_prompt.md
   - "ComfyUI 部署与使用":
     - "部署": guide/comfyui/install.md
     - "功能使用":
