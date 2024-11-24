@@ -221,8 +221,95 @@ ControlNet 下方可以调节 Lineart 预处理器的效果。
 ### ControlNet NormalMap / Depth / Segmentation
 这类控制类型类似边缘控制，也能提供比较高的精度控制。
 
-### ControlNet NormalMap
+#### NormalMap
 该控制类型通过法线贴图进行控制，可以为 AI 提供方位信息用于生成，可以更加精准的控制生成的图片中的元素方位，如人物面向的方向等。
+
+![use_normal_map_controlnet_type](../../assets/images/guide/controlnet/use_normal_map_controlnet_type.png)
+
+ControlNet 下方可以调节 NormalMap 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|Normal Background Threshold（normal_midas 预处理器）|控制图片中多远的背景元素被消除，该值越高，法线贴图中远处部分消失的越多。|
+|Fov（normal_dsine 预处理器）|控制在任何给定时刻看到的可观察世界的范围，影响输入图像的透视来影响法线贴图的生成方式。较高的值会使视图更宽，捕获更多的场景，而较低的值会缩小视图。|
+|Iterations（normal_dsine 预处理器）|设置预处理器的迭代步数，类似图片生成参数中的迭代步数。值越高，预处理得到的发现贴图质量越高。|
+
+下面是不同预处理器的效果。
+
+|预处理器|无|normal_bae|normal_midas|normal_dsine|
+|---|---|---|---|---|
+|效果图|![image_before_preprocess_for_normal_map](../../assets/images/guide/controlnet/image_before_preprocess_for_normal_map.png)|![normal_bae](../../assets/images/guide/controlnet/normal_bae.png)|![normal_midas](../../assets/images/guide/controlnet/normal_midas.png)|![normal_dsine](../../assets/images/guide/controlnet/normal_dsine.png)|
+
+
+#### Depth
+该控制类型通过灰度图中带的远近前后关系，控制 AI 生成元素时的远近前后关系。
+
+![use_depth_controlnet_type](../../assets/images/guide/controlnet/use_depth_controlnet_type.png)
+
+ControlNet 下方可以调节 Depth 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+|Remove Near %（depth_leres++ / depth_leres 预处理器）|将较亮的区域剪辑为全白，从而有效地将图像的较近部分涂抹为平面，就像卡通人物撞到一块玻璃一样。值越高，深度贴图的近处部分就越容易被压平和模糊。|
+|Remove Background %（depth_leres++ / depth_leres 预处理器）|将较暗的区域剪辑为全黑，从而有效地使它们消失在阴影中。值越高，深度贴图的远处部分消失得越多。这对于剪切背景中不需要的元素非常有用。|
+
+下面是不同预处理器的效果。
+
+|预处理器|无|depth_midas|depth_zoe|depth_leres++|depth_leres|depth_hand_refiner|depth_anything_v2|depth_anything|
+|---|---|---|---|---|---|---|---|---|
+|效果图|![image_before_preprocess_for_depth](../../assets/images/guide/controlnet/image_before_preprocess_for_depth.png)|![depth_midas](../../assets/images/guide/controlnet/depth_midas.png)|![depth_zoe](../../assets/images/guide/controlnet/depth_zoe.png)|![depth_leres++](../../assets/images/guide/controlnet/depth_leres++.png)|![depth_leres](../../assets/images/guide/controlnet/depth_leres.png)|![depth_hand_refiner](../../assets/images/guide/controlnet/depth_hand_refiner.png)|![depth_anything_v2](../../assets/images/guide/controlnet/depth_anything_v2.png)|![depth_anything](../../assets/images/guide/controlnet/depth_anything.png)|
+
+!!!note
+	depth_hand_refiner 预处理器专门用于识别手部并只生成手部的深度图，因为该预处理器在训练时可能缺少二次元图片的训练集，所以对于二次元图片的手部识别较差。
+
+
+#### Segmentation
+该控制类型通过对图片进行语义分割，使用不同的颜色对图片元素进行标记，使模型在生成图片时能够根据颜色信息在对应的颜色位置生成对应的元素。
+
+![use_segmentation_controlnet_type](../../assets/images/guide/controlnet/use_segmentation_controlnet_type.png)
+
+!!!note
+	Segmentation 分割图像使用的颜色对应的元素可参考：[大江户战士整理的Seg分隔.pdf](https://modelscope.cn/models/licyks/sdnote/resolve/master/other/%E5%A4%A7%E6%B1%9F%E6%88%B7%E6%88%98%E5%A3%AB%E6%95%B4%E7%90%86%E7%9A%84Seg%E5%88%86%E9%9A%94.pdf)。
+
+ControlNet 下方可以调节 Segmentation 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+
+下面是不同预处理器的效果。
+
+|预处理器|无|seg_ofade20k|seg_ufade20k|seg_ofcoco|seg_anime_face|mobile_sam|
+|---|---|---|---|---|---|---|
+|效果图|![image_before_preprocess_for_segmentation](../../assets/images/guide/controlnet/image_before_preprocess_for_segmentation.png)|![seg_ofade20k](../../assets/images/guide/controlnet/seg_ofade20k.png)|![seg_ufade20k](../../assets/images/guide/controlnet/seg_ufade20k.png)|![seg_ofcoco](../../assets/images/guide/controlnet/seg_ofcoco.png)|![seg_anime_face](../../assets/images/guide/controlnet/seg_anime_face.png)|![mobile_sam](../../assets/images/guide/controlnet/mobile_sam.png)|
+
+
+
+### ControlNet OpenPose
+该控制类型通过骨架图，精准地控制人物动作。
+
+![use_openpose_controlnet_type](../../assets/images/guide/controlnet/use_openpose_controlnet_type.png)
+
+ControlNet 下方可以调节 OpenPose 预处理器的效果。
+
+|参数|作用|
+|---|---|
+|Resolution|调节预处理器的分辨率。|
+
+下面是不同预处理器的效果。
+
+|预处理器|无|openpose_full|openpose_hand|openpose_faceonly|openpose_face|openpose|dw_openpose_full|densepose_parula|densepose|animal_openpose|
+|---|---|---|---|---|---|---|---|---|---|---|
+|效果图|![image_before_preprocess_for_openpose](../../assets/images/guide/controlnet/image_before_preprocess_for_openpose.png)|![openpose_full](../../assets/images/guide/controlnet/openpose_full.png)|![openpose_hand](../../assets/images/guide/controlnet/openpose_hand.png)|![openpose_faceonly](../../assets/images/guide/controlnet/openpose_faceonly.png)|![openpose_face](../../assets/images/guide/controlnet/openpose_face.png)|![openpose](../../assets/images/guide/controlnet/openpose.png)|![dw_openpose_full](../../assets/images/guide/controlnet/dw_openpose_full.png)|![densepose_parula](../../assets/images/guide/controlnet/densepose_parula.png)|![densepose](../../assets/images/guide/controlnet/densepose.png)|![animal_openpose](../../assets/images/guide/controlnet/animal_openpose.png)|
+
+!!!note
+	1. 因为部分预处理器在训练时训练集缺少二次元类型的图片，所以预处理器的识别效果较差。  
+	2. 可以使用 [sd-webui-openpose-editor](https://github.com/huchenlei/sd-webui-openpose-editor) 扩展对骨架图进行编辑，导入图片到 ControlNet 扩展后，选择识别效果比较好的预处理器，如 dw_openpose_full，再点击 💥 对图片进行预处理，处理图片完成后可以在预处理结果看到处理好的图片，此时点击第二个**编辑**按钮进入 sd-webui-openpose-editor。  
+    ![use_openpose_editor_to_edit_pose](../../assets/images/guide/controlnet/use_openpose_editor_to_edit_pose.png)  
+    在里面对骨架图编辑好后，**点击发送姿势到ControlNet**，将编辑后的骨架图发送回 ControlNet 扩展中，再进行图片生成，这样可以得到比较好的效果。  
+	3. sd-webui-openpose-editor 扩展下载：https://github.com/huchenlei/sd-webui-openpose-editor
 
 
 
