@@ -70,6 +70,7 @@ red Hanfu, red ribbons,
 比如`a girl with [green hair:red hair flower:0.2]`会在前 20% 步数被视为`a girl with green hair`，在后 80%
 步数被视为`a girl with red hair flower`。
 
+<!-- TODO: https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Seed-breaking-changes#160-2023-08-24---prompt-editing-timeline-has-separate-range-for-first-pass-and-hires-fix-pass -->
 
 ## 融合描绘
 融合描绘的提示词写法：`[A | B]`  

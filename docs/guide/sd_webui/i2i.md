@@ -188,7 +188,13 @@ upper body,
 ![sketch_image_in_sketch_canvas](../../assets/images/guide/sd_webui/i2i/sketch_image_in_sketch_canvas.png)
 
 !!!note
-    这步可以在 PhotoShop 之类的图片编辑软件中进行。
+    1. 这步可以在 PhotoShop 之类的图片编辑软件中进行。  
+    2. 不同的浏览器下可能会导致画笔颜色设置不同，因为画笔颜色设置调用了浏览器内置的功能来实现，导致不同的浏览器下画笔颜色设置各不同。  
+    在 Chromium 系浏览器下的画笔颜色设置：  
+    ![brush_color_setting_under_chromium_core_browser](../../assets/images/guide/sd_webui/i2i/brush_color_setting_under_chromium_core_browser.png)  
+    在 Firefox 系浏览器下的画笔颜色设置：  
+    ![brush_color_setting_under_firefox_core_browser](../../assets/images/guide/sd_webui/i2i/brush_color_setting_under_firefox_core_browser.png)  
+    3. Firefox 系浏览器下的画笔颜色设置并没有吸色笔，如果需要吸色笔功能，请使用 Chromium 系浏览器，如 [Microsoft Edge](https://www.microsoft.com/zh-cn/edge/download)、[Chrome](https://www.google.cn/chrome)、[Chromium](https://www.chromium.org/getting-involved/download-chromium)。
 
 涂鸦完成后，点击下方按钮复制当前图像到局部重绘。现在使用画笔对涂鸦的部分进行蒙版绘制。
 

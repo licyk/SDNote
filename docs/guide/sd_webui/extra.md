@@ -53,7 +53,7 @@ a1111-sd-webui-haku-img 扩展可对图像进行一些处理，如提取图片�
 
 ![adetailer](../../assets/images/guide/sd_webui/extra/adetailer.jpg)
 
-注意，在局部重绘中该扩展并不会生效，因为这个扩展的本质是自动检测面部位置并进行局部重绘。
+注意，在图生图的局部重绘中该扩展并不会生效，因为这个扩展的本质是自动检测面部位置并进行局部重绘。
 
 !!!note
     adetailer 扩展下载：https://github.com/Bing-su/adetailer
@@ -312,3 +312,120 @@ SD WebUI Forge 可以共享 SD WebUI 的模型，如果需要设置共享模型�
 !!!note
     该自定义参数可参考：[Single cmd arg to reference models in existing A1111 checkout · lllyasviel/stable-diffusion-webui-forge · Discussion #206](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/206)。  
     如果想要安装 SD WebUI Forge，可参考该教程：[【AI 绘画】更快？更省显存？支持 FLUX？使用绘世启动器安装 SD WebUI Forge_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1rNYre4E5B)。
+
+
+## 外扩图片
+在 SD WebUI 的图生图界面的脚本选项包含一个外扩图片的脚本，进入 SD WebUI 的图生图界面后，在左下角的脚本选择 Outpainting mk2 就启用外扩图片功能了。
+
+![outpainting_mk2_script](../../assets/images/guide/sd_webui/extra/outpainting_mk2_script.png)
+
+下面是外扩图片脚本的参数功能。
+
+|功能|作用|
+|---|---|
+|拓展的像素数|向外扩展的像素大小。|
+|蒙版边缘模糊度|设置外扩区域和原图区域的边界交融度。|
+|向外绘制的方向|设置外扩的方向。|
+|衰减指数|在外扩区域，脚本先填充色块，再为外扩区域绘制重绘蒙版。该值用于设置色块的细腻度，值越低，色块越细，外扩时细节更多。|
+|色彩变种|调节外扩区域的色块色调。|
+
+下面是我用于外扩图片的参数。
+
+|参数|值|
+|---|---|
+|拓展的像素数|128|
+|蒙版边缘模糊度|16|
+|向外绘制的方向|左，右|
+|衰减指数|0.6|
+|色彩变种|0.05|
+|采样器|Restart|
+|调度器|SGM Uniform|
+|重绘幅度|0.8|
+
+填写合适的提示词后就可以进行图片外扩了。
+
+![use_outpaint_mk2_script](../../assets/images/guide/sd_webui/extra/use_outpaint_mk2_script.png)
+
+除了 Outpainting mk2 脚本可以进行图片外扩，Poor man's outpainting 脚本也可以进行图片外扩，
+
+![poor_man's_outpainting_script](../../assets/images/guide/sd_webui/extra/poor_man's_outpainting_script.png)
+
+该脚本可以更换蒙版区域内容处理，通过更换蒙版内容处理方式可以更好的达到想要的外扩效果。
+
+外扩图片的效果可能并不怎么好，但可以将外扩好的图片发送回图生图界面中，通过图生图中的涂鸦 / 局部重绘对外扩区域进行调整。
+
+
+## 图生图回送
+在图生图界面中，除了可以通过手动发送图生图的结果回图生图界面再进行图生图，还可以通过图生图界面的回送脚本自动进行这个过程。
+
+![lookback_script](../../assets/images/guide/sd_webui/extra/lookback_script.png)
+
+
+## 提示词矩阵
+在 SD WebUI 界面的左下角脚本中，选择 Prompt matrix 即可启用提示词矩阵。
+
+![prompt_matrix_script](../../assets/images/guide/sd_webui/extra/prompt_matrix_script.png)
+
+该脚本的功能类似 X/Y/Z 脚本中的 Prompt S/R 功能，通过分隔符对提示词进行组合。
+
+下面是一段使用提示词矩阵的提示词。
+
+```
+1girl,solo,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,
+couch,indoors,room,desk,vase,flower,
+front view,<lora:ill-xl-01-mmafu_1-000030:1>,
+holding pillow,pillow hug,sitting,on couch,looking at viewer,| open mouth,wavy mouth,| tears,teardrop,streaming tears,
+```
+
+!!!note
+    提示词中的 \<lora:ill-xl-01-mmafu_1-000030:1\> 为画风 LoRA，用于调整画风：[ill-xl-01-mmafu_1-000030.safetensors](https://modelscope.cn/models/licyks/sd-lora/resolve/master/sdxl/style/ill-xl-01-mmafu_1-000030.safetensors)[(Civitai)](https://civitai.com/models/980505/artist-style)。
+
+提示词矩阵脚本根据`|`符号对提示词划分，此时最终会得到 4 组提示词。
+
+提示词组 1：
+```
+1girl,solo,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,
+couch,indoors,room,desk,vase,flower,
+front view,<lora:ill-xl-01-mmafu_1-000030:1>,
+holding pillow,pillow hug,sitting,on couch,looking at viewer,
+```
+
+提示词组 2：
+
+```
+1girl,solo,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,
+couch,indoors,room,desk,vase,flower,
+front view,<lora:ill-xl-01-mmafu_1-000030:1>,
+holding pillow,pillow hug,sitting,on couch,looking at viewer,, open mouth,wavy mouth, 
+```
+
+提示词组 3：
+
+```
+1girl,solo,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,
+couch,indoors,room,desk,vase,flower,
+front view,<lora:ill-xl-01-mmafu_1-000030:1>,
+holding pillow,pillow hug,sitting,on couch,looking at viewer,, tears,teardrop,streaming tears, 
+```
+
+提示词组 4：
+
+```
+1girl,solo,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,
+couch,indoors,room,desk,vase,flower,
+front view,<lora:ill-xl-01-mmafu_1-000030:1>,
+holding pillow,pillow hug,sitting,on couch,looking at viewer,, open mouth,wavy mouth, tears,teardrop,streaming tears, 
+```
+
+现在对这 4 组提示词简化一下，得到变化的部分。
+
+- `holding pillow,pillow hug,sitting,on couch,looking at viewer,`
+- `holding pillow,pillow hug,sitting,on couch,looking at viewer,, open mouth,wavy mouth, `
+- `holding pillow,pillow hug,sitting,on couch,looking at viewer,, tears,teardrop,streaming tears, `
+- `holding pillow,pillow hug,sitting,on couch,looking at viewer,, open mouth,wavy mouth, tears,teardrop,streaming tears, `
+
+这就是提示词矩阵根据`|`符号对提示词的分割得到的提示词变化，最后的得到的图片如下。
+
+![use_prompt_matrix_script](../../assets/images/guide/sd_webui/extra/use_prompt_matrix_script.png)
+
+可以通过提示词矩阵简单制作提示词的对比图。
