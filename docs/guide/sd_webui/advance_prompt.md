@@ -65,12 +65,26 @@ red Hanfu, red ribbons,
 - `[:to:step]`：from 为空。
 - `[to:step]`：不推荐的写法。
 
-这种提示词写法的作用是让提示词在达到 step 前视为 from，达到后视为 to，留空则为无对应元素。step 为大于 1 的整数时表示步数，为小于 1 的正小数时表示总步数的百分比。
+这种提示词写法的作用是让提示词在达到 step 前视为 from，达到后视为 to，留空则为无对应元素。
 
-比如`a girl with [green hair:red hair flower:0.2]`会在前 20% 步数被视为`a girl with green hair`，在后 80%
-步数被视为`a girl with red hair flower`。
+在 SD WebUI 1.6.0 前后的版本，step 的效果有不同。
 
-<!-- TODO: https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Seed-breaking-changes#160-2023-08-24---prompt-editing-timeline-has-separate-range-for-first-pass-and-hires-fix-pass -->
+在 SD WebUI 1.6.0 之前，分布绘制的 step 在文生图阶段和高分辨率修复阶段效果相同，step 小于 1 时代表步数的占比，大于 2 时代表绝对步数。
+
+在 SD WebUI 1.6.0 之后，分布绘制的 step 在文生图阶段和高分辨率修复阶段效果有了区别，step 在 0.0~1.0 的范围设置的是文生图的阶段的分布绘制， 在 1.0~2.0 的范围设置高分辨率修复阶段的分布绘制。
+
+下面举个例子。
+
+|提示词|1.6.0 之前的文生图|1.6.0 之前的高分辨率修复|1.6.0 之后的文生图|1.6.0 之后的高分辨率修复|
+|---|---|---|---|---|
+|[red:green:0.25]|25% 的迭代步数为`red`，75% 的迭代步数为`green`。|和前面相同|25% 的迭代步数为`red`，75% 的迭代步数为`green`。|`green`|
+|[red:green:1.25]|第 1 步为`red`，其他步步骤为`green`。|和前面相同|`red`|25% 的迭代步数为`red`，75% 的迭代步数为`green`。|
+|[red:green:5]|前 5 个步骤为`red`，其他步骤为`green`。|和前面相同|前 5 个步骤为`red`，其他步骤为`green`。|`green`|
+|[red:green:5.0]|前 5 个步骤为`red`，其他步骤为`green`。|和前面相同|`red`|`red`|
+
+!!!note
+    有关分布绘制的更改说明：[Seed breaking changes - 1.6.0 2023-08-24 - prompt editing timeline has separate range for first pass and hires-fix pass · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Seed-breaking-changes#160-2023-08-24---prompt-editing-timeline-has-separate-range-for-first-pass-and-hires-fix-pass)。
+
 
 ## 融合描绘
 融合描绘的提示词写法：`[A | B]`  
