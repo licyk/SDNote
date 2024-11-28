@@ -429,3 +429,18 @@ holding pillow,pillow hug,sitting,on couch,looking at viewer,, open mouth,wavy m
 ![use_prompt_matrix_script](../../assets/images/guide/sd_webui/extra/use_prompt_matrix_script.png)
 
 可以通过提示词矩阵简单制作提示词的对比图。
+
+## 在图生图和高分辨率修复使用额外噪声
+该选项可以在 SD WebUI 的**设置 -> 图生图 -> 图生图和高分辨率修复的额外噪声倍率**找到，为了便于调整，可以在**设置 -> UI 便捷设置**中，在**文生图设置项**和**图生图设置项**中添加 img2img_extra_noise 这个选项，并保存 SD WebUI 设置。
+
+该选项默认为 0，如果要设置，通常需要结合重绘幅度进行调整，该值需要小于重绘幅度的值。
+
+通过额外的噪声，可以在高分辨率修复或者图生图中为图片添加更多的细节。
+
+下面的图片在图生图中进行放大，放大算法使用 R-ESRGAN 4x+ Anime6B，重绘幅度 设置为 0.4。
+
+|额外噪声倍率|0|0.1|
+|---|---|---|
+|效果图|![img2img_to_upscale_without_extra_noise](../../assets/images/guide/sd_webui/extra/img2img_to_upscale_without_extra_noise.png)|![img2img_to_upscale_with_extra_noise](../../assets/images/guide/sd_webui/extra/img2img_to_upscale_with_extra_noise.png)|
+
+可以看到使用额外噪声后图片细节有了增加，但该值较高的时候可能会导致细节过多使画面变脏。
