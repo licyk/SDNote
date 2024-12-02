@@ -143,3 +143,12 @@ viclim-monou,yoneyama mai,torino aqua,fuzichoco,
 
 !!!note
     更多的说明请阅读 [z-tipo-extension](https://github.com/KohakuBlueleaf/z-tipo-extension) 扩展的说明：[KohakuBlueleaf/z-tipo-extension - Options](https://github.com/KohakuBlueleaf/z-tipo-extension)。
+
+
+## 图片提示词反推
+想知道一张图片的提示词怎么写，可以通过 sd-webui-wd14-tagger 扩展将提示词反推出来。将图片导入后扩展将自动反推提示词，反推完成后最好点一下卸载所有反推模型来释放显存。
+
+![wd14_tagger](../../assets/images/guide/sd_webui/prompt/wd14_tagger.jpg)
+
+!!!note
+    sd-webui-wd14-tagger 扩展：https://github.com/Akegarasu/sd-webui-wd14-tagger

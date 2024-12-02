@@ -13,6 +13,20 @@ title: 常见功能使用
 !!!note
     SD WebUI Forge 界面使用的翻译扩展：[stable-diffusion-webui-localization-zh_Hans](https://github.com/hanamizuki-ai/stable-diffusion-webui-localization-zh_Hans)
 
+
+## SD WebUI Forge 共享 SD WebUI 模型
+SD WebUI Forge 可以共享 SD WebUI 的模型，如果需要设置共享模型，在绘世启动器的设置里将配置模式调成`高级`，再进入绘世启动器的高级选项，找到`自定义参数选项`，填入以下内容：
+
+```
+--forge-ref-a1111-home "SD WebUI 的路径"
+```
+
+重新启动 SD WebUI Forge 后即可共享 SD WebUI 的模型。
+
+!!!note
+    该自定义参数可参考：[Single cmd arg to reference models in existing A1111 checkout · lllyasviel/stable-diffusion-webui-forge · Discussion #206](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/206)。
+
+
 ## 文生图
 SD WebUI Forge 顶部的模型选项用于选择 Stable Diffusion 模型，VAE / Text Encoder 用于选择 VAE 模型和文本编码器模型，顶部的其他功能在本章节暂不进行说明。
 

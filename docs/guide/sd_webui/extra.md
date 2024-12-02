@@ -14,15 +14,6 @@ title: 杂项
     ComfyUI、InvokeAI、NovelAI 等生成的图片也可以查看生图信息，但是要保证图片未被压缩或者被其他图像工具处理过。
 
 
-## 图片提示词反推
-想知道一张图片的提示词怎么写，可以通过 sd-webui-wd14-tagger 扩展将提示词反推出来。将图片导入后扩展将自动反推提示词，反推完成后最好点一下卸载所有反推模型来释放显存。
-
-![wd14_tagger](../../assets/images/guide/sd_webui/extra/wd14_tagger.jpg)
-
-!!!note
-    sd-webui-wd14-tagger 扩展：https://github.com/Akegarasu/sd-webui-wd14-tagger
-
-
 ## 移除背景
 想要人物的背景移除，可以使用 stable-diffusion-webui-rembg 扩展。在 SD WebUI 的后期处理中，在下方启用移除背景，移除背景选择其中一个算法，再点击生成就可以把图片的背景移除。
 
@@ -73,31 +64,6 @@ sd-webui-infinite-image-browsing 扩展作为图片浏览器非常方便。
 
 !!!note
     sd-webui-infinite-image-browsing 扩展下载：https://github.com/zanllp/sd-webui-infinite-image-browsing
-
-
-## 分区绘制
-下面使用 sd-webui-regional-prompter 扩展进行分区绘制，这是 sd-webui-regional-prompter 扩展的界面。
-
-![region_prompter_interface](../../assets/images/guide/sd_webui/extra/region_prompter_interface.png)
-
-简单介绍该扩展中的参数。
-
-|参数|作用|
-|---|---|
-|Generation Mode|设置分区绘制的工作模式，可选择 Attention 或者 Latent 模式，Attention 模式通常效果更好。|
-|基础比率|设置分区提示词的权重，启用**使用基础提示词**时生效。例如设置为 0.2 时，生成图像的提示词为 **0.2 权重的基础提示词 + 0.8 权重的分区提示词**。如果输入多个数字并使用逗号隔开则是分别设置权重。当分割比率为`1,1`，基础比率为`0.1,0.5,0.8`时，基础提示词权重为 0.1，两个分区的权重分别为 0.5 和 0.8。|
-|使用基础提示词|启用后，当设置的分区为 2 个时，提示词需要输入基础提示词和两个分区的提示词，使用 BREAK 分隔，即**基础提示词  BREAK  分区提示词 1  BREAK  分区提示词 2**，并根据基础比率设置基础提示词和分区提示词的权重。|
-|使用常见提示词|启用后，当设置的分区为 2 个时，提示词需要输入常见提示词和两个分区的提示词，使用 BREAK 分隔，即**常见提示词  BREAK  分区提示词 1  BREAK  分区提示词 2**，但常见提示词将会合并进行分区提示词中，最后的提示词结果将变成**常见提示词, 分区提示词 1  BREAK  常见提示词, 分区提示词 2**|
-|使用常见反面提示词|将常见提示词也应用于反向提示词中。|
-|主分割方法|对区域进行分割的方法，Columns 为按列分割，Rows 为按行分割，Random 为随机分割。|
-|宽度 / 高度|建议和出图设置的宽度和高度一致。|
-|分割比率|设置区域分割的数量和比率大小。|
-|
-
-!!!note
-    sd-webui-regional-prompter 扩展下载：https://github.com/hako-mikan/sd-webui-regional-prompter  
-    stable-diffusion-webui-two-shot 扩展下载：https://github.com/ashen-sensored/stable-diffusion-webui-two-shot
-    multidiffusion-upscaler-for-automatic1111 扩展下载：
 
 
 ## 查找并删除模型里的垃圾数据
@@ -314,22 +280,6 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 ![switch_tag_file_and_add_tag_translation_for_tagcomplete](../../assets/images/guide/sd_webui/extra/switch_tag_file_and_add_tag_translation_for_tagcomplete.jpg)
 
 这样不仅可以看补全的提示词对应的翻译，也可以使用中文来触发提示词补全。
-
-
-## SD WebUI Forge 共享 SD WebUI 模型
-[stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge) 为 [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) 的其中一个分支，优化了显存占用，并且在某些显卡上拥有更快的速度。
-
-SD WebUI Forge 可以共享 SD WebUI 的模型，如果需要设置共享模型，在绘世启动器的设置里将配置模式调成`高级`，再进入绘世启动器的高级选项，找到`自定义参数选项`，填入以下内容：
-
-```
---forge-ref-a1111-home "SD WebUI 的路径"
-```
-
-重新启动 SD WebUI Forge 后即可共享 SD WebUI 的模型。
-
-!!!note
-    该自定义参数可参考：[Single cmd arg to reference models in existing A1111 checkout · lllyasviel/stable-diffusion-webui-forge · Discussion #206](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/206)。  
-    如果想要安装 SD WebUI Forge，可参考该教程：[【AI 绘画】更快？更省显存？支持 FLUX？使用绘世启动器安装 SD WebUI Forge_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1rNYre4E5B)。
 
 
 ## 外扩图片
