@@ -202,9 +202,170 @@ BREAK
 
 使用画笔绘制一个区域后，点击**绘制区域和显示蒙版**即可保存绘制的区域，此时再使用画笔绘制另一个区域，再点击**绘制区域和显示蒙版**，通过该方式可以创建多个区域。
 
+### 分区绘制应用
+下面使用一些例子演示分区绘制如何使用。为了下面所使用的 LoRA 模型能达到最好效果，Stable Diffusion 模型选择的是 Illustrious-XL v0.1。
 
+!!!note
+    Illustrious-XL v0.1 下载：[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)[(Civitai)](https://civitai.com/models/795765?modelVersionId=889818)，
+
+启用 Region Prompter 后，Generation Mode 选择 Attention 模式，勾选**使用常见提示词**，其他参数使用 Region Prompter 扩展的默认值，此时点击**可视化并制作模板**查看分区的情况。
+
+![use_region_prompter_1](../../assets/images/guide/sd_webui/prompt/use_region_prompter_1.png)，模型下载好后放在`stable-diffusion-webui/models/Stable-diffusion`路径中。
+
+使用的提示词如下：
+
+```
+eye contact,
+affectionate,kiss,
+
+masterpiece,best quality,newest,<lora:ill-xl-01-lanubis_2:0.6>,
+BREAK
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,legs,barefoot,
+light smile,standing,
+blue background,
+BREAK
+azusa \(blue archive\),solo,halo,ahoge,hair flower,hair ornament,flower,very long hair,white hair,hair between eyes,blue eyes,official alternate costume,blush,collarbone,sidelocks,bow,navel,bare shoulders,swimsuit,bikini,frills,strapless,purple bow,frilled bikini,bikini skirt,strapless bikini,multicolored bikini,multicolored clothes,crossed legs,
+open mouth,smile,standing,
+pink background,
+```
+
+!!!note
+    提示词中的 Artist Style: LanuBis LoRA 模型：[ill-xl-01-lanubis_2-000036.safetensors](https://modelscope.cn/models/licyks/sd-lora/resolve/master/sdxl/style/ill-xl-01-lanubis_2-000036.safetensors)[(Civitai)](https://civitai.com/models/786440/artist-style-lanubis)，模型下载好后放在`stable-diffusion-webui/models/Lora`路径中。
+
+生成的图片效果如下：
+
+![use_region_prompter_result_1](../../assets/images/guide/sd_webui/prompt/use_region_prompter_result_1.png)
+
+现在把**使用常见提示词**取消勾选，勾选**使用基本提示词**。
+
+![use_region_prompter_2](../../assets/images/guide/sd_webui/prompt/use_region_prompter_2.png)
+
+再修改一下提示词。
+
+```
+2girls,eye contact,yuri,
+standing,affectionate,kiss,holding hands,
+simple background,
+masterpiece,best quality,newest,<lora:ill-xl-01-lanubis_2:1>,
+BREAK
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,legs,barefoot,
+light smile,standing,
+blue background,
+BREAK
+azusa \(blue archive\),solo,halo,ahoge,hair flower,hair ornament,flower,very long hair,white hair,hair between eyes,blue eyes,official alternate costume,blush,collarbone,sidelocks,bow,navel,bare shoulders,swimsuit,bikini,frills,strapless,purple bow,frilled bikini,bikini skirt,strapless bikini,multicolored bikini,multicolored clothes,crossed legs,
+open mouth,smile,standing,
+pink background,
+```
+
+修改完成后进行生图。
+
+![use_region_prompter_result_2](../../assets/images/guide/sd_webui/prompt/use_region_prompter_result_2.png)
+
+现在对**基础比率**修改一下，分别对分区的提示词权重进行修改，修改为`0.1,0.5,0.8`。
+
+![use_region_prompter_3](../../assets/images/guide/sd_webui/prompt/use_region_prompter_3.png)
+
+提示词保持原来的。
+
+```
+2girls,eye contact,yuri,
+standing,affectionate,kiss,holding hands,
+simple background,
+masterpiece,best quality,newest,<lora:ill-xl-01-lanubis_2:1>,
+BREAK
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,legs,barefoot,
+light smile,standing,
+blue background,
+BREAK
+azusa \(blue archive\),solo,halo,ahoge,hair flower,hair ornament,flower,very long hair,white hair,hair between eyes,blue eyes,official alternate costume,blush,collarbone,sidelocks,bow,navel,bare shoulders,swimsuit,bikini,frills,strapless,purple bow,frilled bikini,bikini skirt,strapless bikini,multicolored bikini,multicolored clothes,crossed legs,
+open mouth,smile,standing,
+pink background,
+```
+
+再进行一次生图。
+
+![use_region_prompter_result_3](../../assets/images/guide/sd_webui/prompt/use_region_prompter_result_3.png)
+
+通过上面的例子可以了解这些参数不同的作用和效果。
+
+现在尝试使用蒙版模式绘制分区，在 Region Prompter 扩展界面中选择**蒙版**进入蒙版模式，将**重绘 + 宽度**和**重绘 + 高度**设置为和出图参数一致的宽度和高度，再点击**创建蒙版区域**创建一个空白蒙版，此时可以通过画笔绘制分区，绘制完成一个分区后，点击**绘制区域和显示蒙版**保存分区信息，此时再绘制一个蒙版，再点击**绘制区域和显示蒙版**，这里就创建 2 个分区进行演示，将**区域数**设置为 -1 后点击**绘制区域和显示蒙版**可以显示所有蒙版占整张图的区域大小。
+
+接下来将**使用基本提示词**和**使用常见提示词**都勾选。
+
+![use_region_prompter_4](../../assets/images/guide/sd_webui/prompt/use_region_prompter_4.png)
+
+再修改提示词的内容。
+
+```
+2girls,
+princess carry,yuri,
+masterpiece,best quality,newest,<lora:ill-xl-01-mmafu_1:0.5>,
+BREAK
+outdoors,park,flower,path,river,blue flower,
+upper body,close-up,
+BREAK
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,legs,barefoot,
+light smile,standing,holding person,eye contact,affectionate,
+BREAK
+hair bow,blue bow,twintails,low twintails,braid,long hair,grey hair,purple eyes,short sleeves,white dress,shirt,blue skirt,blue ribbon,see-through,see-through sleeves,collarbone,frills,small breasts,eye contact,smile,
+```
+
+!!!note
+    提示词中的 Artist Style: まふゆ LoRA 模型：[ill-xl-01-mmafu_1-000030.safetensors](https://modelscope.cn/models/licyks/sd-lora/resolve/master/sdxl/style/ill-xl-01-mmafu_1-000030.safetensors)[(Civitai)](https://civitai.com/models/980505/artist-style)，模型下载好后放在`stable-diffusion-webui/models/Lora`路径中。
+
+此时点击生成查看效果。
+
+![use_region_prompter_result_4_1](../../assets/images/guide/sd_webui/prompt/use_region_prompter_result_4_1.png)
+
+现在图片中的元素根据蒙版的内容进行了绘制。
+
+但是提示词中的**基础提示词**和**常见提示词**到底属于哪个区域并不清楚，此时可以通过调整 LoRA 模型的调用提示词所在的提示词区域找出，现在调整一下提示词。
+
+```
+2girls,
+princess carry,yuri,
+masterpiece,best quality,newest,
+BREAK
+<lora:ill-xl-01-mmafu_1:0.5>,outdoors,park,flower,path,river,blue flower,
+upper body,close-up,
+BREAK
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,legs,barefoot,
+light smile,standing,holding person,eye contact,affectionate,
+BREAK
+hair bow,blue bow,twintails,low twintails,braid,long hair,grey hair,purple eyes,short sleeves,white dress,shirt,blue skirt,blue ribbon,see-through,see-through sleeves,collarbone,frills,small breasts,eye contact,smile,
+```
+
+调整后进行一次生成。
+
+![use_region_prompter_result_4_2](../../assets/images/guide/sd_webui/prompt/use_region_prompter_result_4_2.png)
+
+可以发现画风明显淡了许多，结合**基础提示词**和**常见提示词**的特点可以知道当同时启用了**基础提示词**和**常见提示词**时，**常见提示词**在提示词的第一部分，**基础提示词**在第二部分。
+
+现在再次调整提示词，调整提示词中 LoRA 的权重。
+
+```
+2girls,
+princess carry,yuri,
+masterpiece,best quality,newest,
+BREAK
+<lora:ill-xl-01-mmafu_1>,outdoors,park,flower,path,river,blue flower,
+upper body,close-up,
+BREAK
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,legs,barefoot,
+light smile,standing,holding person,eye contact,affectionate,
+BREAK
+hair bow,blue bow,twintails,low twintails,braid,long hair,grey hair,purple eyes,short sleeves,white dress,shirt,blue skirt,blue ribbon,see-through,see-through sleeves,collarbone,frills,small breasts,eye contact,smile,
+```
+
+再次进行生图。
+
+![use_region_prompter_result_4_3](../../assets/images/guide/sd_webui/prompt/use_region_prompter_result_4_3.png)
+
+画风恢复了正常，通过上面的例子可以了解**基础提示词**和**常见提示词**的区别和使用 LoRA 时该如何设置权重。
+
+除了 sd-webui-regional-prompter 扩展可以进行分区绘制，stable-diffusion-webui-two-shot 扩展（使用 Attension 模式）和 multidiffusion-upscaler-for-automatic1111 扩展（使用 Latent 模式）也可以进行分区绘制，只是效果可能不如 sd-webui-regional-prompter 扩展，可自行尝试。
 
 !!!note
     sd-webui-regional-prompter 扩展下载：https://github.com/hako-mikan/sd-webui-regional-prompter  
     stable-diffusion-webui-two-shot 扩展下载：https://github.com/ashen-sensored/stable-diffusion-webui-two-shot
-    multidiffusion-upscaler-for-automatic1111 扩展下载：
+    multidiffusion-upscaler-for-automatic1111 扩展下载：https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111
