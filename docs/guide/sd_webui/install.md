@@ -16,7 +16,7 @@ title: SD WebUI 部署
     - Nvidia 显卡版本：https://pan.quark.cn/s/2c832199b09b
 
 !!!note
-    秋葉的整合包密码为`bilibili@秋葉aaaki`，详情请阅读[秋葉aaaki的动态](https://www.bilibili.com/opus/923836599107584017)。
+    秋葉的整合包密码为`bilibili-秋葉aaaki`，详情请阅读[秋葉aaaki的动态](https://www.bilibili.com/opus/923836599107584017)。
 
 
 ## 绘世启动器部署
@@ -27,11 +27,16 @@ title: SD WebUI 部署
 
 [Intel用户 的 Windows 用户安装教程](https://www.bilibili.com/video/BV1rH4y167hs)
 
+
+## SD WebUI Installer
+[SD WebUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/stable_diffusion_webui_installer.md)
+
+
 ## 官方方法部署
 （不推荐）[AUTOMATIC1111/stable-diffusion-webui - Installation and Running](https://github.com/AUTOMATIC1111/stable-diffusion-webui?tab=readme-ov-file#installation-and-running)
 
 
-# Linux平台
+# Linux 平台
 ## 使用安装器
 [licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
 
@@ -39,7 +44,7 @@ title: SD WebUI 部署
 [Install and Run on NVidia GPUs · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-NVidia-GPUs#linux)
 
 
-# MacOS平台
+# MacOS 平台
 ## 使用安装器
 [licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
 

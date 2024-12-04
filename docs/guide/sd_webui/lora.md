@@ -76,9 +76,14 @@ sd-webui-lora-block-weight 扩展的选项可在 SD WebUI 左下角找到。
 
 lbw 后面的数字代表了 LoRA 模型在不同 UNet 层控制的权重。调节这些权重可使 LoRA 模型的表现效果更好。
 
+如果需要可视化的 LoRA 分层权重调节，可以安装 sd-webui-weight-helper 扩展。安装该扩展后，在提示词框里，右键调用 LoRA 的提示词将会弹出可视化调整权重界面。
+
+![lora_block_weight_helper_interface](../../assets/images/guide/sd_webui/lora/lora_block_weight_helper_interface.png)
+
 !!!note
-    1. 对于不同的 LoRA 模型（如 Lycoris，Loha 等），其控制的 UNet 层数不同，所以`lbw`后面总共要写的权重数量也不同，具体请阅读 sd-webui-lora-block-weight 扩展的说明：https://github.com/hako-mikan/sd-webui-lora-block-weight?tab=readme-ov-file#weights-setting
-	2. 推荐使用 [nihedon](https://github.com/nihedon) 用户编写的 [sd-webui-weight-helper](https://github.com/nihedon/sd-webui-weight-helper) 扩展来辅助调整sd-webui-lora-block-weight扩展的参数。
+    1. 对于不同的 LoRA 模型（如 Lycoris，Loha 等），其控制的 UNet 层数不同，所以`lbw`后面总共要写的权重数量也不同，具体请阅读 sd-webui-lora-block-weight 扩展的说明：[Weights Setting - hako-mikan/sd-webui-lora-block-weight](https://github.com/hako-mikan/sd-webui-lora-block-weight?tab=readme-ov-file#weights-setting)
+	2. sd-webui-weight-helper 扩展下载：https://github.com/nihedon/sd-webui-weight-helper
+	3. 如果 sd-webui-weight-helper 扩展的界面无法正常显示，请禁用 [sd-webui-resource-monitor](https://github.com/Haoming02/sd-webui-resource-monitor) 扩展。
 
 以下为使用 LoRA 分层前后的效果。
 

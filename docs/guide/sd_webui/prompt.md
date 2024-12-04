@@ -146,7 +146,7 @@ viclim-monou,yoneyama mai,torino aqua,fuzichoco,
 
 
 ## 图片提示词反推
-想知道一张图片的提示词怎么写，可以通过 sd-webui-wd14-tagger 扩展将提示词反推出来。将图片导入后扩展将自动反推提示词，反推完成后最好点一下卸载所有反推模型来释放显存。
+当看到一张比较好看的图片，想知道那张图片的提示词怎么写，可以通过 sd-webui-wd14-tagger 扩展将提示词反推出来。使用前建议将**将结果中的括号进行转义处理**和**反推完成后卸载模型**，再将图片导入左边的图片导入框，导入后扩展将自动反推提示词，如果没有进行反推提示词可以手动点击**反推**。
 
 ![wd14_tagger](../../assets/images/guide/sd_webui/prompt/wd14_tagger.jpg)
 

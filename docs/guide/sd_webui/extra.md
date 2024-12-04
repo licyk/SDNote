@@ -5,6 +5,54 @@ title: 杂项
 这里列出其他在 SD WebUI 里用的功能。
 
 
+## SD WebUI 不同路径 / 文件的作用
+这是 SD WebUI 中不同路径 / 文件的作用。
+
+|路径 / 文件|作用|
+|---|---|
+|stable-diffusion-webui/models|大部分模型的保存路径|
+|stable-diffusion-webui/extensions|扩展路径|
+|stable-diffusion-webui/extensions-builtin|SD WebUI 内置扩展路径|
+|stable-diffusion-webui/outputs|生成图片的保存路径|
+|stable-diffusion-webui/repositories|SD WebUI 内部组件|
+|stable-diffusion-webui/cache.json|模型哈希记录文件|
+|stable-diffusion-webui/config.json|保存 SD WebUI 设置的文件|
+|stable-diffusion-webui/params.txt|保存上一次生图的参数|
+|stable-diffusion-webui/styles.csv|提示词预设文件|
+|stable-diffusion-webui/ui-config.json|SD WebUI 界面预设文件|
+
+SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径如下。
+
+|不同启动方式的用户|缓存路径|
+|---|---|
+|绘世启动器用户|stable-diffusion-webui/.cache|
+|使用原生 SD WebUI 启动方式用户|C:/Users/%USERNAME%/.cache|
+
+.cache 为隐藏路径，需要将文件管理器显示隐藏文件的功能打开，参看：[杂项 - 显示隐藏的文件和文件后缀名 - SDNote](../../help/other.md#_4)
+
+
+## SD WebUI 中不同模型的放置路径
+|模型种类|放置路径|
+|---|---|
+|Stable Diffusion 模型（大模型）|stable-diffusion-webui/models/Stable-diffusion|
+|VAE 模型|stable-diffusion-webui/models/VAE|
+|VAE-approx 模型|stable-diffusion-webui/models/VAE-approx|
+|LoRA 模型|stable-diffusion-webui/models/Lora|
+|Lycoris 模型<sup>1</sup>|stable-diffusion-webui/models/Lora </p> stable-diffusion-webui/models/LyCORIS|
+|Embedding 模型|stable-diffusion-webui/embeddings|
+|Hypernetwork 模型|stable-diffusion-webui/models/hypernetworks|
+|高清修复模型|stable-diffusion-webui/models/ESRGAN </p> stable-diffusion-webui/models/RealESRGAN </p> stable-diffusion-webui/models/SwinIR </p> stable-diffusion-webui/models/DAT|
+|ControlNet 模型<sup>2</sup>|stable-diffusion-webui/models/ControlNet </p> stable-diffusion-webui/extensions/sd-webui-controlnet/models|
+|ControlNet 预处理器模型<sup>3</sup>|stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads|
+|AnimateDiff 模型|stable-diffusion-webui/extensions/sd-webui-animatediff/model|
+|DanTagGen 模型|stable-diffusion-webui/extensions/z-a1111-sd-webui-dtg/models|
+
+!!!note
+    1. SD WebUI 1.5 及以上版本无需扩展即可读取 LyCORIS 文件夹内的 LyCORIS 模型（该文件夹不会自动生成），并显示在 SD WebUI 的 LoRA 栏内。
+	2. 两个文件夹皆可放置 ControlNet 模型。
+	3. 并非所有的 ControlNet 预处理器模型都存储在 downloads 文件夹（例如： depth_anything 预处理器的部分模型会存储在 .cache 文件夹内）。
+
+
 ## 图片信息查看
 如果想要查看一张由 SD WebUI 生成的图片的参数，可以在 SD WebUI 的 PNG 图片信息里，导入图片后即可查看生图参数。
 
@@ -119,7 +167,7 @@ SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 
 
 
 ## 使用 SDXL 模型时特定的提示词组会出现鬼图
-这个可能和提示词权重有关，在 SD WebUI 的`设置`->`SD`->`强调模式`，选择 No norm 后保存设置。
+这个可能和提示词权重有关，在 SD WebUI 的`设置`->`SD`->`强调模式`，选择 No norm 后保存设置，使用 SDXL 模型时非常推荐使用 No norm。
 
 
 ## SD WebUI 的 LoRA / Embedding 模型展示的规则
@@ -131,54 +179,6 @@ SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 
 如果要使用适用于 SD 1.5 的 LoRA / Embedding 模型，只需要将大模型切换成 SD 1.5 的，这时候在 SD WebUI 的模型列表中就可以看到 SD 1.5 的 LoRA / Embedding 模型了，要使用 SDXL 的也同理。
 
 如果要关闭这个防呆机制，可以在 SD WebUI 的`设置`->`扩展模型`，将`在 Lora 页面保持显示所有模型 (否则, 将隐藏不兼容当前加载的 Stable Diffusion 模型版本的模型)`选项勾上，并保存 SD WebUI 的设置。
-
-
-## SD WebUI 不同路径 / 文件的作用
-这是 SD WebUI 中不同路径 / 文件的作用。
-
-|路径 / 文件|作用|
-|---|---|
-|stable-diffusion-webui/models|大部分模型的保存路径|
-|stable-diffusion-webui/extensions|扩展路径|
-|stable-diffusion-webui/extensions-builtin|SD WebUI 内置扩展路径|
-|stable-diffusion-webui/outputs|生成图片的保存路径|
-|stable-diffusion-webui/repositories|SD WebUI 内部组件|
-|stable-diffusion-webui/cache.json|模型哈希记录文件|
-|stable-diffusion-webui/config.json|保存 SD WebUI 设置的文件|
-|stable-diffusion-webui/params.txt|保存上一次生图的参数|
-|stable-diffusion-webui/styles.csv|提示词预设文件|
-|stable-diffusion-webui/ui-config.json|SD WebUI 界面预设文件|
-
-SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径如下。
-
-|不同启动方式的用户|缓存路径|
-|---|---|
-|绘世启动器用户|stable-diffusion-webui/.cache|
-|使用原生 SD WebUI 启动方式用户|C:/Users/%USERNAME%/.cache|
-
-.cache 为隐藏路径，需要将文件管理器显示隐藏文件的功能打开，参看：[杂项 - 显示隐藏的文件和文件后缀名 - SDNote](../../help/other.md#_4)
-
-
-## SD WebUI 中不同模型的放置路径
-|模型种类|放置路径|
-|---|---|
-|Stable Diffusion 模型（大模型）|stable-diffusion-webui/models/Stable-diffusion|
-|VAE 模型|stable-diffusion-webui/models/VAE|
-|VAE-approx 模型|stable-diffusion-webui/models/VAE-approx|
-|LoRA 模型|stable-diffusion-webui/models/Lora|
-|Lycoris 模型<sup>1</sup>|stable-diffusion-webui/models/Lora </p> stable-diffusion-webui/models/LyCORIS|
-|Embedding 模型|stable-diffusion-webui/embeddings|
-|Hypernetwork 模型|stable-diffusion-webui/models/hypernetworks|
-|高清修复模型|stable-diffusion-webui/models/ESRGAN </p> stable-diffusion-webui/models/RealESRGAN </p> stable-diffusion-webui/models/SwinIR </p> stable-diffusion-webui/models/DAT|
-|ControlNet 模型<sup>2</sup>|stable-diffusion-webui/models/ControlNet </p> stable-diffusion-webui/extensions/sd-webui-controlnet/models|
-|ControlNet 预处理器模型<sup>3</sup>|stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads|
-|AnimateDiff 模型|stable-diffusion-webui/extensions/sd-webui-animatediff/model|
-|DanTagGen 模型|stable-diffusion-webui/extensions/z-a1111-sd-webui-dtg/models|
-
-!!!note
-    1. SD WebUI 1.5 及以上版本无需扩展即可读取 LyCORIS 文件夹内的 LyCORIS 模型（该文件夹不会自动生成），并显示在 SD WebUI 的 LoRA 栏内。
-	2. 两个文件夹皆可放置 ControlNet 模型。
-	3. 并非所有的 ControlNet 预处理器模型都存储在 downloads 文件夹（例如： depth_anything 预处理器的部分模型会存储在 .cache 文件夹内）。
 
 
 ## 使用 X/Y/Z 图
@@ -275,81 +275,11 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 
 [Tag++ 下载](https://modelscope.cn/models/licyks/sdnote/resolve/master/tag/tags%2B%2B.zip)
 
-将这个文件下载到本地并解压后，放进`stable-diffusion-webui/extensions/a1111-sd-webui-tagcomplete/tags`文件夹中，然后在 SD WebUI 的`设置`->`标签自动补全`中，在`选择使用的标签文件名`选择`tag++.csv`，`翻译文件名`选择`tag++_zh.csv`，勾选`翻译文件使用旧的三栏式翻译格式，而不是新的二栏式格式`，再点击上方的保存设置使设置生效。
+将这个文件下载到本地并解压后，放进`stable-diffusion-webui/extensions/a1111-sd-webui-tagcomplete/tags`文件夹中，然后在 SD WebUI 的`设置`->`标签自动补全`中，在`选择使用的标签文件名`选择`tag++.csv`，`翻译文件名`选择`tag++_zh_new.csv`，再点击上方的保存设置使设置生效。
 
 ![switch_tag_file_and_add_tag_translation_for_tagcomplete](../../assets/images/guide/sd_webui/extra/switch_tag_file_and_add_tag_translation_for_tagcomplete.jpg)
 
 这样不仅可以看补全的提示词对应的翻译，也可以使用中文来触发提示词补全。
-
-
-## 外扩图片
-在 SD WebUI 的图生图界面的脚本选项包含一个外扩图片的脚本，进入 SD WebUI 的图生图界面后，在左下角的脚本选择 Outpainting mk2 就启用外扩图片功能了。
-
-![outpainting_mk2_script](../../assets/images/guide/sd_webui/extra/outpainting_mk2_script.png)
-
-下面是外扩图片脚本的参数功能。
-
-|功能|作用|
-|---|---|
-|拓展的像素数|向外扩展的像素大小。|
-|蒙版边缘模糊度|设置外扩区域和原图区域的边界交融度。|
-|向外绘制的方向|设置外扩的方向。|
-|衰减指数|在外扩区域，脚本先填充色块，再为外扩区域绘制重绘蒙版。该值用于设置色块的细腻度，值越低，色块越细，外扩时细节更多。|
-|色彩变种|调节外扩区域的色块色调。|
-
-下面是我用于外扩图片的参数。
-
-|参数|值|
-|---|---|
-|拓展的像素数|128|
-|蒙版边缘模糊度|16|
-|向外绘制的方向|左，右|
-|衰减指数|0.6|
-|色彩变种|0.05|
-|采样器|Restart|
-|调度器|SGM Uniform|
-|重绘幅度|0.8|
-
-填写合适的提示词后就可以进行图片外扩了。
-
-![use_outpaint_mk2_script](../../assets/images/guide/sd_webui/extra/use_outpaint_mk2_script.png)
-
-除了 Outpainting mk2 脚本可以进行图片外扩，Poor man's outpainting 脚本也可以进行图片外扩，
-
-![poor_man's_outpainting_script](../../assets/images/guide/sd_webui/extra/poor_man's_outpainting_script.png)
-
-该脚本可以更换蒙版区域内容处理，通过更换蒙版内容处理方式可以更好的达到想要的外扩效果。
-
-除了 SD WebUI 内置的外扩脚本，也可以使用 sd-webui-mosaic-outpaint 扩展进行图片外扩。
-
-![mosaic_outpaint_interface](../../assets/images/guide/sd_webui/extra/mosaic_outpaint_interface.png)
-
-!!!note
-    sd-webui-mosaic-outpaint 扩展下载：https://github.com/Haoming02/sd-webui-mosaic-outpaint
-
-下面是扩展的一些参数说明。
-
-|参数|作用|
-|---|---|
-|Direction|设置扩展图片的方向。|
-|方案|设置处理外扩部分的方法，可选择 stretch（伸展）和 mirror（镜像）。stretch 根据图片边缘的颜色，向外扩展图片。mirror 则是对根据原图在外扩区域进行镜像。|
-|Stretch（伸展方案）|设置外扩色彩的混乱度。|
-|Stretch Ratio|设置拉伸比率。|
-|Horizontal Expand|设置水平扩展的比率。|
-|Vertical Expand|设置垂直扩展的比率。|
-|Mask Feathering|设置蒙版羽化，使重绘部分和非重绘部分的融合更融洽。|
-|Short-Side Tile Count / Long-Side Tile Count|设置外扩内容中块的数量。|
-|Mask Overlap|设置蒙版对原图内容的覆盖比率，可解决外扩后原图内容和外扩内容之间的衔接问题。|
-
-现在将图片导入 sd-webui-mosaic-outpaint 扩展界面中，将图片向右扩展，则 Directions 选择**右**，其他参数可以保持默认，再点击 Process Mosaic 就可以对图片进行预处理了，预处理完成后可以看到处理后的原图内容和对应的蒙版，点击 Send to Inpaint 可以将处理后的原图和对应的蒙版发送到图生图中。
-
-重绘幅度设置为 0.8，点击 📐 设置好图生图的分辨率，再写上提示词就可以进行图片外扩了。
-
-![use_mosaic_outpaint](../../assets/images/guide/sd_webui/extra/use_mosaic_outpaint.png)
-
-使用 sd-webui-mosaic-outpaint 扩展对图片进行外扩的效果比 SD WebUI 内置的外扩脚本的效果更好。
-
-有时外扩图片的效果可能并不怎么好，但可以将外扩好的图片发送回图生图界面中，通过图生图中的涂鸦 / 局部重绘对外扩区域进行调整。
 
 
 ## 图生图回送
@@ -452,9 +382,60 @@ holding pillow,pillow hug,sitting,on couch,looking at viewer,, open mouth,wavy m
 
 安装该扩展后，在 SD WebUI 左下角可以看到 Kohya Hires.fix 选项，通常启用后使用默认参数就有比较好的效果，可自行尝试调整参数以达到更好的效果。
 
+|禁用 Kohya Hires.fix|启用 Kohya Hires.fix|
+|---|---|
+|![generate_high_resolution_without_kohya_hires](../../assets/images/guide/sd_webui/extra/generate_high_resolution_without_kohya_hires.png)|![generate_high_resolution_with_kohya_hires](../../assets/images/guide/sd_webui/extra/generate_high_resolution_with_kohya_hires.png)|
 
 !!!note
     Kohya HRFix 实现源码：[SDXLで高解像度での構図の破綻を軽減する](https://gist.github.com/kohya-ss/3f774da220df102548093a7abc8538ed)
 
 
 ## 使用动态提示词引导系数
+该扩展用于设置动态提示词引导系数，可使在较高的提示词引导系数下颜色能够保持正常。
+
+下面提供一个预设值可供参考。
+
+|选项|值|
+|---|---|
+|Mimic Scale|5|
+|Threshold Percentile|95|
+|Mimic Mode|Half Cosine Up|
+|Mimic Scale Min|4|
+|Cfg Mode|Half Cosine Up|
+|Cfg Scale Min|4|
+|Sched Val|4|
+|Separate Feature Channels|启用|
+|Scaling Startpoint|MEAN|
+|Variability Measure|AD|
+|Interpolate Phi|1|
+
+启用后，可以避免高提示词引导系数下颜色异常。
+
+|提示词引导系数|5|15（启用 DynamicThresholding）|15|
+|---|---|---|---|
+|效果图|![use_cfg_5_without_dynamic_cfg](../../assets/images/guide/sd_webui/extra/use_cfg_5_without_dynamic_cfg.png)|![use_cfg_15_without_dynamic_cfg](../../assets/images/guide/sd_webui/extra/use_cfg_15_without_dynamic_cfg.png)|![use_cfg_15_with_dynamic_cfg](../../assets/images/guide/sd_webui/extra/use_cfg_15_with_dynamic_cfg.png)|
+
+!!!note
+    DynamicThresholding 相关的说明：[mcmonkeyprojects/sd-dynamic-thresholding Wiki](https://github.com/mcmonkeyprojects/sd-dynamic-thresholding/wiki)
+
+
+## 监测跑图时硬件的占用情况
+如果想在跑图的时候快捷查看硬件的占用信息，如显存占用等，可以安装 sd-webui-resource-monitor 扩展，安装后在 SD WebUI 的右上角就可以看到硬件的占用信息。
+
+![use_resource_monitor](../../assets/images/guide/sd_webui/extra/use_resource_monitor.png)
+
+!!!note
+    1. sd-webui-resource-monitor 扩展下载：https://github.com/Haoming02/sd-webui-resource-monitor  
+    2. 该扩展可能会导致 [sd-webui-weight-helper](https://github.com/nihedon/sd-webui-weight-helper) 扩展无法正常显示界面，如果出现该情况请禁用该扩展。
+
+
+## 固定出图分辨率的宽高比
+调整出图的分辨率时，如果想要保持当前的宽高比不变，可以安装 sd-webui-aspect-ratio-helper 扩展，安装后在调整宽度和高度的选项旁边可以看到一个`Off`按钮，点开后可以看到`Off`、🔒和一些宽高比预设。
+
+选择🔒后，当调整其中一个分辨率的值时，sd-webui-aspect-ratio-helper 扩展将根据原来的宽高比自动调整另一个分辨率的值。
+
+选择宽高比预设也是一样的效果。如果要添加宽高比预设，可以在 SD WebUI 的**设置 -> 纵横比助手 -> 前端纵横比按钮**选项中修改。
+
+!!!note
+    sd-webui-aspect-ratio-helper 扩展下载：https://github.com/thomasasfk/sd-webui-aspect-ratio-helper
+

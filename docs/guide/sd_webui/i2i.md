@@ -431,6 +431,76 @@ upper body,close-up,from side,
     使用了**调整大小 (潜空间放大)**后，**图生图放大算法**设置的选项将失效。
 
 
+## 外扩图片
+在 SD WebUI 的图生图界面的脚本选项包含一个外扩图片的脚本，进入 SD WebUI 的图生图界面后，在左下角的脚本选择 Outpainting mk2 就启用外扩图片功能了。
+
+![outpainting_mk2_script](../../assets/images/guide/sd_webui/i2i/outpainting_mk2_script.png)
+
+下面是外扩图片脚本的参数功能。
+
+|功能|作用|
+|---|---|
+|拓展的像素数|向外扩展的像素大小。|
+|蒙版边缘模糊度|设置外扩区域和原图区域的边界交融度。|
+|向外绘制的方向|设置外扩的方向。|
+|衰减指数|在外扩区域，脚本先填充色块，再为外扩区域绘制重绘蒙版。该值用于设置色块的细腻度，值越低，色块越细，外扩时细节更多。|
+|色彩变种|调节外扩区域的色块色调。|
+
+下面是我用于外扩图片的参数。
+
+|参数|值|
+|---|---|
+|拓展的像素数|128|
+|蒙版边缘模糊度|16|
+|向外绘制的方向|左，右|
+|衰减指数|0.6|
+|色彩变种|0.05|
+|采样器|Restart|
+|调度器|SGM Uniform|
+|重绘幅度|0.8|
+
+填写合适的提示词后就可以进行图片外扩了。
+
+![use_outpaint_mk2_script](../../assets/images/guide/sd_webui/i2i/use_outpaint_mk2_script.png)
+
+除了 Outpainting mk2 脚本可以进行图片外扩，Poor man's outpainting 脚本也可以进行图片外扩，
+
+![poor_man's_outpainting_script](../../assets/images/guide/sd_webui/i2i/poor_man's_outpainting_script.png)
+
+该脚本可以更换蒙版区域内容处理，通过更换蒙版内容处理方式可以更好的达到想要的外扩效果。
+
+除了 SD WebUI 内置的外扩脚本，也可以使用 sd-webui-mosaic-outpaint 扩展进行图片外扩。
+
+![mosaic_outpaint_interface](../../assets/images/guide/sd_webui/i2i/mosaic_outpaint_interface.png)
+
+!!!note
+    sd-webui-mosaic-outpaint 扩展下载：https://github.com/Haoming02/sd-webui-mosaic-outpaint
+
+下面是扩展的一些参数说明。
+
+|参数|作用|
+|---|---|
+|Direction|设置扩展图片的方向。|
+|方案|设置处理外扩部分的方法，可选择 stretch（伸展）和 mirror（镜像）。stretch 根据图片边缘的颜色，向外扩展图片。mirror 则是对根据原图在外扩区域进行镜像。|
+|Stretch（伸展方案）|设置外扩色彩的混乱度。|
+|Stretch Ratio|设置拉伸比率。|
+|Horizontal Expand|设置水平扩展的比率。|
+|Vertical Expand|设置垂直扩展的比率。|
+|Mask Feathering|设置蒙版羽化，使重绘部分和非重绘部分的融合更融洽。|
+|Short-Side Tile Count / Long-Side Tile Count|设置外扩内容中块的数量。|
+|Mask Overlap|设置蒙版对原图内容的覆盖比率，可解决外扩后原图内容和外扩内容之间的衔接问题。|
+
+现在将图片导入 sd-webui-mosaic-outpaint 扩展界面中，将图片向右扩展，则 Directions 选择**右**，其他参数可以保持默认，再点击 Process Mosaic 就可以对图片进行预处理了，预处理完成后可以看到处理后的原图内容和对应的蒙版，点击 Send to Inpaint 可以将处理后的原图和对应的蒙版发送到图生图中。
+
+重绘幅度设置为 0.8，点击 📐 设置好图生图的分辨率，再写上提示词就可以进行图片外扩了。
+
+![use_mosaic_outpaint](../../assets/images/guide/sd_webui/i2i/use_mosaic_outpaint.png)
+
+使用 sd-webui-mosaic-outpaint 扩展对图片进行外扩的效果比 SD WebUI 内置的外扩脚本的效果更好。
+
+有时外扩图片的效果可能并不怎么好，但可以将外扩好的图片发送回图生图界面中，通过图生图中的涂鸦 / 局部重绘对外扩区域进行调整。
+
+
 ## 其他图生图使用参考
 下面的文档详细的讲解了图生图的用法，作为本文章的内容补充。
 
