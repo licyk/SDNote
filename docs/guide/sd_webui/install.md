@@ -28,7 +28,7 @@ title: SD WebUI 部署
 [Intel用户 的 Windows 用户安装教程](https://www.bilibili.com/video/BV1rH4y167hs)
 
 
-## SD WebUI Installer
+## 使用 SD WebUI Installer 部署
 [SD WebUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/stable_diffusion_webui_installer.md)
 
 

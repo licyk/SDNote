@@ -183,13 +183,6 @@ nav:
     - "放大图片": guide/sd_webui/upscale.md
     - "ControlNet 应用": guide/sd_webui/controlnet.md
     - "杂项": guide/sd_webui/extra.md
-  - "ComfyUI 部署与使用":
-    - "概述": guide/comfyui/index.md
-    - "部署": guide/comfyui/install.md
-    - "界面操作": guide/comfyui/interface_operation.md
-    - "搭建工作流": guide/comfyui/build_workflow.md
-    - "使用导入工作流": guide/comfyui/input_workflows.md
-    - "杂项": guide/comfyui/extra.md
   - "SD WebUI Forge 部署与使用":
     - "概述": guide/sd_webui_forge/index.md
     - "部署": guide/sd_webui_forge/install.md
@@ -197,9 +190,16 @@ nav:
     - "FLUX 模型使用": guide/sd_webui_forge/flux.md
     - "显存优化": guide/sd_webui_forge/video_momory_optimization.md
     - "内置扩展使用": guide/sd_webui_forge/use_build_in_extension.md
+  - "ComfyUI 部署与使用":
+    - "概述": guide/comfyui/index.md
+    - "部署": guide/comfyui/install.md
+    - "界面操作": guide/comfyui/interface_operation.md
+    - "搭建工作流": guide/comfyui/build_workflow.md
+    - "使用导入工作流": guide/comfyui/input_workflows.md
+    - "杂项": guide/comfyui/extra.md
 - "绘世启动器使用":
   - sd_launcher/index.md
-  - "部署功能": 
+  - "部署功能":
     - sd_launcher/install/index.md
   - "高级选项":
     - "高级选项": sd_launcher/advance/index.md

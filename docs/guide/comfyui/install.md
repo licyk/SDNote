@@ -10,13 +10,16 @@ title: ComfyUI 部署
 [什么，绘世启动器还能安装ComfyUI（全新篇——安装与配置） - 哔哩哔哩](https://www.bilibili.com/read/cv28869554)
 
 
+## 使用 ComfyUI Installer 部署
+[ComfyUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/comfyui_installer.md)
+
+
 ## 从源码部署
 [comfyanonymous/ComfyUI - Installing](https://github.com/comfyanonymous/ComfyUI?tab=readme-ov-file#installing)
 
 
 ## ComfyUI 官方安装器
-!!!note
-    待官方发布。
+[Download - Comfy-Org/desktop: The desktop app for ComfyUI.](https://github.com/Comfy-Org/desktop?tab=readme-ov-file#download)
 
 
 # Linux 平台
@@ -29,8 +32,7 @@ title: ComfyUI 部署
 
 
 ## ComfyUI 官方安装器
-!!!note
-    待官方发布。
+[Download - Comfy-Org/desktop: The desktop app for ComfyUI.](https://github.com/Comfy-Org/desktop?tab=readme-ov-file#download)
 
 
 # MacOS 平台
@@ -43,5 +45,4 @@ title: ComfyUI 部署
 
 
 ## ComfyUI 官方安装器
-!!!note
-    待官方发布。
+[Download - Comfy-Org/desktop: The desktop app for ComfyUI.](https://github.com/Comfy-Org/desktop?tab=readme-ov-file#download)
