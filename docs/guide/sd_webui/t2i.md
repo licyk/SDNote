@@ -39,8 +39,39 @@ SD WebUI 的界面大致分为几个部分。
     stable-diffusion-webui-localization-zh_Hans 扩展下载：https://github.com/hanamizuki-ai/stable-diffusion-webui-localization-zh_Hans  
     安装该扩展后，在 SD WebUI 的`Settings`->`User interface`，在`Localization`选项选择`zh-hans (Stable)`，然后点击`Apply settings`保存设置，再点击`Reload UI`使设置生效。
 
+## 安装扩展
+Stable Diffusion WebUI 扩展可为 Stable Diffusion WebUI 提供更多便捷的功能，在接下来的教程中将会使用到 Stable Diffusion WebUI 扩展，所以下面介绍如何为 Stable Diffusion WebUI 安装扩展。
+
+### 使用 Git 命令
+打开终端后，进入 Stable Diffusion WebUI 的扩展目录，比如我的 Stable Diffusion WebUI 安装在`E:/Softwares/stable-diffusion-webui`，则扩展目录在`E:\Softwares\stable-diffusion-webui/extensions`，下面就输入命令进入扩展文件夹中。
+
+```
+cd "E:\Softwares\stable-diffusion-webui/extensions"
+```
+
+!!!note
+    1. 如果使用的终端为 Windows 系统的 CMD，上面的命令可能会出现无法切换目录的情况，此时将上面的命令改成`cd /d "E:\Softwares\stable-diffusion-webui/extensions"`即可正常切换目录。  
+    2. 如果环境中没有 Git，需要安装 Git 后才能使用 Git 命令，Git 下载：[Git](https://git-scm.com/)。
+
+此时就可以使用 Git 命令安装扩展，比如一个扩展的下载地址为`https://github.com/DominikDoom/a1111-sd-webui-tagcomplete`，输入下面的命令就可以安装这个扩展。
+
+```
+git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete
+```
+
+
+### 使用 Stable Diffusion WebUI 扩展管理
+进入 Stable Diffusion WebUI 后，在**扩展 -> 从网址安装 -> 扩展的 git 仓库网址**，输入扩展的下载地址后点击**安装**即可安装扩展。
+
+Stable Diffusion WebUI 自带一个扩展列表，在**扩展 -> 可下载**中点击**加载扩展列表**就可以看到可以安装的扩展，选择其中一个扩展后点击**安装**即可安装扩展。
+
+
+### 使用绘世启动器
+绘世启动器提供了扩展安装功能，在绘世启动器的**版本管理 -> 安装新扩展**中可以进行扩展安装。
+
+
 ## 提示词输入
-大致认识了界面后，现在来调整生成图片的参数。
+大致认识了界面并了解 Stable Diffusion WebUI 的扩展安装方法后，现在来调整生成图片的参数。
 
 在正面提示词中输入你想要 AI 生成的东西（必须是英文），这里我们可以利用 a1111-sd-webui-tagcomplete 扩展来辅助我们输入提示词。使用方向键选择要补全的提示词，++tab++ 键 / ++enter++ 键补全提示词。
 

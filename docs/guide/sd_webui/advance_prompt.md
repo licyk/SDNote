@@ -366,6 +366,8 @@ hair bow,blue bow,twintails,low twintails,braid,long hair,grey hair,purple eyes,
 除了 sd-webui-regional-prompter 扩展可以进行分区绘制，stable-diffusion-webui-two-shot 扩展（使用 Attension 模式）和 multidiffusion-upscaler-for-automatic1111 扩展（使用 Latent 模式）也可以进行分区绘制，只是效果可能不如 sd-webui-regional-prompter 扩展，可自行尝试。
 
 !!!note
-    sd-webui-regional-prompter 扩展下载：https://github.com/hako-mikan/sd-webui-regional-prompter  
-    stable-diffusion-webui-two-shot 扩展下载：https://github.com/ashen-sensored/stable-diffusion-webui-two-shot
-    multidiffusion-upscaler-for-automatic1111 扩展下载：https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111
+    1. 扩展下载：
+    sd-webui-regional-prompter：https://github.com/hako-mikan/sd-webui-regional-prompter  
+    stable-diffusion-webui-two-shot：https://github.com/ashen-sensored/stable-diffusion-webui-two-shot
+    multidiffusion-upscaler-for-automatic1111：https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111
+    2. 有关 Region Prompter 扩展的使用教程：[How to Generate Multiple Different Characters, Mix Characters, and/or Minimize Color Contamination | Regional Prompt, Adetailer, and Inpaint | My Workflow - 3. Regional Prompt (Mask) | Stable Diffusion Workflows | Civitai](https://civitai.com/models/339604)、[Overview - hako-mikan/sd-webui-regional-prompter: set prompt to divided region](https://github.com/hako-mikan/sd-webui-regional-prompter?tab=readme-ov-file#overview)。

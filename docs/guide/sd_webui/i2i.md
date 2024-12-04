@@ -276,6 +276,86 @@ outdoors,landscape,park,tree,bench,falling petals,path,blue sky,grass,flower,pat
 
 现在人物的动作就修改好了。
 
+
+### 使用 Segment Anything 扩展快速制作图片蒙版
+如果通过手动绘制蒙版的方式太麻烦，可以选择使用 Segment Anything 来完整蒙版绘制。
+
+这里使用 sd-webui-segment-anything 进行蒙版绘制。
+
+!!!note
+    1. sd-webui-segment-anything 扩展下载：https://github.com/continue-revolution/sd-webui-segment-anything  
+    2. 扩展下载完成后需要手动下载 Segment Anything 的模型：  
+    [sam_vit_h_4b8939.pth](https://modelscope.cn/models/licyks/sd-extensions-model/resolve/master/sd-webui-segment-anything/sam_vit_h_4b8939.pth)  
+    [sam_vit_l_0b3195.pth](https://modelscope.cn/models/licyks/sd-extensions-model/resolve/master/sd-webui-segment-anything/sam_vit_l_0b3195.pth)  
+    [sam_vit_b_01ec64.pth](https://modelscope.cn/models/licyks/sd-extensions-model/resolve/master/sd-webui-segment-anything/sam_vit_b_01ec64.pth)  
+    [mobile_sam.pt](https://modelscope.cn/models/licyks/sd-extensions-model/resolve/master/sd-webui-segment-anything/mobile_sam.pt)  
+    模型下载好后放在`stable-diffusion-webui/extensions/sd-webui-segment-anything/models/sam`路径中。  
+    需要手动下载 GroundingDINO 的模型：  
+    [groundingdino_swinb_cogcoor.pth](https://modelscope.cn/models/licyks/sd-extensions-model/resolve/master/sd-webui-segment-anything/groundingdino_swinb_cogcoor.pth)  
+    [groundingdino_swint_ogc.pth](https://modelscope.cn/models/licyks/sd-extensions-model/resolve/master/sd-webui-segment-anything/groundingdino_swint_ogc.pth)  
+    模型下载好后放在`stable-diffusion-webui/extensions/sd-webui-segment-anything/models/grounding-dino`路径中。
+
+安装该扩展后，在文生图或者图生图界面可以看到 Segment Anything 选项。
+
+![segment_anything_interface](../../assets/images/guide/sd_webui/i2i/segment_anything_interface.png)
+
+这里导入一张图进行演示。
+
+![origin_image_to_segment_anything](../../assets/images/guide/sd_webui/i2i/origin_image_to_segment_anything.png)
+
+导入图片后左键点击可以标记想要提取的部分，右键点击标记不想提取的部分，左键点击标记可以将标记清除。
+
+现在想要提取人物帽子的部分，就在帽子部分做个标记。
+
+![add_point_for_segment_anything](../../assets/images/guide/sd_webui/i2i/add_point_for_segment_anything.png)
+
+然后在 SAM 模型选项选择 mobile_sam.pt 模型，再点击**预览分离结果**处理图片，处理完成后得到以下结果。
+
+|![segment_anything_result_1_1](../../assets/images/guide/sd_webui/i2i/segment_anything_result_1_1.png)|![segment_anything_result_1_2](../../assets/images/guide/sd_webui/i2i/segment_anything_result_1_2.png)|![segment_anything_result_1_3](../../assets/images/guide/sd_webui/i2i/segment_anything_result_1_3.png)|
+|---|---|---|
+|![segment_anything_result_1_4](../../assets/images/guide/sd_webui/i2i/segment_anything_result_1_4.png)|![segment_anything_result_1_5](../../assets/images/guide/sd_webui/i2i/segment_anything_result_1_5.png)|![segment_anything_result_1_6](../../assets/images/guide/sd_webui/i2i/segment_anything_result_1_6.png)|
+|![segment_anything_result_1_7](../../assets/images/guide/sd_webui/i2i/segment_anything_result_1_7.png)|![segment_anything_result_1_8](../../assets/images/guide/sd_webui/i2i/segment_anything_result_1_8.png)|![segment_anything_result_1_9](../../assets/images/guide/sd_webui/i2i/segment_anything_result_1_9.png)|
+
+这里有 3 行结果，第 1 行是 Segment Anything 模型识别的区域，第 2 行是生成出的对应的蒙版，第 3 行是蒙版应用于原图的结果。
+
+现在尝试将 SAM 模型换成 sam_vit_l_0b3195.pth 再点击**预览分离结果**处理图片。
+
+|![segment_anything_result_2_1](../../assets/images/guide/sd_webui/i2i/segment_anything_result_2_1.png)|![segment_anything_result_2_2](../../assets/images/guide/sd_webui/i2i/segment_anything_result_2_2.png)|![segment_anything_result_2_3](../../assets/images/guide/sd_webui/i2i/segment_anything_result_2_3.png)|
+|---|---|---|
+|![segment_anything_result_2_4](../../assets/images/guide/sd_webui/i2i/segment_anything_result_2_4.png)|![segment_anything_result_2_5](../../assets/images/guide/sd_webui/i2i/segment_anything_result_2_5.png)|![segment_anything_result_2_6](../../assets/images/guide/sd_webui/i2i/segment_anything_result_2_6.png)|
+|![segment_anything_result_2_7](../../assets/images/guide/sd_webui/i2i/segment_anything_result_2_7.png)|![segment_anything_result_2_8](../../assets/images/guide/sd_webui/i2i/segment_anything_result_2_8.png)|![segment_anything_result_2_9](../../assets/images/guide/sd_webui/i2i/segment_anything_result_2_9.png)|
+
+效果比之前好了一点，如果想要提高精度，可以配合 GroundingDINO 模型生成元素的范围，再使用 Segment Anything 模型进行分离。
+
+勾选**启用 GroundingDINO**后可以看到 Segment Anything 扩展选择多了 GroundingDINO 的选项，因为想要识别的元素为人物的帽子，所以在**GroundingDINO 检测提示词**部分填写 hat，再点击**预览分离结果**处理图片。
+
+|![segment_anything_result_3_1](../../assets/images/guide/sd_webui/i2i/segment_anything_result_3_1.png)|![segment_anything_result_3_2](../../assets/images/guide/sd_webui/i2i/segment_anything_result_3_2.png)|![segment_anything_result_3_3](../../assets/images/guide/sd_webui/i2i/segment_anything_result_3_3.png)|
+|---|---|---|
+|![segment_anything_result_3_4](../../assets/images/guide/sd_webui/i2i/segment_anything_result_3_4.png)|![segment_anything_result_3_5](../../assets/images/guide/sd_webui/i2i/segment_anything_result_3_5.png)|![segment_anything_result_3_6](../../assets/images/guide/sd_webui/i2i/segment_anything_result_3_6.png)|
+|![segment_anything_result_3_7](../../assets/images/guide/sd_webui/i2i/segment_anything_result_3_7.png)|![segment_anything_result_3_8](../../assets/images/guide/sd_webui/i2i/segment_anything_result_3_8.png)|![segment_anything_result_3_9](../../assets/images/guide/sd_webui/i2i/segment_anything_result_3_9.png)|
+
+可以看到结果的第 1 行多了个红框，这是 GroundingDINO 识别 hat 得到的区域范围。再看 Segment Anything 的结果，因为有了 GroundingDINO 的范围限制，识别精确度更高了。
+
+现在挑选其中一个蒙版并下载，然后进入图生图界面中，在上传重绘蒙版部分分别上传原图和蒙版，将**蒙版区域内容处理**改为**潜空间噪声**，**重绘幅度**设置为 0.85，勾选**柔和重绘**，再写上对应的提示词进行描述。
+
+```
+1girl,solo,long hair,pink hair,bangs,blue eyes,blush,sailor collar,pink bow,long sleeves,dress,white dress,jacket,blue jacket,blue headwear,bow,open clothes,hair flower,hair ornament,head wreath,
+holding flowers,smile,:d,open mouth,looking at viewer,
+outdoors,flower field,flower sea,flower,white flower,sky,day,blue sky,cloud,field,mountain,petals,falling petals,tree,
+upper body,from side,
+<lora:ill-xl-01-ogipote_1:1>,
+```
+
+!!!note
+    提示词中使用 LoRA 模型：[ill-xl-01-ogipote_1-000036.safetensors](https://modelscope.cn/models/licyks/sd-lora/resolve/master/sdxl/style/ill-xl-01-ogipote_1-000036.safetensors)[(Civitai)](https://civitai.com/models/871665/artist-style-pote)，模型放在`stable-diffusion-webui/models/Lora`。
+
+调整参数完成后就可以进行生图了。
+
+![use_segment_anything_mask_to_inpaint](../../assets/images/guide/sd_webui/i2i/use_segment_anything_mask_to_inpaint.png)
+
+通过这种方式可以快速制作蒙版并进行图片重绘。
+
+
 ### 从涂鸦到壁纸
 除了使用文生图得到一张好看的壁纸，也可以通过图生图的方式将一张涂鸦制作成一张好看的壁纸。
 

@@ -44,14 +44,18 @@ LoRA 模型可使用提示词进行调用，格式如下：
 如果你想更改成使用 LoRA 模型文件名作为 LoRA 模型的触发词，可以点击 SD WebUI 的`设置` -> `扩展模型` -> `将扩展模型添加到提示词时，通过以下格式提及lora`，将`从文件读取别名`改成`文件名`并保存设置。
 
 
-## LoRA 模型的功能
-根据 LoRA 模型可实现的效果，可分为以下三种。
+## 触发词
+有些 LoRA 需要使用触发词，而有些 LoRA 不需要使用触发词，这由 LoRA 作者在训练 LoRA 时对训练集打标的处理方式决定。
 
-|功能|效果图|
-|---|---|
-|角色|![character](../../assets/images/guide/sd_webui/lora/character.jpg)|
-|动作|![motion](../../assets/images/guide/sd_webui/lora/motion.jpg)|
-|画风|![style](../../assets/images/guide/sd_webui/lora/style.jpg)|
+在 LoRA 模型的说明中，如果作者说明 LoRA 必须使用触发词，则使用 LoRA 时必须使用触发词才能达到比较好的效果。
+
+
+## LoRA 模型的功能
+根据 LoRA 模型可实现的效果，可大致分为以下四种。
+
+|角色|动作|画风|概念|
+|---|---|---|---|
+|![character](../../assets/images/guide/sd_webui/lora/character.jpg)|![motion](../../assets/images/guide/sd_webui/lora/motion.jpg)|![style](../../assets/images/guide/sd_webui/lora/style.jpg)|![concept](../../assets/images/guide/sd_webui/lora/concept.png)|
 
 
 ## LoRA 分层
