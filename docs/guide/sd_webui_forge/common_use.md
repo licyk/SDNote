@@ -8,8 +8,6 @@ title: 常见功能使用
 
 这是 SD WebUI Forge 的界面，因为前基于 SD WebUI，界面操作和 SD WebUI 很相似，使用方法也和 SD WebUI 基本相同，可结合前面的 SD WebUI 教程学习使用。
 
-<!-- TODO: 需要添加从 SD WebUI 教程的引用 -->
-
 !!!note
     SD WebUI Forge 界面使用的翻译扩展：[stable-diffusion-webui-localization-zh_Hans](https://github.com/hanamizuki-ai/stable-diffusion-webui-localization-zh_Hans)
 

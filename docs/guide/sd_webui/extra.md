@@ -45,7 +45,7 @@ SD WebUI 在使用的时候会把部分模型放置在缓存路径中，路径�
 |ControlNet 模型<sup>2</sup>|stable-diffusion-webui/models/ControlNet </p> stable-diffusion-webui/extensions/sd-webui-controlnet/models|
 |ControlNet 预处理器模型<sup>3</sup>|stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads|
 |AnimateDiff 模型|stable-diffusion-webui/extensions/sd-webui-animatediff/model|
-|DanTagGen 模型|stable-diffusion-webui/extensions/z-a1111-sd-webui-dtg/models|
+|TIPO 模型|stable-diffusion-webui/extensions/z-tipo-extension/models|
 
 !!!note
     1. SD WebUI 1.5 及以上版本无需扩展即可读取 LyCORIS 文件夹内的 LyCORIS 模型（该文件夹不会自动生成），并显示在 SD WebUI 的 LoRA 栏内。

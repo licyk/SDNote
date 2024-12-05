@@ -70,6 +70,15 @@ Stable Diffusion WebUI 自带一个扩展列表，在**扩展 -> 可下载**中�
 绘世启动器提供了扩展安装功能，在绘世启动器的**版本管理 -> 安装新扩展**中可以进行扩展安装。
 
 
+## SD WebUI 语言设置
+SD WebUI 的**设置 -> 用户界面 -> 本地化**中进行设置，英文界面对应的位置为**Setting -> User interface -> Localization**。
+
+如果需要汉化，需要安装 stable-diffusion-webui-localization-zh_Hans 扩展。
+
+!!!note
+    stable-diffusion-webui-localization-zh_Hans 扩展下载：https://github.com/hanamizuki-ai/stable-diffusion-webui-localization-zh_Hans
+
+
 ## 提示词输入
 大致认识了界面并了解 Stable Diffusion WebUI 的扩展安装方法后，现在来调整生成图片的参数。
 

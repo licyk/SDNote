@@ -84,7 +84,12 @@ lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits
 如果不知道提示词该写什么，只会写 1girl，可以通过 [z-tipo-extension](https://github.com/KohakuBlueleaf/z-tipo-extension) 扩展辅助书写提示词。
 
 !!!note
-    z-tipo-extension 扩展下载：https://github.com/KohakuBlueleaf/z-tipo-extension
+    1. z-tipo-extension 扩展下载：https://github.com/KohakuBlueleaf/z-tipo-extension  
+    2. z-tipo-extension 扩展的模型：  
+    [TIPO-200M-40Btok-F16.gguf](https://modelscope.cn/models/licyks/sd-extensions-model/resolve/master/z-tipo-extension/TIPO-200M-40Btok-F16.gguf)  
+    [TIPO-200M-ft-F16.gguf](https://modelscope.cn/models/licyks/sd-extensions-model/resolve/master/z-tipo-extension/TIPO-200M-ft-F16.gguf)  
+    [TIPO-500M_epoch5-F16.gguf](https://modelscope.cn/models/licyks/sd-extensions-model/resolve/master/z-tipo-extension/TIPO-500M_epoch5-F16.gguf)  
+    模型下载后放在`stable-diffusion-webui/extensions/z-tipo-extension/models`路径中。
 
 安装 z-tipo-extension 后，在 SD WebUI 界面的提示词输入框部分就可以看到 TIPO 的界面。
 

@@ -252,6 +252,7 @@ def main():
     req_file_path = os.path.join(Path(__file__).resolve().parent.as_posix(), "requirements.txt")
     os.environ["PIP_INDEX_URL"] = "https://mirrors.cloud.tencent.com/pypi/simple"
     os.environ["PIP_EXTRA_INDEX_URL"] = "https://mirrors.cernet.edu.cn/pypi/web/simple"
+    os.environ["PIP_DISABLE_PIP_VERSION_CHECK"] = "1"
 
     if not validate_requirements(req_file_path):
         try:
