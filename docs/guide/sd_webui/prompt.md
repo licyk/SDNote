@@ -152,3 +152,19 @@ viclim-monou,yoneyama mai,torino aqua,fuzichoco,
 
 !!!note
     sd-webui-wd14-tagger 扩展：https://github.com/Akegarasu/sd-webui-wd14-tagger
+
+
+## 保存提示词预设
+当有一段比较好的提示词并且经常会用上，可以使用提示词预设功能保存提示词，并在出图的时候直接使用预设进行出图。
+
+在生成按钮下面有一行空的选项，点开后可以选择提示词预设，旁边的🖌️按钮为提示词预设修改按钮，点击即可打开提示词预设编辑器。
+
+![prompt_preset_interface](../../assets/images/guide/sd_webui/prompt/prompt_preset_interface.png)
+
+如果想要添加新的提示词预设，在编辑器最上面一行填写预设名称，下方则填写提示词，填写完成后点击保存，在提示词预设选项就可以选择刚刚创建好的提示词预设。
+
+如果想要删除某个提示词预设，在提示词预设编辑器里选择已有预设，再点击删除即可。
+
+提示词预设文件可在`stable-diffusion-webui/styles.csv`找到，可以使用记事本、Visual Studio Code、Microsoft Execl 等编辑器进行编辑，如果要避免手动修改出现误操作导致该文件损坏，请使用 Microsoft Execl 进行编辑。
+
+编辑完成后，在 SD WebUI 中需要点击提示词预设旁边的🔄按钮才能看到修改后的提示词预设。
