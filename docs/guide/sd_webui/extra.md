@@ -154,20 +154,10 @@ SD 1.5 的模型用于生图时只有 2 GB 是有效的数据，但是有许多 
     sd-webui-animatediff 扩展下载：https://github.com/continue-revolution/sd-webui-animatediff
 
 
-## 低显存跑 SDXL 模型
-在 SD WebUI 1.8 中支持了 FP8 权重，可以大大降低 SDXL 模型对显存的占用，最低 6 GB显存即可运行 SDXL 模型。  
-启用 FP8 前需要 PyTorch 版本大于 2.1，SD WebUI 版本大于或等于 1.8。  
-在 SD WebUI 的`设置`->`优化设置`->`FP8 权重`，选择对 SDXL 模型启用，保存设置后即可启用。
-
-
 ## 无限生成图片
 右键 SD WebUI 的生成按钮即可看到无限生成 / 停止无限生成的按钮，
 
 ![infinite_generate](../../assets/images/guide/sd_webui/extra/infinite_generate.jpg)
-
-
-## 使用 SDXL 模型时特定的提示词组会出现鬼图
-这个可能和提示词权重有关，在 SD WebUI 的`设置`->`SD`->`强调模式`，选择 No norm 后保存设置，使用 SDXL 模型时非常推荐使用 No norm。
 
 
 ## SD WebUI 的 LoRA / Embedding 模型展示的规则
@@ -268,18 +258,6 @@ CFG Scale 为提示词引导系数，在 SD WebUI 的生图参数调整界面中
 
 !!!note
     LightDiffusionFlow 扩展下载：https://github.com/Tencent/LightDiffusionFlow
-
-
-## 为提示词补全扩展添加词库和中文翻译
-[a1111-sd-webui-tagcomplete](https://github.com/DominikDoom/a1111-sd-webui-tagcomplete) 扩展可以提供提示词补全功能，在 SD WebUI 设置中和该扩展有关的设置中可以更换提示词补全的词库，也可以添加中文翻译，下面是更全的提示词补全词库和对应的中文翻译的下载地址。
-
-[Tag++ 下载](https://modelscope.cn/models/licyks/sdnote/resolve/master/tag/tags%2B%2B.zip)
-
-将这个文件下载到本地并解压后，放进`stable-diffusion-webui/extensions/a1111-sd-webui-tagcomplete/tags`文件夹中，然后在 SD WebUI 的`设置`->`标签自动补全`中，在`选择使用的标签文件名`选择`tag++.csv`，`翻译文件名`选择`tag++_zh_new.csv`，再点击上方的保存设置使设置生效。
-
-![switch_tag_file_and_add_tag_translation_for_tagcomplete](../../assets/images/guide/sd_webui/extra/switch_tag_file_and_add_tag_translation_for_tagcomplete.jpg)
-
-这样不仅可以看补全的提示词对应的翻译，也可以使用中文来触发提示词补全。
 
 
 ## 图生图回送

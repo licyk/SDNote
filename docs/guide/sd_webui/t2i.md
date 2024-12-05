@@ -34,15 +34,14 @@ SD WebUI 的界面大致分为几个部分。
 - 图片预览
 ![preview_interface](../../assets/images/guide/sd_webui/t2i/preview_interface.jpg)
 
-!!!note
-    如果你的界面不是中文，可以安装 stable-diffusion-webui-localization-zh_Hans 扩展。  
-    stable-diffusion-webui-localization-zh_Hans 扩展下载：https://github.com/hanamizuki-ai/stable-diffusion-webui-localization-zh_Hans  
-    安装该扩展后，在 SD WebUI 的`Settings`->`User interface`，在`Localization`选项选择`zh-hans (Stable)`，然后点击`Apply settings`保存设置，再点击`Reload UI`使设置生效。
 
-## 安装扩展
+## 前期优化
+在第一次生图前先了解一些功能和优化一些设置。
+
+### 安装扩展
 Stable Diffusion WebUI 扩展可为 Stable Diffusion WebUI 提供更多便捷的功能，在接下来的教程中将会使用到 Stable Diffusion WebUI 扩展，所以下面介绍如何为 Stable Diffusion WebUI 安装扩展。
 
-### 使用 Git 命令
+#### 使用 Git 命令
 打开终端后，进入 Stable Diffusion WebUI 的扩展目录，比如我的 Stable Diffusion WebUI 安装在`E:/Softwares/stable-diffusion-webui`，则扩展目录在`E:\Softwares\stable-diffusion-webui/extensions`，下面就输入命令进入扩展文件夹中。
 
 ```
@@ -60,34 +59,62 @@ git clone https://github.com/DominikDoom/a1111-sd-webui-tagcomplete
 ```
 
 
-### 使用 Stable Diffusion WebUI 扩展管理
+#### 使用 Stable Diffusion WebUI 扩展管理
 进入 Stable Diffusion WebUI 后，在**扩展 -> 从网址安装 -> 扩展的 git 仓库网址**，输入扩展的下载地址后点击**安装**即可安装扩展。
 
 Stable Diffusion WebUI 自带一个扩展列表，在**扩展 -> 可下载**中点击**加载扩展列表**就可以看到可以安装的扩展，选择其中一个扩展后点击**安装**即可安装扩展。
 
 
-### 使用绘世启动器
+#### 使用绘世启动器
 绘世启动器提供了扩展安装功能，在绘世启动器的**版本管理 -> 安装新扩展**中可以进行扩展安装。
 
 
-## SD WebUI 语言设置
+### SD WebUI 语言设置
 SD WebUI 的**设置 -> 用户界面 -> 本地化**中进行设置，英文界面对应的位置为**Setting -> User interface -> Localization**。
 
-如果需要汉化，需要安装 stable-diffusion-webui-localization-zh_Hans 扩展。
+如果界面不是中文，需要安装 stable-diffusion-webui-localization-zh_Hans 扩展。
+
+安装该扩展后，在 SD WebUI 的`Settings`->`User interface`，在`Localization`选项选择`zh-hans (Stable)`，然后点击`Apply settings`保存设置，再点击`Reload UI`使设置生效。
 
 !!!note
     stable-diffusion-webui-localization-zh_Hans 扩展下载：https://github.com/hanamizuki-ai/stable-diffusion-webui-localization-zh_Hans
 
 
-## 提示词输入
-大致认识了界面并了解 Stable Diffusion WebUI 的扩展安装方法后，现在来调整生成图片的参数。
+### 为提示词补全扩展添加词库和中文翻译
+a1111-sd-webui-tagcomplete 扩展可以提供提示词补全功能，在 SD WebUI 设置中和该扩展有关的设置中可以更换提示词补全的词库，也可以添加中文翻译，下面是更全的提示词补全词库和对应的中文翻译的下载地址。
 
-在正面提示词中输入你想要 AI 生成的东西（必须是英文），这里我们可以利用 a1111-sd-webui-tagcomplete 扩展来辅助我们输入提示词。使用方向键选择要补全的提示词，++tab++ 键 / ++enter++ 键补全提示词。
+[Tag++ 下载](https://modelscope.cn/models/licyks/sdnote/resolve/master/tag/tags%2B%2B.zip)
 
-![tag_complete](../../assets/images/guide/sd_webui/t2i/tag_complete.jpg)
+将这个文件下载到本地并解压后，放进`stable-diffusion-webui/extensions/a1111-sd-webui-tagcomplete/tags`文件夹中，然后在 SD WebUI 的`设置`->`标签自动补全`中，在`选择使用的标签文件名`选择`tag++.csv`，`翻译文件名`选择`tag++_zh_new.csv`，再点击上方的保存设置使设置生效。
+
+![switch_tag_file_and_add_tag_translation_for_tagcomplete](../../assets/images/guide/sd_webui/t2i/switch_tag_file_and_add_tag_translation_for_tagcomplete.jpg)
+
+这样不仅可以看补全的提示词对应的翻译，也可以使用中文来触发提示词补全。
 
 !!!note
     a1111-sd-webui-tagcomplete 扩展：https://github.com/DominikDoom/a1111-sd-webui-tagcomplete
+
+
+### 优化提示词权重模式
+在之后使用 SDXL 模型时，默认的提示词权重模式可能会导致 SDXL 模型出图异常，可通过修改提示词权重模式解决。在 SD WebUI 的`设置`->`SD`->`强调模式`，选择 No norm 后保存设置即可。
+
+
+### 优化显存占用
+如果显存比较小，在使用 SDXL 或者其他参数比较大的模型时，可能会遇到显存不足的问题，但是可以通过降低精度的方式降低显存的占用。
+
+启用 FP8 前需要 PyTorch 版本大于 2.1，SD WebUI 版本大于或等于 1.8。
+
+确保这些条件满足后，在 SD WebUI 的`设置`->`优化设置`->`FP8 权重`，选择对 SDXL 模型启用，保存设置后即可启用，4G 显存也能运行 SDXL 模型。
+
+
+## 图片生成
+前期准备完成后，现在来尝试生成一张图片。
+
+
+### 提示词输入
+在正面提示词中输入你想要 AI 生成的东西（必须是英文），这里我们可以利用 a1111-sd-webui-tagcomplete 扩展来辅助我们输入提示词。使用方向键选择要补全的提示词，++tab++ 键 / ++enter++ 键补全提示词。
+
+![tag_complete](../../assets/images/guide/sd_webui/t2i/tag_complete.jpg)
 
 如果对英文不熟悉，也可以通过 sd-webui-prompt-all-in-one 扩展输入提示词。点击左下角的按钮即可展开提示词列表，单击列表中的其中一个提示词就可以把输入到提示词框中。
 
@@ -120,7 +147,7 @@ lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits
 ```
 
 
-## 生图参数调整
+### 生图参数调整
 填完了提示词，我们还需要调整一下左下角的生图参数。
 
 采样方法用于控制对噪声进行降噪的方法。生成图片时，根据随机数种子生成一张噪声图送入潜空间中，采样器在潜空间中将噪声图进行降噪，最终得到想要的图像。
@@ -163,7 +190,7 @@ lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits
 CLIP 终止层数设置 CLIP 处理到哪一层终止，通常设置为 2 即可，也就处理到倒数第 2 层，跳过最后一层。这个值越高，跳过的 CLIP 层数越多，AI 对提示词的响应程度越低。
 
 
-## 生图
+### 生图
 调整完这些参数后，点击右侧的生成按钮就开始生图了，生成完成后即可在图片预览区域看见生成好的图片。
 
 ![finish_generate_image](../../assets/images/guide/sd_webui/t2i/finish_generate_image.jpg)
