@@ -85,7 +85,7 @@ a1111-sd-webui-tagcomplete 扩展可以提供提示词补全功能，在 SD WebU
 
 [Tag++ 下载](https://modelscope.cn/models/licyks/sdnote/resolve/master/tag/tags%2B%2B.zip)
 
-将这个文件下载到本地并解压后，放进`stable-diffusion-webui/extensions/a1111-sd-webui-tagcomplete/tags`文件夹中，然后在 SD WebUI 的`设置`->`标签自动补全`中，在`选择使用的标签文件名`选择`tag++.csv`，`翻译文件名`选择`tag++_zh_new.csv`，再点击上方的保存设置使设置生效。
+将这个文件下载到本地并解压后，放进`stable-diffusion-webui/extensions/a1111-sd-webui-tagcomplete/tags`文件夹中，然后在 SD WebUI 的`设置`->`标签自动补全`中，在`选择使用的标签文件名`选择`tag++.csv`，`翻译文件名`选择`tag++_zh_new.csv`，再勾选**展示所有候选标签**，最后点击上方的保存设置使设置生效。
 
 ![switch_tag_file_and_add_tag_translation_for_tagcomplete](../../assets/images/guide/sd_webui/t2i/switch_tag_file_and_add_tag_translation_for_tagcomplete.jpg)
 
