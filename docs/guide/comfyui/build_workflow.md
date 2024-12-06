@@ -227,8 +227,8 @@ InstructPix2Pix 模型为图片编辑模型，通过提示词修改图片中的�
 |[t5xxl_fp8_e4m3fn.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp8_e4m3fn.safetensors)|ComfyUI/models/clip|
 |[clip_l.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/clip_l.safetensors)|ComfyUI/models/clip|
 |[ae.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_vae/ae.safetensors)|ComfyUI/models/vae|
-|[flux1-dev-fp8.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_1/flux1-dev-fp8.safetensors)|ComfyUI/models/checkpoints|
-|[flux1-schnell-fp8.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_1/flux1-schnell-fp8.safetensors)|ComfyUI/models/checkpoints|
+|[flux1-dev-fp8.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_1/flux1-dev-fp8.safetensors)（包含文本编码器、UNet、VAE）|ComfyUI/models/checkpoints|
+|[flux1-schnell-fp8.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_1/flux1-schnell-fp8.safetensors)（包含文本编码器、UNet、VAE）|ComfyUI/models/checkpoints|
 |[flux1-canny-dev.safetensors](https://modelscope.cn/models/licyks/flux_controlnet/resolve/master/flux1-canny-dev.safetensors)|ComfyUI/models/unet|
 |[flux1-canny-dev-lora.safetensors](https://modelscope.cn/models/licyks/flux_controlnet/resolve/master/flux1-canny-dev-lora.safetensors)|ComfyUI/models/loras|
 |[flux1-depth-dev.safetensors](https://modelscope.cn/models/licyks/flux_controlnet/resolve/master/flux1-depth-dev.safetensors)|ComfyUI/models/unet|
@@ -283,3 +283,82 @@ FLUX Redux 模型使用一张或者多张图片作为提示词，可用于风格
 
 ![flux_redux_model_example](../../assets/images/guide/comfyui/build_workflow/flux_redux_model_example.png)
 
+
+## 使用 AuraFlow 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[aura_flow_0.2.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/AuraFlow/aura_flow_0.2.safetensors)|ComfyUI/models/checkpoints|
+
+AuraFlow 模型是真正开源的模型之一，其代码和模型权重都采用 FOSS 许可证。
+
+下面的工作流简单演示 AuraFlow 模型的使用。
+
+![aura_flow_0.2_example](../../assets/images/guide/comfyui/build_workflow/aura_flow_0.2_example.png)
+
+
+## 使用 HunyuanDiT 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[hunyuan_dit_1.2.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/hunyuan_dit_comfyui/hunyuan_dit_1.2.safetensors)|ComfyUI/models/checkpoints|
+
+HunyuanDiT 是一个支持中文和英文提示词的模型，下面的工作流演示了使用两种语言书写提示词并生成。
+
+![hunyuan_dit_1.2_example](../../assets/images/guide/comfyui/build_workflow/hunyuan_dit_1.2_example.png)
+
+
+## 生成 3D 图
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[stable_zero123.ckpt](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/stable-zero123/stable_zero123.ckpt)|ComfyUI/models/checkpoints|
+
+下面的工作流简单演示使用 Stable Zero123 模型为一张具有简单背景和物体的图片生成不同角度的图片。
+
+![stable_zero123_example](../../assets/images/guide/comfyui/build_workflow/stable_zero123_example.png)
+
+
+## 使用 Stable Video Diffusion 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[svd.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/stable-video-diffusion-img2vid/svd.safetensors)|ComfyUI/models/checkpoints|
+|[svd_xt.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/stable-video-diffusion-img2vid/svd_xt.safetensors)|ComfyUI/models/checkpoints|
+
+Stable Video Diffusion 模型可以将图片转换为视频，该模型不支持使用提示词，下面是一些可以调整的参数。
+
+|参数|作用|
+|---|---|
+|帧数|设置总共要生成的视频帧数。|
+|帧率|帧率越高越流畅。|
+|增强|设置向原图图片增加的噪声量，值越高，和原图的相似性更低，但视频的运动更多。|
+
+**线性CFG引导**节点使模型在生成不同的帧时使用不同的 CFG，在上面的例子中，开始帧的 CFG 为 1，中间帧的 CFG 为 1.75，最后一帧的 CFG 为 2.5。
+
+![image_to_video](../../assets/images/guide/comfyui/build_workflow/image_to_video.png)
+
+
+## 使用 Mochi 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+
+
+## 使用 LTX-Video 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+
+
+## 使用 Audio Models 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
