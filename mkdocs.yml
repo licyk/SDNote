@@ -12,7 +12,7 @@ theme:
   name: material
   language: zh
   features:
-    # - navigation.instant # 即时加载, 在firefox下有内存泄露的问题
+    # - navigation.instant # 即时加载, 在 Firefox 下有内存泄露的问题
     - navigation.instant.prefetch # 即时预加载
     - navigation.instant.progress # 加载进度显示
     - navigation.instant.preview # 即时预览
@@ -34,16 +34,16 @@ theme:
     - content.code.annotate # 代码注解
     - content.tabs.link # 链接的内容选项卡
     - content.tooltips # 改进的工具提示
-    
+
   palette: # 颜色
 
-    # Palette toggle for automatic mode
+    # 自动模式的配色切换
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
         name: 跟随系统配色
 
-    # Palette toggle for light mode
+    # 浅色模式的配色切换
     - media: "(prefers-color-scheme: light)"
       scheme: default # 配色
       primary: white # 原色
@@ -52,7 +52,7 @@ theme:
         icon: material/brightness-7
         name: 浅色主题
 
-    # Palette toggle for dark mode
+    # 深色模式的配色切换
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
@@ -76,10 +76,10 @@ plugins:
       enable_creation_date: false # 显示与页面关联的文件的创建日期
       type: iso_date # 时间格式
   - glightbox # 图像缩放
-#  - git-committers:
-#      repository: licyk/SDNote
-#      branch: main
-#  - git-authors
+  # - git-committers:
+  #   repository: licyk/SDNote
+  #   branch: main
+  # - git-authors
 
 extra:
   homepage: https://sdnote.netlify.app
@@ -97,7 +97,7 @@ extra:
       link: mailto:licyk233@163.com
       name: 联系邮箱
 
-  generator: false # 生成器通知
+  generator: true # 生成器通知
 
 copyright: Copyright &copy; 2024 licyk
 
@@ -165,15 +165,15 @@ markdown_extensions:
 nav:
 - "主页": index.md
 - "部署与使用":
-  - guide/index.md
-  - "需求与准备":
-    - guide/requirement/index.md
+  - "前言": guide/index.md
+  - "需求与准备": guide/requirement/index.md
   - "模型指南":
-    - guide/model/index.md
+    - "模型种类": guide/model/index.md
     - "模型下载": guide/model/download_model.md
   - "SD WebUI 部署与使用":
     - "概述": guide/sd_webui/index.md
     - "部署": guide/sd_webui/install.md
+    - "前期配置": guide/sd_webui/configure.md
     - "文生图": guide/sd_webui/t2i.md
     - "提示词书写": guide/sd_webui/prompt.md
     - "高级提示词语法": guide/sd_webui/advance_prompt.md
@@ -218,7 +218,7 @@ nav:
         - "风格模型": guide/comfyui/nodes/conditioning/style_model/index.md
         - "ControlNet": guide/comfyui/nodes/conditioning/controlnet/index.md
         - "GLIGEN": guide/comfyui/nodes/conditioning/gligen/index.md
-        - "内补": guide/comfyui/nodes/conditioning/inpaint/index.md
+        - "重绘": guide/comfyui/nodes/conditioning/inpaint/index.md
         - "视频模型": guide/comfyui/nodes/conditioning/video_models/index.md
         - "3D 模型": guide/comfyui/nodes/conditioning/3d_models/index.md
         - "放大扩散": guide/comfyui/nodes/conditioning/upscale_diffusion/index.md
@@ -226,17 +226,17 @@ nav:
         - "InstructPix2Pix": guide/comfyui/nodes/conditioning/instructpix2pix/index.md
       - "Latent":
         - "Latent": guide/comfyui/nodes/latent/index.md
-        - "内补": guide/comfyui/nodes/latent/inpaint/index.md
+        - "重绘": guide/comfyui/nodes/latent/inpaint/index.md
         - "批处理": guide/comfyui/nodes/latent/batch/index.md
         - "变换": guide/comfyui/nodes/latent/transform/index.md
         - "高级":
           - "高级": guide/comfyui/nodes/latent/advanced/index.md
-          - "operations": guide\comfyui\nodes\latent\advanced\operations\index.md
+          - "操作": guide\comfyui\nodes\latent\advanced\operations\index.md
         - "StableCascade": guide/comfyui/nodes/latent/stable_cascade/index.md
         - "音频": guide/comfyui/nodes/latent/audio/index.md
         - "SD3": guide/comfyui/nodes/latent/sd3/index.md
-        - "video":
-          - "video": guide/comfyui/nodes/latent/video/index.md
+        - "视频":
+          - "视频": guide/comfyui/nodes/latent/video/index.md
           - "ltxv": guide/comfyui/nodes/latent/video/ltxv/index.md
       - "图像":
         - "图像": guide/comfyui/nodes/image/index.md
@@ -265,14 +265,14 @@ nav:
           - "模型融合": guide/comfyui/nodes/advanced/model_merging/index.md
           - "模型版本": guide/comfyui/nodes/advanced/model_merging/model_specific/index.md
         - "模型": guide/comfyui/nodes/advanced/model/index.md
-        - "guidance": guide/comfyui/nodes/advanced/guidance/index.md
-        - "hooks":
-          - "hooks": guide/comfyui/nodes/advanced/hooks/index.md
-          - "create": guide/comfyui/nodes/advanced/hooks/create/index.md
+        - "引导": guide/comfyui/nodes/advanced/guidance/index.md
+        - "触发器":
+          - "触发器": guide/comfyui/nodes/advanced/hooks/index.md
+          - "创建器": guide/comfyui/nodes/advanced/hooks/create/index.md
           - "调度": guide/comfyui/nodes/advanced/hooks/scheduling/index.md
-          - "combine": guide/comfyui/nodes/advanced/hooks/combine/index.md
-          - "cond single": guide/comfyui/nodes/advanced/hooks/cond_single/index.md
-          - "cond pair": guide/comfyui/nodes/advanced/hooks/cond_pair/index.md
+          - "组合": guide/comfyui/nodes/advanced/hooks/combine/index.md
+          - "单条件": guide/comfyui/nodes/advanced/hooks/cond_single/index.md
+          - "双条件": guide/comfyui/nodes/advanced/hooks/cond_pair/index.md
           - "CLIP": guide/comfyui/nodes/advanced/hooks/clip/index.md
       - "模型微调":
         - "UNet": guide/comfyui/nodes/model_patches/unet/index.md
@@ -280,15 +280,15 @@ nav:
       - "api":
         - "图像": guide/comfyui/nodes/api/image/index.md
 - "绘世启动器使用":
-  - sd_launcher/index.md
+  - "概述": sd_launcher/index.md
   - "部署功能":
-    - sd_launcher/install/index.md
+    - "部署功能": sd_launcher/install/index.md
   - "高级选项":
     - "高级选项": sd_launcher/advance/index.md
     - "环境维护": sd_launcher/advance/env.md
     - "补丁管理": sd_launcher/advance/patch.md
   - "版本管理":
-    - sd_launcher/ver_manager/index.md
+    - "简述": sd_launcher/ver_manager/index.md
     - "内核": sd_launcher/ver_manager/kernel.md
     - "扩展": sd_launcher/ver_manager/extension.md
     - "安装新扩展": sd_launcher/ver_manager/install.md
@@ -300,7 +300,7 @@ nav:
     - "配置 ZLUDA": sd_launcher/other/zluda.md
     - "杂项": sd_launcher/other/index.md
 - "使用疑难解答":
-  - help/index.md
+  - "概述": help/index.md
   - "绘世启动器": help/sd_launcher.md
   - "SD WebUI": help/sd_webui.md
   - "ComfyUI": help/comfyui.md

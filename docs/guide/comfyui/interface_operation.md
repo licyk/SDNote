@@ -62,6 +62,8 @@ git clone https://github.com/AIGODLIKE/AIGODLIKE-COMFYUI-TRANSLATION
 |H|显示历史工作流。|
 |R|刷新工作流。|
 
+<!-- TODO: 需要更新-->
+
 
 ## 节点操作
 在节点的左侧接口为输入点，节点右侧的接口为输出点，鼠标按住接口并向外拖动可以看到延伸出来的线，将线拖到匹配这个线的接口上可完成不同节点之间的连接。
