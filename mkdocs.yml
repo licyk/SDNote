@@ -198,9 +198,87 @@ nav:
     - "使用导入工作流": guide/comfyui/input_workflows.md
     - "杂项": guide/comfyui/extra.md
     - "节点库":
-      - "概述": guide/comfyui/node/index.md
-      - "实用工具": guide/comfyui/node/utils/index.md
-      - "采样": guide/comfyui/node/sampling/index.md
+      - "概述": guide/comfyui/nodes/index.md
+      - "实用工具": guide/comfyui/nodes/utils/index.md
+      - "采样":
+        - "采样": guide/comfyui/nodes/sampling/index.md
+        - "自定义采样":
+          - "自定义采样": guide/comfyui/nodes/sampling/custom_sampling/index.md
+          - "调度器": guide/comfyui/nodes/sampling/custom_sampling/schedulers/index.md
+          - "采样器": guide/comfyui/nodes/sampling/custom_sampling/samplers/index.md
+          - "Sigmas": guide/comfyui/nodes/sampling/custom_sampling/sigmas/index.md
+          - "引导器": guide/comfyui/nodes/sampling/custom_sampling/guiders/index.md
+          - "噪波": guide/comfyui/nodes/sampling/custom_sampling/noise/index.md
+        - "视频模型": guide/comfyui/nodes/sampling/video_models/index.md
+      - "加载器":
+        - "加载器": guide/comfyui/nodes/loaders/index.md
+        - "视频模型": guide/comfyui/nodes/loaders/video_models/index.md
+      - "条件":
+        - "条件": guide/comfyui/nodes/conditioning/index.md
+        - "风格模型": guide/comfyui/nodes/conditioning/style_model/index.md
+        - "ControlNet": guide/comfyui/nodes/conditioning/controlnet/index.md
+        - "GLIGEN": guide/comfyui/nodes/conditioning/gligen/index.md
+        - "内补": guide/comfyui/nodes/conditioning/inpaint/index.md
+        - "视频模型": guide/comfyui/nodes/conditioning/video_models/index.md
+        - "3D 模型": guide/comfyui/nodes/conditioning/3d_models/index.md
+        - "放大扩散": guide/comfyui/nodes/conditioning/upscale_diffusion/index.md
+        - "StableCascade": guide/comfyui/nodes/conditioning/stable_cascade/index.md
+        - "InstructPix2Pix": guide/comfyui/nodes/conditioning/instructpix2pix/index.md
+      - "Latent":
+        - "Latent": guide/comfyui/nodes/latent/index.md
+        - "内补": guide/comfyui/nodes/latent/inpaint/index.md
+        - "批处理": guide/comfyui/nodes/latent/batch/index.md
+        - "变换": guide/comfyui/nodes/latent/transform/index.md
+        - "高级":
+          - "高级": guide/comfyui/nodes/latent/advanced/index.md
+          - "operations": guide\comfyui\nodes\latent\advanced\operations\index.md
+        - "StableCascade": guide/comfyui/nodes/latent/stable_cascade/index.md
+        - "音频": guide/comfyui/nodes/latent/audio/index.md
+        - "SD3": guide/comfyui/nodes/latent/sd3/index.md
+        - "video":
+          - "video": guide/comfyui/nodes/latent/video/index.md
+          - "ltxv": guide/comfyui/nodes/latent/video/ltxv/index.md
+      - "图像":
+        - "图像": guide/comfyui/nodes/image/index.md
+        - "放大": guide/comfyui/nodes/image/upscaling/index.md
+        - "后处理": guide/comfyui/nodes/image/postprocessing/index.md
+        - "批处理": guide/comfyui/nodes/image/batch/index.md
+        - "预处理": guide/comfyui/nodes/image/preprocessors/index.md
+        - "变换": guide/comfyui/nodes/image/transform/index.md
+        - "动画": guide/comfyui/nodes/image/animation/index.md
+      - "遮罩":
+        - "遮罩": guide/comfyui/nodes/mask/index.md
+        - "合成": guide/comfyui/nodes/mask/compositing/index.md
+      - "测试":
+        - "测试": guide/comfyui/nodes/_for_testing/index.md
+        - "自定义采样": guide/comfyui/nodes/_for_testing/custom_sampling/noise/index.md
+        - "条件": guide/comfyui/nodes/_for_testing/conditioning/index.md
+        - "StableCascade": guide/comfyui/nodes/_for_testing/stable_cascade/index.md
+        - "注意力测试": guide/comfyui/nodes/_for_testing/attension_experiments/index.md
+      - "高级":
+        - "高级": guide/comfyui/nodes/advanced/index.md
+        - "加载器": guide/comfyui/nodes/advanced/loaders/index.md
+        - "条件":
+          - "条件": guide/comfyui/nodes/advanced/conditioning/index.md
+          - "flux": guide/comfyui/nodes/advanced/conditioning/flux/index.md
+        - "模型融合":
+          - "模型融合": guide/comfyui/nodes/advanced/model_merging/index.md
+          - "模型版本": guide/comfyui/nodes/advanced/model_merging/model_specific/index.md
+        - "模型": guide/comfyui/nodes/advanced/model/index.md
+        - "guidance": guide/comfyui/nodes/advanced/guidance/index.md
+        - "hooks":
+          - "hooks": guide/comfyui/nodes/advanced/hooks/index.md
+          - "create": guide/comfyui/nodes/advanced/hooks/create/index.md
+          - "调度": guide/comfyui/nodes/advanced/hooks/scheduling/index.md
+          - "combine": guide/comfyui/nodes/advanced/hooks/combine/index.md
+          - "cond single": guide/comfyui/nodes/advanced/hooks/cond_single/index.md
+          - "cond pair": guide/comfyui/nodes/advanced/hooks/cond_pair/index.md
+          - "CLIP": guide/comfyui/nodes/advanced/hooks/clip/index.md
+      - "模型微调":
+        - "UNet": guide/comfyui/nodes/model_patches/unet/index.md
+      - "音频": guide/comfyui/nodes/audio/index.md
+      - "api":
+        - "图像": guide/comfyui/nodes/api/image/index.md
 - "绘世启动器使用":
   - sd_launcher/index.md
   - "部署功能":
@@ -220,7 +298,7 @@ nav:
     - "控制台": sd_launcher/other/terminal.md
     - "启动器设置": sd_launcher/other/setting.md
     - "配置 ZLUDA": sd_launcher/other/zluda.md
-    - sd_launcher/other/index.md
+    - "杂项": sd_launcher/other/index.md
 - "使用疑难解答":
   - help/index.md
   - "绘世启动器": help/sd_launcher.md
