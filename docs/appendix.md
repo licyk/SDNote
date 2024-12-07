@@ -87,6 +87,7 @@ hide:
 - [wyrde/wyrde-comfyui-workflows](https://github.com/wyrde/wyrde-comfyui-workflows)
 - [atlasunified/Templates-ComfyUI-](https://github.com/atlasunified/Templates-ComfyUI-)
 - [ComfyUI Org](https://www.comfy.org)
+- [ComfyUI WIKI 速查手册](https://comfyui-wiki.com/zh)
 
 
 ## 报错合集
