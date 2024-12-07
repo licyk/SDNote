@@ -304,10 +304,15 @@ AuraFlow 模型是真正开源的模型之一，其代码和模型权重都采�
 |模型下载|放置路径|
 |---|---|
 |[hunyuan_dit_1.2.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/hunyuan_dit_comfyui/hunyuan_dit_1.2.safetensors)|ComfyUI/models/checkpoints|
+|[comfy_freeway_animation_hunyuan_dit_180w.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/hunyuan_dit_comfyui/comfy_freeway_animation_hunyuan_dit_180w.safetensors)|ComfyUI/models/checkpoints|
 
 HunyuanDiT 是一个支持中文和英文提示词的模型，下面的工作流演示了使用两种语言书写提示词并生成。
 
 ![hunyuan_dit_1.2_example](../../assets/images/guide/comfyui/build_workflow/hunyuan_dit_1.2_example.png)
+
+Freeway Animation HunYuan 基于 HunyuanDiT 进行训练，在二次元方便表现更好。
+
+![freeway_animation_hunyuan_dit_1.2_example](../../assets/images/guide/comfyui/build_workflow/freeway_animation_hunyuan_dit_1.2_example.png)
 
 
 ## 生成 3D 图
@@ -348,6 +353,26 @@ Stable Video Diffusion 模型可以将图片转换为视频，该模型不支持
 
 |模型下载|放置路径|
 |---|---|
+|[mochi_preview_bf16.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/mochi/mochi_preview_bf16.safetensors)|ComfyUI/models/unet|
+|[mochi_preview_fp8_scaled.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/mochi/mochi_preview_fp8_scaled.safetensors)|ComfyUI/models/unet|
+|[mochi_preview_fp8_scaled_incl_t5xxl_vae.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/mochi/mochi_preview_fp8_scaled_incl_t5xxl_vae.safetensors)（包含文本编码器、UNet、VAE）|ComfyUI/models/checkpoints|
+|[t5xxl_fp16.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp16.safetensors)|ComfyUI/models/clip|
+|[t5xxl_fp8_e4m3fn.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp8_e4m3fn.safetensors)|ComfyUI/models/clip|
+|[mochi_vae.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/mochi/mochi_vae.safetensors)|ComfyUI/models/vae|
+
+Mochi 模型可以通过提示词生成视频，模型的文本编码器、UNet、VAE 需要分开加载。
+
+mochi_preview_bf16.safetensors 对显存大小要求高，如果遇到显存不足的问题，请使用 mochi_preview_fp8_scaled.safetensors，或者将**UNET加载器**节点的剪枝类型修改为 fp8_e4m3fn / fp8_e5m2 / fp8_e4m3fn_fast。
+
+t5xxl_fp16.safetensors 对显存要求高，可以更换为 t5xxl_fp8_e4m3fn.safetensor 降低显存要求。
+
+视频总共的帧数可以在**EmptyMochiLatentVideo**节点的 length 参数设置。
+
+![mochi_text_to_video_example](../../assets/images/guide/comfyui/build_workflow/mochi_text_to_video_example.png)
+
+Mochi 也有将文本编码器、UNet、VAE 打包在一起的版本。
+
+![mochi_simple_checkpoint](../../assets/images/guide/comfyui/build_workflow/mochi_simple_checkpoint.png)
 
 
 ## 使用 LTX-Video 模型
@@ -355,6 +380,19 @@ Stable Video Diffusion 模型可以将图片转换为视频，该模型不支持
 
 |模型下载|放置路径|
 |---|---|
+|[ltx-video-2b-v0.9.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/LTX-Video/ltx-video-2b-v0.9.safetensors)|ComfyUI/models/checkpoints|
+|[t5xxl_fp16.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp16.safetensors)|ComfyUI/models/clip|
+|[t5xxl_fp8_e4m3fn.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp8_e4m3fn.safetensors)|ComfyUI/models/clip|
+
+LTX-Video 模型可以通过提示词生成视频，使用时建议将提示词写的详细一些，这可以提高模型生成视频的质量。
+
+t5xxl_fp16.safetensors 对显存要求高，可以更换为 t5xxl_fp8_e4m3fn.safetensor 降低显存要求。
+
+![ltxv_text_to_video](../../assets/images/guide/comfyui/build_workflow/ltxv_text_to_video.png)
+
+LTX-Video 模型除了支持使用提示词生成视频，也支持使用图片进行图片生成。
+
+![ltxv_image_to_video](../../assets/images/guide/comfyui/build_workflow/ltxv_image_to_video.png)
 
 
 ## 使用 Audio Models 模型
@@ -362,3 +400,9 @@ Stable Video Diffusion 模型可以将图片转换为视频，该模型不支持
 
 |模型下载|放置路径|
 |---|---|
+|[stable_audio_open_1.0.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/stable-audio-open/stable_audio_open_1.0.safetensors)|ComfyUI/models/checkpoints|
+|[t5_base.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/stable-audio-open/t5_base.safetensors)|ComfyUI/models/clip|
+
+[Stability AI](https://stability.ai/) 发布了 Stable Audio Open 模型，可以用于音频生成。
+
+![stable_audio_example](../../assets/images/guide/comfyui/build_workflow/stable_audio_example.png)
