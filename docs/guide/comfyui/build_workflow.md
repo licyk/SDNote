@@ -2,7 +2,9 @@
 title: 搭建工作流
 ---
 # 搭建工作流
-下面将展示在 ComfyUI 如何搭建基本的工作流，下面演示的工作流可通过下载工作流图片后导入进 ComfyUI 中。
+通常搭建工作流时建议使用 ComfyUI 自带的节点进行搭建，少使用 ComfyUI 扩展提供的节点，这样可以减少 ComfyUI 报错的概率，当 ComfyUI 自带的节点无法实现想要的功能时再考虑使用 ComfyUI 扩展提供的节点。
+
+下面将展示在 ComfyUI 如何使用 ComfyUI 自带节点搭建基本的工作流，下面演示的工作流可通过下载工作流图片后导入进 ComfyUI 中。
 
 
 ## 文生图
@@ -73,7 +75,7 @@ Checkpoint加载器 节点用于加载大模型，可以看到这个节点有 3 
 
 在遮罩编辑器中使用画笔绘制遮罩，绘制遮罩的部分将会被重绘。遮罩绘制完后，点击右下角的 Save to node 选项将绘制遮罩完成的图片保存到该节点中。
 
-![mask_editor](../../assets/images/guide/comfyui/build_workflow/mask_editor.jpg)
+![mask_editor](../../assets/images/guide/comfyui/build_workflow/mask_editor.png)
 
 调节 K采样器 节点的降噪值，再运行工作流，可以看到遮罩部分已经被重绘成提示词描述的样子了。
 

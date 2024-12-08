@@ -194,8 +194,8 @@ nav:
     - "概述": guide/comfyui/index.md
     - "部署": guide/comfyui/install.md
     - "界面操作": guide/comfyui/interface_operation.md
+    - "导入工作流": guide/comfyui/input_workflows.md
     - "搭建工作流": guide/comfyui/build_workflow.md
-    - "使用导入工作流": guide/comfyui/input_workflows.md
     - "杂项": guide/comfyui/extra.md
 - "绘世启动器使用":
   - "概述": sd_launcher/index.md
