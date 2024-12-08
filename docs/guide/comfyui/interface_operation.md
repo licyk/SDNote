@@ -263,3 +263,332 @@ ComfyUI-Manager 还有其他实用的功能，如标签显示功能，启用后�
 ComfyUI-Manager 还提供了释放显存的工具，在 ComfyUI-Manager 的**管理器**按钮旁边有 2 个用于释放显存的按钮，点击后将会卸载放置在显存中的模型，释放被占用的显存。
 
 ![unload_model_by_comfyui_manager](../../assets/images/guide/comfyui/interface_operation/unload_model_by_comfyui_manager.png)
+
+
+## ComfyUI 内置节点
+使用 ComfyUI 时，优先使用 ComfyUI 内置的节点进行工作流搭建，当 ComfyUI 内置的节点无法实现想要的功能时再考虑使用 ComfyUI 扩展提供的节点。
+
+下面是 ComfyUI 内置的节点列表。
+
+???ComfyUI_Node_Library
+    ComfyUI Node Library  
+    ├── api  
+    │   └── 图像  
+    │       └── 保存图像到网络接口  
+    ├── Latent  
+    │   ├── Latent按系数缩放  
+    │   ├── Latent复合  
+    │   ├── Latent缩放  
+    │   ├── Latent遮罩复合  
+    │   ├── SD3  
+    │   │   └── 空Latent_SD3  
+    │   ├── StableCascade  
+    │   │   ├── VAE编码_Cascade_StageC  
+    │   │   └── 空Latent_Cascade  
+    │   ├── VAE编码  
+    │   ├── VAE解码  
+    │   ├── video  
+    │   │   ├── EmptyMochiLatentVideo  
+    │   │   └── ltxv  
+    │   │       └── EmptyLTXVLatentVideo  
+    │   ├── 变换  
+    │   │   ├── Latent裁剪  
+    │   │   ├── Latent翻转  
+    │   │   └── Latent旋转  
+    │   ├── 高级  
+    │   │   ├── Latent插值  
+    │   │   ├── Latent批次随机种操作  
+    │   │   ├── Latent相乘  
+    │   │   ├── Latent相加  
+    │   │   ├── Latent相减  
+    │   │   └── operations  
+    │   │       ├── Latent操作 色调映射Reinhard  
+    │   │       ├── Latent操作（锐化）  
+    │   │       ├── Latent应用操作  
+    │   │       └── Latent应用操作（CFG）  
+    │   ├── 空Latent  
+    │   ├── 内补  
+    │   │   ├── VAE内补编码器  
+    │   │   └── 设置Latent噪波遮罩  
+    │   ├── 批处理  
+    │   │   ├── Latent组合批次  
+    │   │   ├── 从批次获取Latent  
+    │   │   ├── 复制Latent批次  
+    │   │   └── 重设Latent批次  
+    │   └── 音频  
+    │       ├── VAE编码_Audio  
+    │       ├── VAE解码_Audio  
+    │       └── 空Latent_Audio  
+    ├── 采样  
+    │   ├── K采样器  
+    │   ├── K采样器(高级)  
+    │   ├── 视频模型  
+    │   │   ├── 三角CFG引导  
+    │   │   └── 线性CFG引导  
+    │   └── 自定义采样  
+    │       ├── Sigmas  
+    │       │   ├── 翻转Sigmas  
+    │       │   ├── 分离Sigmas  
+    │       │   └── 分离Sigmas降噪  
+    │       ├── 采样器  
+    │       │   ├── DPMAdaptative采样器  
+    │       │   ├── DPMPP_2M_SDE采样器  
+    │       │   ├── DPMPP_2S_Ancestral采样器  
+    │       │   ├── DPMPP_3M_SDE采样器  
+    │       │   ├── DPMPP_SDE采样器  
+    │       │   ├── Euler_A_CFG++采样器  
+    │       │   ├── Euler_A采样器  
+    │       │   ├── K采样器选择  
+    │       │   ├── LCM缩放采样器  
+    │       │   └── LMS采样器  
+    │       ├── 调度器  
+    │       │   ├── AlignYourSteps调度器  
+    │       │   ├── Beta调度器  
+    │       │   ├── Exponential调度器  
+    │       │   ├── GITS调度器  
+    │       │   ├── Karras调度器  
+    │       │   ├── Laplace调度器  
+    │       │   ├── LTXVScheduler  
+    │       │   ├── Polyexponential调度器  
+    │       │   ├── SDTurbo调度器  
+    │       │   ├── VP调度器  
+    │       │   └── 基础调度器  
+    │       ├── 引导器  
+    │       │   ├── CFG引导  
+    │       │   ├── 基础引导  
+    │       │   └── 双CFG引导  
+    │       ├── 噪波  
+    │       │   ├── 禁用噪波  
+    │       │   └── 随机噪波  
+    │       ├── 自定义采样器  
+    │       └── 自定义采样器(高级)  
+    ├── 测试
+    │   ├── Euler_CFG++采样器  
+    │   ├── Latent混合  
+    │   ├── PerpNeg重塑负提示引导  
+    │   ├── PhotoMaker  
+    │   │   ├── PhotoMaker编码  
+    │   │   └── PhotoMaker加载器  
+    │   ├── SAG自注意力引导  
+    │   ├── StableCascade  
+    │   │   └── StableCascade_超分ControlNet  
+    │   ├── Torch编译模型  
+    │   ├── VAE分块编码  
+    │   ├── VAE分块解码  
+    │   ├── 保存 LoRA  
+    │   ├── 保存Latent  
+    │   ├── 差异扩散  
+    │   ├── 读取Latent  
+    │   ├── 条件  
+    │   │   └── CLIP文本编码ControlNet  
+    │   ├── 注意力测试  
+    │   │   ├── CLIP注意力乘数  
+    │   │   ├── UNetTemporal注意力乘数  
+    │   │   ├── UNet交叉注意力乘数  
+    │   │   └── UNet自注意力乘数  
+    │   └── 自定义采样  
+    │       └── 噪波  
+    │           └── 添加噪波  
+    ├── 高级  
+    │   ├── guidance  
+    │   │   ├── SkipLayerGuidanceDiT  
+    │   │   └── SkipLayerGuidanceSD3  
+    │   ├── hooks  
+    │   │   ├── CLIP  
+    │   │   │   └── Set CLIP Hooks  
+    │   │   ├── combine  
+    │   │   │   ├── Combine Hooks [2]  
+    │   │   │   ├── Combine Hooks [4]  
+    │   │   │   └── Combine Hooks [8]  
+    │   │   ├── cond pair  
+    │   │   │   ├── Cond Pair Combine  
+    │   │   │   ├── Cond Pair Set Default Combine  
+    │   │   │   ├── Cond Pair Set Props  
+    │   │   │   └── Cond Pair Set Props Combine  
+    │   │   ├── cond single  
+    │   │   │   ├── Cond Set Default Combine  
+    │   │   │   ├── Cond Set Props  
+    │   │   │   └── Cond Set Props Combine  
+    │   │   ├── create  
+    │   │   │   ├── Create Hook LoRA  
+    │   │   │   ├── Create Hook LoRA (MO)  
+    │   │   │   ├── Create Hook Model as LoRA  
+    │   │   │   └── Create Hook Model as LoRA (MO)  
+    │   │   ├── Timesteps Range  
+    │   │   └── 调度  
+    │   │       ├── Create Hook Keyframe  
+    │   │       ├── Create Hook Keyframes From Floats  
+    │   │       ├── Create Hook Keyframes Interp  
+    │   │       └── Set Hook Keyframes  
+    │   ├── 加载器  
+    │   │   ├── CLIP加载器  
+    │   │   ├── UNET加载器  
+    │   │   ├── 三CLIP加载器  
+    │   │   ├── 双CLIP加载器  
+    │   │   └── 已弃用  
+    │   │       └── 扩散加载器  
+    │   ├── 模型  
+    │   │   ├── ModelSamplingLTXV  
+    │   │   ├── 模型采样算法AuraFlow  
+    │   │   ├── 模型采样算法Cascade  
+    │   │   ├── 模型采样算法Flux  
+    │   │   ├── 模型采样算法SD3  
+    │   │   ├── 模型离散采样算法  
+    │   │   ├── 模型连续采样算法EDM  
+    │   │   ├── 模型连续采样算法V  
+    │   │   └── 缩放CFG  
+    │   ├── 模型融合  
+    │   │   ├── 保存Checkpoint  
+    │   │   ├── 保存Checkpoint(仅图像)  
+    │   │   ├── 保存CLIP  
+    │   │   ├── 保存VAE  
+    │   │   ├── 保存模型  
+    │   │   ├── 模型版本  
+    │   │   │   ├── ModelMergeAuraflow  
+    │   │   │   ├── ModelMergeLTXV  
+    │   │   │   ├── ModelMergeMochiPreview  
+    │   │   │   ├── ModelMergeSD35_Large  
+    │   │   │   ├── 模型融合(SD1)  
+    │   │   │   ├── 模型融合(SD2)  
+    │   │   │   ├── 模型融合(SD3_2B)  
+    │   │   │   ├── 模型融合(SDXL)  
+    │   │   │   └── 融合Flux1模型  
+    │   │   ├── 模型融合(相加)  
+    │   │   ├── 融合CLIP  
+    │   │   ├── 融合CLIP（相加）  
+    │   │   ├── 融合CLIP（相减）  
+    │   │   ├── 融合模型  
+    │   │   ├── 融合模型(分层)  
+    │   │   └── 融合模型(相减)  
+    │   └── 条件  
+    │       ├── CLIP文本编码Hunyuan  
+    │       ├── CLIP文本编码SD3  
+    │       ├── CLIP文本编码SDXL  
+    │       ├── CLIP文本编码SDXL(Refiner)  
+    │       ├── flux  
+    │       │   ├── CLIP文本编码Flux  
+    │       │   └── Flux引导  
+    │       ├── 设置条件时间  
+    │       └── 条件零化  
+    ├── 加载器  
+    │   ├── Checkpoint加载器(简易)  
+    │   ├── CLIP视觉加载器  
+    │   ├── ControlNet加载器  
+    │   ├── DiffControlNet加载器  
+    │   ├── GLIGEN加载器  
+    │   ├── LoRA加载器  
+    │   ├── LoRA加载器(仅模型)  
+    │   ├── unCLIPCheckpoint加载器  
+    │   ├── VAE加载器  
+    │   ├── 超网络加载器  
+    │   ├── 放大模型加载器  
+    │   ├── 风格模型加载器  
+    │   └── 视频模型  
+    │       └── Checkpoint加载器(仅图像)  
+    ├── 模型微调  
+    │   └── UNet  
+    │       ├── FreeU_V2模型重加权  
+    │       ├── FreeU模型重加权  
+    │       ├── PAG注意力引导  
+    │       ├── Tome合并模型Token  
+    │       ├── 超分块  
+    │       └── 收缩模型UNET  
+    ├── 实用工具  
+    │   ├── Primitive元节点  
+    │   ├── 注释  
+    │   └── 转接点  
+    ├── 条件  
+    │   ├── 3D模型  
+    │   │   ├── SV3D_条件  
+    │   │   ├── SZ123条件  
+    │   │   └── SZ123条件(批次)  
+    │   ├── CLIP设置停止层  
+    │   ├── CLIP视觉编码  
+    │   ├── CLIP文本编码器  
+    │   ├── ControlNet  
+    │   │   ├── ControlNet应用（旧版高级）  
+    │   │   ├── ControlNet应用_阿里妈妈局部重绘  
+    │   │   └── 设置UnionControlNet类型  
+    │   ├── GLIGEN  
+    │   │   └── GLIGEN文本框应用  
+    │   ├── InstructPix2Pix  
+    │   │   └── InstructPixToPix条件  
+    │   ├── StableCascade  
+    │   │   └── StableCascade_StageB条件  
+    │   ├── unCLIP条件  
+    │   ├── 按系数设置条件采样区域  
+    │   ├── 放大扩散  
+    │   │   └── SD4X放大条件  
+    │   ├── 风格模型  
+    │   │   └── 风格模型应用  
+    │   ├── 内补  
+    │   │   └── 内补模型条件  
+    │   ├── 视频模型  
+    │   │   ├── LTXVConditioning  
+    │   │   ├── LTXVImgToVideo  
+    │   │   └── SVD_图像到视频_条件  
+    │   ├── 条件采样区域  
+    │   ├── 条件采样区域强度  
+    │   ├── 条件合并  
+    │   ├── 条件联结  
+    │   ├── 条件平均  
+    │   └── 条件设置遮罩  
+    ├── 图像  
+    │   ├── 保存图像  
+    │   ├── 变换  
+    │   │   └── 图像裁剪  
+    │   ├── 动画  
+    │   │   ├── 保存APNG  
+    │   │   └── 保存WEBP  
+    │   ├── 放大  
+    │   │   ├── 图像按系数缩放  
+    │   │   ├── 图像按像素缩放  
+    │   │   ├── 图像缩放  
+    │   │   └── 图像通过模型放大  
+    │   ├── 后处理  
+    │   │   ├── 图像混合  
+    │   │   ├── 图像量化  
+    │   │   ├── 图像模糊  
+    │   │   ├── 图像锐化  
+    │   │   └── 图像形态学  
+    │   ├── 加载图像  
+    │   ├── 空图像  
+    │   ├── 批处理  
+    │   │   ├── 从批次获取图像  
+    │   │   ├── 复制图像批次  
+    │   │   └── 重设图像批次  
+    │   ├── 图像反转  
+    │   ├── 图像遮罩复合  
+    │   ├── 图像组合批次  
+    │   ├── 外补画板  
+    │   ├── 网页镜头捕捉  
+    │   ├── 预处理  
+    │   │   └── Canny  
+    │   └── 预览图像  
+    ├── 音频  
+    │   ├── 保存音频  
+    │   ├── 加载音频  
+    │   └── 预览音频  
+    └── 遮罩  
+        ├── 纯块遮罩  
+        ├── 合成  
+        │   ├── Porter-Duff图像合成  
+        │   ├── 分离图像Alpha  
+        │   └── 合并图像Alpha  
+        ├── 加载图像遮罩  
+        ├── 图像到遮罩  
+        ├── 图像颜色到遮罩  
+        ├── 遮罩裁剪  
+        ├── 遮罩到图像  
+        ├── 遮罩反转  
+        ├── 遮罩混合  
+        ├── 遮罩扩展  
+        ├── 遮罩羽化  
+        └── 遮罩阈值  
+
+!!!note
+    部分节点的说明：  
+    [ComfyUI 节点功能详解 | ComfyUI WIKI 速查手册](https://comfyui-wiki.com/zh/comfyui-nodes)  
+    [Node Documentation - Salt AI Docs](https://docs.getsalt.ai/md)  
+    [Overview page of ComfyUI core nodes - ComfyUI Community Manual](https://blenderneko.github.io/ComfyUI-docs/Core%20Nodes)  
+    [T8star1984/Comfyui-Aix-NodeMap: Comfyui's latest node organization and annotation, continuously updated, and supported by the Aix team/comfyui最新节点整理及注释，持续更新，AIX团队](https://github.com/T8star1984/Comfyui-Aix-NodeMap)

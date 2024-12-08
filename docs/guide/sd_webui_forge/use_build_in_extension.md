@@ -27,9 +27,7 @@ SD WebUI Forge 内置了一些扩展可供使用，下面就简单介绍内置�
 
 ![controlnet_integrated_interface](../../assets/images/guide/sd_webui_forge/controlnet_integrated_interface.png)
 
-具体介绍请阅读。
-
-<!-- TODO: 引用前面关于 ControlNet 的说明 -->
+具体介绍请阅读：[ControlNet 应用 - SD Note](../sd_webui/controlnet.md)
 
 
 ## FreeU Integrated

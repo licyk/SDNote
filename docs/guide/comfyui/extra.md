@@ -21,6 +21,9 @@ title: 杂项
 |ControlNet 预处理器模型|ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts|
 |AnimateDiff 模型|ComfyUI/custom_nodes/ComfyUI-AnimateDiff-Evolved/models|
 |DanTagGen 模型|ComfyUI/custom_nodes/ComfyUI_DanTagGen/models|
+|保存的工作流|ComfyUI/user/default/workflows|
+
+<!-- TODO: 需要更新路径-->
 
 
 ## ComfyUI 共享 SD WebUI 的模型
