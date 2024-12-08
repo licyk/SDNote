@@ -4,7 +4,7 @@ title: 界面操作
 # 简述
 ComfyUI 的界面和 Stable Diffusion WebUI 的界面完全不相同，在 ComfyUI 中，每个功能都被拆散成一个个节点，通过连接不同的节点搭建起一个完整的生图流程。
 
-![comfyui_interface](../../assets/images/guide/comfyui/interface_operation/comfyui_interface.jpg)
+![comfyui_interface](../../assets/images/guide/comfyui/interface_operation/comfyui_interface.png)
 
 
 ## 前期配置
@@ -26,9 +26,9 @@ git clone https://github.com/AIGODLIKE/AIGODLIKE-COMFYUI-TRANSLATION
 
 
 ## 设置中文
-安装以上的扩展后，在 ComfyUI 界面右侧栏可以看到 Manager 按钮，说明扩展管理器已经成功安装，但是通常情况下 ComfyUI 中文翻译扩展安装后并不会自动设置 ComfyUI 界面为中文，需要手动设置。
+安装以上的扩展后，在 ComfyUI 界面顶部可以看到 Manager 按钮，说明扩展管理器已经成功安装，但是通常情况下 ComfyUI 中文翻译扩展安装后并不会自动设置 ComfyUI 界面为中文，需要手动设置。
 
-在 ComfyUI 侧边栏点击右上角的齿轮按钮进入 ComfyUI 设置，找到 AGLTranslation-language 选项，选择 中文[Chinese Simplified] 后 ComfyUI 将自动重启，此时 ComfyUI 的界面就切换成中文了。
+在 ComfyUI 左下角点击齿轮按钮进入 ComfyUI 设置，找到 AGL 选项并点击，在 AGLTranslation-langualge 选项选择 中文[Chinese Simplified] 后 ComfyUI 将自动重启，此时 ComfyUI 的界面就切换成中文了。
 
 
 ## 快捷键
@@ -68,17 +68,58 @@ git clone https://github.com/AIGODLIKE/AIGODLIKE-COMFYUI-TRANSLATION
 ## 节点操作
 在节点的左侧接口为输入点，节点右侧的接口为输出点，鼠标按住接口并向外拖动可以看到延伸出来的线，将线拖到匹配这个线的接口上可完成不同节点之间的连接。
 
+
+### 节点菜单
 右键节点可以看到该节点的编辑功能。
 
+![comfyui_context_menu](../../assets/images/guide/comfyui/interface_operation/comfyui_context_menu.png)
 
-## 侧边栏
-ComfyUI 的侧边栏包含了一些快捷按钮，如 添加提示词队列，这个按钮就类似 Stable Diffusion WebUI 中的生成按钮。
+
+### 接待你
+如果节点未连接必要的输入，在运行工作流是节点将会报错，使用红色圈标记缺少的输入。
+
+![node_missing_require_input](../../assets/images/guide/comfyui/interface_operation/node_missing_require_input.png)
+
+此时连上对应的输入即可。
+
+运行工作流时，正在运行的节点将会标记为绿色。
+
+![working_node](../../assets/images/guide/comfyui/interface_operation/working_node.png)
+
+如果某个节点运行出现的错误，此时节点会标记为紫色，此时应该检查该节点和该节点前面的节点是否有参数错误，连接是否有误。
+
+![node_has_error](../../assets/images/guide/comfyui/interface_operation/node_has_error.png)
+
+除了将节点标记为紫色，ComfyUI 将弹窗提示报错信息。
+
+![error_notice](../../assets/images/guide/comfyui/interface_operation/error_notice.png)
+
+点击 Find Issues 可以跳转到 ComfyUI 的 Github Issues 分区中，可以尝试从中找到和自己错误类似的帖子并寻求解决方法，或者发送 Issues 报告这个错误。
+
+点击 Show Report 将显示具体的报错信息，可以根据这个信息在搜索引擎查找对应的解决方法。
+
+下面是一个简单的生图工作流，可以看到该工作流有许多节点组成。
+
+![nodes_before_make_group](../../assets/images/guide/comfyui/interface_operation/nodes_before_make_group.png)
+
+如果觉得一个个节点在调整时很麻烦，可以将这些节点组合成节点组。按住键盘上的 Ctrl 键，使用鼠标选中这些节点，再右键打开菜单，选择**转换为节点组**，此时将弹出节点组命名窗口，输入名称并确定后将创建一个新的节点组。
+
+![make_new_node_group](../../assets/images/guide/comfyui/interface_operation/make_new_node_group.png)
+
+现在工作流就显得非常整洁了，右键该节点选择**Manage Group Node**可以调整节点组的组件顺序和要显示的组件，但是这样整合功能的节点在出现报错时排查问题会变得困难，当出现报错时需要右键该节点组，选择**转换为节点**将节点组拆分，对错误进行排查。
+
+### 节点建组
+
+
+
+## 工具栏
+ComfyUI 的工具栏包含了一些快捷按钮，如 添加提示词队列，这个按钮就类似 Stable Diffusion WebUI 中的生成按钮。
 
 
 ## 扩展管理
-安装 ComfyUI-Manager 扩展后，在 ComfyUI 侧边栏可以看到 管理器 按钮，点开后可以看到 ComfyUI-Manager 的界面。
+安装 ComfyUI-Manager 扩展后，在 ComfyUI 工具栏可以看到 管理器 按钮，点开后可以看到 ComfyUI-Manager 的界面。
 
-![comfyui_manager_interface](../../assets/images/guide/comfyui/interface_operation/comfyui_manager_interface.jpg)
+![comfyui_manager_interface](../../assets/images/guide/comfyui/interface_operation/comfyui_manager_interface.png)
 
 ComfyUI-Manager 包含了管理 ComfyUI 的各种功能，以下是不同功能的描述。
 

@@ -5,6 +5,8 @@ title: 杂项
 这里列出 ComfyUI 的其他功能。
 
 
+<!-- TODO https://github.com/T8star1984/Comfyui-Aix-NodeMap -->
+
 ## ComfyUI 中不同模型的放置路径
 |模型种类|放置路径|
 |---|---|

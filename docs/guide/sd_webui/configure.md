@@ -60,6 +60,19 @@ a1111-sd-webui-tagcomplete 扩展可以提供提示词补全功能，在 SD WebU
 !!!note
     a1111-sd-webui-tagcomplete 扩展：https://github.com/DominikDoom/a1111-sd-webui-tagcomplete
 
+sd-webui-prompt-all-in-one 扩展可以用于翻译和管理输入的提示词，使用前建议调整设置，将鼠标移动到 sd-webui-prompt-all-in-one 扩展工具栏的设置图标，此时将自动显示二级菜单。
+
+![open_sd_webui_prompt_all_in_one_setting](../../assets/images/guide/sd_webui/configure/open_sd_webui_prompt_all_in_one_setting.png)
+
+再点击二级菜单中的翻译接口设置按钮进入设置，在设置中建议将**翻译接口**默认使用的百度翻译更换掉，使用别的翻译接口，比如阿里翻译，有道翻译等。
+
+**TagComplete**可以设置本地翻译，加快翻译速度，点击翻译文件选择框右边的刷新按钮，再选上前面下载好的**tag++_zh_new.csv**，选中后勾选**自动翻译只使用CSV翻译（不使用网络翻译），手动点击翻译按钮才使用CSV加网络翻译**，再保存设置。
+
+![sd_webui_prompt_all_in_one_setting](../../assets/images/guide/sd_webui/configure/sd_webui_prompt_all_in_one_setting.png)
+
+!!!note
+    sd-webui-prompt-all-in-one 扩展：https://github.com/Physton/sd-webui-prompt-all-in-one
+
 
 ### 优化提示词权重模式
 在之后使用 SDXL 模型时，默认的提示词权重模式可能会导致 SDXL 模型出图异常，可通过修改提示词权重模式解决。在 SD WebUI 的`设置`->`SD`->`强调模式`，选择 No norm 后保存设置即可。

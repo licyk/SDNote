@@ -56,9 +56,6 @@ SD WebUI 的界面大致分为几个部分。
 
 ![auto_translate](../../assets/images/guide/sd_webui/t2i/auto_translate.jpg)
 
-!!!note
-    sd-webui-prompt-all-in-one 扩展：https://github.com/Physton/sd-webui-prompt-all-in-one
-
 下面是我输入的正向提示词，描写了人物、动作、场景、镜头。
 
 ```
