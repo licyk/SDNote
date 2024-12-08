@@ -1,53 +1,26 @@
-python -V > $null
-if ($? -eq 0){
-   Write-Host "Î´ÕÒµ½ Python£¬ÖÕÖ¹ÔËĞĞ"
-   pause
-   exit 1
-}
-
-python -c "import pip" > $null
-if ($? -eq 0){
-   Write-Host "Î´ÕÒµ½ Python Pip Ä£¿é£¬ÖÕÖ¹ÔËĞĞ"
-   pause
+ï»¿python -V > $null
+if ((!$?)){
+   Write-Host "æœªæ‰¾åˆ° Pythonï¼Œç»ˆæ­¢è¿è¡Œ"
+   Read-Host | Out-Null
    exit 1
 }
 
 python -c "import venv" > $null
 if ($? -eq 0){
-   Write-Host "Î´ÕÒµ½ Python venv Ä£¿é£¬ÖÕÖ¹ÔËĞĞ"
-   pause
+   Write-Host "æœªæ‰¾åˆ° Python venv æ¨¡å—ï¼Œç»ˆæ­¢è¿è¡Œ"
+   Read-Host | Out-Null
    exit 1
 }
 
-if (-not (Test-Path .\venv\Scripts\activate.ps1)) {
-   Write-Host "Î´ÕÒµ½ĞéÄâ»·¾³"
-   Write-Host "´´½¨ĞéÄâ»·¾³ÖĞ..."
+Set-Location $PSScriptRoot
+
+if (!(Test-Path .\venv\Scripts\activate.ps1)) {
+   Write-Host "åˆ›å»ºè™šæ‹Ÿç¯å¢ƒä¸­..."
    python -m venv venv
 }
 
 .\venv\Scripts\activate.ps1
 
-if (-not (Test-Path .\venv\Scripts\mkdocs.exe)) {
-   Write-Host "°²×° MKDocs ÖĞ..."
-   python -m pip install -r requirements.txt --index-url https://mirror.baidu.com/pypi/simple
-   if ($? -eq 0){
-      Write-Host "°²×° MKDocs Ê§°Ü£¬ÖÕÖ¹ÔËĞĞ"
-      pause
-      exit 1
-   }
-}
-
-switch ($args) {
-   "--update" {
-       Write-Host "¸üĞÂ MKDocs ÖĞ..."
-       python -m pip install -r requirements.txt --upgrade --index-url https://mirror.baidu.com/pypi/simple
-       if ($LastExitCode -ne 0) {
-           Write-Host "¸üĞÂ MKDocs Ê§°Ü"
-       }
-   }
-}
-
-Write-Host "Æô¶¯ MKDocs ÖĞ..."
-mkdocs serve
+python launch.py
 
 Read-Host | Out-Null

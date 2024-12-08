@@ -2,7 +2,9 @@
 title: 搭建工作流
 ---
 # 搭建工作流
-下面将展示在 ComfyUI 如何搭建基本的工作流，下面演示的工作流可通过下载工作流图片后导入进 ComfyUI 中。
+通常搭建工作流时建议使用 ComfyUI 自带的节点进行搭建，少使用 ComfyUI 扩展提供的节点，这样可以减少 ComfyUI 报错的概率，当 ComfyUI 自带的节点无法实现想要的功能时再考虑使用 ComfyUI 扩展提供的节点。
+
+下面将展示在 ComfyUI 如何使用 ComfyUI 自带节点搭建基本的工作流，下面演示的工作流可通过下载工作流图片后导入进 ComfyUI 中。
 
 
 ## 文生图
@@ -73,7 +75,7 @@ Checkpoint加载器 节点用于加载大模型，可以看到这个节点有 3 
 
 在遮罩编辑器中使用画笔绘制遮罩，绘制遮罩的部分将会被重绘。遮罩绘制完后，点击右下角的 Save to node 选项将绘制遮罩完成的图片保存到该节点中。
 
-![mask_editor](../../assets/images/guide/comfyui/build_workflow/mask_editor.jpg)
+![mask_editor](../../assets/images/guide/comfyui/build_workflow/mask_editor.png)
 
 调节 K采样器 节点的降噪值，再运行工作流，可以看到遮罩部分已经被重绘成提示词描述的样子了。
 
@@ -155,3 +157,254 @@ ControlNet 使用图片作为控制条件控制图片的生成，和提示词共
 
 |![pose](../../assets/images/guide/comfyui/build_workflow/pose.jpg)|![lineart](../../assets/images/guide/comfyui/build_workflow/lineart.jpg)|
 |---|---|
+
+
+## 使用 SD 3.5 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[sd3.5_large_fp8_scaled.safetensors](https://modelscope.cn/models/licyks/sd-3-model/resolve/master/sd3.5_large_fp8_scaled.safetensors)|ComfyUI/models/checkpoints|
+|[sd3.5_medium_incl_clips_t5xxlfp8scaled.safetensors](https://modelscope.cn/models/licyks/sd-3-model/resolve/master/sd3.5_medium_incl_clips_t5xxlfp8scaled.safetensors)|ComfyUI/models/checkpoints|
+|[sd3_medium.safetensors](https://modelscope.cn/models/licyks/sd-3-model/resolve/master/sd3_medium.safetensors)（不包含文本编码器）|ComfyUI/models/checkpoints|
+|[sd3.5_large.safetensors](https://modelscope.cn/models/licyks/sd-3-model/resolve/master/sd3.5_large.safetensors)（不包含文本编码器）|ComfyUI/models/checkpoints|
+|[clip_g.safetensors](https://modelscope.cn/models/licyks/sd-3-model/resolve/master/text_encoders/clip_g.safetensors)|ComfyUI/models/clip|
+|[clip_l.safetensors](https://modelscope.cn/models/licyks/sd-3-model/resolve/master/text_encoders/clip_l.safetensors)|ComfyUI/models/clip|
+|[t5xxl_fp8_e4m3fn_scaled.safetensors](https://modelscope.cn/models/licyks/sd-3-model/resolve/master/text_encoders/t5xxl_fp8_e4m3fn_scaled.safetensors)|ComfyUI/models/clip|
+|[t5xxl_fp16.safetensors](https://modelscope.cn/models/licyks/sd-3-model/resolve/master/text_encoders/t5xxl_fp16.safetensors)|ComfyUI/models/clip|
+|[sd3.5_large_controlnet_canny.safetensors](https://modelscope.cn/models/licyks/sd3_controlnet/resolve/master/sd3.5_large_controlnet_canny.safetensors)|ComfyUI/models/controlnet|
+
+下面是简单使用 SD 3.5 的工作流，该工作流使用 Stable Diffusion 3.5 完整版模型，如果显存足够可以选择使用 sd3.5_large_fp8_scaled.safetensors，显存较小则使用 sd3.5_medium_incl_clips_t5xxlfp8scaled.safetensors。
+
+Stable Diffusion 3.5 使用提示词或者自然语言都有比较好的效果。
+
+![sd3.5_simple_example](../../assets/images/guide/comfyui/build_workflow/sd3.5_simple_example.png)
+
+Stable Diffusion 3.5 文本编码器由 CLIP L、CLIP G、T5XXL 组成，但允许自由选择想要的文本编码器，所以可以有以下使用组合：
+
+|文本编码器组合|
+|---|
+|T5XXL + CLIP L + CLIP G|
+|CLIP L + CLIP G|
+|T5XXL|
+|CLIP L|
+|CLIP G|
+
+不同的组合会影响模型对提示词的理解能力，可自行尝试。
+
+建议使用不包含文本编码器的大模型版本，比如 sd3_medium.safetensors，sd3.5_large.safetensors。
+
+![sd3.5_text_encoders_example](../../assets/images/guide/comfyui/build_workflow/sd3.5_text_encoders_example.png)
+
+Stability AI 官方也发布了适用于 Stable Diffusion 3.5 Large 的 ControlNet 模型，可以在下面的工作流进行使用。
+
+因为 Stable Diffusion 3.5 模型可以不使用负面提示词，所以在负面条件的输入使用了**条件零化**节点。
+
+![sd3.5_large_canny_controlnet_example](../../assets/images/guide/comfyui/build_workflow/sd3.5_large_canny_controlnet_example.png)
+
+
+## 使用图片编辑模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[cosxl_edit.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/cosxl_edit.safetensors)|ComfyUI/models/checkpoints|
+
+InstructPix2Pix 模型为图片编辑模型，通过提示词修改图片中的元素但保持整体一致性，
+
+在提示词中只需要写上描述要将修改成的内容即可。
+
+![sdxl_edit_model](../../assets/images/guide/comfyui/build_workflow/sdxl_edit_model.png)
+
+
+## 使用 FLUX 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[flux1-dev.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_1/flux1-dev.safetensors)|ComfyUI/models/unet|
+|[flux_dev_fp8_scaled_diffusion_model.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_1/flux_dev_fp8_scaled_diffusion_model.safetensors)|ComfyUI/models/unet|
+|[flux1-schnell.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_1/flux1-schnell.safetensors)|ComfyUI/models/unet|
+|[t5xxl_fp16.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp16.safetensors)|ComfyUI/models/clip|
+|[t5xxl_fp8_e4m3fn.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp8_e4m3fn.safetensors)|ComfyUI/models/clip|
+|[clip_l.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/clip_l.safetensors)|ComfyUI/models/clip|
+|[ae.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_vae/ae.safetensors)|ComfyUI/models/vae|
+|[flux1-dev-fp8.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_1/flux1-dev-fp8.safetensors)（包含文本编码器、UNet、VAE）|ComfyUI/models/checkpoints|
+|[flux1-schnell-fp8.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_1/flux1-schnell-fp8.safetensors)（包含文本编码器、UNet、VAE）|ComfyUI/models/checkpoints|
+|[flux1-canny-dev.safetensors](https://modelscope.cn/models/licyks/flux_controlnet/resolve/master/flux1-canny-dev.safetensors)|ComfyUI/models/unet|
+|[flux1-canny-dev-lora.safetensors](https://modelscope.cn/models/licyks/flux_controlnet/resolve/master/flux1-canny-dev-lora.safetensors)|ComfyUI/models/loras|
+|[flux1-depth-dev.safetensors](https://modelscope.cn/models/licyks/flux_controlnet/resolve/master/flux1-depth-dev.safetensors)|ComfyUI/models/unet|
+|[flux1-depth-dev-lora.safetensors](https://modelscope.cn/models/licyks/flux_controlnet/resolve/master/flux1-depth-dev-lora.safetensors)|ComfyUI/models/loras|
+|[flux1-fill-dev.safetensors](https://modelscope.cn/models/licyks/flux_controlnet/resolve/master/flux1-fill-dev.safetensors)|ComfyUI/models/unet|
+|[flux1-redux-dev.safetensors](https://modelscope.cn/models/licyks/flux_controlnet/resolve/master/flux1-redux-dev.safetensors)|ComfyUI/models/style_models|
+|[sigclip_vision_patch14_384.safetensors](https://modelscope.cn/models/licyks/flux_controlnet/resolve/master/sigclip_vision_patch14_384.safetensors)|ComfyUI/models/clip_vision|
+
+下面的工作流使用的是常规版本 FLUX 模型，即文本编码器、UNet 和 VAE 组件分开加载。
+
+flux1-dev.safetensors、flux_dev_fp8_scaled_diffusion_model.safetensors、flux1-schnell.safetensors 仅包含 UNet，需要另外加载文本编码器和 VAE。
+
+如果出现显存不足的问题，可以将**UNET加载器**节点的剪枝类型修改为 fp8_e4m3fn / fp8_e5m2 / fp8_e4m3fn_fast，或者更换 flux_dev_fp8_scaled_diffusion_model.safetensors 模型。**模型采样算法Flux**节点根据分辨率自动调整偏移值，如果不需要这样做，可以选中该节点，按下 Ctrl + B 跳过该节点。
+
+下面的工作流可以使用 flux1-dev.safetensors / flux1-schnell.safetensors schnell 版本相对于 dev 版本只需要 4 步即可出图（类似 SDXL Turbo）。
+
+t5xxl_fp16.safetensors 通常需要更多的显存，如果显存不足，请使用 t5xxl_fp8_e4m3fn.safetensors。
+
+FLUX 必须将 CFG 设置为 1，CFG 为 1 时负面提示词将被忽略，并且 FLUX 模型不需要负面提示词。如果需要调整 CFG，请使用**Flux引导**进行调整。
+
+![flux_dev_example](../../assets/images/guide/comfyui/build_workflow/flux_dev_example.png)
+
+如果需要完整版模型，将文本编码器、UNet 和 VAE 组件打包在一起，可以使用 flux1-dev-fp8.safetensors / flux1-schnell-fp8.safetensors 模型，下面的工作流可用于加载这些完整版模型。
+
+![flux_dev_checkpoint_example](../../assets/images/guide/comfyui/build_workflow/flux_dev_checkpoint_example.png)
+
+[black-forest-lab](https://blackforestlabs.ai/) 为 FLUX 模型发布了 4 种 ControlNet 模型（Canny、Depth、Fill、Redux），控制效果相对于社区训练出来的 FLUX ControlNet 模型，效果更好。
+
+[black-forest-lab](https://blackforestlabs.ai/) 发布的 ControlNet 模型使用方法和常规的 ControlNet 模型有差别，不使用**ControlNet应用**节点应用 ControlNet。
+
+下面简单演示使用 FLUX Canny ControlNet。
+
+![flux_canny_model_example](../../assets/images/guide/comfyui/build_workflow/flux_canny_model_example.png)
+
+如果不想单独下完整版的 FLUX ControlNet 模型，也可以使用 LoRA 版的 FLUX ControlNet 模型，下面的工作流基于原来的 FLUX Canny ControlNet 工作流进行修改，使用 LoRA 版的 FLUX Depth ControlNet.
+
+![flux_depth_lora_example](../../assets/images/guide/comfyui/build_workflow/flux_depth_lora_example.png)
+
+FLUX Fill 模型用于图片重绘，下面的工作流简单演示使用方法。
+
+![flux_fill_inpaint_example](../../assets/images/guide/comfyui/build_workflow/flux_fill_inpaint_example.png)
+
+FLUX Fill 模型除了可以用于局部重绘，也可以用于外扩图片。
+
+![flux_fill_outpaint_example](../../assets/images/guide/comfyui/build_workflow/flux_fill_outpaint_example.png)
+
+FLUX Redux 模型使用一张或者多张图片作为提示词，可用于风格迁移。
+
+下面的工作流演示使用单张图片作为提示词。
+
+如果需要使用多张图片作为提示词，可以连接多个**风格模型应用**节点。
+
+![flux_redux_model_example](../../assets/images/guide/comfyui/build_workflow/flux_redux_model_example.png)
+
+
+## 使用 AuraFlow 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[aura_flow_0.2.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/AuraFlow/aura_flow_0.2.safetensors)|ComfyUI/models/checkpoints|
+
+AuraFlow 模型是真正开源的模型之一，其代码和模型权重都采用 FOSS 许可证。
+
+下面的工作流简单演示 AuraFlow 模型的使用。
+
+![aura_flow_0.2_example](../../assets/images/guide/comfyui/build_workflow/aura_flow_0.2_example.png)
+
+
+## 使用 HunyuanDiT 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[hunyuan_dit_1.2.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/hunyuan_dit_comfyui/hunyuan_dit_1.2.safetensors)|ComfyUI/models/checkpoints|
+|[comfy_freeway_animation_hunyuan_dit_180w.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/hunyuan_dit_comfyui/comfy_freeway_animation_hunyuan_dit_180w.safetensors)|ComfyUI/models/checkpoints|
+
+HunyuanDiT 是一个支持中文和英文提示词的模型，下面的工作流演示了使用两种语言书写提示词并生成。
+
+![hunyuan_dit_1.2_example](../../assets/images/guide/comfyui/build_workflow/hunyuan_dit_1.2_example.png)
+
+Freeway Animation HunYuan 基于 HunyuanDiT 进行训练，在二次元方便表现更好。
+
+![freeway_animation_hunyuan_dit_1.2_example](../../assets/images/guide/comfyui/build_workflow/freeway_animation_hunyuan_dit_1.2_example.png)
+
+
+## 生成 3D 图
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[stable_zero123.ckpt](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/stable-zero123/stable_zero123.ckpt)|ComfyUI/models/checkpoints|
+
+下面的工作流简单演示使用 Stable Zero123 模型为一张具有简单背景和物体的图片生成不同角度的图片。
+
+![stable_zero123_example](../../assets/images/guide/comfyui/build_workflow/stable_zero123_example.png)
+
+
+## 使用 Stable Video Diffusion 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[svd.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/stable-video-diffusion-img2vid/svd.safetensors)|ComfyUI/models/checkpoints|
+|[svd_xt.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/stable-video-diffusion-img2vid/svd_xt.safetensors)|ComfyUI/models/checkpoints|
+
+Stable Video Diffusion 模型可以将图片转换为视频，该模型不支持使用提示词，下面是一些可以调整的参数。
+
+|参数|作用|
+|---|---|
+|帧数|设置总共要生成的视频帧数。|
+|帧率|帧率越高越流畅。|
+|增强|设置向原图图片增加的噪声量，值越高，和原图的相似性更低，但视频的运动更多。|
+
+**线性CFG引导**节点使模型在生成不同的帧时使用不同的 CFG，在上面的例子中，开始帧的 CFG 为 1，中间帧的 CFG 为 1.75，最后一帧的 CFG 为 2.5。
+
+![image_to_video](../../assets/images/guide/comfyui/build_workflow/image_to_video.png)
+
+
+## 使用 Mochi 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[mochi_preview_bf16.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/mochi/mochi_preview_bf16.safetensors)|ComfyUI/models/unet|
+|[mochi_preview_fp8_scaled.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/mochi/mochi_preview_fp8_scaled.safetensors)|ComfyUI/models/unet|
+|[mochi_preview_fp8_scaled_incl_t5xxl_vae.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/mochi/mochi_preview_fp8_scaled_incl_t5xxl_vae.safetensors)（包含文本编码器、UNet、VAE）|ComfyUI/models/checkpoints|
+|[t5xxl_fp16.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp16.safetensors)|ComfyUI/models/clip|
+|[t5xxl_fp8_e4m3fn.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp8_e4m3fn.safetensors)|ComfyUI/models/clip|
+|[mochi_vae.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/mochi/mochi_vae.safetensors)|ComfyUI/models/vae|
+
+Mochi 模型可以通过提示词生成视频，模型的文本编码器、UNet、VAE 需要分开加载。
+
+mochi_preview_bf16.safetensors 对显存大小要求高，如果遇到显存不足的问题，请使用 mochi_preview_fp8_scaled.safetensors，或者将**UNET加载器**节点的剪枝类型修改为 fp8_e4m3fn / fp8_e5m2 / fp8_e4m3fn_fast。
+
+t5xxl_fp16.safetensors 对显存要求高，可以更换为 t5xxl_fp8_e4m3fn.safetensor 降低显存要求。
+
+视频总共的帧数可以在**EmptyMochiLatentVideo**节点的 length 参数设置。
+
+![mochi_text_to_video_example](../../assets/images/guide/comfyui/build_workflow/mochi_text_to_video_example.png)
+
+Mochi 也有将文本编码器、UNet、VAE 打包在一起的版本。
+
+![mochi_simple_checkpoint](../../assets/images/guide/comfyui/build_workflow/mochi_simple_checkpoint.png)
+
+
+## 使用 LTX-Video 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[ltx-video-2b-v0.9.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/LTX-Video/ltx-video-2b-v0.9.safetensors)|ComfyUI/models/checkpoints|
+|[t5xxl_fp16.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp16.safetensors)|ComfyUI/models/clip|
+|[t5xxl_fp8_e4m3fn.safetensors](https://modelscope.cn/models/licyks/flux-model/resolve/master/flux_text_encoders/t5xxl_fp8_e4m3fn.safetensors)|ComfyUI/models/clip|
+
+LTX-Video 模型可以通过提示词生成视频，使用时建议将提示词写的详细一些，这可以提高模型生成视频的质量。
+
+t5xxl_fp16.safetensors 对显存要求高，可以更换为 t5xxl_fp8_e4m3fn.safetensor 降低显存要求。
+
+![ltxv_text_to_video](../../assets/images/guide/comfyui/build_workflow/ltxv_text_to_video.png)
+
+LTX-Video 模型除了支持使用提示词生成视频，也支持使用图片进行图片生成。
+
+![ltxv_image_to_video](../../assets/images/guide/comfyui/build_workflow/ltxv_image_to_video.png)
+
+
+## 使用 Audio Models 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[stable_audio_open_1.0.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/stable-audio-open/stable_audio_open_1.0.safetensors)|ComfyUI/models/checkpoints|
+|[t5_base.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/stable-audio-open/t5_base.safetensors)|ComfyUI/models/clip|
+
+[Stability AI](https://stability.ai/) 发布了 Stable Audio Open 模型，可以用于音频生成。
+
+![stable_audio_example](../../assets/images/guide/comfyui/build_workflow/stable_audio_example.png)

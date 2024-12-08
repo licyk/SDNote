@@ -7,6 +7,9 @@ title: 主页
 # SD Note
 一个关于使用 AI 绘画的文档，包含教程和相关资源。
 
+!!!warning
+    本文档正在进行重构，部分内容可能存在不完整的问题！
+
 ---
 
 <div class="grid cards" markdown>

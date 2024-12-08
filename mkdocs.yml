@@ -12,7 +12,7 @@ theme:
   name: material
   language: zh
   features:
-    # - navigation.instant # 即时加载, 在firefox下有内存泄露的问题
+    # - navigation.instant # 即时加载, 在 Firefox 下有内存泄露的问题
     - navigation.instant.prefetch # 即时预加载
     - navigation.instant.progress # 加载进度显示
     - navigation.instant.preview # 即时预览
@@ -34,16 +34,16 @@ theme:
     - content.code.annotate # 代码注解
     - content.tabs.link # 链接的内容选项卡
     - content.tooltips # 改进的工具提示
-    
+
   palette: # 颜色
 
-    # Palette toggle for automatic mode
+    # 自动模式的配色切换
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
         name: 跟随系统配色
 
-    # Palette toggle for light mode
+    # 浅色模式的配色切换
     - media: "(prefers-color-scheme: light)"
       scheme: default # 配色
       primary: white # 原色
@@ -52,7 +52,7 @@ theme:
         icon: material/brightness-7
         name: 浅色主题
 
-    # Palette toggle for dark mode
+    # 深色模式的配色切换
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
@@ -76,10 +76,10 @@ plugins:
       enable_creation_date: false # 显示与页面关联的文件的创建日期
       type: iso_date # 时间格式
   - glightbox # 图像缩放
-#  - git-committers:
-#      repository: licyk/SDNote
-#      branch: main
-#  - git-authors
+  # - git-committers:
+  #   repository: licyk/SDNote
+  #   branch: main
+  # - git-authors
 
 extra:
   homepage: https://sdnote.netlify.app
@@ -97,7 +97,7 @@ extra:
       link: mailto:licyk233@163.com
       name: 联系邮箱
 
-  generator: false # 生成器通知
+  generator: true # 生成器通知
 
 copyright: Copyright &copy; 2024 licyk
 
@@ -165,45 +165,48 @@ markdown_extensions:
 nav:
 - "主页": index.md
 - "部署与使用":
-  - guide/index.md
-  - "需求与准备":
-    - guide/requirement/index.md
+  - "前言": guide/index.md
+  - "需求与准备": guide/requirement/index.md
   - "模型指南":
-    - guide/model/index.md
+    - "模型种类": guide/model/index.md
     - "模型下载": guide/model/download_model.md
   - "SD WebUI 部署与使用":
+    - "概述": guide/sd_webui/index.md
     - "部署": guide/sd_webui/install.md
-    - "功能使用":
-      - guide/sd_webui/index.md
-      - "文生图": guide/sd_webui/t2i.md
-      - "图生图": guide/sd_webui/i2i.md
-      - "LoRA 应用": guide/sd_webui/lora.md
-      - "放大图片": guide/sd_webui/upscale.md
-      - "ControlNet 应用": guide/sd_webui/controlnet.md
-      - "杂项": guide/sd_webui/extra.md
-  - "提示词书写":
-    - guide/prompt/index.md
-    - "如何书写提示词": guide/prompt/write_prompt.md
-    - "提示词高级用法": guide/prompt/advance.md
-    - "画师提示词应用": guide/prompt/artist_prompt.md
+    - "前期配置": guide/sd_webui/configure.md
+    - "文生图": guide/sd_webui/t2i.md
+    - "提示词书写": guide/sd_webui/prompt.md
+    - "高级提示词语法": guide/sd_webui/advance_prompt.md
+    - "画师提示词应用": guide/sd_webui/artist_prompt.md
+    - "图生图": guide/sd_webui/i2i.md
+    - "LoRA 应用": guide/sd_webui/lora.md
+    - "放大图片": guide/sd_webui/upscale.md
+    - "ControlNet 应用": guide/sd_webui/controlnet.md
+    - "杂项": guide/sd_webui/extra.md
+  - "SD WebUI Forge 部署与使用":
+    - "概述": guide/sd_webui_forge/index.md
+    - "部署": guide/sd_webui_forge/install.md
+    - "常见功能使用": guide/sd_webui_forge/common_use.md
+    - "FLUX 模型使用": guide/sd_webui_forge/flux.md
+    - "显存优化": guide/sd_webui_forge/video_momory_optimization.md
+    - "内置扩展使用": guide/sd_webui_forge/use_build_in_extension.md
   - "ComfyUI 部署与使用":
+    - "概述": guide/comfyui/index.md
     - "部署": guide/comfyui/install.md
-    - "功能使用":
-      - "概述": guide/comfyui/index.md
-      - "界面操作": guide/comfyui/interface_operation.md
-      - "搭建工作流": guide/comfyui/build_workflow.md
-      - "使用导入工作流": guide/comfyui/input_workflows.md
-      - "杂项": guide/comfyui/extra.md
+    - "界面操作": guide/comfyui/interface_operation.md
+    - "导入工作流": guide/comfyui/input_workflows.md
+    - "搭建工作流": guide/comfyui/build_workflow.md
+    - "杂项": guide/comfyui/extra.md
 - "绘世启动器使用":
-  - sd_launcher/index.md
-  - "部署功能": 
-    - sd_launcher/install/index.md
+  - "概述": sd_launcher/index.md
+  - "部署功能":
+    - "部署功能": sd_launcher/install/index.md
   - "高级选项":
-    - sd_launcher/advance/index.md
+    - "高级选项": sd_launcher/advance/index.md
     - "环境维护": sd_launcher/advance/env.md
     - "补丁管理": sd_launcher/advance/patch.md
   - "版本管理":
-    - sd_launcher/ver_manager/index.md
+    - "简述": sd_launcher/ver_manager/index.md
     - "内核": sd_launcher/ver_manager/kernel.md
     - "扩展": sd_launcher/ver_manager/extension.md
     - "安装新扩展": sd_launcher/ver_manager/install.md
@@ -213,9 +216,9 @@ nav:
     - "控制台": sd_launcher/other/terminal.md
     - "启动器设置": sd_launcher/other/setting.md
     - "配置 ZLUDA": sd_launcher/other/zluda.md
-    - sd_launcher/other/index.md
+    - "杂项": sd_launcher/other/index.md
 - "使用疑难解答":
-  - help/index.md
+  - "概述": help/index.md
   - "绘世启动器": help/sd_launcher.md
   - "SD WebUI": help/sd_webui.md
   - "ComfyUI": help/comfyui.md
