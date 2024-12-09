@@ -19,8 +19,8 @@ title: 杂项
 |高清修复模型|ComfyUI/models/upscale_models|
 |ControlNet 模型|ComfyUI/models/controlnet|
 |ControlNet 预处理器模型|ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts|
-|AnimateDiff 模型|ComfyUI/custom_nodes/ComfyUI-AnimateDiff-Evolved/models|
-|DanTagGen 模型|ComfyUI/custom_nodes/ComfyUI_DanTagGen/models|
+|AnimateDiff 模型|ComfyUI/models/animatediff_models</br>ComfyUI/models/animatediff_motion_lora|
+|TIPO 模型|ComfyUI/models/kgen|
 |保存的工作流|ComfyUI/user/default/workflows|
 
 <!-- TODO: 需要更新路径-->
@@ -154,11 +154,74 @@ COSXL 模型也可以通过融合模型的方式进行创建，使用的公式�
 ![model_merging_cosxl](../../assets/images/guide/comfyui/extra/model_merging_cosxl.png)
 
 
+## 设置提示词补全
+在 ComfyUI 中可以通过安装 ComfyUI-Custom-Scripts 扩展添加提示词补全功能。安装该扩展后，进入 ComfyUI 设置，找到**自定义脚本**的设置，将**Replace _ with space**启用。
+
+![comfyui_custom_scripts_setting](../../assets/images/guide/comfyui/extra/comfyui_custom_scripts_setting.png)
+
+点击 Manage Custom Words 进行提示词库管理，进入管理界面后在上方输入链接的地方将原来的链接替换成下面的链接。
+
+```
+https://licyk.github.io/t/tag/tag_pp_zh.csv
+```
+
+替换之后点击右边的**加载**将提示词库下载下来，再点击下方的**保存**就能保存提示词库，再点击**关闭**退出提示词库管理。
+
+在提示词框中就可以使用提示词补全功能，并且英文和中文都可以补全提示词。
+
+![use_tag_complete](../../assets/images/guide/comfyui/extra/use_tag_complete.png)
+
+!!!note
+    ComfyUI-Custom-Scripts 扩展下载：https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+
+当有提示词翻译和管理提示词的需求时，可以使用 WeiLin-ComfyUI-prompt-all-in-one 扩展。
+
+安装该扩展后，进入 ComfyUI 设置，在 **weilin** 设置选项勾选**显示全局悬浮球**和**将"_"替换为空格**。
+
+![weilin_sd_webui_prompt_all_in_one_setting](../../assets/images/guide/comfyui/extra/weilin_sd_webui_prompt_all_in_one_setting.png)
+
+在 ComfyUI 界面的左下角一般就能看到一个标记为 **WeiLin** 的悬浮按钮，点击后可以打开 WeiLin-ComfyUI-prompt-all-in-one 的界面，利用该扩展翻译和管理提示词。
+
+![weilin_sd_webui_prompt_all_in_one_interface](../../assets/images/guide/comfyui/extra/weilin_sd_webui_prompt_all_in_one_interface.png)
+
+该扩展也提供节点方便输入和调整提示词，下面是使用该扩展书写提示词。
+
+![use_weilin_sd_webui_prompt_all_in_one_example](../../assets/images/guide/comfyui/extra/use_weilin_sd_webui_prompt_all_in_one_example.png)
+
+!!!note
+    WeiLin-ComfyUI-prompt-all-in-one 扩展下载：https://github.com/weilin9999/WeiLin-ComfyUI-prompt-all-in-one
+
+
+## 使用提示词调用 LoRA
+在 ComfyUI 中通常使用 **LoRA 加载器**节点调用 LORA 模型，但有时候这种调用方式并不方便调用 LoRA 模型，此时可以通过 comfyui_lora_tag_loader 扩展实现 Stable Diffusion WebUI 中使用提示词调用 LoRA 的方式。
+
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)|ComfyUI/models/checkpoints|
+|[ill-xl-01-tyomimas_1-000032.safetensors](https://modelscope.cn/models/licyks/sd-lora/resolve/master/sdxl/style/ill-xl-01-tyomimas_1-000032.safetensors)|ComfyUI/models/loras|
+
+这个工作流演示使用 comfyui_lora_tag_loader 扩展调用 LoRA 模型。
+
+![use_comfyui_lora_tag_loader_to_load_lora](../../assets/images/guide/comfyui/extra/use_comfyui_lora_tag_loader_to_load_lora.png)
+
+!!!note
+    comfyui_lora_tag_loader 扩展下载：https://github.com/badjeff/comfyui_lora_tag_loader
+
+该扩展可以结合 WeiLin-ComfyUI-prompt-all-in-one 一起使用，可以更加方便的调用 LoRA 模型。
+
+![use_weilin_sd_webui_prompt_all_in_one_with_comfyui_lora_tag_loader](../../assets/images/guide/comfyui/extra/use_weilin_sd_webui_prompt_all_in_one_with_comfyui_lora_tag_loader.png)
+
+!!!note
+    1. WeiLin-ComfyUI-prompt-all-in-one 扩展下载：https://github.com/weilin9999/WeiLin-ComfyUI-prompt-all-in-one
+    2. WeiLin-ComfyUI-prompt-all-in-one 其实也提供通过提示词加载 LoRA 模型的功能，可自行尝试。
+
+
+## 
 
 <!-- TODO: 包含有用的原生节点 https://www.bilibili.com/video/BV17pmbYqEvN -->
 
 <!-- TODO:关系 ControlNet 模式的说明: https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet/issues/87#issuecomment-2116370541 -->
-
-<!-- TODO: https://comfyanonymous.github.io/ComfyUI_examples/faq/ -->
 
 <!-- TODO https://github.com/Acly/krita-ai-diffusion/wiki/ComfyUI-Setup -->

@@ -20,6 +20,28 @@ Checkpoint加载器 节点用于加载大模型，可以看到这个节点有 3 
 
 接下来看看 CLIP文本编码器 节点，这里是用于输入你的提示词的地方，该节点将输入的提示词编码成大模型可以理解的 Token，让大模型知道该如何生成图像。
 
+如果需要对提示词加权或者降权，可以使用`(提示词:权重)`这个提示词格式，ComfyUI 也提供快捷调整提示词权重的快捷键，使用鼠标选中提示词后，按下`Ctrl + 方向上 / 下键`可以对提示词权重进行增加 / 减少。
+
+ComfyUI 的提示词权重模式和 Stable Diffusion WebUI / Stable Diffusion WebUI Forge / Stable Diffusion WebUI reForge 的提示词权重模式有区别，在 ComfyUI 中提示词的权重不会被平均。下面是一段带有权重的提示词。
+
+```
+(masterpiece:1.2) (best:1.3) (quality:1.4) girl
+```
+
+在 ComfyUI 中提示词的权重将保持原样。
+
+```
+(masterpiece:1.2) (best:1.3) (quality:1.4) girl
+```
+
+但是在 Stable Diffusion WebUI / Stable Diffusion WebUI Forge / Stable Diffusion WebUI reForge 中提示词的权重将会进行平均。
+
+```
+(masterpiece:0.98) (best:1.06) (quality:1.14) (girl:0.81)
+```
+
+所以就会出现同样的参数在 ComfyUI 上效果就不同，并且 ComfyUI 中提示词的权重更加敏感。
+
 下一个节点是 K采样器 节点，该节点将模型作为输入，然后从 CLIP文本编码器 节点解析的 Token 将输入到这个节点上，最后通过 空Latent 节点生成一张潜空间图像输入进 K采样器 节点，这时就可以进行图像生成。K采样器 根据种子在潜空间图像上生成噪声，通过采样器在这张噪声图上进行降噪，根据提示词的提示内容逐步降噪，生成想要的图像，降噪完成后通过 Latent 接口输出潜空间图像。
 
 潜空间图像将进入 VAE解码 节点进行解码，再从 Checkpoint加载器中输入 VAE 作为解码器。因为潜空间图像并不是人能够理解的图像，所以需要通过 VAE 将潜空间的图像转换成像素空间的图像，也就是人能够看得懂的图像，
@@ -104,6 +126,8 @@ Checkpoint加载器 节点用于加载大模型，可以看到这个节点有 3 
 这是一个加载 LoRA 模型的工作流。
 
 LoRA 模型用于大模型的微调，所以 LoRA加载器 节点连接 Checkpoint加载器 节点的模型和 CLIP 输出。
+
+在 LoRA加载器 中可以看到**模型强度**和**CLIP 强度**，这是因为 ComfyUI 将 LoRA 模型对大模型的 UNet 控制权重和对大模型的 CLIP 控制权重分开进行控制。通常只需要调整**模型强度**即可，如果使用的 LoRA 未训练文本编码器，调整 **CLIP 强度**将不会带来任何变化。
 
 
 ## 使用 Embedding 模型
