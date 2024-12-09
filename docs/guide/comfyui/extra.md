@@ -11,19 +11,22 @@ title: 杂项
 |模型种类|放置路径|
 |---|---|
 |Stable Diffusion 模型（大模型）|ComfyUI/models/checkpoints|
+|UNet 模型|ComfyUI/models/unet|
+|文本编码器模型|ComfyUI/models/clip|
+|视觉编码器模型|ComfyUI/models/clip_vision|
 |VAE 模型|ComfyUI/models/vae|
 |VAE-approx 模型|ComfyUI/models/vae_approx|
-|LoRA Lycoris 模型|ComfyUI/models/loras|
+|LoRA / Lycoris 模型|ComfyUI/models/loras|
 |Embedding 模型|ComfyUI/models/embeddings|
 |Hypernetwork 模型|ComfyUI/models/hypernetworks|
 |高清修复模型|ComfyUI/models/upscale_models|
 |ControlNet 模型|ComfyUI/models/controlnet|
+|IP Adapter 模型|ComfyUI/models/ipadapter|
 |ControlNet 预处理器模型|ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts|
+|风格模型|ComfyUI/models/style_models|
 |AnimateDiff 模型|ComfyUI/models/animatediff_models</br>ComfyUI/models/animatediff_motion_lora|
 |TIPO 模型|ComfyUI/models/kgen|
 |保存的工作流|ComfyUI/user/default/workflows|
-
-<!-- TODO: 需要更新路径-->
 
 
 ## ComfyUI 共享 SD WebUI 的模型
@@ -218,10 +221,85 @@ https://licyk.github.io/t/tag/tag_pp_zh.csv
     2. WeiLin-ComfyUI-prompt-all-in-one 其实也提供通过提示词加载 LoRA 模型的功能，可自行尝试。
 
 
-## 
+## 添加性能监测
+可以安装 ComfyUI-Crystools 扩展实现该功能，安装后在 ComfyUI 工具栏可以看到实时的性能监测信息。
+
+![use_crystools_to_monitor_hardware](../../assets/images/guide/comfyui/extra/use_crystools_to_monitor_hardware.png)
+
+!!!note
+    ComfyUI-Crystools 扩展下载：https://github.com/crystian/ComfyUI-Crystools
+
+
+## 查看图片目录
+comfyui-browser 扩展提供一个便捷浏览 ComfyUI 保存的图片的功能。安装该扩展后，点击 ComfyUI 工具栏的📚按钮即可打开。
+
+![comfyui_brower_interface](../../assets/images/guide/comfyui/extra/comfyui_brower_interface.png)
+
+!!!note
+    comfyui-browser 扩展下载：https://github.com/talesofai/comfyui-browser
+
+
+## 使用 ControlNet / IP Adapter
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)|ComfyUI/models/checkpoints|
+|[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)|ComfyUI/models/controlnet|
+|[ip-adapter_sdxl.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/ip-adapter_sdxl.safetensors)|ComfyUI/models/ipadapter|
+|[ip-adapter_sdxl_vit-h.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/ip-adapter_sdxl_vit-h.safetensors)|ComfyUI/models/ipadapter|
+|[ip-adapter-plus_sdxl_vit-h.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/ip-adapter-plus_sdxl_vit-h.safetensors)|ComfyUI/models/ipadapter|
+|[Clip-vit-large-patch14-336.bin](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/Clip-vit-large-patch14-336.bin)|ComfyUI/models/clip_vision|
+|[CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors)|ComfyUI/models/clip_vision|
+|[CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors)|ComfyUI/models/clip_vision|
+
+ComfyUI 自带的 ControlNet 节点可以满足基本 ControlNet 的需求，但是 ComfyUI 缺失很多 ControlNet 的预处理器和部分 ControlNet 功能，并且不支持 IP Adapter，所以需要安装 comfyui_controlnet_aux、ComfyUI-Advanced-ControlNet、ComfyUI_IPAdapter_plus 扩展来实现。
+
+!!!note
+    comfyui_controlnet_aux 扩展下载：https://github.com/Fannovel16/comfyui_controlnet_aux  
+    ComfyUI-Advanced-ControlNet 扩展下载：https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet  
+    ComfyUI_IPAdapter_plus 扩展下载：https://github.com/cubiq/ComfyUI_IPAdapter_plus
+
+这个工作流简单实现 ControlNet 不同的功能，并且使用 comfyui_controlnet_aux 扩展提供的预处理器节点处理图片，不再需要手动处理图片再导入。通过修改**预处理器选择器**中的预处理器来实现切换不同的控制类型。
+
+![controlnet_example](../../assets/images/guide/comfyui/extra/controlnet_example.png)
+
+如果需要实现在 Stable Diffusion WebUI 中 ControlNet 扩展中的控制模式，可以通过 ComfyUI-Advanced-ControlNet 提供的节点来实现。
+
+![controlnet_with_control_mode](../../assets/images/guide/comfyui/extra/controlnet_with_control_mode.png)
+
+ControlNet Reference 无法通过 ComfyUI 内置节点实现，但是 ComfyUI-Advanced-ControlNet 扩展提供了相关的节点，下面是搭建 ControlNet Reference 的工作流。
+
+![controlnet_reference_example](../../assets/images/guide/comfyui/extra/controlnet_reference_example.png)
+
+ComfyUI_IPAdapter_plus 扩展提供 IP Adapter 用于迁移画风，下面的工作流简单演示如何进行画风迁移。
+
+![ip_adapter_example](../../assets/images/guide/comfyui/extra/ip_adapter_example.png)
+
+
+## 查看模型信息
+ComfyUI-Custom-Scripts 扩展提供查看模型信息的功能。安装该扩展后，右键模型加载器可以看到菜单中有 **View info** 选项，点击可以查看模型的信息。
+
+![view_model_info](../../assets/images/guide/comfyui/extra/view_model_info.png)
+
+!!!note
+    ComfyUI-Custom-Scripts 扩展下载：https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+
+
+## 将工作流截图导出并附带工作流信息
+安装 ComfyUI-Custom-Scripts 扩展后，右键 ComfyUI 界面空白处打开菜单，在**工作流图像 -> 导出 -> PNG**可以导出工作流截图并且图片附带了工作流信息，将图片导入 ComfyUI 可以查看图片附带的工作流。
+
+!!!note
+    ComfyUI-Custom-Scripts 扩展下载：https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+
+
+## 直出高分辨率图
+**收缩模型UNET**节点使模型能够直出超过训练分辨率的图但不出现崩坏，下面的工作流简单演示该节点的使用方法。
+
+![use_patch_model_add_downscale_node](../../assets/images/guide/comfyui/extra/use_patch_model_add_downscale_node.png)
+
+
 
 <!-- TODO: 包含有用的原生节点 https://www.bilibili.com/video/BV17pmbYqEvN -->
-
-<!-- TODO:关系 ControlNet 模式的说明: https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet/issues/87#issuecomment-2116370541 -->
 
 <!-- TODO https://github.com/Acly/krita-ai-diffusion/wiki/ComfyUI-Setup -->

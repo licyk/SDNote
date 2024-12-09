@@ -265,6 +265,18 @@ ComfyUI-Manager 还提供了释放显存的工具，在 ComfyUI-Manager 的**管
 ![unload_model_by_comfyui_manager](../../assets/images/guide/comfyui/interface_operation/unload_model_by_comfyui_manager.png)
 
 
+## 配置 ComfyUI Manager 安全等级
+在 ComfyUI Manager 默认的安全等级下，ComfyUI Manager 的部分功能将被限制，防止执行一些危险操作破坏 ComfyUI 的环境，如果需要解除，需要调整 ComfyUI Manager 安全等级。
+
+编辑`ComfyUI/custom_nodes/ComfyUI-Manager/config.ini`文件，将`security_level = normal`修改成`security_level = weak`后保存该文件并重启 ComfyUI 即可生效。
+
+!!!warning
+    修改 ComfyUI Manager 的安全等级存在风险。
+
+!!!note
+    有关该配置的说明：[Security policy - ltdrdata/ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#security-policy)。
+
+
 ## ComfyUI 内置节点
 使用 ComfyUI 时，优先使用 ComfyUI 内置的节点进行工作流搭建，当 ComfyUI 内置的节点无法实现想要的功能时再考虑使用 ComfyUI 扩展提供的节点。
 
