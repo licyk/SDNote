@@ -52,6 +52,7 @@ ComfyUI 的提示词权重模式和 Stable Diffusion WebUI / Stable Diffusion We
 ## 图片放大
 通常情况下使用文生图生成的图像分辨率较小，看起来不是很清晰，所以通过图片放大工作流将生成的图像进行放大，提高图像的清晰度，下面的图片放大工作流将在文生图工作流的基础上修改。
 
+
 ### 潜空间放大
 ![latent_upscale_image](../../assets/images/guide/comfyui/build_workflow/latent_upscale_image.png)
 
@@ -89,11 +90,11 @@ ComfyUI 的提示词权重模式和 Stable Diffusion WebUI / Stable Diffusion We
 
 局部重绘的工作流和图生图的工作流类似，只是导入 加载图像 节点的图像带有透明通道，也就是绘制蒙版后的图片。蒙版图片可以通过 Photoshop 进行制作，也可以使用 ComfyUI 自带的蒙版编辑器进行制作。
 
-![input_to_inpaint_workflow](../../assets/images/guide/comfyui/build_workflow/input_to_inpaint_workflow.jpg)
+![input_to_inpaint_workflow](../../assets/images/guide/comfyui/build_workflow/input_to_inpaint_workflow.png)
 
 将这张图片导入到 加载图像 节点中，用鼠标右键 加载图像 节点，可以看到右键菜单有个 在遮罩编辑器中打开 选项，点击该选项即可打开遮罩编辑器。
 
-![open_mask_editor](../../assets/images/guide/comfyui/build_workflow/open_mask_editor.jpg)
+![open_mask_editor](../../assets/images/guide/comfyui/build_workflow/open_mask_editor.png)
 
 在遮罩编辑器中使用画笔绘制遮罩，绘制遮罩的部分将会被重绘。遮罩绘制完后，点击右下角的 Save to node 选项将绘制遮罩完成的图片保存到该节点中。
 
@@ -107,7 +108,7 @@ ComfyUI 的提示词权重模式和 Stable Diffusion WebUI / Stable Diffusion We
 
 局部重绘也可以用作扩充图像，在 加载图像 节点导入该图像。
 
-![input_to_inpaint_workflow](../../assets/images/guide/comfyui/build_workflow/input_to_inpaint_workflow.jpg)
+![input_to_outpaint_workflow](../../assets/images/guide/comfyui/build_workflow/input_to_outpaint_workflow.jpg)
 
 将 加载图像 节点的输出连接到 外补画板 节点，该节点的参数改成要往外扩的大小，再将该节点的输出连接到 VAE 内补编码器 节点进行潜空间转换，再输入进 K采样器 节点。注意，K采样器 节点的降噪值需调至 1，提示词改成扩图区域的描述。
 

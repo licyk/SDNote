@@ -299,7 +299,13 @@ ComfyUI-Custom-Scripts 扩展提供查看模型信息的功能。安装该扩展
 ![use_patch_model_add_downscale_node](../../assets/images/guide/comfyui/extra/use_patch_model_add_downscale_node.png)
 
 
+## 提示词反推
+ComfyUI-WD14-Tagger 扩展可以用于反推图片的提示词。
 
-<!-- TODO: 包含有用的原生节点 https://www.bilibili.com/video/BV17pmbYqEvN -->
+下面的工作流使用 ComfyUI-WD14-Tagger 扩展提供的节点反推提示词，再使用 ComfyUI-Custom-Scripts 扩展提供的节点在反推出来的提示词上附加其他提示词。
 
-<!-- TODO https://github.com/Acly/krita-ai-diffusion/wiki/ComfyUI-Setup -->
+![use_wd14_tagger](../../assets/images/guide/comfyui/extra/use_wd14_tagger.png)
+
+!!!note
+    ComfyUI-Custom-Scripts 扩展下载：https://github.com/pythongosssss/ComfyUI-Custom-Scripts  
+    ComfyUI-WD14-Tagger 扩展下载：https://github.com/pythongosssss/ComfyUI-WD14-Tagger
