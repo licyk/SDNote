@@ -9,6 +9,8 @@ title: 部署功能
 
 ![install](../../assets/images/sd_launcher/install/install.jpg)
 
+<!-- TODO 界面有改动，需要修改，还有补充启动器在安装时做的事有什么-->
+
 ## 内核分支
 
 在选择内核分支中可以选择你想要部署的 Stable Diffusion 项目，目前支持部署的 Stable Diffusion 项目如下。

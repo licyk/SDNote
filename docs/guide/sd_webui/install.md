@@ -32,21 +32,47 @@ title: SD WebUI 部署
 [SD WebUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/stable_diffusion_webui_installer.md)
 
 
+## 使用 Stability Matrix 部署
+[Stability Matrix - 多平台 AI 管理器，一键安装和管理](https://lykos.ai)
+
+
+## 使用 pinokio 部署
+[pinokio - 多平台 AI 管理器，一键安装和管理](https://pinokio.computer)
+
+
 ## 官方方法部署
 （不推荐）[AUTOMATIC1111/stable-diffusion-webui - Installation and Running](https://github.com/AUTOMATIC1111/stable-diffusion-webui?tab=readme-ov-file#installation-and-running)
 
 
 # Linux 平台
-## 使用安装器
+## 使用 Term-SD 安装
 [licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
+
+
+## 使用 Stability Matrix 部署
+[Stability Matrix - 多平台 AI 管理器，一键安装和管理](https://lykos.ai)
+
+
+## 使用 pinokio 部署
+[pinokio - 多平台 AI 管理器，一键安装和管理](https://pinokio.computer)
+
 
 ## 官方方法部署
 [Install and Run on NVidia GPUs · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-NVidia-GPUs#linux)
 
 
 # MacOS 平台
-## 使用安装器
+## 使用 Term-SD 安装
 [licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
+
+
+## 使用 Stability Matrix 部署
+[Stability Matrix - 多平台 AI 管理器，一键安装和管理](https://lykos.ai)
+
+
+## 使用 pinokio 部署
+[pinokio - 多平台 AI 管理器，一键安装和管理](https://pinokio.computer)
+
 
 ## 官方方法部署
 [Installation on Apple Silicon · AUTOMATIC1111/stable-diffusion-webui Wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon)

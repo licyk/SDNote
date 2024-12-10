@@ -14,6 +14,14 @@ title: ComfyUI 部署
 [ComfyUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/comfyui_installer.md)
 
 
+## 使用 Stability Matrix 部署
+[Stability Matrix - 多平台 AI 管理器，一键安装和管理](https://lykos.ai)
+
+
+## 使用 pinokio 部署
+[pinokio - 多平台 AI 管理器，一键安装和管理](https://pinokio.computer)
+
+
 ## 从源码部署
 [comfyanonymous/ComfyUI - Installing](https://github.com/comfyanonymous/ComfyUI?tab=readme-ov-file#installing)
 
@@ -23,8 +31,16 @@ title: ComfyUI 部署
 
 
 # Linux 平台
-## 使用安装器
+## 使用 Term-SD 安装
 [licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
+
+
+## 使用 Stability Matrix 部署
+[Stability Matrix - 多平台 AI 管理器，一键安装和管理](https://lykos.ai)
+
+
+## 使用 pinokio 部署
+[pinokio - 多平台 AI 管理器，一键安装和管理](https://pinokio.computer)
 
 
 ## 从源码部署
@@ -36,8 +52,16 @@ title: ComfyUI 部署
 
 
 # MacOS 平台
-## 使用安装器
+## 使用 Term-SD 安装
 [licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
+
+
+## 使用 Stability Matrix 部署
+[Stability Matrix - 多平台 AI 管理器，一键安装和管理](https://lykos.ai)
+
+
+## 使用 pinokio 部署
+[pinokio - 多平台 AI 管理器，一键安装和管理](https://pinokio.computer)
 
 
 ## 从源码部署

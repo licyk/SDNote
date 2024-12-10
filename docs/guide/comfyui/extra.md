@@ -11,16 +11,22 @@ title: 杂项
 |模型种类|放置路径|
 |---|---|
 |Stable Diffusion 模型（大模型）|ComfyUI/models/checkpoints|
+|UNet 模型|ComfyUI/models/unet|
+|文本编码器模型|ComfyUI/models/clip|
+|视觉编码器模型|ComfyUI/models/clip_vision|
 |VAE 模型|ComfyUI/models/vae|
 |VAE-approx 模型|ComfyUI/models/vae_approx|
-|LoRA Lycoris 模型|ComfyUI/models/loras|
+|LoRA / Lycoris 模型|ComfyUI/models/loras|
 |Embedding 模型|ComfyUI/models/embeddings|
 |Hypernetwork 模型|ComfyUI/models/hypernetworks|
 |高清修复模型|ComfyUI/models/upscale_models|
 |ControlNet 模型|ComfyUI/models/controlnet|
+|IP Adapter 模型|ComfyUI/models/ipadapter|
 |ControlNet 预处理器模型|ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts|
-|AnimateDiff 模型|ComfyUI/custom_nodes/ComfyUI-AnimateDiff-Evolved/models|
-|DanTagGen 模型|ComfyUI/custom_nodes/ComfyUI_DanTagGen/models|
+|风格模型|ComfyUI/models/style_models|
+|AnimateDiff 模型|ComfyUI/models/animatediff_models</br>ComfyUI/models/animatediff_motion_lora|
+|TIPO 模型|ComfyUI/models/kgen|
+|保存的工作流|ComfyUI/user/default/workflows|
 
 
 ## ComfyUI 共享 SD WebUI 的模型
@@ -151,11 +157,155 @@ COSXL 模型也可以通过融合模型的方式进行创建，使用的公式�
 ![model_merging_cosxl](../../assets/images/guide/comfyui/extra/model_merging_cosxl.png)
 
 
+## 设置提示词补全
+在 ComfyUI 中可以通过安装 ComfyUI-Custom-Scripts 扩展添加提示词补全功能。安装该扩展后，进入 ComfyUI 设置，找到**自定义脚本**的设置，将**Replace _ with space**启用。
 
-<!-- TODO: 包含有用的原生节点 https://www.bilibili.com/video/BV17pmbYqEvN -->
+![comfyui_custom_scripts_setting](../../assets/images/guide/comfyui/extra/comfyui_custom_scripts_setting.png)
 
-<!-- TODO:关系 ControlNet 模式的说明: https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet/issues/87#issuecomment-2116370541 -->
+点击 Manage Custom Words 进行提示词库管理，进入管理界面后在上方输入链接的地方将原来的链接替换成下面的链接。
 
-<!-- TODO: https://comfyanonymous.github.io/ComfyUI_examples/faq/ -->
+```
+https://licyk.github.io/t/tag/tag_pp_zh.csv
+```
 
-<!-- TODO https://github.com/Acly/krita-ai-diffusion/wiki/ComfyUI-Setup -->
+替换之后点击右边的**加载**将提示词库下载下来，再点击下方的**保存**就能保存提示词库，再点击**关闭**退出提示词库管理。
+
+在提示词框中就可以使用提示词补全功能，并且英文和中文都可以补全提示词。
+
+![use_tag_complete](../../assets/images/guide/comfyui/extra/use_tag_complete.png)
+
+!!!note
+    ComfyUI-Custom-Scripts 扩展下载：https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+
+当有提示词翻译和管理提示词的需求时，可以使用 WeiLin-ComfyUI-prompt-all-in-one 扩展。
+
+安装该扩展后，进入 ComfyUI 设置，在 **weilin** 设置选项勾选**显示全局悬浮球**和**将"_"替换为空格**。
+
+![weilin_sd_webui_prompt_all_in_one_setting](../../assets/images/guide/comfyui/extra/weilin_sd_webui_prompt_all_in_one_setting.png)
+
+在 ComfyUI 界面的左下角一般就能看到一个标记为 **WeiLin** 的悬浮按钮，点击后可以打开 WeiLin-ComfyUI-prompt-all-in-one 的界面，利用该扩展翻译和管理提示词。
+
+![weilin_sd_webui_prompt_all_in_one_interface](../../assets/images/guide/comfyui/extra/weilin_sd_webui_prompt_all_in_one_interface.png)
+
+该扩展也提供节点方便输入和调整提示词，下面是使用该扩展书写提示词。
+
+![use_weilin_sd_webui_prompt_all_in_one_example](../../assets/images/guide/comfyui/extra/use_weilin_sd_webui_prompt_all_in_one_example.png)
+
+!!!note
+    WeiLin-ComfyUI-prompt-all-in-one 扩展下载：https://github.com/weilin9999/WeiLin-ComfyUI-prompt-all-in-one
+
+
+## 使用提示词调用 LoRA
+在 ComfyUI 中通常使用 **LoRA 加载器**节点调用 LORA 模型，但有时候这种调用方式并不方便调用 LoRA 模型，此时可以通过 comfyui_lora_tag_loader 扩展实现 Stable Diffusion WebUI 中使用提示词调用 LoRA 的方式。
+
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)|ComfyUI/models/checkpoints|
+|[ill-xl-01-tyomimas_1-000032.safetensors](https://modelscope.cn/models/licyks/sd-lora/resolve/master/sdxl/style/ill-xl-01-tyomimas_1-000032.safetensors)|ComfyUI/models/loras|
+
+这个工作流演示使用 comfyui_lora_tag_loader 扩展调用 LoRA 模型。
+
+![use_comfyui_lora_tag_loader_to_load_lora](../../assets/images/guide/comfyui/extra/use_comfyui_lora_tag_loader_to_load_lora.png)
+
+!!!note
+    comfyui_lora_tag_loader 扩展下载：https://github.com/badjeff/comfyui_lora_tag_loader
+
+该扩展可以结合 WeiLin-ComfyUI-prompt-all-in-one 一起使用，可以更加方便的调用 LoRA 模型。
+
+![use_weilin_sd_webui_prompt_all_in_one_with_comfyui_lora_tag_loader](../../assets/images/guide/comfyui/extra/use_weilin_sd_webui_prompt_all_in_one_with_comfyui_lora_tag_loader.png)
+
+!!!note
+    1. WeiLin-ComfyUI-prompt-all-in-one 扩展下载：https://github.com/weilin9999/WeiLin-ComfyUI-prompt-all-in-one
+    2. WeiLin-ComfyUI-prompt-all-in-one 其实也提供通过提示词加载 LoRA 模型的功能，可自行尝试。
+
+
+## 添加性能监测
+可以安装 ComfyUI-Crystools 扩展实现该功能，安装后在 ComfyUI 工具栏可以看到实时的性能监测信息。
+
+![use_crystools_to_monitor_hardware](../../assets/images/guide/comfyui/extra/use_crystools_to_monitor_hardware.png)
+
+!!!note
+    ComfyUI-Crystools 扩展下载：https://github.com/crystian/ComfyUI-Crystools
+
+
+## 查看图片目录
+comfyui-browser 扩展提供一个便捷浏览 ComfyUI 保存的图片的功能。安装该扩展后，点击 ComfyUI 工具栏的📚按钮即可打开。
+
+![comfyui_brower_interface](../../assets/images/guide/comfyui/extra/comfyui_brower_interface.png)
+
+!!!note
+    comfyui-browser 扩展下载：https://github.com/talesofai/comfyui-browser
+
+
+## 使用 ControlNet / IP Adapter
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[Illustrious-XL-v0.1.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors)|ComfyUI/models/checkpoints|
+|[xinsir-controlnet-union-sdxl-1.0-promax.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors)|ComfyUI/models/controlnet|
+|[ip-adapter_sdxl.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/ip-adapter_sdxl.safetensors)|ComfyUI/models/ipadapter|
+|[ip-adapter_sdxl_vit-h.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/ip-adapter_sdxl_vit-h.safetensors)|ComfyUI/models/ipadapter|
+|[ip-adapter-plus_sdxl_vit-h.safetensors](https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/ip-adapter-plus_sdxl_vit-h.safetensors)|ComfyUI/models/ipadapter|
+|[Clip-vit-large-patch14-336.bin](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/Clip-vit-large-patch14-336.bin)|ComfyUI/models/clip_vision|
+|[CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors)|ComfyUI/models/clip_vision|
+|[CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors)|ComfyUI/models/clip_vision|
+
+ComfyUI 自带的 ControlNet 节点可以满足基本 ControlNet 的需求，但是 ComfyUI 缺失很多 ControlNet 的预处理器和部分 ControlNet 功能，并且不支持 IP Adapter，所以需要安装 comfyui_controlnet_aux、ComfyUI-Advanced-ControlNet、ComfyUI_IPAdapter_plus 扩展来实现。
+
+!!!note
+    comfyui_controlnet_aux 扩展下载：https://github.com/Fannovel16/comfyui_controlnet_aux  
+    ComfyUI-Advanced-ControlNet 扩展下载：https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet  
+    ComfyUI_IPAdapter_plus 扩展下载：https://github.com/cubiq/ComfyUI_IPAdapter_plus
+
+这个工作流简单实现 ControlNet 不同的功能，并且使用 comfyui_controlnet_aux 扩展提供的预处理器节点处理图片，不再需要手动处理图片再导入。通过修改**预处理器选择器**中的预处理器来实现切换不同的控制类型。
+
+![controlnet_example](../../assets/images/guide/comfyui/extra/controlnet_example.png)
+
+如果需要实现在 Stable Diffusion WebUI 中 ControlNet 扩展中的控制模式，可以通过 ComfyUI-Advanced-ControlNet 提供的节点来实现。
+
+![controlnet_with_control_mode](../../assets/images/guide/comfyui/extra/controlnet_with_control_mode.png)
+
+ControlNet Reference 无法通过 ComfyUI 内置节点实现，但是 ComfyUI-Advanced-ControlNet 扩展提供了相关的节点，下面是搭建 ControlNet Reference 的工作流。
+
+![controlnet_reference_example](../../assets/images/guide/comfyui/extra/controlnet_reference_example.png)
+
+ComfyUI_IPAdapter_plus 扩展提供 IP Adapter 用于迁移画风，下面的工作流简单演示如何进行画风迁移。
+
+![ip_adapter_example](../../assets/images/guide/comfyui/extra/ip_adapter_example.png)
+
+
+## 查看模型信息
+ComfyUI-Custom-Scripts 扩展提供查看模型信息的功能。安装该扩展后，右键模型加载器可以看到菜单中有 **View info** 选项，点击可以查看模型的信息。
+
+![view_model_info](../../assets/images/guide/comfyui/extra/view_model_info.png)
+
+!!!note
+    ComfyUI-Custom-Scripts 扩展下载：https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+
+
+## 将工作流截图导出并附带工作流信息
+安装 ComfyUI-Custom-Scripts 扩展后，右键 ComfyUI 界面空白处打开菜单，在**工作流图像 -> 导出 -> PNG**可以导出工作流截图并且图片附带了工作流信息，将图片导入 ComfyUI 可以查看图片附带的工作流。
+
+!!!note
+    ComfyUI-Custom-Scripts 扩展下载：https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+
+
+## 直出高分辨率图
+**收缩模型UNET**节点使模型能够直出超过训练分辨率的图但不出现崩坏，下面的工作流简单演示该节点的使用方法。
+
+![use_patch_model_add_downscale_node](../../assets/images/guide/comfyui/extra/use_patch_model_add_downscale_node.png)
+
+
+## 提示词反推
+ComfyUI-WD14-Tagger 扩展可以用于反推图片的提示词。
+
+下面的工作流使用 ComfyUI-WD14-Tagger 扩展提供的节点反推提示词，再使用 ComfyUI-Custom-Scripts 扩展提供的节点在反推出来的提示词上附加其他提示词。
+
+![use_wd14_tagger](../../assets/images/guide/comfyui/extra/use_wd14_tagger.png)
+
+!!!note
+    ComfyUI-Custom-Scripts 扩展下载：https://github.com/pythongosssss/ComfyUI-Custom-Scripts  
+    ComfyUI-WD14-Tagger 扩展下载：https://github.com/pythongosssss/ComfyUI-WD14-Tagger

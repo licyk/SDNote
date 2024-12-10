@@ -20,6 +20,28 @@ Checkpoint加载器 节点用于加载大模型，可以看到这个节点有 3 
 
 接下来看看 CLIP文本编码器 节点，这里是用于输入你的提示词的地方，该节点将输入的提示词编码成大模型可以理解的 Token，让大模型知道该如何生成图像。
 
+如果需要对提示词加权或者降权，可以使用`(提示词:权重)`这个提示词格式，ComfyUI 也提供快捷调整提示词权重的快捷键，使用鼠标选中提示词后，按下`Ctrl + 方向上 / 下键`可以对提示词权重进行增加 / 减少。
+
+ComfyUI 的提示词权重模式和 Stable Diffusion WebUI / Stable Diffusion WebUI Forge / Stable Diffusion WebUI reForge 的提示词权重模式有区别，在 ComfyUI 中提示词的权重不会被平均。下面是一段带有权重的提示词。
+
+```
+(masterpiece:1.2) (best:1.3) (quality:1.4) girl
+```
+
+在 ComfyUI 中提示词的权重将保持原样。
+
+```
+(masterpiece:1.2) (best:1.3) (quality:1.4) girl
+```
+
+但是在 Stable Diffusion WebUI / Stable Diffusion WebUI Forge / Stable Diffusion WebUI reForge 中提示词的权重将会进行平均。
+
+```
+(masterpiece:0.98) (best:1.06) (quality:1.14) (girl:0.81)
+```
+
+所以就会出现同样的参数在 ComfyUI 上效果就不同，并且 ComfyUI 中提示词的权重更加敏感。
+
 下一个节点是 K采样器 节点，该节点将模型作为输入，然后从 CLIP文本编码器 节点解析的 Token 将输入到这个节点上，最后通过 空Latent 节点生成一张潜空间图像输入进 K采样器 节点，这时就可以进行图像生成。K采样器 根据种子在潜空间图像上生成噪声，通过采样器在这张噪声图上进行降噪，根据提示词的提示内容逐步降噪，生成想要的图像，降噪完成后通过 Latent 接口输出潜空间图像。
 
 潜空间图像将进入 VAE解码 节点进行解码，再从 Checkpoint加载器中输入 VAE 作为解码器。因为潜空间图像并不是人能够理解的图像，所以需要通过 VAE 将潜空间的图像转换成像素空间的图像，也就是人能够看得懂的图像，
@@ -29,6 +51,7 @@ Checkpoint加载器 节点用于加载大模型，可以看到这个节点有 3 
 
 ## 图片放大
 通常情况下使用文生图生成的图像分辨率较小，看起来不是很清晰，所以通过图片放大工作流将生成的图像进行放大，提高图像的清晰度，下面的图片放大工作流将在文生图工作流的基础上修改。
+
 
 ### 潜空间放大
 ![latent_upscale_image](../../assets/images/guide/comfyui/build_workflow/latent_upscale_image.png)
@@ -67,11 +90,11 @@ Checkpoint加载器 节点用于加载大模型，可以看到这个节点有 3 
 
 局部重绘的工作流和图生图的工作流类似，只是导入 加载图像 节点的图像带有透明通道，也就是绘制蒙版后的图片。蒙版图片可以通过 Photoshop 进行制作，也可以使用 ComfyUI 自带的蒙版编辑器进行制作。
 
-![input_to_inpaint_workflow](../../assets/images/guide/comfyui/build_workflow/input_to_inpaint_workflow.jpg)
+![input_to_inpaint_workflow](../../assets/images/guide/comfyui/build_workflow/input_to_inpaint_workflow.png)
 
 将这张图片导入到 加载图像 节点中，用鼠标右键 加载图像 节点，可以看到右键菜单有个 在遮罩编辑器中打开 选项，点击该选项即可打开遮罩编辑器。
 
-![open_mask_editor](../../assets/images/guide/comfyui/build_workflow/open_mask_editor.jpg)
+![open_mask_editor](../../assets/images/guide/comfyui/build_workflow/open_mask_editor.png)
 
 在遮罩编辑器中使用画笔绘制遮罩，绘制遮罩的部分将会被重绘。遮罩绘制完后，点击右下角的 Save to node 选项将绘制遮罩完成的图片保存到该节点中。
 
@@ -85,7 +108,7 @@ Checkpoint加载器 节点用于加载大模型，可以看到这个节点有 3 
 
 局部重绘也可以用作扩充图像，在 加载图像 节点导入该图像。
 
-![input_to_inpaint_workflow](../../assets/images/guide/comfyui/build_workflow/input_to_inpaint_workflow.jpg)
+![input_to_outpaint_workflow](../../assets/images/guide/comfyui/build_workflow/input_to_outpaint_workflow.jpg)
 
 将 加载图像 节点的输出连接到 外补画板 节点，该节点的参数改成要往外扩的大小，再将该节点的输出连接到 VAE 内补编码器 节点进行潜空间转换，再输入进 K采样器 节点。注意，K采样器 节点的降噪值需调至 1，提示词改成扩图区域的描述。
 
@@ -104,6 +127,8 @@ Checkpoint加载器 节点用于加载大模型，可以看到这个节点有 3 
 这是一个加载 LoRA 模型的工作流。
 
 LoRA 模型用于大模型的微调，所以 LoRA加载器 节点连接 Checkpoint加载器 节点的模型和 CLIP 输出。
+
+在 LoRA加载器 中可以看到**模型强度**和**CLIP 强度**，这是因为 ComfyUI 将 LoRA 模型对大模型的 UNet 控制权重和对大模型的 CLIP 控制权重分开进行控制。通常只需要调整**模型强度**即可，如果使用的 LoRA 未训练文本编码器，调整 **CLIP 强度**将不会带来任何变化。
 
 
 ## 使用 Embedding 模型
