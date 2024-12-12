@@ -1,6 +1,3 @@
----
-title: ComfyUI
----
 # ComfyUI
 这里是有关 ComfyUI 的报错收集。
 

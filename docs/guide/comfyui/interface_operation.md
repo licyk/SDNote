@@ -1,6 +1,3 @@
----
-title: 界面操作
----
 # 简述
 ComfyUI 的界面和 Stable Diffusion WebUI 的界面完全不相同，在 ComfyUI 中，每个功能都被拆散成一个个节点，通过连接不同的节点搭建起一个完整的生图流程。
 

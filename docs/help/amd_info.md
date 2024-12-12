@@ -1,9 +1,4 @@
----
-title: AMD
----
 # AMD 用户须知
-
-***
 
 下面文章均取至 [ZLUDA 的 zludas-third-life 文件](https://vosen.github.io/ZLUDA/blog/zludas-third-life/)，文件经过翻译，原文点击点击高亮文字查看。
 

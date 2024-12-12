@@ -1,6 +1,3 @@
----
-title: 简述
----
 # 简述
 [绘世启动器](https://www.bilibili.com/video/BV1ne4y1V7QU)是由[秋葉aaaki](https://space.bilibili.com/12566101)和[喵喵hmkai](https://space.bilibili.com/2082155)共同开发的 Stable Diffusion WebUI 启动器，用于 Stable Diffusion 项目，简化了 Stable Diffusion 项目的启动和管理，同时还拥有疑难解答系统用于诊断常见的错误，解决用户使用时产生的部分问题，是一个非常实用的工具。
 

@@ -1,6 +1,3 @@
----
-title: SD WebUI
----
 # SD WebUI
 这里是有关 SD WebUI 的报错收集。
 
