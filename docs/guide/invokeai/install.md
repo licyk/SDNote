@@ -11,6 +11,13 @@
 [pinokio - 多平台 AI 管理器，一键安装和管理](https://pinokio.computer)
 
 
+## 使用 InvokeAI Launcher 部署
+[invoke-ai/launcher: Launcher for Invoke Community Edition](https://github.com/invoke-ai/launcher)
+
+!!!warning
+    InvokeAI Launcher 还处于测试中，可能存在 Bug。
+
+
 ## 从源码部署
 [Installation - Invoke](https://invoke-ai.github.io/InvokeAI/installation)
 
@@ -22,6 +29,13 @@
 
 ## 使用 pinokio 部署
 [pinokio - 多平台 AI 管理器，一键安装和管理](https://pinokio.computer)
+
+
+## 使用 InvokeAI Launcher 部署
+[invoke-ai/launcher: Launcher for Invoke Community Edition](https://github.com/invoke-ai/launcher)
+
+!!!warning
+    InvokeAI Launcher 还处于测试中，可能存在 Bug。
 
 
 ## 使用 Term-SD 部署
@@ -39,6 +53,13 @@
 
 ## 使用 pinokio 部署
 [pinokio - 多平台 AI 管理器，一键安装和管理](https://pinokio.computer)
+
+
+## 使用 InvokeAI Launcher 部署
+[invoke-ai/launcher: Launcher for Invoke Community Edition](https://github.com/invoke-ai/launcher)
+
+!!!warning
+    InvokeAI Launcher 还处于测试中，可能存在 Bug。
 
 
 ## 使用 Term-SD 部署
