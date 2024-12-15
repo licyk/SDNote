@@ -129,3 +129,15 @@ flower sea, (tree)1.21, (river)0.9,
 画廊还支持导入图片素材用于创作，点击画廊中的📤︎按钮可以打开系统的文件管理器上传图片，或者将图片从系统的文件管理器拖动一张图片到 InvokeAI 的界面中，图片将自动添加到素材中。
 
 ![assets_manager](../../assets/images/guide/invokeai/t2i/assets_manager.png)
+
+
+## LoRA 应用
+当大模型不能通过提示词的方式实现自己想要的效果时，可以使用 LoRA 模型来实现。
+
+在左侧参数的**模型**选项下方有个**概念**选项，这里可以添加要使用的 LoRA 模型。当 LoRA 和大模型兼容时，LoRA 模型可以被添加，否则将被 InvokeAI 标记为灰色，表示 LoRA 不兼容当前选择的大模型。
+
+![use_lora_model](../../assets/images/guide/invokeai/t2i/use_lora_model.png)
+
+添加 LoRA 模型后，可以设置 LoRA 模型的权重。越高的模型权重，LoRA 模型的影响效果越强，但过高的权重可能会造成生成的图片崩坏，当出现崩坏时就需要降低 LoRA 模型的权重。
+
+LoRA 模型通常在训练该 LoRA 模型时使用的大模型上表现最好，在别的大模型上可能会导致效果减弱或者不产生效果。一般在下面 LoRA 模型的地方，LoRA 模型的作者会告知建议在哪个大模型上使用该 LoRA 模型。
