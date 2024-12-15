@@ -204,7 +204,6 @@ nav:
     - "模型管理": guide/invokeai/model_manager.md
     - "文生图": guide/invokeai/t2i.md
     - "统一画布": guide/invokeai/canvas.md
-    - "控制层": guide/invokeai/control_layer.md
     - "放大": guide/invokeai/upscale.md
     - "工作流": guide/invokeai/workflow.md
     - "杂项": guide/invokeai/extra.md
