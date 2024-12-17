@@ -228,4 +228,163 @@ IP Adapter 需要一张图片进行画风迁移，在添加**全局参考图像*
 统一画布中大致的功能已经介绍了，下面将演示使用统一画布进行创作。
 
 
-### 
+### 使用统一画布生成一张图
+下面是我使用的正向提示词。
+
+```
+1girl,solo,
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,closed mouth,neck ribbon,white dress,crease,frilled_collar,detached_sleeves,flat chest,
+open mouth,smile,one eye closed,
+standing,v,light smile,looking at viewer,
+outdoors,blue sky,light rays,scenery,tree,flower,falling petals,blurry background,
+upper body,close-up,
+```
+
+使用的反向提示词。
+
+```
+low quality,worst quality,normal quality,text,signature,jpeg artifacts,bad anatomy,old ,early,copyright name,watermark,artist name,signature
+```
+
+画布的边界框的宽高设置为 1024 x 1472，使用的**调度器**为 **DPM++ 2M SDE**，**步数**为 20，**CFG等级** 为 5。
+
+使用的**模型**为 Illustrious-XL-v0.1，**概念**中添加 ill-xl-01-asagi_0398_1-000036 LoRA 模型。
+
+现在就点击 **Invoke** 进行生成了，可以点几次生成几张图，此时 InvokeAI 在画布的底部提供生成结果选择，挑选一个最好结果后点击 ✓ 保存图片到画布中。
+
+![generate_first_image_in_canvas](../../assets/images/guide/invokeai/canvas/generate_first_image_in_canvas.png)
+
+
+### 修改元素
+现在想让人物做出比心的动作，此时可以借助画笔进行简单涂鸦。在右侧的图层选中新的栅格层或者额外创建一个新的栅格层后，使用画笔在画布上简单画出人物比心的动作。
+
+按下 B 键切换到画笔模式后，可以按住 Alt 键快速进入吸色笔模式吸取画面中元素的颜色，松开 Alt 键后自动切换回画笔模式，再进行涂鸦。
+
+![use_brush_to_sketch_heart_hands_motion](../../assets/images/guide/invokeai/canvas/use_brush_to_sketch_heart_hands_motion.png)
+
+涂鸦完成后，在右侧的图层面板添加一个**修复遮罩**并选择，使用画笔在涂鸦的部分绘制**修复遮罩**，遮罩需要把涂鸦的部分覆盖完全，并且范围尽可能大一点。
+
+绘制**修复遮罩**完成后，将**去噪强度**设置为比较大的值，比如 0.7。
+
+![paint_inpaint_mask_for_sketch](../../assets/images/guide/invokeai/canvas/paint_inpaint_mask_for_sketch.png)
+
+提示词中关于人物动作的改成比心的动作。
+
+```
+1girl,solo,
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,closed mouth,neck ribbon,white dress,crease,frilled_collar,detached_sleeves,flat chest,
+open mouth,smile,one eye closed, heart hands,
+standing,light smile,looking at viewer,
+outdoors,blue sky,light rays,scenery,tree,flower,falling petals,blurry background,
+upper body,close-up,
+```
+
+现在就尝试 **Invoke** 生成图片，可以多次进行生成以挑选出效果比较好的图片。
+
+![inpaint_sketch_area_result](../../assets/images/guide/invokeai/canvas/inpaint_sketch_area_result.png)
+
+
+### 使用分区提示词强化提示词
+现在人物的袖子不太对，原来的袖套的蕾丝边没有了。所以需要对袖套的黑边进行重绘。
+
+在画布面板创建一个**区域导向**，在新建的**区域导向**点击**Prompt**添加提示词输入框，填上对蕾丝边的描述。
+
+```
+lace trim,lace,black lace trim,
+```
+
+选中这个**区域导向**后，使用画笔在袖套上绘制**区域导向**的蒙版，再选择**修复遮罩**并绘制**修复遮罩**。
+
+![use_regional_prompt_to_strength_effect](../../assets/images/guide/invokeai/canvas/use_regional_prompt_to_strength_effect.png)
+
+现在再尝试 **Invoke** 生成图片。
+
+![use_regional_prompt_to_strength_effect_and_inpaint_result](../../assets/images/guide/invokeai/canvas/use_regional_prompt_to_strength_effect_and_inpaint_result.png)
+
+此时蕾丝边的效果就出来了。
+
+
+### 扩图
+现在想让原来的图片从竖图变成横图，此时就可以使用扩图的方式实现。
+
+扩图需要对扩图区域进行画面描述，所以需要修改提示词，但是此时人物的部分还在图片外，所以先把人物通过扩图的方式绘制完整。
+
+按下 C 键进入边界框调整模式，将画框向外移动，**去噪强度**可以适当提高，在左侧面板选项中，**填充方法**选择 patchmatch。
+
+![move_bbox_to_outpaint](../../assets/images/guide/invokeai/canvas/move_bbox_to_outpaint.png)
+
+此时尝试几次 **Invoke** 进行图片外扩，选择比较好的结果。
+
+![outpaint_result_1](../../assets/images/guide/invokeai/canvas/outpaint_result_1.png)
+
+这里选择了一个比较好的结果，但是有些瑕疵，这时可以利用之前的方法进行修复。
+
+同理，画面的右边也是一样的处理方式。
+
+![outpaint_result_2](../../assets/images/guide/invokeai/canvas/outpaint_result_2.png)
+
+人物通过外扩的方式绘制完整了。现在需要修改提示词描述外扩部分的内容。
+
+```
+no humans,
+outdoors,blue sky,light rays,scenery,cherry blossoms,tree,flower,falling petals,blurry background,
+upper body,close-up,
+```
+
+用同样的方法进行图片外扩。
+
+![outpaint_result_3](../../assets/images/guide/invokeai/canvas/outpaint_result_3.png)
+
+此时原来的竖图通过外扩的方式变成了横图。
+
+### 面部细化
+InvokeAI 在边界框小于模型推荐分辨率的时候会进行缩放处理，处理后的细节将会提高。可以利用这个功能的特点进行面部细化。
+
+将边界框缩小到面部的位置，提示词修改为描写边界框内的内容。
+
+```
+1girl,solo,
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,open mouth,lace trim,lace,black lace trim,
+```
+
+使用较低的**去噪强度**值，防止原来的画面没有较大的改动。
+
+![use_auto_scale_bbox_feature_to_detail_image](../../assets/images/guide/invokeai/canvas/use_auto_scale_bbox_feature_to_detail_image.png)
+
+如果出现接缝问题，在对面部重绘完成后，使用**修复遮罩**在接缝处绘制蒙版，进行一次重绘修复接缝问题。
+
+![detail_image_result](../../assets/images/guide/invokeai/canvas/detail_image_result.png)
+
+现在这张图片就比较完美了，如果在这张图片的外围有涂鸦的痕迹，可以在**栅格图层**中找到涂鸦对应的栅格层并禁用，此时就可以点击画布顶部工具栏的 💾（将画布保存到图库）按钮，将创作的图片保存到图库中。
+
+
+### 绘制多人图
+通常情况下绘制多人图会出现特征混淆的问题，但通过分区提示词（区域导向）就可以很好解决这种问题。
+
+这是左侧面板中的正向提示词，描述了 2 个人的动作和场景。
+
+```
+2girls,
+sitting on bench,eye contact,kiss,
+outdoors,blue sky,light rays,scenery,tree,flower,falling petals,cherry blossoms,bench,
+upper body,close-up,
+```
+
+在右侧画布中创建 2 个**区域导向**，点击**Prompt**创建正向提示词输入框，分别对人物特征进行描述。
+
+```
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,legs,
+hug,
+```
+
+```
+azusa \(blue archive\),solo,halo,ahoge,hair flower,hair ornament,flower,very long hair,white hair,hair between eyes,blue eyes,official alternate costume,blush,collarbone,sidelocks,bow,navel,bare shoulders,swimsuit,bikini,frills,strapless,purple bow,frilled bikini,bikini skirt,strapless bikini,multicolored bikini,multicolored clothes,
+```
+
+并在画布中绘制 2 个**区域导向**的蒙版。
+
+![use_regional_prompt_to_paint_multi_character](../../assets/images/guide/invokeai/canvas/use_regional_prompt_to_paint_multi_character.png)
+
+现在尝试 **Invoke** 几次，选取比较好的生成结果。
+
+![use_regional_prompt_to_paint_multi_character_result](../../assets/images/guide/invokeai/canvas/use_regional_prompt_to_paint_multi_character_result.png)
