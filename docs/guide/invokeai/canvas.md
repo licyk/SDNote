@@ -353,6 +353,9 @@ cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,gr
 
 如果出现接缝问题，在对面部重绘完成后，使用**修复遮罩**在接缝处绘制蒙版，进行一次重绘修复接缝问题。
 
+!!!note
+    因为边界框的边界并不会应用**一致性层**的配置效果，所以会导致重绘后出现边界，所以另一种方法是在原来的边界框内绘制**修复遮罩**，但是**修复遮罩**不要画到边界框的边界，此时再进行 **Invoke** 就不容易出现接缝问题了。
+
 ![detail_image_result](../../assets/images/guide/invokeai/canvas/detail_image_result.png)
 
 现在这张图片就比较完美了，如果在这张图片的外围有涂鸦的痕迹，可以在**栅格图层**中找到涂鸦对应的栅格层并禁用，此时就可以点击画布顶部工具栏的 💾（将画布保存到图库）按钮，将创作的图片保存到图库中。
@@ -388,3 +391,48 @@ azusa \(blue archive\),solo,halo,ahoge,hair flower,hair ornament,flower,very lon
 现在尝试 **Invoke** 几次，选取比较好的生成结果。
 
 ![use_regional_prompt_to_paint_multi_character_result](../../assets/images/guide/invokeai/canvas/use_regional_prompt_to_paint_multi_character_result.png)
+
+现在图片有些小瑕疵，使用**修复遮罩**、**区域导向**进行修复。
+
+![use_inapint_mask_and_regional_prompt_and_sketch_to_fix_image](../../assets/images/guide/invokeai/canvas/use_inapint_mask_and_regional_prompt_and_sketch_to_fix_image.png)
+
+调整好参数后多 **Invoke** 几次，选择比较好的效果图。
+
+![use_inapint_mask_and_regional_prompt_and_sketch_to_fix_image_result](../../assets/images/guide/invokeai/canvas/use_inapint_mask_and_regional_prompt_and_sketch_to_fix_image_result.png)
+
+现在这张图片的效果就比较好了。
+
+
+### 使用元素选取(Select Object)进行抠图
+现在我想这张图上再绘制一个人，此时可以配合**修复遮罩**、**区域导向**和高**去噪强度**进行绘制。但是在 InvokeAI 中还有另一种实现方法，下面就来演示一下。
+
+这里先把边界框移动到画布中空白的部分，绘制第三个人，
+
+正向提示词修改一下。
+
+```
+1girl,solo,
+long hair,silver hair,blue hair,cute,purple eyes,low twintails,short sleeves,white dress,shirt,blue skirt,blue ribbon,see-through,see-through sleeves,collarbone,frills,small breasts,
+peeking out,open mouth,looking away,standing, 
+outdoors,blue sky,light rays,scenery,tree,flower,falling petals,cherry blossoms,
+upper body,close-up,from side,
+```
+
+![move_bbox_to_paint_another_image](../../assets/images/guide/invokeai/canvas/move_bbox_to_paint_another_image.png)
+
+可以多次 **Invoke** 选择比较好的效果图。
+
+![move_bbox_to_paint_another_image_result](../../assets/images/guide/invokeai/canvas/move_bbox_to_paint_another_image_result.png)
+
+这张人物的角度很合适，就选择这张保存到画布中。
+
+保存后该图片将成为新的**栅格层**，在右侧的图层面板选择该**栅格层**，在右侧的图层面板或者画布内右键，选择**元素选取(Select Object)**。这时使用该功能将该人物选取出来。
+
+
+![use_select_object_to_select_character_in_image](../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character_in_image.png)
+
+现在人物部分被遮罩部分覆盖了，这里点击 **Save As**，选择**新建 栅格层**将结果存为新的**栅格层**，再将**元素选取(Select Object)**的菜单关闭，把原来的栅格层禁用（因为可能再需要原来的图片，而如果直接点击 **Apply** 在这张图片上应用结果会破坏掉原图，所以就单独把结果存到新的**栅格层**中。），此时可以看到抠图出来的人物了。
+
+![use_select_object_to_select_character_in_image_result](../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character_in_image_result.png)
+
+现在
