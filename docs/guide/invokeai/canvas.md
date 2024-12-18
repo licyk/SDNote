@@ -98,7 +98,7 @@ IP Adapter 需要一张图片进行画风迁移，在添加**全局参考图像*
 ### 控制层
 该层的功能基于 ControlNet，ControlNet 可以通过图像作为控制条件，和提示词一起控制图像的生成。
 
-在添加**控制层**图层后，点击 **Upload an image** 可以打开系统的文件管理器用于上传图片。或者从**画廊**的素材中拖动一张图片到画布中，此时 InvokeAI 将提示要发送图片到哪种图层，拖到 **New Regional Reference Image**后将自动创建一个新的**控制层**图层并将该图片导入该图层。
+在添加**控制层**图层后，点击 **Upload an image** 可以打开系统的文件管理器用于上传图片。或者从**画廊**的素材中拖动一张图片到画布中，此时 InvokeAI 将提示要发送图片到哪种图层，拖到 **New Control Layer**后将自动创建一个新的**控制层**图层并将该图片导入该图层。
 
 ![send_image_to_new_control_layer](../../assets/images/guide/invokeai/canvas/send_image_to_new_control_layer.png)
 
@@ -337,6 +337,9 @@ upper body,close-up,
 
 此时原来的竖图通过外扩的方式变成了横图。
 
+!!!note
+    直接在空白区域进行扩图可能效果不太好，可以尝试在空白区域进行简单的涂鸦，在绘制**修复遮罩**对涂鸦部分进行重绘，也可以实现扩图的效果。
+
 ### 面部细化
 InvokeAI 在边界框小于模型推荐分辨率的时候会进行缩放处理，处理后的细节将会提高。可以利用这个功能的特点进行面部细化。
 
@@ -435,4 +438,185 @@ upper body,close-up,from side,
 
 ![use_select_object_to_select_character_in_image_result](../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character_in_image_result.png)
 
-现在
+现在打算将扣出来的人物放在原图的椅子后面，椅子后面的区域不是很宽，所以按照之前的方法进行一下扩图。
+
+左侧栏的提示词修改一下。
+
+```
+2girls,
+sitting on bench,eye contact,kiss,
+outdoors,blue sky,light rays,scenery,tree,flower,falling petals,cherry blossoms,bench,
+upper body,close-up,
+```
+
+在扩图的区域加个**区域导向**，使用提示词描述扩图部分的内容。
+
+```
+scenery,tree,flower,falling petals,cherry blossoms,bench,
+```
+
+![add_regional_prompt_and_outpaint](../../assets/images/guide/invokeai/canvas/add_regional_prompt_and_outpaint.png)
+
+尝试几次 **Invoke** 选择比较好的效果。
+
+![add_regional_prompt_and_outpaint_result](../../assets/images/guide/invokeai/canvas/add_regional_prompt_and_outpaint_result.png)
+
+这里选了一张比较好的，但是效果还是比较差，此时可以进行简单涂鸦，再使用**修复遮罩**进行重绘。
+
+![use_inpaint_mask_to_fix_image](../../assets/images/guide/invokeai/canvas/use_inpaint_mask_to_fix_image.png)
+
+多尝试几次 **Invoke** 进行生成，挑出比较好的效果，再继续涂鸦，调小一些**去噪强度**，再进行 **Invoke**，重复几次。
+
+![use_inpaint_mask_to_fix_image_result](../../assets/images/guide/invokeai/canvas/use_inpaint_mask_to_fix_image_result.png)
+
+现在图片中的椅子就就修复好了。
+
+待会需要将之前扣好的人物放在椅子后面，所以使用**元素选取(Select Object)**将椅子抠出来，覆盖在人物的前面。
+
+![use_select_object_result](../../assets/images/guide/invokeai/canvas/use_select_object_result.png)
+
+
+### 使用图片变换(Transform)调整栅格层
+现在将原来抠出来的人物所在的**栅格层**移动到源图的**栅格层**和抠出来的椅子的**栅格层**之间，在右侧图层面板的**栅格图层**中进行操作，选中一个**栅格层**后进行拖动。
+
+![move_raster_layer](../../assets/images/guide/invokeai/canvas/move_raster_layer.png)
+
+然后选择包含抠出来的人物的**栅格层**，右键选择 **Transform** 调整该**栅格层**的大小，在 **Transform** 面板中将 **Isolated Preview** 禁用，这样可以看到调整后的效果。
+
+如果移动不平滑，可以在右上角点击 ⚙ 按钮打开画布的设置，将**固定到画布网格(Snap to Grid)**关闭，这样就能平滑移动栅格层了（移动完成后建议重新打开）。
+
+![use_transform_to_adjust_raster_layer](../../assets/images/guide/invokeai/canvas/use_transform_to_adjust_raster_layer.png)
+
+现在借助画布工具擦除该图层中不需要的部分，并修改人物的动作和表情。再使用**区域导向**和**修复遮罩**对该部分进行重绘。
+
+![use_regional_prompt_and_inpaint_mask_to_modify_image](../../assets/images/guide/invokeai/canvas/use_regional_prompt_and_inpaint_mask_to_modify_image.png)
+
+![use_regional_prompt_and_inpaint_mask_to_modify_image_result](../../assets/images/guide/invokeai/canvas/use_regional_prompt_and_inpaint_mask_to_modify_image_result.png)
+
+现在画面的融合就比较融洽了，效果很不错。
+
+
+### 细化
+图片的整体已经完成了，现在只需要细化图片的细节，修复瑕疵，利用 InvokeAI 自动缩放的特点（在之前介绍**面部细化**中有提到），**区域导向**、**修复遮罩**和画笔，对图片的细节进行完善。
+
+![use_sketch_and_regional_prompt_and_inpaint_mask_to_detail_image](../../assets/images/guide/invokeai/canvas/use_sketch_and_regional_prompt_and_inpaint_mask_to_detail_image.png)
+
+细化完成后，可能会发现图片边缘有部分涂鸦造成的瑕疵部分，此时找出这些包含瑕疵部分的**栅格层**并禁用即可。
+
+完成这些步骤后，点击画布顶部工具栏的 💾（将画布保存到图库）按钮，将创作的图片保存到图库中，在**画廊**中可以查看该图片，可以使用右键打开菜单，将图片下载下来。
+
+![image_created_by_invokeai](../../assets/images/guide/invokeai/canvas/image_created_by_invokeai.png)
+
+这就是一张由 InvokeAI 创作出来的壁纸，作者很满意。
+
+~~诶嘿嘿，在公园里和小梓做那种事被发现……真的好刺激……（作者在发电）~~
+
+
+### 线稿上色与风格迁移
+这里有一张白色的线稿，准备用于上色，一张图片用于保持人物一致性，另一张图片用于画风迁移，此时可以借助统一画布的**控制层**和**区域导向**实现线稿上色和画风迁移。
+
+|线稿|用于保持人物一致性|用于迁移画风|
+|---|---|---|
+!![lineart_image_for_controlnet](../../assets/images/guide/invokeai/canvas/lineart_image_for_controlnet.png)|![image_for_ip_adapter_1](../../assets/images/guide/invokeai/canvas/image_for_ip_adapter_1.png)|![image_for_ip_adapter_2](../../assets/images/guide/invokeai/canvas/image_for_ip_adapter_2.png)|
+
+将这 3 张图片拖到 InvokeAI 中，导入**画廊**的**素材**中。将线稿图拖到画布中，此时 InvokeAI 弹出提示要导入哪种图层类型，这里拖到 **New Control Layer**中创建一个新的**控制层**。
+
+![input_image_to_control_layer](../../assets/images/guide/invokeai/canvas/input_image_to_control_layer.png)
+
+这里先调整边界框的大小，调整好后在右侧的图层面板中选择刚刚新建的**控制层**，再右键画布，选择**图片变换(Transform)**缩放线稿到边界框中。
+
+![use_transform_to_resize_image](../../assets/images/guide/invokeai/canvas/use_transform_to_resize_image.png)
+
+缩放完成后点击 **Apply** 将结果应用，在**控制层**的模型选项中选择 Lineart / Lineart Anime 模型。
+
+!!!note
+    如果没有模型，需要在 InvokeAI 的模型管理的**初始模型**选项下载 **Lineart** / **Lineart Anime** 模型（需要对应自己使用的大模型版本）。
+
+此时 InvokeAI 将选择 ControlNet 模型对应的预处理进行图片预处理。
+
+![select_controlnet_model_and_filter_image](../../assets/images/guide/invokeai/canvas/select_controlnet_model_and_filter_image.png)
+
+接下来将用于保持人物一致性和迁移画风的图片分别拖动到画布中，并拖到 **New Regional Reference Image** 中，为需要保持人物一致性的部分和迁移画风的部分绘制**区域导向**的蒙版。
+
+![paint_mask_for_regional_reference](../../assets/images/guide/invokeai/canvas/paint_mask_for_regional_reference.png)
+
+!!!note
+    **区域导向**所需的模型需要在 InvokeAI 的模型管理的**初始模型**选项中下载，对应的模型名称为 IP Adapter。
+
+绘制蒙版完成后，调整**控制层**和**区域导向**的参数，再填写提示词。
+
+```
+asagi0398, 
+1girl,solo,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,blue eyes,grey hair,short hair,bangs,hair between eyes,eyebrows visible through hair,blush,closed mouth,neck ribbon,white dress,crease,frilled_collar,detached_sleeves,flat chest,
+holding sword,looking at viewer,dynamic pose,
+battoujutsu stance,motion blur,sword,battoujutsu stance,bamboo forest,
+upper body,
+masterpiece,best quality,newest,
+```
+
+![configure_control_layer_and_regional_reference](../../assets/images/guide/invokeai/canvas/configure_control_layer_and_regional_reference.png)
+
+调整参数后尝试几次 **Invoke**，从中挑选一个比较好的结果。
+
+![configure_control_layer_and_regional_reference](../../assets/images/guide/invokeai/canvas/configure_control_layer_and_regional_reference.png)
+
+现在可以看到线稿已经上色了，并且画风成功迁移到上色后的图片中。
+
+
+### 背景替换
+这是一张图片，打算把背景的内容进行替换。
+
+![image_to_replace_background](../../assets/images/guide/invokeai/canvas/image_to_replace_background.png)
+
+此时可以选择该图片的**栅格层**，右键画布，使用**元素选取(Select Object)**功能将图片的人物选取出来。
+
+![use_select_object_to_select_character](../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character.png)
+
+因为现在需要替换背景，所以将选择结果进行反选，启用 **Invert Selection** 后原来的结果将进行反选。
+
+![invert_select_object_result](../../assets/images/guide/invokeai/canvas/invert_select_object_result.png)
+
+此时点击 **Save As** 将选择结果保存为**修复遮罩**。将**去噪强度**设置比较高的值，再对画面进行描述。
+
+![modify_replace_background_config](../../assets/images/guide/invokeai/canvas/modify_replace_background_config.png)
+
+现在尝试 **Invoke** 将原图的背景进行重绘。
+
+![replace_background_result_1](../../assets/images/guide/invokeai/canvas/replace_background_result_1.png)
+
+可以看到原来的背景已经替换，并且原来图片中的人物还保持着原来的样子。
+
+但是将**去噪强度**设置为更高的值或者 1 时，可能会发现人物边缘似乎多了另一个人物的影子，这时因为对画面进行描述的提示词中包含了人物的描述，并且**去噪强度**很高，所以模型生成了一个人，但是人物的位置发生了偏移。
+
+这时可以删去提示词中关于人物的描述，并且将**去噪强度**设置为 1，这种问题就可以得到缓解，或者可以尝试使用**控制层**控制人物，使人物的位置不发生偏移。
+
+这里**元素选取(Select Object)**功能将图片的人物选取出来，点击 **Save As** 将选取结果保存到**控制层**中。
+
+![use_select_object_to_select_character_again](../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character_again.png)
+
+在刚刚新建的**控制层**选择 ControlNet Canny 模型（如果没有就在 InvokeAI 的模型管理的**初始模型**中下载），将保存到**控制层**的图片进行预处理。
+
+![filter_image_for_control_layer](../../assets/images/guide/invokeai/canvas/filter_image_for_control_layer.png)
+
+将预处理图片的结果点击 **Apply** 进行应用。
+
+![apply_filter_image_result](../../assets/images/guide/invokeai/canvas/apply_filter_image_result.png)
+
+现在在尝试 **Invoke** 进行生成。
+
+![replace_background_result_2](../../assets/images/guide/invokeai/canvas/replace_background_result_2.png)
+
+现在可以发现原来的问题得到了很好的解决。
+
+
+### 其他应用
+InvokeAI 官方发布了许多关于 InvokeAI 的基础教学视频，在 InvokeAI 左下角的按钮可以查看。
+
+![invokeai_official_tutor_video](../../assets/images/guide/invokeai/canvas/invokeai_official_tutor_video.png)
+
+除了基础教学视频，InvokeAI 还发布许多实际应用的视频，可在 InvoeAI 官方的视频号进行查看：[Invoke - YouTube](https://www.youtube.com/@invokeai)。
+
+InvokeAI 官方的说明文档：
+
+- [Support : Invoke Support Portal](https://support.invoke.ai)
+- [Home - InvokeAI Documentation](https://invoke-ai.github.io/InvokeAI)
