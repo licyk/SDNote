@@ -1,6 +1,3 @@
----
-title: SD WebUI Forge 部署
----
 # Windows 平台
 
 ## 使用绘世启动器安装

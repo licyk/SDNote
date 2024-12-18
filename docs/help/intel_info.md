@@ -1,6 +1,3 @@
----
-title: Intel
----
 # Intel 用户须知
 
 ***

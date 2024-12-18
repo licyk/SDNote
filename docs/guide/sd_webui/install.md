@@ -1,6 +1,3 @@
----
-title: SD WebUI 部署
----
 # Windows 平台
 
 ## 整合包部署

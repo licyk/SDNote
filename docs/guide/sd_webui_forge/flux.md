@@ -1,6 +1,3 @@
----
-title: FLUX 模型使用
----
 # 概述
 SD WebUI Forge 已经支持使用 FLUX 模型，下面就简单介绍 FLUX 模型如何使用。
 

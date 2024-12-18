@@ -1,9 +1,5 @@
----
-title: 概述
----
 # 概述
 Stable Diffusion WebUI Forge 基于 Stable Diffusion WebUI 开发，界面和 Stable Diffusion WebUI 基本一致，并更换了推理后端，拥有更好的显存优化，并且在某些显卡上速度出图速度比 Stable Diffusion WebUI 更快。
-
 
 早期的 Stable Diffusion WebUI Forge 使用 Stable Diffusion WebUI 的前端和 ComfyUI 后端，借助 ComfyUI 后端得到了更好的显存优化，在之后的版本更新中，前端使用的 Gradio 框架更新到 Gradio 4，操作有了更好的优化，后端进行了重构，相对之前的版本优化更好一些。
 

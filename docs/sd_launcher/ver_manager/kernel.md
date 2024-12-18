@@ -1,6 +1,3 @@
----
-title: 内核
----
 # 内核
 这是管理 SD WebUI / ComfyUI / Fooocus 内核的版本。
 

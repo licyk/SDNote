@@ -1,6 +1,3 @@
----
-title: SD WebUI
----
 # SD WebUI
 这里是有关 SD WebUI 的报错收集。
 
@@ -801,3 +798,5 @@ rocBLAS error: Could not initialize Tensile library
 ```
 python -m pip install onnxruntime onnxruntime-gpu -U
 ```
+
+<!-- TODO https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/15995 -->

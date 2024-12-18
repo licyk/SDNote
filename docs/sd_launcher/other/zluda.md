@@ -1,6 +1,3 @@
----
-title: 配置 ZLUDA
----
 # 简述
 绘世启动器支持 ZLUDA 作为 Stable Diffusion WebUI / ComfyUI / Fooocus 的生成引擎，相比于 DirectML 生成引擎，可以使 AMD 显卡的生成图片的速度大大提高，可以根据以下步骤使用 ZLUDA。
 

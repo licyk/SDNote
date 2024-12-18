@@ -1,6 +1,3 @@
----
-title: ComfyUI 部署
----
 # Windwos 平台
 ## 整合包部署
 [【AI绘画】ComfyUI整合包发布！解压即用 一键启动 工作流版界面 超多节点 ☆更新 ☆汉化 秋叶整合包_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ew411776J)

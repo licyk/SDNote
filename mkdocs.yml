@@ -155,8 +155,6 @@ markdown_extensions:
   - abbr
   - admonition
   - toc:
-      # permalink: true
-      # permalink: ↗ ⬈ ⇗ ➶ ➹ 🡥 🡵 🡽 🢅 ⬈ ⬀ ⭷ 🛪 ⧉ ⧉ ⮺ ⎋ ⏍ ◳ ❐ ⬔ ⭷ ↸ ⇱ ⤯ ↻ ⇲ ⎘ 🔗
       permalink: ☍
       permalink_title: 锚链接到此处
       title: 目录
@@ -197,6 +195,16 @@ nav:
     - "导入工作流": guide/comfyui/input_workflows.md
     - "搭建工作流": guide/comfyui/build_workflow.md
     - "杂项": guide/comfyui/extra.md
+  - "InvokeAI 部署与使用":
+    - "概述": guide/invokeai/index.md
+    - "安装": guide/invokeai/install.md
+    - "界面": guide/invokeai/interface.md
+    - "模型管理": guide/invokeai/model_manager.md
+    - "文生图": guide/invokeai/t2i.md
+    - "统一画布": guide/invokeai/canvas.md
+    - "放大": guide/invokeai/upscale.md
+    - "工作流": guide/invokeai/workflow.md
+    - "杂项": guide/invokeai/extra.md
 - "绘世启动器使用":
   - "概述": sd_launcher/index.md
   - "部署功能":
