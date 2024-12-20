@@ -58,6 +58,16 @@ flower sea, (tree)1.21, (river)0.9,
 上面的提示词将会使`landscape painting`以`trees`为主，`sunset scene`以`warm tones`为主，两个部分提示词的影响效果相同。
 
 
+## 提示词模板
+当有提示词中有常用的提示词，比如画风提示词，此时可以创建一个**提示词模板**方便调用，在**正向提示词**框的上方可以看到**选择提示词模板**选项，打开后可以看到 InvokeAI 内置的部分提示词模板，选择后即可使用，或者点击 **+** 号添加自己的提示词模板，输入模板名称和提示词后点击**保存**即可。
+
+![prompt_preset](../../assets/images/guide/invokeai/t2i/prompt_preset.png)
+
+提示词模板只能选择一个，如果需要选择多个，只能选择其中一个提示词模板后。点击**将选定的模板内容合并到当前提示中**，此时模板中的提示词将加载到提示词框中，这样就可以再选择另一个提示词模板。
+
+![merge_prompt_preset_to_prompt](../../assets/images/guide/invokeai/t2i/merge_prompt_preset_to_prompt.png)
+
+
 ## 生成参数
 **纵横**可以选择预设的宽高比，**宽度**和**高度**设置生成图片的分辨率，通常根据模型适合生成的分辨率进行设置，这里使用的模型是 Illustrious-XL-v0.1，属于 Stable Diffusion XL 模型，适合的分辨率为 1024 x 1024，使用接近该分辨率或者比这个分辨率大一些的分辨率通常会有比较好的效果，比如使用 1024 x 1344 的分辨率。
 
