@@ -5,28 +5,25 @@ ComfyUI 的界面和 Stable Diffusion WebUI 的界面完全不相同，在 Comfy
 
 
 ## 前期配置
-如果 ComfyUI 未安装扩展管理器和中文翻译扩展，建议通过以下几种方式进行安装。
+如果 ComfyUI-Manager，建议通过以下几种方式进行安装。
 
 
 ### 使用绘世启动器安装
-打开绘世启动器的 版本管理 -> 安装新扩展，分别搜索 ComfyUI-Manager 和 AIGODLIKE-COMFYUI-TRANSLATION 并下载安装。
+打开绘世启动器的 版本管理 -> 安装新扩展，搜索 ComfyUI-Manager并下载安装。
 
 
 ### 使用 Git 命令安装
-进入 ComfyUI 的 custom_nodes 文件夹中，打开终端，输入以下的命令安装 ComfyUI-Manager 和 AIGODLIKE-COMFYUI-TRANSLATION 扩展。
+进入 ComfyUI 的 custom_nodes 文件夹中，打开终端，输入以下的命令安装 ComfyUI-Manager 扩展。
 
 ```
 git clone https://github.com/ltdrdata/ComfyUI-Manager
-git clone https://github.com/AIGODLIKE/AIGODLIKE-COMFYUI-TRANSLATION
 ```
 
-安装后重新启动 ComfyUI。
+安装后重新启动 ComfyUI，如果在 ComfyUI 界面顶部可以看到 Manager 按钮，说明 ComfyUI-Manager 已经成功安装。
 
 
 ## 设置中文
-安装以上的扩展后，在 ComfyUI 界面顶部可以看到 Manager 按钮，说明扩展管理器已经成功安装，但是通常情况下 ComfyUI 中文翻译扩展安装后并不会自动设置 ComfyUI 界面为中文，需要手动设置。
-
-在 ComfyUI 左下角点击齿轮按钮进入 ComfyUI 设置，找到 AGL 选项并点击，在 AGLTranslation-langualge 选项选择 中文[Chinese Simplified] 后 ComfyUI 将自动重启，此时 ComfyUI 的界面就切换成中文了。
+在 ComfyUI 左下角点击齿轮按钮进入 ComfyUI 设置，在 Comfy -> Locale -> Language，将该选项改为**中文**即可。
 
 
 ## 快捷键
