@@ -201,6 +201,7 @@ nav:
     - "安装": guide/invokeai/install.md
     - "界面": guide/invokeai/interface.md
     - "模型管理": guide/invokeai/model_manager.md
+    - "显存优化": guide/invokeai/low_vram_mode.md
     - "文生图": guide/invokeai/t2i.md
     - "统一画布": guide/invokeai/canvas.md
     - "放大": guide/invokeai/upscale.md
