@@ -39,6 +39,7 @@ hide:
 - [Merge Block Weight 魔法密录1.0正式版](https://docs.qq.com/doc/DTklkTllGQmdac3Jl)
 - [AI绘画资料合集](https://github.com/hua1995116/awesome-ai-painting)
 - [LoRA info links compilation](https://rentry.co/6172384)
+- [NoobAI-XL 用户手册](https://d0xb9r3fg5h.feishu.cn/docx/WWOHdr6RMoQZxQxCZRGc5KlEnUi)
 
 
 ## 社区
@@ -156,6 +157,30 @@ hide:
 - [Tag 强度查询](https://raideninfinity.pythonanywhere.com/naidv3_tag_search)
 - [AI绘图查表](https://docs.google.com/spreadsheets/d/1eGBy8WKavBtG2SKz8p8coP4k-kMilweR70zCMj-QGbM/edit?gid=1674089997#gid=1674089997)
 - [300画风法典：NAI3画风收集和研究](https://docs.qq.com/sheet/DZWZMemxNZkpVR0VB?tab=BB08J2&groupUin=U2kyqgspEHKsGcuX2t%25252BCiQ%25253D%25253D&ADUIN=1641529923&ADSESSION=1709595466&ADTAG=CLIENT.QQ.6061_.0&ADPUBNO=27400&_t=1729406668370&u=0e8b4190f32d47beaea0cb7ed4befcc1)
+- [NOOB 1.0版本 8888 单画师测试](https://docs.qq.com/sheet/DZGxRSXhvcmNmeHFv?tab=9v7zie)
+
+
+## SD Note 作者的模型仓库
+- [licyks/sd-model - ModelScope](https://modelscope.cn/models/licyks/sd-model)
+- [licyks/sd-vae - ModelScope](https://modelscope.cn/models/licyks/sd-vae)
+- [licyks/sd-lora - ModelScope](https://modelscope.cn/models/licyks/sd-lora)
+- [licyks/sd-embeddings - ModelScope](https://modelscope.cn/models/licyks/sd-embeddings)
+- [licyks/sd-3-model - ModelScope](https://modelscope.cn/models/licyks/sd-3-model)
+- [licyks/flux-model - ModelScope](https://modelscope.cn/models/licyks/flux-model)
+- [licyks/sd-upscaler-models - ModelScope](https://modelscope.cn/models/licyks/sd-upscaler-models)
+- [licyks/controlnet_v1.1 - ModelScope](https://modelscope.cn/models/licyks/controlnet_v1.1)
+- [licyks/sd_control_collection - ModelScope](https://modelscope.cn/models/licyks/sd_control_collection)
+- [licyks/control-lora - ModelScope](https://modelscope.cn/models/licyks/control-lora)
+- [licyks/controlnet_v1.1_annotator - ModelScope](https://modelscope.cn/models/licyks/controlnet_v1.1_annotator)
+- [licyks/flux_controlnet - ModelScope](https://modelscope.cn/models/licyks/flux_controlnet)
+- [licyks/sd3_controlnet - ModelScope](https://modelscope.cn/models/licyks/sd3_controlnet)
+- [licyks/layerdiffusion - ModelScope](https://modelscope.cn/models/licyks/layerdiffusion)
+- [licyks/sd-extensions-model - ModelScope](https://modelscope.cn/models/licyks/sd-extensions-model)
+- [licyks/comfyui-extension-models - ModelScope](https://modelscope.cn/models/licyks/comfyui-extension-models)
+- [licyks/invokeai-core-model - ModelScope](https://modelscope.cn/models/licyks/invokeai-core-model)
+- [licyks/invokeai-model - ModelScope](https://modelscope.cn/models/licyks/invokeai-model)
+- [licyks/fooocus-model - ModelScope](https://modelscope.cn/models/licyks/fooocus-model)
+- [licyks/novelai-v1-model - ModelScope](https://modelscope.cn/models/licyks/novelai-v1-model)
 
 
 ## 图库
