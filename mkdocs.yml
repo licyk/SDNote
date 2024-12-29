@@ -209,6 +209,7 @@ nav:
   - "概述": sd_launcher/index.md
   - "部署功能":
     - "部署功能": sd_launcher/install/index.md
+    - "安装流程": sd_launcher/install/process.md
   - "高级选项":
     - "高级选项": sd_launcher/advance/index.md
     - "环境维护": sd_launcher/advance/env.md

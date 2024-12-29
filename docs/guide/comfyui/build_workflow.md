@@ -419,7 +419,7 @@ LTX-Video 模型除了支持使用提示词生成视频，也支持使用图片�
 ![ltxv_image_to_video](../../assets/images/guide/comfyui/build_workflow/ltxv_image_to_video.png)
 
 
-## 使用 Audio Models 模型
+## 使用 Audio 模型
 下面是搭建工作流使用的模型。
 
 |模型下载|放置路径|
@@ -430,3 +430,23 @@ LTX-Video 模型除了支持使用提示词生成视频，也支持使用图片�
 [Stability AI](https://stability.ai/) 发布了 Stable Audio Open 模型，可以用于音频生成。
 
 ![stable_audio_example](../../assets/images/guide/comfyui/build_workflow/stable_audio_example.png)
+
+
+## 使用 Hunyuan Video 模型
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[hunyuan_video_t2v_720p_bf16.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/hunyuan_video/hunyuan_video_t2v_720p_bf16.safetensors)|ComfyUI/models/unet|
+|[hunyuan_video_vae_bf16.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/hunyuan_video/hunyuan_video_vae_bf16.safetensors)|ComfyUI/models/vae|
+|[clip_l.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/hunyuan_video/clip_l.safetensors)|ComfyUI/models/clip|
+|[llava_llama3_fp16.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/hunyuan_video/llava_llama3_fp16.safetensors)|ComfyUI/models/clip|
+|[llava_llama3_fp8_scaled.safetensors](https://modelscope.cn/models/licyks/comfyui-extension-models/resolve/master/hunyuan_video/llava_llama3_fp8_scaled.safetensors)|ComfyUI/models/clip|
+
+下面的工作流演示了如何使用 [Hunyuan Video](https://huggingface.co/tencent/HunyuanVideo) 生成视频。
+
+![hunyuan_video_text_to_video](../../assets/images/guide/comfyui/build_workflow/hunyuan_video_text_to_video.png)
+
+如果需要生成静态的视频，可以将 **EmptyHunyuanLatentVideo** 节点的`length`值设置为 1.
+
+如果遇到显存不足的问题，可以将**加载扩散模型**节点的**权重数据类型**修改为 fp8_e4m3fn / fp8_e5m2 / fp8_e4m3fn_fast，将**双CLIP加载器**节点中的 llava_llama3_fp16.safetensors 模型更换为 llava_llama3_fp8_scaled.safetensors。
