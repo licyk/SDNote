@@ -414,11 +414,11 @@ azusa \(blue archive\),solo,halo,ahoge,hair flower,hair ornament,flower,very lon
 正向提示词修改一下。
 
 ```
-1girl,solo,
-long hair,silver hair,blue hair,cute,purple eyes,low twintails,short sleeves,white dress,shirt,blue skirt,blue ribbon,see-through,see-through sleeves,collarbone,frills,small breasts,
+1girl,loli,solo,hair ribbon,cat ears,animal ear fluff,hair ribbon,pink eyes,grey hair,short hair,two side up,bangs,hair between eyes,blush,fang,long sleeves,bow,white shirt,puffy sleeves,collared shirt,sleeves past wrists,black bow,puffy long sleeves,blue vest,sweater vest,pleated skirt,black skirt,
 peeking out,open mouth,looking away,standing, 
 outdoors,blue sky,light rays,scenery,tree,flower,falling petals,cherry blossoms,
 upper body,close-up,from side,
+masterpiece, best quality, newest,
 ```
 
 ![move_bbox_to_paint_another_image](../../assets/images/guide/invokeai/canvas/move_bbox_to_paint_another_image.png)
@@ -430,7 +430,6 @@ upper body,close-up,from side,
 这张人物的角度很合适，就选择这张保存到画布中。
 
 保存后该图片将成为新的**栅格层**，在右侧的图层面板选择该**栅格层**，在右侧的图层面板或者画布内右键，选择**元素选取(Select Object)**。这时使用该功能将该人物选取出来。
-
 
 ![use_select_object_to_select_character_in_image](../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character_in_image.png)
 
@@ -456,6 +455,10 @@ scenery,tree,flower,falling petals,cherry blossoms,bench,
 ```
 
 ![add_regional_prompt_and_outpaint](../../assets/images/guide/invokeai/canvas/add_regional_prompt_and_outpaint.png)
+
+再将**去噪强度**设置为比较高的值。
+
+<!-- ╥﹏╥ -->
 
 尝试几次 **Invoke** 选择比较好的效果。
 
@@ -509,7 +512,9 @@ scenery,tree,flower,falling petals,cherry blossoms,bench,
 
 这就是一张由 InvokeAI 创作出来的壁纸，作者很满意。
 
-~~诶嘿嘿，在公园里和小梓做那种事被发现……真的好刺激……（作者在发电）~~
+<!-- ╥﹏╥ -->
+
+~~诶嘿嘿，在公园里和小梓做那种事被 Hana 酱发现……真的好刺激……（作者在发电）~~
 
 
 ### 线稿上色与风格迁移
