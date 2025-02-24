@@ -193,3 +193,5 @@ CATEGORY = "image/processing"
 如代码一样，一个输入接口，两个输出接口，自此插件就成功加载到comfyui中了
 
 ![02.png](../../assets/images/guide/comfyui/node_writing_guidelines/02.png)
+
+<!-- TODO: 排版需要优化 -->
