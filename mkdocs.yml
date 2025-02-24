@@ -194,6 +194,7 @@ nav:
     - "界面操作": guide/comfyui/interface_operation.md
     - "导入工作流": guide/comfyui/input_workflows.md
     - "搭建工作流": guide/comfyui/build_workflow.md
+    - "节点编写指南": guide/comfyui/node_writing_guidelines.md
     - "杂项": guide/comfyui/extra.md
   - "InvokeAI 部署与使用":
     - "概述": guide/invokeai/index.md
