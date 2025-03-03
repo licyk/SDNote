@@ -7,7 +7,7 @@ SD WebUI Forge 拥有很强的显存优化功能，可以降低 Stable Diffusion
 
 在 SD WebUI Forge 的左下角的选项中也有 Never OOM Integrated 功能用于优化显存占用的功能。
 
-合理使用这些功能可以有效的降低显存的占用，减少显存不足的问题的发生。
+合理使用这些功能可以有效的降低显存占用，减少因显存不足导致报错的发生。
 
 
 ## Diffusion in Low Bits
@@ -56,27 +56,27 @@ SD WebUI Forge 拥有很强的显存优化功能，可以降低 Stable Diffusion
 |Queue|使用队列模式，将模型的某层权重加载到显存中，然后进行计算，再加载另一层权重，然后计算。就像一个队列一样。|
 |ASYNC|使用异步模式，这将拥有两个线程去处理模型权重并计算，一个线程用于依次加载模型的某个权重，另一个线程用于计算加载好的模型权重。|
 
-ASYNC 模式一般会比 Queue 模式快一点，但是在某些情况下，ASYNC 模式下一个线程可能会过多加载了模型权重到显存中，使另一个线程没有足够的显存进行计算，此时将导致速度突然变慢。
+ASYNC 模式一般会比 Queue 模式快一点，但是在某些情况下，ASYNC 模式下一个线程可能会因过多加载了模型权重到显存中，使另一个线程没有足够的显存进行计算，导致速度突然变慢。
 
 
 ## Swap Location
 这个功能用于设置进行模型权重交换的位置。
 
-当一个模型的大小为 12GB，但是当前显卡的显存大小只有 8GB，此时模型是无法载入显存中的。这时候可以通过把模型拆分成两部分进行存储，一部分储存在显存中，另一部存储在交换位置中。如果该选项选择 CPU，则模型将分别加载到专用显存和 CPU 中，如果该选项选择 Shared，则模型将分别加载到专用显存和共享显存中。
+当一个模型的大小为 12GB，但是当前显卡的显存大小只有 8GB，此时模型是无法载入显存中的。这时候可以通过把模型拆分成两部分进行存储，一部分储存在显存中，另一部存储在交换位置中。如果该选项选择 CPU，则模型将分别加载到专用显存和内存中，如果该选项选择 Shared，则模型将分别加载到专用显存和共享显存中。
 
-在一些新的硬件上，使用 Shared 选项会比 CPU 选项更快一点，但是在某些硬件上使用可能会造成崩溃问题。
+在一些新的硬件上，使用 Shared 选项会比 CPU 选项更快一点，但是在部分硬件上使用可能会造成崩溃问题。
 
 !!!note
-    在 Windows 系统中，存在共享显存这个功能，可以使用内存作为显存使用，但是内存的速度通常比显存的速度要慢很多，所以 Windows 系统将优先使用专用显存，当显存不足时再使用共享显存，  
+    在 Windows 系统中，存在共享显存这个功能，可以将部分内存模拟成显存使用，但是内存的速度通常比显存的速度要慢很多，所以 Windows 系统将优先使用专用显存，当专用显存不足时再使用共享显存，  
     共享显存虽然使用了内存当做显存，但是和内存有些差别。共享显存由显卡进行管理，内存由 CPU 进行管理。
 
 
 ## GPU Weights
 这个功能用于设置存储在显存中模型的大小。
 
-设置为更大的值可以获得更快的速度，因为这将减少使用内存临时交换模型权重的次数，但是过大的值将会导致显存不足使计算的速度变得很慢，出图所需的时间更多。
+设置为更大的值可以获得更快的速度，因为这将减少使用内存临时交换模型权重的次数，但是过大的值会出现因显存不足使得计算变慢，增加出图所需时间。
 
-设置为更小的值将更积极的使用内存临时交换模型权重，虽然会使出图的时间变慢，但是这将拥有更多空间的显存，可以生成更大的图片。
+设置为更小的值会更积极的使用内存临时交换模型权重，虽然增加出图所需时间，但是会降低显存占用，以便生成更大尺寸的图片。
 
 !!!note
     关于优化参数的说明：[Flux Tutorial (BitsandBytes Models, NF4, "GPU Weight", "Offload Location", "Offload Method", etc)](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/981)、[Report Flux Performance Problems (TLDR: DO NOT set "GPU Weight" too high! Lower "GPU Weight" solves 99% problems!)](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/1181)。
@@ -88,4 +88,4 @@ ASYNC 模式一般会比 Queue 模式快一点，但是在某些情况下，ASYN
 |选项|功能|
 |---|---|
 |Enabled for UNet (always maximize offload)|为 Stable Diffusion 模型的 UNet 模块尽可能将模型权重卸载到内存中，这会最积极的使用内存临时交换模型权重，相当于将 GPU Weights 这个值设置为最低值。|
-|Enabled for VAE (always tiled)|在 VAE 编 / 解码阶段强制使用分块功能江都显存占用。在 SD WebUI Forge 检测到 VAE 编 / 解码阶段发生显存不足时，将使用分块 VAE 重试。启用该选项后将在 VAE 阶段一直使用分块 VAE 编 / 解码。|
+|Enabled for VAE (always tiled)|在 VAE 编 / 解码阶段强制使用分块功降低显存占用。在 SD WebUI Forge 检测到 VAE 编 / 解码阶段发生显存不足时，将使用分块 VAE 重试。启用该选项后将在 VAE 阶段一直使用分块 VAE 编 / 解码。|
