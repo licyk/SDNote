@@ -39,7 +39,7 @@
 ### Intel 显卡
 Intel Arc A770，如果您准备购买显卡，并不推荐 Intel 核心的显卡。
 
-### 魔改 NVIDIA 显卡选择
+### 魔改 NVIDIA 显卡
 需求：新版驱动，压缩软件，驱动卸载软件 Display Driver Uninstaller
 
 官网驱动下载地址: https://www.nvidia.cn/geforce/drivers/
