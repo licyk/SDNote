@@ -10,16 +10,24 @@
 
 
 ## SD WebUI Forge 共享 SD WebUI 模型
-SD WebUI Forge 可以共享 SD WebUI 的模型，如果需要设置共享模型，在绘世启动器的高级选项里，找到`Forge 设置`，点击输入栏右侧的文件夹图标，选中 SD WebUI 的根目录。
+SD WebUI Forge 可以共享 SD WebUI 的模型，如果需要设置共享模型，在绘世启动器的设置里将配置模式调成`高级`，再进入绘世启动器的高级选项，找到`自定义参数选项`，填入以下内容：
 
-重新启动 SD WebUI Forge 后即可共享 SD WebUI 的模型。
+```
+--forge-ref-a1111-home "SD WebUI 的路径"
+```
+
+重新启动 SD WebUI Forge 后即可读取 SD WebUI 的模型。
+
 
 !!!note
-	该功能并不会从 SD WebUI 中共享外部插件使用的模型（例如 ADetailer 插件）。
+	使用绘世启动器时的另一种简单开启方式（无需修改配置模式为`高级`）：在绘世启动器的高级选项里，找到`Forge 设置`，点击输入栏右侧的文件夹图标，选中 SD WebUI 的根目录。
+	重新启动 SD WebUI Forge 后即可读取 SD WebUI 的模型。
 
 !!!note
     该自定义参数可参考：[Single cmd arg to reference models in existing A1111 checkout · lllyasviel/stable-diffusion-webui-forge · Discussion #206](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/206)。
 
+!!!warning
+	该功能并不会读取 SD WebUI 中除 ControlNET 以外其他外部插件生成的模型文件夹（例如 ADetailer 插件）。
 
 ## 文生图
 SD WebUI Forge 顶部的模型选项用于选择 Stable Diffusion 模型，VAE / Text Encoder 用于选择 VAE 模型和文本编码器模型，顶部的其他功能在本章节暂不进行说明。
