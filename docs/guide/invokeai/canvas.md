@@ -422,21 +422,129 @@ eye contact,smile,closed mouth,
 利用类似 PS 的方式也可以绘制多人图，这里分别使用 2 组提示词来生成人物。
 
 ```
-1girl,solo,cute,ahoge,silver hair,blue hair,gradient hair,sidelocks,single drill,side ponytail,straight hair,blue scrunchie,hair ornament,scrunchie,purple eyes,collared shirt,white shirt,blue cardigan,blue sweater,blue jacket,black jacket,open jacket,long sleeves,sleeves past wrists,pleated skirt,black skirt,
-wariza,looking at viewer,head tilt, 
+1girl,solo,cute,ahoge,silver hair,blue hair,gradient hair,sidelocks,single drill,side ponytail,straight hair,blue scrunchie,scrunchie,purple eyes,collared shirt,white shirt,blue cardigan,blue sweater,blue jacket,black jacket,open jacket,long sleeves,sleeves past wrists,pleated skirt,black skirt,
+wariza,looking at viewer,head tilt,
 simple background,white background,
-front view, 
+front view,
 masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
 ```
 
 ```
-1girl,solo,cute,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
+1girl,solo,cute,loli,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
 sitting,knees up,looking at viewer,hugging own legs,parted lips,
 simple background,white background,
 front view,
 masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
 ```
 
+现在先用第一组提示词生成一张图。
+
+![use_first_tag_to_generate_image](../../assets/images/guide/invokeai/canvas/use_first_tag_to_generate_image.png)
+
+生成后将边界框移动到画布空白的地方，再更换成第二张提示词生成图片。
+
+![use_second_tag_to_generate_image](../../assets/images/guide/invokeai/canvas/use_second_tag_to_generate_image.png)
+
+此时就有了两张图片，现在在右侧的栅格图层中选择其中一张图片，右键打开菜单，选择 **Select Object**。
+
+![open_raster_layer_menu](../../assets/images/guide/invokeai/canvas/open_raster_layer_menu.png)
+
+打开后在下方将显示**元素选取(Select Object)**的菜单，**Point Type**可以选择标记点的模式，将**Point Type**选择成**Include**，在人物上点击以添加绿色标记点，标记后可以将人物部分抠出来，并且使用半透明蓝色蒙版标记出来。
+
+![use_select_object_to_extract_image](../../assets/images/guide/invokeai/canvas/use_select_object_to_extract_image.png)
+
+点击 **Save As** 后选择**新建 栅格层**，这样就可以把人物抠出来单独使用一个栅格层进行保存，另一张图片也是同样的操作。抠出来后将原来带有背景的栅格层禁用，就可以看到抠出来的人物了。
+
+![use_select_object_to_extract_image_result](../../assets/images/guide/invokeai/canvas/use_select_object_to_extract_image_result.png)
+
+
+### 使用图片变换(Transform)调整栅格层
+现在将原来抠出来的人物所在的栅格层移动到源图的栅格层和抠出来的椅子的栅格层之间，在右侧图层面板的栅格图层中进行操作，选中一个栅格层后进行拖动。
+
+![move_raster_layer](../../assets/images/guide/invokeai/canvas/move_raster_layer.png)
+
+然后选择包含抠出来的人物的**栅格层**，右键选择 **Transform** 调整该栅格层的大小，在 **Transform** 面板中将 **Isolated Preview** 禁用，这样可以看到调整后的效果。
+
+如果移动不平滑，可以在右上角点击 ⚙ 按钮打开画布的设置，将**固定到画布网格(Snap to Grid)**关闭，这样就能平滑移动栅格层了（移动完成后建议重新打开）。    
+
+![use_transform_to_modify_image](../../assets/images/guide/invokeai/canvas/use_transform_to_modify_image.png)
+
+现在还缺少一个背景，可以再生成一张背景图后移动到人物所在的栅格层后面。不过我这里打算使用纯色背景，在右侧的**栅格图层**创建一个新的**栅格层**，并将新建的**栅格层**移动到包含人物的**栅格层**的下方，再按下键盘的 **U** 键切换到**矩形(Rectangle)**画笔，在左上角的调色板调节好合适的颜色后，绘制纯色背景。
+
+![paint_solid_color_background](../../assets/images/guide/invokeai/canvas/paint_solid_color_background.png)
+
+这样大概的图片结构就有了，再修改一些不合理的地方即可。
+
+
+### 细化
+使用前面的**修改元素**、**使用分区提示词强化提示词**、**面部细化**的方法修改图片。
+
+在右侧创建两个**区域导向**，分别填入描述人物的提示词，再绘制对应人物的蒙版。
+
+```
+cute,ahoge,silver hair,blue hair,gradient hair,sidelocks,single drill,side ponytail,straight hair,blue scrunchie,scrunchie,purple eyes,collared shirt,white shirt,blue cardigan,blue sweater,blue jacket,black jacket,open jacket,long sleeves,sleeves past wrists,pleated skirt,black skirt,
+wariza,looking at viewer,head tilt,
+```
+
+```
+cute,loli,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
+sitting,knees up,looking at viewer,hugging own legs,parted lips,
+```
+
+再将左边的提示词修改一下。
+
+```
+2girls,yuri,hug,
+simple background,pink background,
+front view,
+masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+```
+
+![refind_image_1](../../assets/images/guide/invokeai/canvas/refind_image_1.png)
+
+用画笔将人物缺失的部分简单涂鸦一下，再绘制**修复遮罩**，将**去噪强度**调整成比较高的值，再点击 **Invoke** 生成，选择比较好的结果。
+
+![refind_image_2](../../assets/images/guide/invokeai/canvas/refind_image_2.png)
+
+![refind_image_3](../../assets/images/guide/invokeai/canvas/refind_image_3.png)
+
+现在可以注意到边界框外部有多余的背景，可以在**栅格图层**找到之前包含纯色背景的**栅格层**并禁用。
+
+![refind_image_4](../../assets/images/guide/invokeai/canvas/refind_image_4.png)
+
+利用涂鸦和**修复遮罩**可以将人物的动作进行修改。这里有个技巧，要进行涂鸦时先创建一个新的**栅格层**，在新建的**栅格层**上再进行涂鸦，这样可以保护原来的图层不被修改（在使用 PhotoShop 时类似的方法很常用，可以用来保护原图层），对涂鸦的部分使用**修复遮罩**进行重绘后，可以把原来包含涂鸦的**栅格层**禁用。
+
+![refind_image_5](../../assets/images/guide/invokeai/canvas/refind_image_5.png)
+
+![refind_image_6](../../assets/images/guide/invokeai/canvas/refind_image_6.png)
+
+重绘的结果可能会有瑕疵，此时可以先保存重绘的结果，再进行图片重绘来细化。
+
+![refind_image_7](../../assets/images/guide/invokeai/canvas/refind_image_7.png)
+
+人物的边缘还包含抠图产生的锯齿，并且头发部分也残留部分原来的背景，可以通过涂鸦和**修复遮罩**进行去除。还有两个人物之间衔接部分也可以通过这个方法去细化。
+
+![refind_image_8](../../assets/images/guide/invokeai/canvas/refind_image_8.png)
+
+![refind_image_9](../../assets/images/guide/invokeai/canvas/refind_image_9.png)
+
+对于面部的细化，可以将边界框缩小到面部的范围，再绘制**修复遮罩**，使用较低的**去噪强度**细化面部。
+
+![refind_image_10](../../assets/images/guide/invokeai/canvas/refind_image_10.png)
+
+![refind_image_11](../../assets/images/guide/invokeai/canvas/refind_image_11.png)
+
+手部细化也是可以用和面部细化一样的方法去处理。
+
+![refind_image_12](../../assets/images/guide/invokeai/canvas/refind_image_12.png)
+
+现在图片的效果就比较了，可以点击顶部的保存按钮将图片保存下来。
+
+![refind_image_result](../../assets/images/guide/invokeai/canvas/refind_image_result.png)
+
+_这张我是真喜欢~_
+
+<!-- TODO: 下面的教程基于 sd 1.5 的, 得重新写一遍了 -->
 ### 线稿上色与风格迁移
 这里有一张白色的线稿，准备用于上色，一张图片用于保持人物一致性，另一张图片用于画风迁移，此时可以借助统一画布的**控制层**和**区域导向**实现线稿上色和画风迁移。
 
