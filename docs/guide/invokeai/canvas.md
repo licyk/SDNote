@@ -364,8 +364,78 @@ cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,gr
 现在这张图片就比较完美了，如果在这张图片的外围有涂鸦的痕迹，可以在**栅格图层**中找到涂鸦对应的栅格层并禁用，此时就可以点击画布顶部工具栏的 💾（将画布保存到图库）按钮，将创作的图片保存到图库中。
 
 
-<!-- TODO: 苦涩的东西必须删掉呢，浪费了这么多精力在这部分，唉，找个时间重写吧 -->
+### 绘制多人图
+通常情况下仅靠普通的提示词可能会出现特征混淆的问题，但通过分区提示词（区域导向）可以很好的解决这个问题。
 
+这是左侧面板的提示词，描述的画面有 2 个人，简单的动作和场景。
+
+```
+2girls,
+yuri,eye contact,princess carry,
+outdoors,park,flower,path,river,blue flower,
+upper body,close-up,
+masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+```
+
+在右侧画布中创建 2 个区域导向，点击 **Prompt** 创建正向提示词输入框，分别对人物特征和动作进行描述。
+
+```
+cute,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
+smile,standing,holding person,eye contact,affectionate,open mouth,
+```
+
+```
+cute,long hair,silver hair,blue hair,(medium hair:0.6),single hair intake,braided,purple eyes,hair ornament,white shirt,collared shirt,purple bow,purple bowtie,short sleeves,small breasts,shirt tucked in,black skirt,white thighhighs,
+eye contact,smile,closed mouth,
+```
+
+并在画布中绘制 2 个**区域导向**的蒙版。
+
+![paint_mask_for_regional_guidance](../../assets/images/guide/invokeai/canvas/paint_mask_for_regional_guidance.png)
+
+现在尝试 **Invoke** 几次，选取比较好的生成结果。
+
+![use_regional_guidance_to_generate_image](../../assets/images/guide/invokeai/canvas/use_regional_guidance_to_generate_image.png)
+
+现在图片有些小瑕疵，使用**修复遮罩**、**区域导向**进行修复。
+
+![use_regional_guidance_and_inpaint_mask_to_fix_image](../../assets/images/guide/invokeai/canvas/use_regional_guidance_and_inpaint_mask_to_fix_image.png)
+
+调整好参数后多 **Invoke** 几次，选择比较好的效果图。
+
+![use_regional_guidance_and_inpaint_mask_to_fix_image_result](../../assets/images/guide/invokeai/canvas/use_regional_guidance_and_inpaint_mask_to_fix_image_result.png)
+
+现在瑕疵的部分修复好了，可以再细化一下面部的细节。将边界框缩小到面部的部分，再绘制**修复遮罩**，注意修复遮罩不要超过边界框，不然可能在边界框出现衔接问题。
+
+调整一下**去噪强度**，不要太高。
+
+![use_inpaint_mask_to_fix_detail](../../assets/images/guide/invokeai/canvas/use_inpaint_mask_to_fix_detail.png)
+
+多 **Invoke** 几次，挑选比较好的结果。
+
+![use_inpaint_mask_to_fix_detail_result](../../assets/images/guide/invokeai/canvas/use_inpaint_mask_to_fix_detail_result.png)
+
+现在效果就比较好了。
+
+
+### 使用元素选取(Select Object)进行抠图
+利用类似 PS 的方式也可以绘制多人图，这里分别使用 2 组提示词来生成人物。
+
+```
+1girl,solo,cute,ahoge,silver hair,blue hair,gradient hair,sidelocks,single drill,side ponytail,straight hair,blue scrunchie,hair ornament,scrunchie,purple eyes,collared shirt,white shirt,blue cardigan,blue sweater,blue jacket,black jacket,open jacket,long sleeves,sleeves past wrists,pleated skirt,black skirt,
+wariza,looking at viewer,head tilt, 
+simple background,white background,
+front view, 
+masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+```
+
+```
+1girl,solo,cute,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
+sitting,knees up,looking at viewer,hugging own legs,parted lips,
+simple background,white background,
+front view,
+masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+```
 
 ### 线稿上色与风格迁移
 这里有一张白色的线稿，准备用于上色，一张图片用于保持人物一致性，另一张图片用于画风迁移，此时可以借助统一画布的**控制层**和**区域导向**实现线稿上色和画风迁移。
