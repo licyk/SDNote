@@ -212,16 +212,14 @@ BREAK
 使用的提示词如下：
 
 ```
-eye contact,
-affectionate,kiss,
-
+2girls,eye contact,affectionate,kiss,
 masterpiece,best quality,newest,<lora:ill-xl-01-lanubis_2:0.6>,
 BREAK
-cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,legs,barefoot,
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
 light smile,standing,
 blue background,
 BREAK
-azusa \(blue archive\),solo,halo,ahoge,hair flower,hair ornament,flower,very long hair,white hair,hair between eyes,blue eyes,official alternate costume,blush,collarbone,sidelocks,bow,navel,bare shoulders,swimsuit,bikini,frills,strapless,purple bow,frilled bikini,bikini skirt,strapless bikini,multicolored bikini,multicolored clothes,crossed legs,
+cute,ahoge,silver hair,blue hair,gradient hair,sidelocks,single drill,side ponytail,straight hair,blue scrunchie,hair ornament,scrunchie,purple eyes,collared shirt,white shirt,blue cardigan,blue sweater,blue jacket,black jacket,open jacket,long sleeves,sleeves past wrists,pleated skirt,black skirt,
 open mouth,smile,standing,
 pink background,
 ```
@@ -240,16 +238,14 @@ pink background,
 再修改一下提示词。
 
 ```
-2girls,eye contact,yuri,
-standing,affectionate,kiss,holding hands,
-simple background,
+2girls,yuri,forehead-to-forehead,heads together,interlocked fingers,eye contact,hands up,
 masterpiece,best quality,newest,<lora:ill-xl-01-lanubis_2:1>,
 BREAK
-cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,legs,barefoot,
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
 light smile,standing,
 blue background,
 BREAK
-azusa \(blue archive\),solo,halo,ahoge,hair flower,hair ornament,flower,very long hair,white hair,hair between eyes,blue eyes,official alternate costume,blush,collarbone,sidelocks,bow,navel,bare shoulders,swimsuit,bikini,frills,strapless,purple bow,frilled bikini,bikini skirt,strapless bikini,multicolored bikini,multicolored clothes,crossed legs,
+cute,ahoge,silver hair,blue hair,gradient hair,sidelocks,single drill,side ponytail,straight hair,blue scrunchie,hair ornament,scrunchie,purple eyes,collared shirt,white shirt,blue cardigan,blue sweater,blue jacket,black jacket,open jacket,long sleeves,sleeves past wrists,pleated skirt,black skirt,
 open mouth,smile,standing,
 pink background,
 ```
@@ -261,23 +257,21 @@ pink background,
 !!!note
     这段提示词绘制的是双人图，但是使用**使用基本提示词**时，在基础提示词的部分写`2girls`还无法稳定的出双人，还需要在每个分区中写上`2girls`才能比较稳定出双人，具体需要自己多尝试修改提示词。
 
-现在对**基础比率**修改一下，分别对分区的提示词权重进行修改，修改为`0.1,0.5,0.8`。
+现在对**基础比率**修改一下，分别对分区的提示词权重进行修改，修改为`0.2,0.4,0.6`。
 
 ![use_region_prompter_3](../../assets/images/guide/sd_webui/prompt/use_region_prompter_3.png)
 
 提示词保持原来的。
 
 ```
-2girls,eye contact,yuri,
-standing,affectionate,kiss,holding hands,
-simple background,
+2girls,yuri,forehead-to-forehead,heads together,interlocked fingers,eye contact,hands up,
 masterpiece,best quality,newest,<lora:ill-xl-01-lanubis_2:1>,
 BREAK
-cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,neck ribbon,white dress,frilled collar,medium dress,petticoat,detached sleeves,flat chest,legs,barefoot,
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
 light smile,standing,
 blue background,
 BREAK
-azusa \(blue archive\),solo,halo,ahoge,hair flower,hair ornament,flower,very long hair,white hair,hair between eyes,blue eyes,official alternate costume,blush,collarbone,sidelocks,bow,navel,bare shoulders,swimsuit,bikini,frills,strapless,purple bow,frilled bikini,bikini skirt,strapless bikini,multicolored bikini,multicolored clothes,crossed legs,
+cute,ahoge,silver hair,blue hair,gradient hair,sidelocks,single drill,side ponytail,straight hair,blue scrunchie,hair ornament,scrunchie,purple eyes,collared shirt,white shirt,blue cardigan,blue sweater,blue jacket,black jacket,open jacket,long sleeves,sleeves past wrists,pleated skirt,black skirt,
 open mouth,smile,standing,
 pink background,
 ```

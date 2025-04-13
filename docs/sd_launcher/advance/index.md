@@ -34,15 +34,37 @@
 
 比如显卡的显存为 8 GB，这时候就要选择对应的`仅 SDXL 中等显存 (8 GB 以上)`选项，或者比这个选项更低的选项，不然容易出现爆显存的问题。
 
-### Cross Attension 优化方案
+!!!note
+    - SD WebUI
+      - 无优化 (12 GB 以上)：无对应参数
+      - 仅 SDXL 中等显存 (8 GB 以上)：--medvram-sdxl
+      - 中等显存 (4 GB 以上)：--medvram
+      - 低显存 (不足 4 GB)：--lowvram
+      - 全显存 (不推荐)：--lowram (疑似无合适的对应参数)
 
+### Cross Attension 优化方案
 这是调整在跑图时使用的优化方案，不同的方案对显存占用的优化不同，出图的速度也不同，xFormers 方案减少显存占用比较低，SDP 方案占用显存会高点，但是速度比 xFormers 方案快一点。
 
 !!!note
-    更多对 Cross Attension 优化方案的说明可以参考 SD WebUi wiki：https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Optimizations
+    更多对 Cross Attension 优化方案的说明可以参考 SD WebUI wiki：https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Optimizations
+
+
+!!!note
+    - SD WebUI：
+      - 尝试使用 xFormers (推荐)：--xformers
+      - 强制使用 xFormers：--xformers --force-enable-xformers
+      - 使用 xFormers Flash Attension：--xformers --xformers-flash-attention
+      - 使用缩放点积 (SDP) 方案：--opt-sdp-attention
+      - 使用无高效内存优化的缩放点积 (SDP) 方案：--opt-sdp-no-mem-attention
+      - 使用 Sub-Quadratic 方案：--opt-sub-quad-attention
+      - 自动 (推荐)：无对应参数
+      - 强制使用 Deggettx 方案：--opt-split-attention
+      - 强制使用 InvokeAI 方案：--opt-split-attention-invokeai
+      - 使用旧版 (Split) 优化方案：--opt-split-attention-v1
+      - 无优化 (不推荐)：--disable-opt-split-attention
+
 
 ### 计算精度设置
-
 这是用于调节 AI 在运算时使用的精度。
 
 ![precision](../../assets/images/sd_launcher/advance/precision.jpg)
@@ -59,6 +81,13 @@
 !!!note
     关于向上采样法的说明：[--upcast-sampling support for CUDA by FNSpd · Pull Request #8782 · AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/8782)
 
+!!!note
+    - SD WebUI：
+      - (启用时) 使用向上采样法提高采样精度 (upcast-sampling)：--upcast-sampling
+      - (禁用时) 开启 UNet 模型半精度优化：--no-half
+      - (禁用时) 开启 VAE 模型半精度优化：--no-half-vae
+      - (禁用时) 数值溢出检查 (nan-check)：--disable-nan-check
+
 ### 使用共享显存
 在 Nvidia 显卡公版驱动 大于等于 536.40 版本中，支持在专用 GPU 显存不足时使用共享 GPU 显存来补足，降低爆显存的概率。但是调用了共享显存后将会显著地降低出图速度，这时可以关闭共享显存来解决。
 
@@ -71,9 +100,16 @@
 !!!warning
     Channels-last 目前存在问题，启用后可能会带来减速。
 
+!!!note
+    - (启用时) SD WebUI：--opt-channelslast
+
 
 ### 模型哈希计算
 在 SD WebUI 启动过程中，会计算 SD WebUI 模型文件夹中模型的哈希值并记录下来，但这个过程会花费一定的时间，在低速的硬盘上花费的时间更多，导致启动 SD WebUI 的时间增加。关闭这个选项可以加快 SD WebUI 的启动速度，但可能会导致 SD WebUI 的模型信息查看页面无法正常显示哈希值。
+
+!!!note
+    - (禁用时) SD WebUI：--no-hashing
+
 
 ### Accelerate 多卡训练加速
 这个设置是为了让 [Dreambooth](https://github.com/d8ahazard/sd_dreambooth_extension) 模型训练插件支持多卡训练，但目前非常不建议在 SD WebUI 中进行任何的模型训练，如需训练模型，请使用专门的模型训练器。
