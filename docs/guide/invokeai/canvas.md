@@ -544,7 +544,60 @@ masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
 
 _这张我是真喜欢~_
 
-<!-- TODO: 下面的教程基于 sd 1.5 的, 得重新写一遍了 -->
+
+### 背景替换
+前面的那张图片是纯色背景的，现在我想把背景替换一下，
+
+此时可以选择该图片的**栅格层**，右键画布，使用**元素选取(Select Object)**功能将图片的人物选取出来。
+
+![use_select_object_to_select_character](../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character.png)
+
+因为现在需要替换背景，所以将选择结果进行反选，启用 **Invert Selection** 后原来的结果将进行反选。
+
+![invert_select_object_result](../../assets/images/guide/invokeai/canvas/invert_select_object_result.png)
+
+此时点击 **Save As** 将选择结果保存为**修复遮罩**。将**去噪强度**设置为 1，再对画面进行描述。
+
+```
+2girls,yuri,hug,heads together,
+outdoors,scenery,park,on grass,flowers,grass,tree,under tree,cherry blossoms,near river,bug,butterfly,pink butterfly,day,blue sky,
+front view,
+masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+```
+
+![modify_replace_background_config](../../assets/images/guide/invokeai/canvas/modify_replace_background_config.png)
+
+现在尝试 **Invoke** 将原图的背景进行重绘。
+
+![replace_background_result_1](../../assets/images/guide/invokeai/canvas/replace_background_result_1.png)
+
+可以看到原来的背景已经替换，并且原来图片中的人物还保持着原来的样子。
+
+但是会发现人物边缘似乎多了另一个人物的影子，这时因为对画面进行描述的提示词中包含了人物的描述，并且**去噪强度**很高，所以模型生成了一个人，但是人物的位置发生了偏移。
+
+这时可以删去提示词中关于人物的描述，这种问题就可以得到缓解，或者可以尝试使用**控制层**控制人物，使人物的位置不发生偏移。
+
+这里**元素选取(Select Object)**功能将图片的人物选取出来，点击 **Save As** 将选取结果保存到**控制层**中。
+
+在刚刚新建的**控制层**选择 **Multi-Guidance Detection (Union Pro)** 模型（如果没有就在 InvokeAI 的模型管理的**初始模型**中下载），再右键该**控制层**，选择 **Fitter**，将保存到**控制层**的图片进行预处理。
+
+![filter_image_for_control_layer](../../assets/images/guide/invokeai/canvas/filter_image_for_control_layer.png)
+
+**Fitter Type** 选择 **Canny Edge Detection**。
+
+![filter_image_for_control_layer_result](../../assets/images/guide/invokeai/canvas/filter_image_for_control_layer_result.png)
+
+将预处理图片的结果点击 **Apply** 进行应用。
+
+![apply_filter_image_result](../../assets/images/guide/invokeai/canvas/apply_filter_image_result.png)
+
+现在在尝试 **Invoke** 进行生成。
+
+![replace_background_result_2](../../assets/images/guide/invokeai/canvas/replace_background_result_2.png)
+
+现在可以发现原来的问题得到了很好的解决。
+
+
 ### 线稿上色与风格迁移
 这里有一张白色的线稿，准备用于上色，一张图片用于保持人物一致性，另一张图片用于画风迁移，此时可以借助统一画布的**控制层**和**区域导向**实现线稿上色和画风迁移。
 
@@ -556,16 +609,16 @@ _这张我是真喜欢~_
 
 ![input_image_to_control_layer](../../assets/images/guide/invokeai/canvas/input_image_to_control_layer.png)
 
-这里先调整边界框的大小，调整好后在右侧的图层面板中选择刚刚新建的**控制层**，再右键画布，选择**图片变换(Transform)**缩放线稿到边界框中。
+这里先调整边界框的大小，调整好后在右侧的图层面板中选择刚刚新建的**控制层**，右键打开菜单，选择**图片变换(Transform)**缩放线稿到边界框中。
 
 ![use_transform_to_resize_image](../../assets/images/guide/invokeai/canvas/use_transform_to_resize_image.png)
 
-缩放完成后点击 **Apply** 将结果应用，在**控制层**的模型选项中选择 Lineart / Lineart Anime 模型。
+缩放完成后点击 **Apply** 将结果应用，在**控制层**的模型选项中选择 **Multi-Guidance Detection (Union Pro)** 模型。
 
 !!!note
-    如果没有模型，需要在 InvokeAI 的模型管理的**初始模型**选项下载 **Lineart** / **Lineart Anime** 模型（需要对应自己使用的大模型版本）。
+    如果没有模型，需要在 InvokeAI 的模型管理的**初始模型**选项下载 **Multi-Guidance Detection (Union Pro)** 模型。
 
-此时 InvokeAI 将选择 ControlNet 模型对应的预处理进行图片预处理。
+再右键该**控制层**，选择 **Fitter**，将保存到**控制层**的图片进行预处理。**Fitter Type** 选择 **Lineart Edge Detection**，再点击 **Apply** 保存预处理结果。
 
 ![select_controlnet_model_and_filter_image](../../assets/images/guide/invokeai/canvas/select_controlnet_model_and_filter_image.png)
 
@@ -574,72 +627,25 @@ _这张我是真喜欢~_
 ![paint_mask_for_regional_reference](../../assets/images/guide/invokeai/canvas/paint_mask_for_regional_reference.png)
 
 !!!note
-    **区域导向**所需的模型需要在 InvokeAI 的模型管理的**初始模型**选项中下载，对应的模型名称为 IP Adapter。
+    **区域导向**所需的模型需要在 InvokeAI 的模型管理的**初始模型**选项中下载，对应的模型名称为 **Standard Reference (IP Adapter ViT-H)**。
 
 绘制蒙版完成后，调整**控制层**和**区域导向**的参数，再填写提示词。
 
 ```
-asagi0398, 
 1girl,solo,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,blue eyes,grey hair,short hair,bangs,hair between eyes,eyebrows visible through hair,blush,closed mouth,neck ribbon,white dress,crease,frilled_collar,detached_sleeves,flat chest,
 holding sword,looking at viewer,dynamic pose,
 battoujutsu stance,motion blur,sword,battoujutsu stance,bamboo forest,
 upper body,
-masterpiece,best quality,newest,
+masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
 ```
 
 ![configure_control_layer_and_regional_reference](../../assets/images/guide/invokeai/canvas/configure_control_layer_and_regional_reference.png)
 
 调整参数后尝试几次 **Invoke**，从中挑选一个比较好的结果。
 
-![configure_control_layer_and_regional_reference](../../assets/images/guide/invokeai/canvas/configure_control_layer_and_regional_reference.png)
+![use_control_layer_and_regional_reference_to_generate_image](../../assets/images/guide/invokeai/canvas/use_control_layer_and_regional_reference_to_generate_image.png)
 
 现在可以看到线稿已经上色了，并且画风成功迁移到上色后的图片中。
-
-
-### 背景替换
-这是一张图片，打算把背景的内容进行替换。
-
-![image_to_replace_background](../../assets/images/guide/invokeai/canvas/image_to_replace_background.png)
-
-此时可以选择该图片的**栅格层**，右键画布，使用**元素选取(Select Object)**功能将图片的人物选取出来。
-
-![use_select_object_to_select_character](../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character.png)
-
-因为现在需要替换背景，所以将选择结果进行反选，启用 **Invert Selection** 后原来的结果将进行反选。
-
-![invert_select_object_result](../../assets/images/guide/invokeai/canvas/invert_select_object_result.png)
-
-此时点击 **Save As** 将选择结果保存为**修复遮罩**。将**去噪强度**设置比较高的值，再对画面进行描述。
-
-![modify_replace_background_config](../../assets/images/guide/invokeai/canvas/modify_replace_background_config.png)
-
-现在尝试 **Invoke** 将原图的背景进行重绘。
-
-![replace_background_result_1](../../assets/images/guide/invokeai/canvas/replace_background_result_1.png)
-
-可以看到原来的背景已经替换，并且原来图片中的人物还保持着原来的样子。
-
-但是将**去噪强度**设置为更高的值或者 1 时，可能会发现人物边缘似乎多了另一个人物的影子，这时因为对画面进行描述的提示词中包含了人物的描述，并且**去噪强度**很高，所以模型生成了一个人，但是人物的位置发生了偏移。
-
-这时可以删去提示词中关于人物的描述，并且将**去噪强度**设置为 1，这种问题就可以得到缓解，或者可以尝试使用**控制层**控制人物，使人物的位置不发生偏移。
-
-这里**元素选取(Select Object)**功能将图片的人物选取出来，点击 **Save As** 将选取结果保存到**控制层**中。
-
-![use_select_object_to_select_character_again](../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character_again.png)
-
-在刚刚新建的**控制层**选择 ControlNet Canny 模型（如果没有就在 InvokeAI 的模型管理的**初始模型**中下载），将保存到**控制层**的图片进行预处理。
-
-![filter_image_for_control_layer](../../assets/images/guide/invokeai/canvas/filter_image_for_control_layer.png)
-
-将预处理图片的结果点击 **Apply** 进行应用。
-
-![apply_filter_image_result](../../assets/images/guide/invokeai/canvas/apply_filter_image_result.png)
-
-现在在尝试 **Invoke** 进行生成。
-
-![replace_background_result_2](../../assets/images/guide/invokeai/canvas/replace_background_result_2.png)
-
-现在可以发现原来的问题得到了很好的解决。
 
 
 ### 其他应用
