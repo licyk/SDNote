@@ -1,4 +1,7 @@
 # Windows
+## 整合包部署
+[AI 绘画 / 训练整合包 · licyk/sd-webui-all-in-one · Discussion #1](https://github.com/licyk/sd-webui-all-in-one/discussions/1)
+
 ## 使用 InvokeAI Installer 部署
 [InvokeAI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/invokeai_installer.md)
 

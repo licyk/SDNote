@@ -1,6 +1,5 @@
 # Windows 平台
-
-## 整合包部署
+## 整合包(秋葉aaaki)部署
 （推荐）前往 [秋葉aaaki](https://space.bilibili.com/12566101) 的视频获取下载链接。  
 [【AI绘画·24年3月最新】Stable Diffusion整合包v4.7发布！解压即用 防爆显存 三分钟入门AI绘画 ☆更新 ☆训练 ☆汉化 秋叶整合包](https://www.bilibili.com/video/BV1iM4y1y7oA)
 
@@ -14,6 +13,10 @@
 
 !!!note
     秋葉的整合包密码为`bilibili-秋葉aaaki`，详情请阅读[秋葉aaaki的动态](https://www.bilibili.com/opus/923836599107584017)。
+
+
+## 整合包(licyk)部署
+[AI 绘画 / 训练整合包 · licyk/sd-webui-all-in-one · Discussion #1](https://github.com/licyk/sd-webui-all-in-one/discussions/1)
 
 
 ## 绘世启动器部署

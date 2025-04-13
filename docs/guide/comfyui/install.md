@@ -1,6 +1,10 @@
 # Windwos 平台
-## 整合包部署
+## 整合包(秋葉aaaki)部署
 [【AI绘画】ComfyUI整合包发布！解压即用 一键启动 工作流版界面 超多节点 ☆更新 ☆汉化 秋叶整合包_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ew411776J)
+
+
+## 整合包(licyk)部署
+[AI 绘画 / 训练整合包 · licyk/sd-webui-all-in-one · Discussion #1](https://github.com/licyk/sd-webui-all-in-one/discussions/1)
 
 
 ## 绘世启动器部署

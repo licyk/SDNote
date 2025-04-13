@@ -10,6 +10,7 @@ InvokeAI 提供模型管理器用于管理 InvokeAI 的模型，下面介绍模�
     [ill-xl-01-rurudo_2-000032.safetensors](https://modelscope.cn/models/licyks/sd-lora/resolve/master/sdxl/style/ill-xl-01-rurudo_2-000032.safetensors)[(Civitai)](https://civitai.com/models/624428/artist-style-rurudo)  
     [ill-xl-01-tyomimas_1-000032.safetensors](https://modelscope.cn/models/licyks/sd-lora/resolve/master/sdxl/style/ill-xl-01-tyomimas_1-000032.safetensors)[(Civitai)](https://civitai.com/models/626902/artist-style)  
     [4x_NMKD-Superscale-SP_178000_G.pth](https://modelscope.cn/models/licyks/sd-upscaler-models/resolve/master/ESRGAN/4x_NMKD-Superscale-SP_178000_G.pth)[(ESRGAN |N00MKRAD)](https://nmkd.de/?esrgan)  
+    [licyk/lora_for_invokeai](https://huggingface.co/licyk/lora_for_invokeai)  
     在阅读完本篇关于模型管理的介绍后，请尝试将这些模型添加到 InvokeAI 中。
 
 
