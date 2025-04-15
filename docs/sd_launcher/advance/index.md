@@ -37,10 +37,10 @@
 !!!note
     - SD WebUI
       - 无优化 (12 GB 以上)：无对应参数
-      - 仅 SDXL 中等显存 (8 GB 以上)：--medvram-sdxl
-      - 中等显存 (4 GB 以上)：--medvram
-      - 低显存 (不足 4 GB)：--lowvram
-      - 全显存 (不推荐)：--lowram (疑似无合适的对应参数)
+      - 仅 SDXL 中等显存 (8 GB 以上)：`--medvram-sdxl`
+      - 中等显存 (4 GB 以上)：`--medvram`
+      - 低显存 (不足 4 GB)：`--lowvram`
+      - 全显存 (不推荐)：`--lowram`
 
 ### Cross Attension 优化方案
 这是调整在跑图时使用的优化方案，不同的方案对显存占用的优化不同，出图的速度也不同，xFormers 方案减少显存占用比较低，SDP 方案占用显存会高点，但是速度比 xFormers 方案快一点。
@@ -51,17 +51,17 @@
 
 !!!note
     - SD WebUI：
-      - 尝试使用 xFormers (推荐)：--xformers
-      - 强制使用 xFormers：--xformers --force-enable-xformers
-      - 使用 xFormers Flash Attension：--xformers --xformers-flash-attention
-      - 使用缩放点积 (SDP) 方案：--opt-sdp-attention
-      - 使用无高效内存优化的缩放点积 (SDP) 方案：--opt-sdp-no-mem-attention
-      - 使用 Sub-Quadratic 方案：--opt-sub-quad-attention
+      - 尝试使用 xFormers (推荐)：`--xformers`
+      - 强制使用 xFormers：`--xformers --force-enable-xformers`
+      - 使用 xFormers Flash Attension：--xformers `--xformers-flash-attention`
+      - 使用缩放点积 (SDP) 方案：`--opt-sdp-attention`
+      - 使用无高效内存优化的缩放点积 (SDP) 方案：`--opt-sdp-no-mem-attention`
+      - 使用 Sub-Quadratic 方案：`--opt-sub-quad-attention`
       - 自动 (推荐)：无对应参数
-      - 强制使用 Deggettx 方案：--opt-split-attention
-      - 强制使用 InvokeAI 方案：--opt-split-attention-invokeai
-      - 使用旧版 (Split) 优化方案：--opt-split-attention-v1
-      - 无优化 (不推荐)：--disable-opt-split-attention
+      - 强制使用 Deggettx 方案：`--opt-split-attention`
+      - 强制使用 InvokeAI 方案：`--opt-split-attention-invokeai`
+      - 使用旧版 (Split) 优化方案：`--opt-split-attention-v1`
+      - 无优化 (不推荐)：`--disable-opt-split-attention`
 
 
 ### 计算精度设置
@@ -83,10 +83,10 @@
 
 !!!note
     - SD WebUI：
-      - (启用时) 使用向上采样法提高采样精度 (upcast-sampling)：--upcast-sampling
-      - (禁用时) 开启 UNet 模型半精度优化：--no-half
-      - (禁用时) 开启 VAE 模型半精度优化：--no-half-vae
-      - (禁用时) 数值溢出检查 (nan-check)：--disable-nan-check
+      - (启用时) 使用向上采样法提高采样精度 (upcast-sampling)：`--upcast-sampling`
+      - (禁用时) 开启 UNet 模型半精度优化：`--no-half`
+      - (禁用时) 开启 VAE 模型半精度优化：`--no-half-vae`
+      - (禁用时) 数值溢出检查 (nan-check)：`--disable-nan-check`
 
 ### 使用共享显存
 在 Nvidia 显卡公版驱动 大于等于 536.40 版本中，支持在专用 GPU 显存不足时使用共享 GPU 显存来补足，降低爆显存的概率。但是调用了共享显存后将会显著地降低出图速度，这时可以关闭共享显存来解决。
@@ -95,20 +95,20 @@
     关闭共享显存的前提是 Nvidia 显卡公版驱动的版本大于 546.01 或小于 536.40 版的公版驱动，非必要不建议使用旧版驱动。
 
 ### Channels-last 内存优化
-这个功能可能可以在一定的限度内提升性能。
+这个功能对性能的影响未知。
 
 !!!warning
     Channels-last 目前存在问题，启用后可能会带来减速。
 
 !!!note
-    - (启用时) SD WebUI：--opt-channelslast
+    - (启用时) SD WebUI：`--opt-channelslast`
 
 
 ### 模型哈希计算
 在 SD WebUI 启动过程中，会计算 SD WebUI 模型文件夹中模型的哈希值并记录下来，但这个过程会花费一定的时间，在低速的硬盘上花费的时间更多，导致启动 SD WebUI 的时间增加。关闭这个选项可以加快 SD WebUI 的启动速度，但可能会导致 SD WebUI 的模型信息查看页面无法正常显示哈希值。
 
 !!!note
-    - (禁用时) SD WebUI：--no-hashing
+    - (禁用时) SD WebUI：`--no-hashing`
 
 
 ### Accelerate 多卡训练加速
@@ -120,6 +120,9 @@
     Kohya GUI：https://github.com/bmaltais/kohya_ss  
     Kohya Scripts：https://github.com/kohya-ss/sd-scripts  
     OneTrainer：https://github.com/Nerogar/OneTrainer
+
+!!!note
+    (启用时) SD WebUI：`python -m accelerate.commands.launch /path/to/launch.py`
 
 ### CUDA 内存分配方案
 这个设置用于更换 Nvidia 显卡的 CUDA 内存分配方案，使用 CUDA 内置异步分配器可以提高性能，但需要 CUDA 版本大于 11.4。也就是说不仅 Nvidia 显卡驱动支持的 CUDA 版本要大于这个值，PyTorch 中所带的 CUDA 版本也要大于这个值。
@@ -141,6 +144,11 @@
 !!!note
     查看显卡驱动支持的 CUDA 的版本：  
     在绘世启动器的高级选项中点击右上角的启动命令提示符，输入`nvidia-smi`并回车，此时看到 CUDA Version 后面的数字为 Nvidia 显卡驱动最高支持的 CUDA 版本，当然 CUDA 支持向下兼容，低于这个版本的 CUDA 也能使用。
+
+!!!note
+    使用`PYTORCH_CUDA_ALLOC_CONF`环境变量控制：
+    - PyTorch 原生分配器：`garbage_collection_threshold:0.9,max_split_size_mb:512`
+    - CUDA 内置异步分配器 (CUDA 11.4+)：`backend:cudaMallocAsync`
 
 ### 预览图生成模式
 设置生成图片过程中图片的预览算法。
@@ -180,17 +188,36 @@
 !!!note
     开放远程链接后启动时控制台内显示的IP为 0.0.0.0，且启动完成后不会自动打开浏览器。
 
+!!!note
+    - SD WebUI:
+      - 监听地址：`--server-name <IP 地址>`
+      - 监听端口：`--port <端口号>`
+      - (启用时) 开放远程连接：`--listen`
+      - (启用时) 通过 Gradio 共享：`--share`
+
 ### 启用 API
 开放 SD WebUI 的 API 接口以提供给其他软件扩展使用。
+
+!!!note
+    - SD WebUI：`--api`
 
 ### 不加载 Gradio 网页界面
 禁用加载网页界面，只开放 API 接口，用于开设服务器。
 
+!!!note
+    - SD WebUI：`--nowebui`
+
 ### Huggingface 离线模式
 禁用从 Huggingface 上下载模型，启用后 SD WebUI 将无法自动下载缺失的必要模型。
 
+!!!note
+    使用`HF_HUB_OFFLINE`环境变量设置，启用时，该值设置为`1`。
+
 ### 跳过内部组件同步 (快速启动流程)
 禁用 SD WebUI 内部组件同步，可加快启动速度，但会影响 SD WebUI 的版本切换和扩展更新。
+
+!!!note
+    - (启用时) SD WebUI：`--skip-install`
 
 ## 用户体验设置
 这是有关使用体验的设置。
@@ -201,10 +228,17 @@
 这个就不用多说了。
 
 !!!note
-    该选项仅在较低版本的SDWebUI中有效。
+    - (启用时) SD WebUI：`--autolaunch`
+
+
 
 ### 界面样式
 调整网页界面的主题，如浅色主题和深色主题。
+
+!!!note
+    - SD WebUI
+      - 深色：`--theme dark`
+      - 浅色：`--theme light`
 
 ### 停用 Gradio 内置队列
 用于关闭 Gradio 内置的请求队列功能，可能可以缓解部分界面的问题，不过有时候关闭后可能会造成新的问题。
@@ -212,11 +246,17 @@
 !!!note
     SD WebUI，Fooocus 的界面基于 Gradio 制作，所以有 Gradio 内置队列这个功能。Gradio 为了让多设备同时访问同一个网页界面，设计了队列功能以保证多设备访问时任务能够有序的运行。
 
+!!!note
+    - (启用时) SD WebUI：`--no-gradio-queue`
+
 ### 控制台输出安装细节信息
 显示启动过程中 Pip 安装依赖时的具体信息，一般用于调试。
 
 !!!note
     SD WebUI 在启动时会检查自身和扩展的依赖是否齐全并安装，但是在默认情况下并不会显示出来。
+
+!!!note
+    - SD WebUI：通过`WEBUI_LAUNCH_LIVE_OUTPUT`环境变量控制，启用时该值为`1`。
 
 ### 多用户模式
 允许多个用户同时使用同一个实例，提供类似 SD WebUI 的多用户功能。
@@ -233,9 +273,14 @@
 ### 启用云端页面汉化
 为网页界面进行汉化，当 SD WebUI / ComfyUI 未安装汉化扩展时可使用该功能进行汉化。
 
+!!!note
+    该功能由绘世启动器热补丁系统提供。
+
 ### Torch 文件保存编码修正
 解决 PyTorch 保存模型文件时出现文件名乱码的问题。
 
+!!!note
+    该功能由绘世启动器热补丁系统提供。
 
 ## 安全性设置
 这是有关安全的设置。
@@ -245,11 +290,17 @@
 ### 冻结系统设置
 禁用 SD WebUI 的修改设置功能。当在启动开放远程连接后将网页界面共享给他人使用，但是又不想网页界面的设置被他人修改，就可以启用这个设置。
 
+!!!note
+    - (启用时) SD WebUI：`--freeze-settings`
+
 ### 允许在开放远程访问时安装插件
 解除在启动开放远程访问后对安装扩展的限制。
 
 !!!note
     这个限制是 SD WebUI 设计的安全措施，当在绘世启动器的`高级选项`->`监听设置`里启用`开放远程连接`或者`通过 Gradio 共享`时，SD WebUI 为了防止他人访问网页界面后通过安装恶意插件来实现攻击，将禁用 SD WebUI 的安装扩展功能。
+
+!!!note
+    - (启用时) SD WebUI：`--enable-insecure-extension-access`
 
 ### 允许加载不安全的模型
 禁用加载模型时的安全检查。SD WebUI 在加载模型时将检查模型的安全性，若该模型不安全则停止加载。禁用安全检查后 SD WebUI 将不会检查模型的安全性，但可嫩会导致加载模型后被模型内的恶意代码攻击。
@@ -257,15 +308,28 @@
 !!!note
     在早期的模型中，模型的格式一般是`pt`或者`ckpt`等，但是这些模型格式可能会被植入恶意代码，当这样的模型被加载的时候，里面内置的恶意代码将被执行，导致不良的后果。为了解决模型安全问题，HuggingFace 开发了`safetensors`格式，解决模型被恶意代码的问题。个人建议下载模型的时候最好选择`safetensors`格式的模型。
 
+!!!note
+    - (启用时) SD WebUI：`--disable-safe-unpickle`
+
 ### 允许加载从网页直接输入脚本
 允许在 SD WebUI 中运行任意的代码。但是当在启动开放远程连接后可能会出现他人在 SD WebUI 界面执行恶意代码，使设备受到恶意攻击。
+
+!!!note
+    - (启用时) SD WebUI：`--allow-code`
 
 ### 登陆凭证管理
 为 Gradio 共享的网页设置账号密码验证，防止他人随意访问 Gradio 共享的链接。
 
+!!!note
+    - SD WebUI：
+      - 管理 Gradio 账号密码：`--gradio-auth 账号1:密码1,账号2:密码2,...`
+      - 管理 API 账号密码：`--api-auth 账号1:密码1,账号2:密码2,...`
+
 ### CORS 授权管理
 管理跨域资源共享授权域名。
 
+!!!note
+    - SD WebUI：`--cors-allow-origins 域名1,域名2,...`
 
 ## 其他设置
 这是调整其他设置的地方。
@@ -274,6 +338,9 @@
 
 ### 无模型模式启动 (UI 调试)
 在不加载模型的情况下启动 SD WebUI，用于调试，启用后将无法正常使用功能。
+
+!!!note
+    - (启用时) SD WebUI：`--ui-debug-mode`
 
 ### 自定义参数
 这是用于自定义 SD WebUI / ComfyUI / ... 的启动参数。
