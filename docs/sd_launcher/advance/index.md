@@ -19,14 +19,17 @@
 ## 性能设置
 ![performance](../../assets/images/sd_launcher/advance/performance.jpg)
 
-### 生成引擎
 
+### 生成引擎
 这是选择跑图是所使用的设备（CPU / 显卡），可以使用的设备将会被列举出来，并且只能选择一个。如果在这个列表中看不到自己想要选择的设置，可能有以下几种可能。
 
 1. 显卡驱动未正确安装或者显卡驱动未更到最新，建议前往显卡驱动官网下载最新的驱动并安装。
 2. PyTorch 版本不对或者未正确安装，需要在绘世启动器的`高级选项`->`环境维护`->`安装 PyTorch`重新安装 PyTorch。
 3. Stable Diffusion 项目的分支不对，需要在绘世启动器的`版本管理`->`内核`->`切换分支`，选择正确的分支并切换。比如显卡型号是 AMD，并且只支持使用 DirectML，但是分支是`AUTOMATIC1111/stable-diffusion-webui`，此时就需要将分支切换至`lshqqytiger/stable-diffusion-webui-directml`或者`vladmandic/automatic`。
 4. 设备（显卡）本身不支持，这种情况只能更换设备了（CPU 跑图那么慢，应该没人愿意用 CPU 跑图吧）。
+
+!!!note
+    使用`CUDA_VISIBLE_DEVICES`环境变量指定 Nvidia 显卡，`HIP_VISIBLE_DEVICES`环境变量指定 AMD 显卡，`ONEAPI_DEVICE_SELECTOR`指定 Intel 显卡。
 
 ### 显存优化
 
@@ -41,6 +44,20 @@
       - 中等显存 (4 GB 以上)：`--medvram`
       - 低显存 (不足 4 GB)：`--lowvram`
       - 全显存 (不推荐)：`--lowram`
+    - SD WebUI Forge：
+      - 由 Forge 决定：无对应参数
+      - 无优化 (8 GB 以上)：`--always-high-vram`
+      - 标准优化 (4 GB 以上)：`--always-normal-vram`
+      - 低显存 (不足 4 GB)：`--always-low-vram`
+      - 极低显存 (不足 2 GB)：`--always-no-vram`
+      - 全显存 (不推荐)：`--always-gpu`
+    - ComfyUI：
+      - 由 ComfyUI 决定：无对应参数
+      - 无优化 (8 GB 以上)：`--highvram`
+      - 标准优化 (4 GB 以上)：`--normalvram`
+      - 低显存 ( 不足 4 GB)：`--lowvram`
+      - 极低显存 (不足 2 GB)：`--novram`
+      - 全显存：`--gpu-only`
 
 ### Cross Attension 优化方案
 这是调整在跑图时使用的优化方案，不同的方案对显存占用的优化不同，出图的速度也不同，xFormers 方案减少显存占用比较低，SDP 方案占用显存会高点，但是速度比 xFormers 方案快一点。
@@ -62,6 +79,17 @@
       - 强制使用 InvokeAI 方案：`--opt-split-attention-invokeai`
       - 使用旧版 (Split) 优化方案：`--opt-split-attention-v1`
       - 无优化 (不推荐)：`--disable-opt-split-attention`
+    - SD WebUI Forge：
+      - 尝试使用 xFormers (推荐)：`--xformers`
+      - 使用缩放点积 (SDP) 方案：`--attention-pytorch --disable-xformers`
+      - 使用 Sub-Quadratic 方案：`--attention-quad --disable-xformers`
+      - 使用旧版 (Split) 优化方案：`--attention-split --disable-xformers`
+    - ComfyUI：
+      - 尝试使用 xFormers (推荐)：无对应参数
+      - 使用 Sage Attention：`--use-sage-attention`
+      - 使用缩放点积 (SDP) 方案：无对应参数 (疑似该优化方案被 ComfyUI 移除)
+      - 使用 Sub-Quadratic 方案：`--use-quad-cross-attention`
+      - 使用旧版 (Split) 优化方案：`--use-split-cross-attention`
 
 
 ### 计算精度设置
@@ -87,12 +115,89 @@
       - (禁用时) 开启 UNet 模型半精度优化：`--no-half`
       - (禁用时) 开启 VAE 模型半精度优化：`--no-half-vae`
       - (禁用时) 数值溢出检查 (nan-check)：`--disable-nan-check`
+    - SD WebUI Forge：
+      - 使用向上采样法提高 XAttn 精度 (upcast-attention)：
+        - 自动：无对应参数
+        - 强制：`--force-upcast-attention`
+        - 禁用：`--disable-attention-upcast`
+      - 通常模型精度：
+        - 由 Forge 决定：无对应参数
+        - 全精度 (FP32)：`--all-in-fp32 --no-half`
+        - 半精度 (FP16)：`--all-in-fp16`
+      - 文本编码器 (Text Encoder) 模型精度：
+        - 由 Forge 决定：无对应参数
+        - 全精度 (FP32)：`--clip-in-fp32`
+        - 半精度 (FP16)：`--clip-in-fp16`
+        - FP8 (E4M3FN)：`--clip-in-fp8-e4m3fn`
+        - FP8 (E5M2)：`--clip-in-fp8-e5m2`
+      - U-Net 模型精度：
+        - 由 Forge 决定：无对应参数
+        - BF16：`--unet-in-bf16`
+        - 半精度 (FP16)：`--unet-in-fp16`
+        - FP8 (E4M3FN)：`--unet-in-fp8-e4m3fn`
+        - FP8 (E5M2)：`--unet-in-fp8-e5m2`
+      - VAE 模型精度：
+        - 由 Forge 决定：无对应参数
+        - 全精度 (FP32)：`--fp32-vae`
+        - 半精度 (FP16)：`--vae-in-fp16`
+        - BF16：`--vae-in-bf16`
+    - ComfyUI：
+     - (禁用时) 使用向上采样法提高 XAttn 精度 (upcast-attention)：`--dont-upcast-attention`
+     - 通常模型精度：
+       - 由 ComfyUI 决定：无对应参数
+       - 全精度 (FP32)：`--force-fp32`
+       - 半精度 (FP16)：`--force-fp16`
+     - 文本编码器 (Text Encoder) 模型精度：
+       - 由 ComfyUI 决定：无对应参数
+       - 全精度 (FP32)：`--fp32-text-enc`
+       - 半精度 (FP16)：`--fp16-text-enc`
+       - FP8 (E4M3FN)：`--fp8_e4m3fn-text-enc`
+       - FP8 (E5M2)：`--fp8_e5m2-text-enc`
+     - U-Net 模型精度：
+       - 由 ComfyUI 决定：无对应参数
+       - BF16：`--bf16-unet`
+       - 半精度 (FP16)：`--fp16-unet`
+       - FP8 (E4M3FN)：`--fp8_e4m3fn-unet`
+       - FP8 (E5M2)：`--fp8_e5m2-unet`
+     - VAE 模型精度：
+       - 由 ComfyUI 决定：无对应参数
+       - 全精度 (FP32)：`--fp32-vae`
+       - 半精度 (FP16)：`--fp16-vae`
+       - BF16：`--fb16-vae`
+
+
+### 在 CPU 中运行 VAE
+将 VAE 移动到 CPU 中运行，以牺牲性能的代价防止 VAE 阶段爆显存。
+
+!!!note
+    该选项仅在 SD WebUI Forge / ComfyUI 中可用。
+
+
+!!!note
+    - (启用时) SD WebUI Forge：`--vae-in-cpu`
+    - (启用时) ComfyUI：`--cpu-vae`
+
+
+### 激进提速策略
+使用 FP8 精度进行计算，（Nvidia 显卡支持使用 FP8 精度进行计算，并且计算速度更快），在牺牲一定质量的情况下加速推理速度。
+
+
+!!!note
+    1. 该功能需要 Rtx 40 系及以上的 Nvidia 显卡，其他型号显卡不支持该功能。
+    2. 在**计算精度设置**里可以看到 FP8 精度，但和该部分得 FP8 有些区别。在**计算精度设置**启用 FP8 后，实际运行时，模型是以 FP8 精度载入显存 / 内存中，在进行推理时，模型会进行一次上采样将计算精度提高到 FP16 后再进行计算，而不是保持 FP8 进行计算。启用**激进提速策略**后，计算时不再使用 FP16 精度进行计算，而是使用 FP8 精度进行计算。
+
 
 ### 使用共享显存
 在 Nvidia 显卡公版驱动 大于等于 536.40 版本中，支持在专用 GPU 显存不足时使用共享 GPU 显存来补足，降低爆显存的概率。但是调用了共享显存后将会显著地降低出图速度，这时可以关闭共享显存来解决。
 
 !!!note
     关闭共享显存的前提是 Nvidia 显卡公版驱动的版本大于 546.01 或小于 536.40 版的公版驱动，非必要不建议使用旧版驱动。
+
+!!!note
+    该选项是绘世启动器通过修改 Nvidia 控制面板中的配置来实现。手动手动实现方法：
+    1. 打开 **NVIDIA 控制面板** -> **3D 设置** -> **管理 3D 设置** -> **程序设置**。
+    2. 点击**添加** -> **浏览**，在 Windows 文件浏览器中找到运行环境中的`python.exe`（一般在`你的 AI 运行环境路径/python/python.exe`或者`你的 AI 运行环境路径/venv/Scripts/python.exe`），选中后点击**打开**进行添加。
+    3. 在**指定该程序的设置值** -> **CUDA - 系统内存回退政策**，选择**偏好无系统内存回退**，最后点击**应用**保存设置。
 
 ### Channels-last 内存优化
 这个功能对性能的影响未知。
@@ -109,6 +214,7 @@
 
 !!!note
     - (禁用时) SD WebUI：`--no-hashing`
+    - (禁用时) SD WebUI Forge：`--no-hashing`
 
 
 ### Accelerate 多卡训练加速
@@ -156,17 +262,39 @@
 !!!note
     这个选项仅存在于 ComfyUI / Fooocus 中。
 
+!!!note
+    - ComfyUI：
+      - 关闭预览：`--preview-methon none`
+      - 自动：`--preview-methon auto`
+      - Latent2RGB：`--preview-methon latent2rgb`
+      - TAESD：`--preview-methon taesd`
+
 ### 智能显存优化
 使模型尽量保留在显存中而不是自动从显存中卸载，以节省显存和内存的交换时间。
 
 !!!note
     这个选项仅存在于 ComfyUI / Fooocus 中。
 
+!!!note
+    - (禁用时) SD WebUI Forge：`--always-offload-from-vram`
+    - (禁用时) ComfyUI：`--disable-smart-memory`
+
 ### 稳定计算
 使用速度较慢的稳定算法以尽量保持图片的一致性。
 
 !!!note
     这个选项仅存在于 ComfyUI / Fooocus 中。
+
+!!!note
+    - (启用时) SD WebUI Forge：`--deterministic`
+    - (启用时) ComfyUI：`--deterministic`
+
+
+## Forge 设置
+将 SD WebUI 中的模型共享给 SD WebUI Forge。
+
+!!!note
+    对应的命令行参数：`--forge-ref-a1111-home <SD WebUI 路径>`
 
 
 ## 网络设置
@@ -194,18 +322,28 @@
       - 监听端口：`--port <端口号>`
       - (启用时) 开放远程连接：`--listen`
       - (启用时) 通过 Gradio 共享：`--share`
+    - SD WebUI Forge:
+      - 监听地址：`--server-name <IP 地址>`
+      - 监听端口：`--port <端口号>`
+      - (启用时) 开放远程连接：`--listen`
+      - (启用时) 通过 Gradio 共享：`--share`
+    - ComfyUI：
+      - 监听地址：`--listen <IP 地址>`
+      - 监听端口：`--port <端口号>`
+      - 开放远程连接：`--listen`（如果设置了**监听地址**，则是`--listen <IP 地址>`）
 
 ### 启用 API
 开放 SD WebUI 的 API 接口以提供给其他软件扩展使用。
 
 !!!note
-    - SD WebUI：`--api`
+    - (启用时) SD WebUI：`--api`
+    - (启用时) SD WebUI Forge：`--api`
 
 ### 不加载 Gradio 网页界面
 禁用加载网页界面，只开放 API 接口，用于开设服务器。
 
 !!!note
-    - SD WebUI：`--nowebui`
+    - (启用时) SD WebUI：`--nowebui`
 
 ### Huggingface 离线模式
 禁用从 Huggingface 上下载模型，启用后 SD WebUI 将无法自动下载缺失的必要模型。
@@ -218,6 +356,7 @@
 
 !!!note
     - (启用时) SD WebUI：`--skip-install`
+    - (启用时) SD WebUI Forge：`--skip-install`
 
 ## 用户体验设置
 这是有关使用体验的设置。
@@ -229,14 +368,28 @@
 
 !!!note
     - (启用时) SD WebUI：`--autolaunch`
+    - (启用时) SD WebUI Forge：`--autolaunch`
+    - (启用时) ComfyUI：`--auto-launch`
 
+
+### 多用户模式
+运行多个用户同时使用同个实例。
+
+!!!note
+    该选项仅在 ComfyUI 出现。
+
+!!!note
+    - (启用时) ComfyUI：`--multi-user`
 
 
 ### 界面样式
 调整网页界面的主题，如浅色主题和深色主题。
 
 !!!note
-    - SD WebUI
+    - SD WebUI：
+      - 深色：`--theme dark`
+      - 浅色：`--theme light`
+    - SD WebUI Forge：
       - 深色：`--theme dark`
       - 浅色：`--theme light`
 
@@ -248,6 +401,7 @@
 
 !!!note
     - (启用时) SD WebUI：`--no-gradio-queue`
+    - (启用时) SD WebUI Forge：`--no-gradio-queue`
 
 ### 控制台输出安装细节信息
 显示启动过程中 Pip 安装依赖时的具体信息，一般用于调试。
@@ -257,6 +411,7 @@
 
 !!!note
     - SD WebUI：通过`WEBUI_LAUNCH_LIVE_OUTPUT`环境变量控制，启用时该值为`1`。
+    - SD WebUI Forge：通过`WEBUI_LAUNCH_LIVE_OUTPUT`环境变量控制，启用时该值为`1`。
 
 ### 多用户模式
 允许多个用户同时使用同一个实例，提供类似 SD WebUI 的多用户功能。
@@ -292,6 +447,7 @@
 
 !!!note
     - (启用时) SD WebUI：`--freeze-settings`
+    - (启用时) SD WebUI Forge：`--freeze-settings`
 
 ### 允许在开放远程访问时安装插件
 解除在启动开放远程访问后对安装扩展的限制。
@@ -301,6 +457,7 @@
 
 !!!note
     - (启用时) SD WebUI：`--enable-insecure-extension-access`
+    - (启用时) SD WebUI Forge：`--enable-insecure-extension-access`
 
 ### 允许加载不安全的模型
 禁用加载模型时的安全检查。SD WebUI 在加载模型时将检查模型的安全性，若该模型不安全则停止加载。禁用安全检查后 SD WebUI 将不会检查模型的安全性，但可嫩会导致加载模型后被模型内的恶意代码攻击。
@@ -316,6 +473,7 @@
 
 !!!note
     - (启用时) SD WebUI：`--allow-code`
+    - (启用时) SD WebUI Forge：`--allow-code`
 
 ### 登陆凭证管理
 为 Gradio 共享的网页设置账号密码验证，防止他人随意访问 Gradio 共享的链接。
@@ -324,12 +482,16 @@
     - SD WebUI：
       - 管理 Gradio 账号密码：`--gradio-auth 账号1:密码1,账号2:密码2,...`
       - 管理 API 账号密码：`--api-auth 账号1:密码1,账号2:密码2,...`
+    - SD WebUI Forge：
+      - 管理 Gradio 账号密码：`--gradio-auth 账号1:密码1,账号2:密码2,...`
+      - 管理 API 账号密码：`--api-auth 账号1:密码1,账号2:密码2,...`
 
 ### CORS 授权管理
 管理跨域资源共享授权域名。
 
 !!!note
     - SD WebUI：`--cors-allow-origins 域名1,域名2,...`
+    - SD WebUI Forge：`--cors-allow-origins 域名1,域名2,...`
 
 ## 其他设置
 这是调整其他设置的地方。
@@ -341,6 +503,7 @@
 
 !!!note
     - (启用时) SD WebUI：`--ui-debug-mode`
+    - (启用时) SD WebUI Forge：`--ui-debug-mode`
 
 ### 自定义参数
 这是用于自定义 SD WebUI / ComfyUI / ... 的启动参数。

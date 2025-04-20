@@ -9,3 +9,6 @@
 
 !!!note
 	您只需要勾选对您有用的补丁。
+
+!!!note
+	绘世启动器的补丁文件位于启动器的`.launcher`目录，可以看到类似`pyinterop.hfkx1kkk0g4q7.zip`这样的文件，并且被添加到`PYTHONPATH`环境变量中，补丁如何实现的可自行研究。
