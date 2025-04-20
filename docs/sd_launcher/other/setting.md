@@ -51,8 +51,32 @@
 要配置绘世启动器的代理就需要将这 4 个按钮打开。
 
 !!!warning
-
     注意，当配置绘世启动器的代理设置后，需要保持代理软件一直打开。如果代理软件关闭了，需要将绘世启动器的代理设置关闭，防止出现绘世启动器无法访问网络的问题。
+
+!!!info
+    下面是绘世启动器应用代理的方式：  
+    1. 将代理应用到 Git：  
+        使用`GIT_CONFIG_GLOBAL`环境变量配置 Git 配置文件路径，并设置 http.proxy 的值配置 Git 代理。
+        ```
+        git config --global http.proxy <代理服务器地址>
+        ```
+    2. 将代理应用到 Pip：
+        使用`PIP_PROXY`环境变量配置 Pip 代理。
+        ```
+        PIP_PROXY=<代理服务器地址>
+        ```
+    3. 将代理应用到环境变量：
+        通过`HTTP_PROXY`、`HTTPS_PROXY`环境变量配置环境代理，使环境中的各个软件都能使用代理，并且使用`NO_PROXY`环境变量避免本地回环地址使用代理，防止出现一些问题。
+        ```
+        HTTP_PROXY=<代理服务器地址>
+        HTTPS_PROXY=<代理服务器地址>
+        NO_PROXY=localhost,127.0.0.1
+        ```
+    4. 将代理应用到模型下载：
+        在调用 Aria2 进行模型下载时，传入`--all-proxy`参数进行模型下载。
+        ```
+        /path/to/aria2c.exe -d /download/model/to/local -o output_file_name -s 8 -x 15 --checksum=<sha256 for file> --all-proxy=<代理服务器地址> --download-result=full --file-allocation=prealloc --enable-mmap=true --retry-wait=5 --max-tries=0 <url>
+        ```
 
 下面是有关镜像的设置。
 
@@ -63,23 +87,39 @@
 ![resource_mirror](../../assets/images/sd_launcher/other/resource_mirror.jpg)
 
 ### PyPI 国内镜像
-
 将 PyPI 的下载源设置为国内的镜像，加快国内网络的访问速度。
 
-### Git 国内镜像
+!!!info
+    通过`PIP_INDEX_URL`、`PIP_EXTRA_INDEX_URL`、`PIP_FIND_LINKS`环境变量设置 PyPI 镜像源。
 
+
+### Git 国内镜像
 调用 Git 命令进行克隆时使用 Git 国内镜像，解决国内网络访问 Github 速度慢或者无法访问的问题。
 
-### Huggingface 国内镜像
+!!!info
+    使用`GIT_CONFIG_GLOBAL`环境变量配置 Git 配置文件路径，并设置 url.insteadOf 的值配置 Git 国内镜像。
+    ```
+    git config --global --add url.<原 Github 仓库地址>.insteadOf <镜像仓库地址>
+    ```
 
+### Huggingface 国内镜像
 使用 Huggingface 国内镜像下载 Huggingface 上的文件，在没有代理的情况下解决国内无法 Huggingface 的问题。
 
 !!!note
     `Git 国内镜像`、`Huggingface 国内镜像`仅支持镜像部分地址，因为这两个镜像并不能完全覆盖所有的 Github 的文件和 Huggingface 的文件。
 
-### 替换扩展远端地址
+!!!info
+    `Huggingface 国内镜像`通过绘世启动器热补丁系统提供。
 
+
+### 替换扩展远端地址
 将内核和扩展的远端地址替换成 Git 国内镜像的地址，解决在国内网络环境更新内核或者扩展时速度慢或者无法访问的问题。
+
+!!!info
+    使用`GIT_CONFIG_GLOBAL`环境变量配置 Git 配置文件路径，并设置 url.insteadOf 的值配置 Git 国内镜像。
+    ```
+    git config --global --add url.<原 Github 仓库地址>.insteadOf <镜像仓库地址>
+    ```
 
 ### Github 加速
 提供未镜像的扩展下载加速。
@@ -115,8 +155,12 @@
 ## 环境检测设置
 ![environment_test](../../assets/images/sd_launcher/other/environment_test.jpg)
 
+<!-- TODO: 补充该部分的说明 -->
+
 ### 生成引擎一致性检测
 在启动 SD WebUI / ComfyUI / ... 前检测当前选择的生成引擎（设备）是否和软件环境中的 PyTorch 一致，如果出现不一致，将弹窗提醒修复该问题。
+
+
 
 ### 软件依赖完整行检测
 在启动 ComfyUI / Fooocus /... 前检测依赖是否完整，如果依赖不完整将自动安装缺失的依赖。
