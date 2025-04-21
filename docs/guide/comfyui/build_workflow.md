@@ -1,6 +1,13 @@
 # 搭建工作流
 通常搭建工作流时建议使用 ComfyUI 自带的节点进行搭建，少使用 ComfyUI 扩展提供的节点，这样可以减少 ComfyUI 报错的概率，当 ComfyUI 自带的节点无法实现想要的功能时再考虑使用 ComfyUI 扩展提供的节点。
 
+ComfyUI 内置不同的工作流模板，在 ComfyUI 界面的左上角点击**工作流** -> **浏览模板**，可以打开 ComfyUI 内置的工作流模板，选择其中一个工作流模板可以将模板载入 ComfyUI 中。
+
+![comfyui_workflow_example](../../assets/images/guide/comfyui/build_workflow/comfyui_workflow_example.png)
+
+!!!note
+    关于该工作流模板的说明可阅读：[ComfyUI 示例 - ComfyUI](https://docs.comfy.org/zh-CN/tutorials/basic/text-to-image)
+
 下面将展示在 ComfyUI 如何使用 ComfyUI 自带节点搭建基本的工作流，下面演示的工作流可通过下载工作流图片后导入进 ComfyUI 中。
 
 
