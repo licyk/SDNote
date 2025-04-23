@@ -357,6 +357,22 @@ hair bow,blue bow,twintails,low twintails,braid,long hair,grey hair,purple eyes,
 
 画风恢复了正常，通过上面的例子可以了解**基础提示词**和**常见提示词**的区别和使用 LoRA 时该如何设置权重。
 
+如果使用 LoRA 模型，一般将**基础提示词**和**常见提示词**都启用，写提示词的时候，第一个区域写全局的提示词，第二个区域写上 LoRA 模型的调用关键词，剩下的区域就是每个分区的提示词，比如下面的例子。
+
+```
+2girls,yuri,back-to-back,standing,outstretched arm,in palm,
+butterfly,bug,blue butterfly,bow,glowing butterfly,glowing,ribbon,purple ribbon,light particles,white background,
+from side,profile,
+BREAK
+<lora:Shari_AI_1-000031:1>,
+BREAK
+cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,pink inner hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,serafuku,red bow,pink cardigan,very long sleeves,red bowtie,pleated skirt,light blue skirt,flat chest,white thighhighs,
+BREAK
+silver hair,blue hair,cute,purple eyes,solo,long hair,ahoge,side ponytail,sidelocks,single drill,shirt,collared shirt,blue scrunchie,gradient hair,light-transmitting hair,open jacket,pleated skirt,shirt tucked in,black pantyhose,pow,
+```
+
+![use_region_prompter_result_4_4](../../assets/images/guide/sd_webui/prompt/use_region_prompter_result_4_4.png)
+
 除了 sd-webui-regional-prompter 扩展可以进行分区绘制，stable-diffusion-webui-two-shot 扩展（使用 Attension 模式）和 multidiffusion-upscaler-for-automatic1111 扩展（使用 Latent 模式）也可以进行分区绘制，只是效果可能不如 sd-webui-regional-prompter 扩展，可自行尝试。
 
 !!!note

@@ -228,6 +228,10 @@ nav:
     - "启动器设置": sd_launcher/other/setting.md
     - "配置 ZLUDA": sd_launcher/other/zluda.md
     - "杂项": sd_launcher/other/index.md
+- "模型训练":
+  - "概述": train/index.md
+- "基础理论":
+  - "概述": theory/index.md
 - "使用疑难解答":
   - "概述": help/index.md
   - "绘世启动器": help/sd_launcher.md
