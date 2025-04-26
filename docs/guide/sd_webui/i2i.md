@@ -85,8 +85,8 @@
 
 下面将导入一张图片，把重绘幅度设置为 0 后观察不同蒙版区域内容处理方式的效果。
 
-|处理方法|原版|填充|潜空间噪声|空白潜空间|
-|---|---|---|---|---|
+|处理方法|原图|原版|填充|潜空间噪声|空白潜空间|
+|---|---|---|---|---|---|
 |效果图|![origin_image_before_mask_preprocess](../../assets/images/guide/sd_webui/i2i/origin_image_before_mask_preprocess.png)|![use_origin_for_mask_area](../../assets/images/guide/sd_webui/i2i/use_origin_for_mask_area.png)|![use_fill_color_for_mask_area](../../assets/images/guide/sd_webui/i2i/use_fill_color_for_mask_area.png)|![use_latent_noise_for_mask_area](../../assets/images/guide/sd_webui/i2i/use_latent_noise_for_mask_area.png)|![use_blank_latent_for_mask_area](../../assets/images/guide/sd_webui/i2i/use_blank_latent_for_mask_area.png)|
 
 !!!note
