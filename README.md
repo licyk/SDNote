@@ -24,6 +24,7 @@
 - https://licyk.github.io/SDNote
 - https://sdnote.netlify.app
 - https://sdnote.vercel.app （国内访问受限）
+- https://site.nicocat.cc/sdnote（镜像站，感谢 [nicocatxzc](https://github.com/nicocatxzc)）
 
 
 ## 将仓库克隆到本地
