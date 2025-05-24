@@ -11,3 +11,6 @@ ComfyUI 的节点分为官方原生节点和用户开发的自定义节点。官
 ComfyUI 对于新技术的支持速度极快，如果有追新的需求，可以选择使用 ComfyUI。
 
 在学习使用 ComfyUI 前，请确保您已经能够熟练地使用 Stable Diffusion WebUI，并了解了生图中不同参数的作用。非常不建议初次接触 AI 画图时从 ComfyUI 开始学习。
+
+!!!note
+    [Comfy Org](https://www.comfy.org/zh-cn) 现已推出 ComfyUI 官方文档，也可以通过该文档学习 ComfyUI 的使用，文档地址：[ComfyUI 官方文档 - ComfyUI](https://docs.comfy.org/zh-CN)
