@@ -1,0 +1,4517 @@
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../t2i/">
+      
+      
+        <link rel="next" href="../upscale/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/site_resources/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>统一画布 - SD Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="https://sdnote.netlify.app" title="SD Note" class="md-header__button md-logo" aria-label="SD Note" data-md-component="logo">
+      
+  <img src="../../../assets/site_resources/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SD Note
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              统一画布
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="跟随系统配色" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="跟随系统配色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue" aria-label="浅色主题" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="浅色主题" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue" aria-label="黑暗主题" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="黑暗主题" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/licyk/SDNote" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    licyk/SDNote
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  部署与使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../sd_launcher/" class="md-tabs__link">
+          
+  
+  
+  绘世启动器使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../help/" class="md-tabs__link">
+          
+  
+  
+  使用疑难解答
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../appendix/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  附录
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://sdnote.netlify.app" title="SD Note" class="md-nav__button md-logo" aria-label="SD Note" data-md-component="logo">
+      
+  <img src="../../../assets/site_resources/logo.png" alt="logo">
+
+    </a>
+    SD Note
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/licyk/SDNote" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    licyk/SDNote
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requirement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    需求与准备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    模型指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型种类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/download_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型下载
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD WebUI 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SD WebUI 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/configure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前期配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/t2i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文生图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    提示词书写
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/advance_prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级提示词语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/artist_prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    画师提示词应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/i2i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图生图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/lora/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoRA 应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/upscale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    放大图片
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/controlnet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ControlNet 应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD WebUI Forge 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SD WebUI Forge 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/common_use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常见功能使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/flux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FLUX 模型使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/video_momory_optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    显存优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/use_build_in_extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    内置扩展使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ComfyUI 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ComfyUI 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/interface_operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    界面操作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/input_workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导入工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/build_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    搭建工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/node_writing_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    节点编写指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InvokeAI 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    InvokeAI 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    界面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../low_vram_mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    显存优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t2i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文生图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    统一画布
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    统一画布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        画布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图层
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="图层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全局参考图像
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修复遮罩
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域导向
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局部参考图像
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        控制层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        栅格层
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图片变换(Transform)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图片过滤(Filter)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        元素选取(Select Object)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        绘制模式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="绘制模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文生图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图生图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局部重绘
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图片外扩
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修复遮罩和外扩内容处理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        绘制内容缩放
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        统一画布应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="统一画布应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用统一画布生成一张图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改元素
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用分区提示词强化提示词
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        扩图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        面部细化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        绘制多人图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-object_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用元素选取(Select Object)进行抠图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用图片变换(Transform)调整栅格层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        背景替换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        线稿上色与风格迁移
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upscale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    放大
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    绘世启动器使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    绘世启动器使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2">
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署功能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    部署功能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/install/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级选项
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级选项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/advance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级选项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/advance/env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    环境维护
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/advance/patch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    补丁管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4">
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    版本管理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    版本管理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/kernel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    内核
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装新扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实用功能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实用功能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    疑难解答
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/terminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制台
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    启动器设置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/zluda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置 ZLUDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用疑难解答
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    使用疑难解答
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/sd_launcher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    绘世启动器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/sd_webui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD WebUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/comfyui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ComfyUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/other/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/amd_info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD 运行问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/intel_info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intel 运行问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        画布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图层
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="图层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全局参考图像
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修复遮罩
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域导向
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局部参考图像
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        控制层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        栅格层
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图片变换(Transform)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图片过滤(Filter)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        元素选取(Select Object)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        绘制模式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="绘制模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文生图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图生图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局部重绘
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        图片外扩
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修复遮罩和外扩内容处理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        绘制内容缩放
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        统一画布应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="统一画布应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用统一画布生成一张图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改元素
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用分区提示词强化提示词
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        扩图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        面部细化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        绘制多人图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-object_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用元素选取(Select Object)进行抠图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用图片变换(Transform)调整栅格层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        背景替换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        线稿上色与风格迁移
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    主页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    部署与使用
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    InvokeAI 部署与使用
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/licyk/SDNote/edit/main/docs/guide/invokeai/canvas.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="_1">统一画布<a class="headerlink" href="#_1" title="锚链接到此处">☍</a></h1>
+<p>InvokeAI 的统一画布拥有一个用于绘画的画布，并且包含一个强大的控制层，将 ControlNet、IP Adapter、分区提示词结合起来，和画布共同使用，使创作变得更加简单，下面将介绍 InvokeAI 统一画布的使用。</p>
+<p>在使用之前，需要将 <strong>Invoke</strong> 按钮右侧的保存图片方式改为<strong>发送到画布</strong>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>因为 InvokeAI 并没有像 Stable Diffusion WebUI / ComfyUI 那样的显存优化，作者所使用的 RTX 4060 Laptop 8G 无法在 InvokeAI 上运行 Stable Diffusion XL 的 ControlNet / IP Adapter，所以本篇讲解到涉及 ControlNet / IP Adapter 的操作时将使用 Stable Diffusion 1.5 的版本代替 Stable Diffusion XL 的版本。  </li>
+<li>InvokeAI 许多功能使用按钮代替，如果不知道该按钮代表的功能，可以将鼠标移动到按钮上将显示按钮缩代表的功能名称。（善用 InvokeAI 的提示功能）</li>
+</ol>
+</div>
+<h2 id="_2">画布<a class="headerlink" href="#_2" title="锚链接到此处">☍</a></h2>
+<p>在统一画布的中间部分为画布，左侧为生成参数的调整面板，右侧为图层和图库。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/canvas.png" data-desc-position="bottom"><img alt="canvas" src="../../../assets/images/guide/invokeai/canvas/canvas.png"></a></p>
+<p>左侧和右侧面板可以隐藏，可以按住面板之间的间隔处将左 / 右侧面板隐藏起来，或者按下 T / G 键将左 / 右侧面板隐藏，为画布腾出空间。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/hidden_config_panel_and_layers_panel.png" data-desc-position="bottom"><img alt="hidden_config_panel_and_layers_panel" src="../../../assets/images/guide/invokeai/canvas/hidden_config_panel_and_layers_panel.png"></a></p>
+<p>在画布的左上角可以调整画笔的颜色、透明度和大小。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/canvas_bursh_color_config.png" data-desc-position="bottom"><img alt="canvas_bursh_color_config" src="../../../assets/images/guide/invokeai/canvas/canvas_bursh_color_config.png"></a></p>
+<p>因为此时画布中并没有一个栅格层（在 PhotoShop 中为图层），所以无法使用画笔在画布中进行绘制。这时可以在右侧的图层面板创建一个空的栅格层，或者从<strong>画廊</strong>中选择一张图片，右键打开菜单，选择<strong>从图像创建新画布 -&gt; As 栅格层</strong>，此时图片将发送到画布中。</p>
+<p>在图层面板的<strong>栅格图层</strong>选择该图片后，此时就可以在新建的栅格层进行绘画。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_brush_to_painting.png" data-desc-position="bottom"><img alt="use_brush_to_painting" src="../../../assets/images/guide/invokeai/canvas/use_brush_to_painting.png"></a></p>
+<p>画布顶部工具栏的两个 🔍︎ 按钮可以放大和缩小画布，或者可以使用鼠标滚轮进行画布的缩放。⛶（使图层适应画布）可以将画布缩放到合适屏幕的大小。⬜︎（将边界框适配到涂层）可以将用于进行 AI 生成的边界框框住所有的栅格层。当图片修改得差不多后，想把图片保存到图库中，可以点击 💾（将画布保存到图库）按钮。如果需要撤销 / 重做对画布内容的修改，可以点击 ↩︎（撤销）/ ↪︎（重做）按钮，或者使用 Ctrl + Z / Ctrl + Shift + Z 快捷键。</p>
+<p>在画布的左侧设置了鼠标在画布中的功能，从上到下对应的功能如下。</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>作用</th>
+<th>对应的快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>刷子</td>
+<td>使用画笔在画布中进行绘制。</td>
+<td>B</td>
+</tr>
+<tr>
+<td>橡皮</td>
+<td>擦除画布中的内容</td>
+<td>E</td>
+</tr>
+<tr>
+<td>绘制方形</td>
+<td>用于快速在画布中绘制方形色块。</td>
+<td>U</td>
+</tr>
+<tr>
+<td>移动模式</td>
+<td>进入移动模式，可以移动画布中被选中的元素，如栅格图层中的某个图层或者修复遮罩中某个遮罩。</td>
+<td>V</td>
+</tr>
+<tr>
+<td>浏览模式</td>
+<td>进入浏览模式，使用鼠标可以拖动画布的位置。</td>
+<td>H / 按住 Space</td>
+</tr>
+<tr>
+<td>边界框调整</td>
+<td>调整边界框的位置，在 AI 进行生成时，将以边界框为界限进行生成。</td>
+<td>C</td>
+</tr>
+<tr>
+<td>吸色笔</td>
+<td>吸取画布中某处的颜色并应用到画笔。</td>
+<td>I / 按住 Alt</td>
+</tr>
+<tr>
+<td>开关左侧参数栏</td>
+<td>打开 / 关闭左侧的参数栏。</td>
+<td>T</td>
+</tr>
+<tr>
+<td>生成</td>
+<td>点击后进行图片生成。</td>
+<td>Ctrl + Enter</td>
+</tr>
+<tr>
+<td>取消当前生成的项目</td>
+<td>取消当前正在进行的生图任务。</td>
+<td>无</td>
+</tr>
+<tr>
+<td>清空所有生成项目</td>
+<td>取消所有的生图任务。</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p>在右侧的图层选中某一层后，右键画布可以看到处理该层的功能。</p>
+<h2 id="_3">图层<a class="headerlink" href="#_3" title="锚链接到此处">☍</a></h2>
+<p>在统一画布的右侧为图层，图层的选择和 PhotoShop 的图层选择类似，选中其中一层后可以在画布中编辑该层的内容。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/layers.png" data-desc-position="bottom"><img alt="layers" src="../../../assets/images/guide/invokeai/canvas/layers.png"></a></p>
+<p>每种图层的工具栏包含快捷工具，有<strong>合并可见图层</strong>，<strong>显示 / 隐藏 修复遮罩 / 区域导向 / 栅格图层</strong>，<strong>创建 修复遮罩 / 区域导向 / 栅格图层</strong>。</p>
+<p>在每种分类下的图层也包含几个开关，将鼠标移到开关上可以获得提示信息。</p>
+<p>图层分为以下几种。</p>
+<h3 id="_4">全局参考图像<a class="headerlink" href="#_4" title="锚链接到此处">☍</a></h3>
+<p>该图层基于 IP Adapter，使用 IP Adapter 的功能对图像生成的画风和元素特征进行画风迁移。</p>
+<p>IP Adapter 需要一张图片进行画风迁移，在添加<strong>全局参考图像</strong>图层后，点击 <strong>Upload an image</strong> 可以打开系统的文件管理器用于上传图片。或者从<strong>画廊</strong>的素材中拖动一张图片到画布中，此时 InvokeAI 将提示要发送图片到哪种图层，拖到 <strong>New Global Reference Image</strong>后将自动创建一个新的<strong>全局参考图像</strong>图层并将该图片导入该图层。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/send_image_to_new_global_reference.png" data-desc-position="bottom"><img alt="send_image_to_new_global_reference" src="../../../assets/images/guide/invokeai/canvas/send_image_to_new_global_reference.png"></a></p>
+<h3 id="_5">修复遮罩<a class="headerlink" href="#_5" title="锚链接到此处">☍</a></h3>
+<p>该图层用于设置重绘的区域，选中该层后，可以在画布中绘制用于局部重绘的遮罩，在进行生成时将对遮罩部分的内容进行重绘。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_inpaint_mask.png" data-desc-position="bottom"><img alt="use_inpaint_mask" src="../../../assets/images/guide/invokeai/canvas/use_inpaint_mask.png"></a></p>
+<p>如果需要设置遮罩部分的重绘幅度，可以在图层顶上的<strong>去噪强度</strong>选项设置。该值越高，遮罩部分的变化越大。</p>
+<h3 id="_6">区域导向<a class="headerlink" href="#_6" title="锚链接到此处">☍</a></h3>
+<p>这是用于设置分区提示词，对图片的不同部分设置不同的提示词，可以很好解决在全局提示词中无法准确描述各部分的元素导致元素污染的问题，并且该功能可以使 AI 绘制多人图变得简单。</p>
+<p>在创建<strong>区域导向</strong>后，可以使用画笔绘制该部分提示词对应的区域。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_regional_prompt.png" data-desc-position="bottom"><img alt="use_regional_prompt" src="../../../assets/images/guide/invokeai/canvas/use_regional_prompt.png"></a></p>
+<h3 id="_7">局部参考图像<a class="headerlink" href="#_7" title="锚链接到此处">☍</a></h3>
+<p><strong>局部参考图像</strong>和<strong>全局参考图像</strong>功能类似，都基于 IP Adapter 进行画风迁移，但是该功能仅针对区域进行画风迁移，可控性更高。</p>
+<p>在添加<strong>局部参考图像</strong>图层后，点击 <strong>Upload an image</strong> 可以打开系统的文件管理器用于上传图片。或者从<strong>画廊</strong>的素材中拖动一张图片到画布中，此时 InvokeAI 将提示要发送图片到哪种图层，拖到 <strong>New Regional Reference Image</strong>后将自动创建一个新的<strong>局部参考图像</strong>图层并将该图片导入该图层。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/send_image_to_new_region_reference.png" data-desc-position="bottom"><img alt="send_image_to_new_region_reference" src="../../../assets/images/guide/invokeai/canvas/send_image_to_new_region_reference.png"></a></p>
+<p>导入图像后，选中该图层，并使用画笔在画布中绘制该图层的蒙版，在生成的时候蒙版部分的内容将进行画风迁移。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_regional_reference_mask.png" data-desc-position="bottom"><img alt="use_regional_reference_mask" src="../../../assets/images/guide/invokeai/canvas/use_regional_reference_mask.png"></a></p>
+<h3 id="_8">控制层<a class="headerlink" href="#_8" title="锚链接到此处">☍</a></h3>
+<p>该层的功能基于 ControlNet，ControlNet 可以通过图像作为控制条件，和提示词一起控制图像的生成。</p>
+<p>在添加<strong>控制层</strong>图层后，点击 <strong>Upload an image</strong> 可以打开系统的文件管理器用于上传图片。或者从<strong>画廊</strong>的素材中拖动一张图片到画布中，此时 InvokeAI 将提示要发送图片到哪种图层，拖到 <strong>New Control Layer</strong>后将自动创建一个新的<strong>控制层</strong>图层并将该图片导入该图层。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/send_image_to_new_control_layer.png" data-desc-position="bottom"><img alt="send_image_to_new_control_layer" src="../../../assets/images/guide/invokeai/canvas/send_image_to_new_control_layer.png"></a></p>
+<p>创建一个控制层后，选择其中一个 ControlNet 模型，此时 InvokeAI 将根据选择的 ControlNet 模型的类型使用对应的 ControlNet 预处理器，对导入控制层的图片进行预处理。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_controlnet_preprocess_to_process_image.png" data-desc-position="bottom"><img alt="use_controlnet_preprocess_to_process_image" src="../../../assets/images/guide/invokeai/canvas/use_controlnet_preprocess_to_process_image.png"></a></p>
+<p>在下方的选择可以点击 <strong>Advanced</strong> 调整更多的预处理图片的参数，调整完成后点击 <strong>Apply</strong> 应用预处理结果，此时将使用处理后的图片作为控制层的控制条件。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/configure_advance_preprocess.png" data-desc-position="bottom"><img alt="configure_advance_preprocess" src="../../../assets/images/guide/invokeai/canvas/configure_advance_preprocess.png"></a></p>
+<p>借助画布功能，可以对预处理后的图片再次进行编辑。</p>
+<p>编辑完成后需要调整边界框的大小，按下 C 键进入边界框调整模式，将边界框包含在控制图片内。或者调整控制图片的大小，右键该图片，选择 <strong>Transfrom</strong> 进入缩放模式，将控制图片调整到在边界框内。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/edit_controlnet_image_resize_bbox.png" data-desc-position="bottom"><img alt="edit_controlnet_image_resize_bbox" src="../../../assets/images/guide/invokeai/canvas/edit_controlnet_image_resize_bbox.png"></a></p>
+<p>下面是 InvokeAI 支持的 ControlNet 类型和对应的预处理器。</p>
+<table>
+<thead>
+<tr>
+<th>ControlNet 类型</th>
+<th>对应的预处理器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canny</td>
+<td>Canny Edge Detection</td>
+</tr>
+<tr>
+<td>Inpaint</td>
+<td>无</td>
+</tr>
+<tr>
+<td>MLSD</td>
+<td>Line Segment Detection</td>
+</tr>
+<tr>
+<td>Depth</td>
+<td>Depth Anything</td>
+</tr>
+<tr>
+<td>NormalMap</td>
+<td>Normal Map</td>
+</tr>
+<tr>
+<td>Segmentation</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Lineart</td>
+<td>Lineart Edge Detection</td>
+</tr>
+<tr>
+<td>Lineart Anime</td>
+<td>Lineart Anime Edge Detection</td>
+</tr>
+<tr>
+<td>OpenPose</td>
+<td>DW Openpose Detection</td>
+</tr>
+<tr>
+<td>Scribble</td>
+<td>Lineart Edge Detection</td>
+</tr>
+<tr>
+<td>SoftEdge</td>
+<td>HED Edge Detection</td>
+</tr>
+<tr>
+<td>Shuffle</td>
+<td>Content Shuffle</td>
+</tr>
+<tr>
+<td>Tile</td>
+<td>无</td>
+</tr>
+<tr>
+<td>QRCode</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">栅格层<a class="headerlink" href="#_9" title="锚链接到此处">☍</a></h3>
+<p>这个就是 PhotoShop 中的图层了，当有不同的<strong>栅格层</strong>时可以选择其中一个<strong>栅格层</strong>进行修改，并且不会影响另一个<strong>栅格层</strong>。</p>
+<p>可以创建一个空白的<strong>栅格层</strong>进行绘制，也可以从<strong>画廊</strong>的素材中拖动一张图片到画布中，此时 InvokeAI 将提示要发送图片到哪种图层，拖到 <strong>New Raster Layer</strong>后将使用该图片创建一个新的<strong>栅格层</strong>。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/send_image_to_new_raster_layer.png" data-desc-position="bottom"><img alt="send_image_to_new_raster_layer" src="../../../assets/images/guide/invokeai/canvas/send_image_to_new_raster_layer.png"></a></p>
+<h2 id="transform">图片变换(Transform)<a class="headerlink" href="#transform" title="锚链接到此处">☍</a></h2>
+<p>如果需要对画布中某个图层进行大小调整或者方向调整，可以使用<strong>图片变换(Transform)</strong>功能。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/transform.png" data-desc-position="bottom"><img alt="transform" src="../../../assets/images/guide/invokeai/canvas/transform.png"></a></p>
+<h2 id="filter">图片过滤(Filter)<a class="headerlink" href="#filter" title="锚链接到此处">☍</a></h2>
+<p><strong>图片过滤(Filter)</strong>会将图片使用预处理器 / 放大模型进行处理，处理后的图片可以用于控制层。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/filter.png" data-desc-position="bottom"><img alt="filter" src="../../../assets/images/guide/invokeai/canvas/filter.png"></a></p>
+<h2 id="select-object">元素选取(Select Object)<a class="headerlink" href="#select-object" title="锚链接到此处">☍</a></h2>
+<p><strong>元素选取(Select Object)</strong>基于 Segment Anything，使用标记点对画布中的元素进行选取，绿色标点可以选取要包含在内的元素，红色标点将排除被选中的元素，绿色标点和红色标点可以在 <strong>Point Type</strong> 选项进行切换，标记点可以使用左键单击删除。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/select_object.png" data-desc-position="bottom"><img alt="select_object" src="../../../assets/images/guide/invokeai/canvas/select_object.png"></a></p>
+<p>将画布中的元素选择出来后，可以选择 <strong>Apply</strong> 将结果保存下来，此时遮罩中的元素将被保存下来，其他部分则被删除。如果只想保留其他部分，可以启用 <strong>Invert Selection</strong>。</p>
+<p>除了可以利用这个功能进行抠图，还可以点击 <strong>Save As</strong> 将选择的结果保存为<strong>修复遮罩</strong> / <strong>区域导向</strong>，这样可以快速为画布中的元素绘制遮罩。</p>
+<h2 id="_10">绘制模式<a class="headerlink" href="#_10" title="锚链接到此处">☍</a></h2>
+<p>在画布中拥有一个边界框设置 AI 进行绘制的区域，并且边界框在图层中的所在位置、边界框内的内容和修复遮罩决定 InvokeAI 使用什么绘制模式进行图片生成。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/bbox.png" data-desc-position="bottom"><img alt="bbox" src="../../../assets/images/guide/invokeai/canvas/bbox.png"></a></p>
+<p>下面是 InvokeAI 不同的绘制模式。</p>
+<h3 id="_11">文生图<a class="headerlink" href="#_11" title="锚链接到此处">☍</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/t2i_mode.png" data-desc-position="bottom"><img alt="t2i_mode" src="../../../assets/images/guide/invokeai/canvas/t2i_mode.png"></a></p>
+<h3 id="_12">图生图<a class="headerlink" href="#_12" title="锚链接到此处">☍</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/i2i_mode.png" data-desc-position="bottom"><img alt="i2i_mode" src="../../../assets/images/guide/invokeai/canvas/i2i_mode.png"></a></p>
+<h3 id="_13">局部重绘<a class="headerlink" href="#_13" title="锚链接到此处">☍</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/inpaint_mode.png" data-desc-position="bottom"><img alt="inpaint_mode" src="../../../assets/images/guide/invokeai/canvas/inpaint_mode.png"></a></p>
+<h3 id="_14">图片外扩<a class="headerlink" href="#_14" title="锚链接到此处">☍</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/outpaint_mode.png" data-desc-position="bottom"><img alt="outpaint_mode" src="../../../assets/images/guide/invokeai/canvas/outpaint_mode.png"></a></p>
+<h2 id="_15">修复遮罩和外扩内容处理<a class="headerlink" href="#_15" title="锚链接到此处">☍</a></h2>
+<p>在使用修复遮罩对画布的内容进行局部重绘时，重绘之后的内容需要根据修复遮罩的区域重新补回原画布的内容中，可能重绘部分和非重绘部分会出现接缝的问题，但 InvokeAI 提供了对改部分的处理方法。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/coherence_pass_setting.png" data-desc-position="bottom"><img alt="coherence_pass_setting" src="../../../assets/images/guide/invokeai/canvas/coherence_pass_setting.png"></a></p>
+<p>通常默认设置就有比较好的效果，但可以根据需求进行调整，将鼠标移动到参数名称上可以显示参数作用的提示。</p>
+<p>在外扩模式下，InvokeAI 将对空白区域进行填充，以进行图生图。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/infill_setting.png" data-desc-position="bottom"><img alt="infill_setting" src="../../../assets/images/guide/invokeai/canvas/infill_setting.png"></a></p>
+<p>下面将<strong>去噪强度</strong>设置为 0 后，观察不同<strong>填充方法</strong>对空白内容的填充。</p>
+<table>
+<thead>
+<tr>
+<th>填充方法</th>
+<th>lama</th>
+<th>tile</th>
+<th>cv2</th>
+<th>color</th>
+<th>patchmatch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/lama_infill_methon.png" data-desc-position="bottom"><img alt="lama_infill_methon" src="../../../assets/images/guide/invokeai/canvas/lama_infill_methon.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/tile_infill_methon.png" data-desc-position="bottom"><img alt="tile_infill_methon" src="../../../assets/images/guide/invokeai/canvas/tile_infill_methon.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/cv2_infill_methon.png" data-desc-position="bottom"><img alt="cv2_infill_methon" src="../../../assets/images/guide/invokeai/canvas/cv2_infill_methon.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/color_infill_methon.png" data-desc-position="bottom"><img alt="color_infill_methon" src="../../../assets/images/guide/invokeai/canvas/color_infill_methon.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/patchmatch_infill_methon.png" data-desc-position="bottom"><img alt="patchmatch_infill_methon" src="../../../assets/images/guide/invokeai/canvas/patchmatch_infill_methon.png"></a></td>
+</tr>
+</tbody>
+</table>
+<p>通常使用 <strong>patchmatch</strong> 填充方法效果比较好，具体哪种填充方法效果更好可自行尝试。</p>
+<h2 id="_16">绘制内容缩放<a class="headerlink" href="#_16" title="锚链接到此处">☍</a></h2>
+<p>在左侧面板中有个选项用于设置进行图生图时缩放边界框中的内容。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/bbox_content_scale_setting.png" data-desc-position="bottom"><img alt="bbox_content_scale_setting" src="../../../assets/images/guide/invokeai/canvas/bbox_content_scale_setting.png"></a></p>
+<p>当<strong>处理前缩放</strong>选择<strong>自动</strong>时，如果边界框的分辨率小于模型的推荐分辨率时，InvokeAI 将对边界框的分辨率缩放到适合模型进行生成的分辨率，进行图片生成后再将图片缩放回原来的分辨率。当边界框的分辨率大于模型的推荐分辨率时，InvokeAI 则不会对边界框的分辨率进行处理。下面举个例子。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/auto_scale_bbox.png" data-desc-position="bottom"><img alt="auto_scale_bbox" src="../../../assets/images/guide/invokeai/canvas/auto_scale_bbox.png"></a></p>
+<p>在画布的左上角显示了 Bbox 和 Scaled Bbox 的分辨率，此时边界框的分辨率为 384x512，也就是 Bbox 显示的值。当进行生图时，边界框中的图片将进行缩放，分辨率调整为 888x1184，也就是 Scaled Bbox 的值，模型将在 888x1184 这个分辨率下进行图生图。生成结束后，图片将缩放回原来的 384x512 分辨率再拼接回画布中。</p>
+<p>通过自动缩放功能，可以使图生图的细节更多，质量更好。所以在使用图生图 / 局部重绘时，可以将边界框缩放到进行图生图的位置，再进行图片生成，这样可以获得更好的效果。</p>
+<h2 id="_17">统一画布应用<a class="headerlink" href="#_17" title="锚链接到此处">☍</a></h2>
+<p>统一画布中大致的功能已经介绍了，下面将演示使用统一画布进行创作。</p>
+<h3 id="_18">使用统一画布生成一张图<a class="headerlink" href="#_18" title="锚链接到此处">☍</a></h3>
+<p>下面是我使用的正向提示词。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1girl,solo,
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,closed mouth,neck ribbon,white dress,crease,frilled_collar,detached_sleeves,flat chest,
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>open mouth,smile,one eye closed,
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>standing,v,light smile,looking at viewer,
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>outdoors,blue sky,light rays,scenery,tree,flower,falling petals,blurry background,
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>upper body,close-up,
+</span></code></pre></div>
+<p>使用的反向提示词。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>low quality,worst quality,normal quality,text,signature,jpeg artifacts,bad anatomy,old ,early,copyright name,watermark,artist name,signature
+</span></code></pre></div>
+<p>画布的边界框的宽高设置为 1024 x 1472，使用的<strong>调度器</strong>为 <strong>DPM++ 2M SDE</strong>，<strong>步数</strong>为 20，<strong>CFG等级</strong> 为 5。</p>
+<p>使用的<strong>模型</strong>为 Illustrious-XL-v0.1，<strong>概念</strong>中添加 ill-xl-01-asagi_0398_1-000036 LoRA 模型。</p>
+<p>现在就点击 <strong>Invoke</strong> 进行生成了，可以点几次生成几张图，此时 InvokeAI 在画布的底部提供生成结果选择，挑选一个最好结果后点击 ✓ 保存图片到画布中。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/generate_first_image_in_canvas.png" data-desc-position="bottom"><img alt="generate_first_image_in_canvas" src="../../../assets/images/guide/invokeai/canvas/generate_first_image_in_canvas.png"></a></p>
+<h3 id="_19">修改元素<a class="headerlink" href="#_19" title="锚链接到此处">☍</a></h3>
+<p>现在想让人物做出比心的动作，此时可以借助画笔进行简单涂鸦。在右侧的图层选中新的栅格层或者额外创建一个新的栅格层后，使用画笔在画布上简单画出人物比心的动作。</p>
+<p>按下 B 键切换到画笔模式后，可以按住 Alt 键快速进入吸色笔模式吸取画面中元素的颜色，松开 Alt 键后自动切换回画笔模式，再进行涂鸦。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_brush_to_sketch_heart_hands_motion.png" data-desc-position="bottom"><img alt="use_brush_to_sketch_heart_hands_motion" src="../../../assets/images/guide/invokeai/canvas/use_brush_to_sketch_heart_hands_motion.png"></a></p>
+<p>涂鸦完成后，在右侧的图层面板添加一个<strong>修复遮罩</strong>并选择，使用画笔在涂鸦的部分绘制<strong>修复遮罩</strong>，遮罩需要把涂鸦的部分覆盖完全，并且范围尽可能大一点。</p>
+<p>绘制<strong>修复遮罩</strong>完成后，将<strong>去噪强度</strong>设置为比较大的值，比如 0.7。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/paint_inpaint_mask_for_sketch.png" data-desc-position="bottom"><img alt="paint_inpaint_mask_for_sketch" src="../../../assets/images/guide/invokeai/canvas/paint_inpaint_mask_for_sketch.png"></a></p>
+<p>提示词中关于人物动作的改成比心的动作。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1girl,solo,
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,closed mouth,neck ribbon,white dress,crease,frilled_collar,detached_sleeves,flat chest,
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>open mouth,smile,one eye closed, heart hands,
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>standing,light smile,looking at viewer,
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>outdoors,blue sky,light rays,scenery,tree,flower,falling petals,blurry background,
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>upper body,close-up,
+</span></code></pre></div>
+<p>现在就尝试 <strong>Invoke</strong> 生成图片，可以多次进行生成以挑选出效果比较好的图片。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/inpaint_sketch_area_result.png" data-desc-position="bottom"><img alt="inpaint_sketch_area_result" src="../../../assets/images/guide/invokeai/canvas/inpaint_sketch_area_result.png"></a></p>
+<h3 id="_20">使用分区提示词强化提示词<a class="headerlink" href="#_20" title="锚链接到此处">☍</a></h3>
+<p>现在人物的袖子不太对，原来的袖套的蕾丝边没有了。所以需要对袖套的黑边进行重绘。</p>
+<p>在画布面板创建一个<strong>区域导向</strong>，在新建的<strong>区域导向</strong>点击<strong>Prompt</strong>添加提示词输入框，填上对蕾丝边的描述。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>lace trim,lace,black lace trim,
+</span></code></pre></div>
+<p>选中这个<strong>区域导向</strong>后，使用画笔在袖套上绘制<strong>区域导向</strong>的蒙版，再选择<strong>修复遮罩</strong>并绘制<strong>修复遮罩</strong>。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_regional_prompt_to_strength_effect.png" data-desc-position="bottom"><img alt="use_regional_prompt_to_strength_effect" src="../../../assets/images/guide/invokeai/canvas/use_regional_prompt_to_strength_effect.png"></a></p>
+<p>现在再尝试 <strong>Invoke</strong> 生成图片。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_regional_prompt_to_strength_effect_and_inpaint_result.png" data-desc-position="bottom"><img alt="use_regional_prompt_to_strength_effect_and_inpaint_result" src="../../../assets/images/guide/invokeai/canvas/use_regional_prompt_to_strength_effect_and_inpaint_result.png"></a></p>
+<p>此时蕾丝边的效果就出来了。</p>
+<h3 id="_21">扩图<a class="headerlink" href="#_21" title="锚链接到此处">☍</a></h3>
+<p>现在想让原来的图片从竖图变成横图，此时就可以使用扩图的方式实现。</p>
+<p>扩图需要对扩图区域进行画面描述，所以需要修改提示词，但是此时人物的部分还在图片外，所以先把人物通过扩图的方式绘制完整。</p>
+<p>按下 C 键进入边界框调整模式，将画框向外移动，<strong>去噪强度</strong>可以适当提高，在左侧面板选项中，<strong>填充方法</strong>选择 patchmatch。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/move_bbox_to_outpaint.png" data-desc-position="bottom"><img alt="move_bbox_to_outpaint" src="../../../assets/images/guide/invokeai/canvas/move_bbox_to_outpaint.png"></a></p>
+<p>此时尝试几次 <strong>Invoke</strong> 进行图片外扩，选择比较好的结果。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/outpaint_result_1.png" data-desc-position="bottom"><img alt="outpaint_result_1" src="../../../assets/images/guide/invokeai/canvas/outpaint_result_1.png"></a></p>
+<p>这里选择了一个比较好的结果，但是有些瑕疵，这时可以利用之前的方法进行修复。</p>
+<p>同理，画面的右边也是一样的处理方式。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/outpaint_result_2.png" data-desc-position="bottom"><img alt="outpaint_result_2" src="../../../assets/images/guide/invokeai/canvas/outpaint_result_2.png"></a></p>
+<p>人物通过外扩的方式绘制完整了。现在需要修改提示词描述外扩部分的内容。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>no humans,
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>outdoors,blue sky,light rays,scenery,cherry blossoms,tree,flower,falling petals,blurry background,
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>upper body,close-up,
+</span></code></pre></div>
+<p>用同样的方法进行图片外扩。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/outpaint_result_3.png" data-desc-position="bottom"><img alt="outpaint_result_3" src="../../../assets/images/guide/invokeai/canvas/outpaint_result_3.png"></a></p>
+<p>此时原来的竖图通过外扩的方式变成了横图。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>直接在空白区域进行扩图可能效果不太好，可以尝试在空白区域进行简单的涂鸦，在绘制<strong>修复遮罩</strong>对涂鸦部分进行重绘，也可以实现扩图的效果。</p>
+</div>
+<h3 id="_22">面部细化<a class="headerlink" href="#_22" title="锚链接到此处">☍</a></h3>
+<p>InvokeAI 在边界框小于模型推荐分辨率的时候会进行缩放处理，处理后的细节将会提高。可以利用这个功能的特点进行面部细化。</p>
+<p>将边界框缩小到面部的位置，提示词修改为描写边界框内的内容。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>1girl,solo,
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,open mouth,lace trim,lace,black lace trim,
+</span></code></pre></div>
+<p>使用较低的<strong>去噪强度</strong>值，防止原来的画面没有较大的改动。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_auto_scale_bbox_feature_to_detail_image.png" data-desc-position="bottom"><img alt="use_auto_scale_bbox_feature_to_detail_image" src="../../../assets/images/guide/invokeai/canvas/use_auto_scale_bbox_feature_to_detail_image.png"></a></p>
+<p>如果出现接缝问题，在对面部重绘完成后，使用<strong>修复遮罩</strong>在接缝处绘制蒙版，进行一次重绘修复接缝问题。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>因为边界框的边界并不会应用<strong>一致性层</strong>的配置效果，所以会导致重绘后出现边界，所以另一种方法是在原来的边界框内绘制<strong>修复遮罩</strong>，但是<strong>修复遮罩</strong>不要画到边界框的边界，此时再进行 <strong>Invoke</strong> 就不容易出现接缝问题了。</p>
+</div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/detail_image_result.png" data-desc-position="bottom"><img alt="detail_image_result" src="../../../assets/images/guide/invokeai/canvas/detail_image_result.png"></a></p>
+<p>现在这张图片就比较完美了，如果在这张图片的外围有涂鸦的痕迹，可以在<strong>栅格图层</strong>中找到涂鸦对应的栅格层并禁用，此时就可以点击画布顶部工具栏的 💾（将画布保存到图库）按钮，将创作的图片保存到图库中。</p>
+<h3 id="_23">绘制多人图<a class="headerlink" href="#_23" title="锚链接到此处">☍</a></h3>
+<p>通常情况下仅靠普通的提示词可能会出现特征混淆的问题，但通过分区提示词（区域导向）可以很好的解决这个问题。</p>
+<p>这是左侧面板的提示词，描述的画面有 2 个人，简单的动作和场景。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>2girls,
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>yuri,eye contact,princess carry,
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>outdoors,park,flower,path,river,blue flower,
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>upper body,close-up,
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+</span></code></pre></div>
+<p>在右侧画布中创建 2 个区域导向，点击 <strong>Prompt</strong> 创建正向提示词输入框，分别对人物特征和动作进行描述。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cute,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>smile,standing,holding person,eye contact,affectionate,open mouth,
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cute,long hair,silver hair,blue hair,(medium hair:0.6),single hair intake,braided,purple eyes,hair ornament,white shirt,collared shirt,purple bow,purple bowtie,short sleeves,small breasts,shirt tucked in,black skirt,white thighhighs,
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>eye contact,smile,closed mouth,
+</span></code></pre></div>
+<p>并在画布中绘制 2 个<strong>区域导向</strong>的蒙版。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/paint_mask_for_regional_guidance.png" data-desc-position="bottom"><img alt="paint_mask_for_regional_guidance" src="../../../assets/images/guide/invokeai/canvas/paint_mask_for_regional_guidance.png"></a></p>
+<p>现在尝试 <strong>Invoke</strong> 几次，选取比较好的生成结果。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_regional_guidance_to_generate_image.png" data-desc-position="bottom"><img alt="use_regional_guidance_to_generate_image" src="../../../assets/images/guide/invokeai/canvas/use_regional_guidance_to_generate_image.png"></a></p>
+<p>现在图片有些小瑕疵，使用<strong>修复遮罩</strong>、<strong>区域导向</strong>进行修复。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_regional_guidance_and_inpaint_mask_to_fix_image.png" data-desc-position="bottom"><img alt="use_regional_guidance_and_inpaint_mask_to_fix_image" src="../../../assets/images/guide/invokeai/canvas/use_regional_guidance_and_inpaint_mask_to_fix_image.png"></a></p>
+<p>调整好参数后多 <strong>Invoke</strong> 几次，选择比较好的效果图。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_regional_guidance_and_inpaint_mask_to_fix_image_result.png" data-desc-position="bottom"><img alt="use_regional_guidance_and_inpaint_mask_to_fix_image_result" src="../../../assets/images/guide/invokeai/canvas/use_regional_guidance_and_inpaint_mask_to_fix_image_result.png"></a></p>
+<p>现在瑕疵的部分修复好了，可以再细化一下面部的细节。将边界框缩小到面部的部分，再绘制<strong>修复遮罩</strong>，注意修复遮罩不要超过边界框，不然可能在边界框出现衔接问题。</p>
+<p>调整一下<strong>去噪强度</strong>，不要太高。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_inpaint_mask_to_fix_detail.png" data-desc-position="bottom"><img alt="use_inpaint_mask_to_fix_detail" src="../../../assets/images/guide/invokeai/canvas/use_inpaint_mask_to_fix_detail.png"></a></p>
+<p>多 <strong>Invoke</strong> 几次，挑选比较好的结果。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_inpaint_mask_to_fix_detail_result.png" data-desc-position="bottom"><img alt="use_inpaint_mask_to_fix_detail_result" src="../../../assets/images/guide/invokeai/canvas/use_inpaint_mask_to_fix_detail_result.png"></a></p>
+<p>现在效果就比较好了。</p>
+<h3 id="select-object_1">使用元素选取(Select Object)进行抠图<a class="headerlink" href="#select-object_1" title="锚链接到此处">☍</a></h3>
+<p>利用类似 PS 的方式也可以绘制多人图，这里分别使用 2 组提示词来生成人物。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>1girl,solo,cute,ahoge,silver hair,blue hair,gradient hair,sidelocks,single drill,side ponytail,straight hair,blue scrunchie,scrunchie,purple eyes,collared shirt,white shirt,blue cardigan,blue sweater,blue jacket,black jacket,open jacket,long sleeves,sleeves past wrists,pleated skirt,black skirt,
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>wariza,looking at viewer,head tilt,
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>simple background,white background,
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>front view,
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>1girl,solo,cute,loli,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>sitting,knees up,looking at viewer,hugging own legs,parted lips,
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>simple background,white background,
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>front view,
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+</span></code></pre></div>
+<p>现在先用第一组提示词生成一张图。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_first_tag_to_generate_image.png" data-desc-position="bottom"><img alt="use_first_tag_to_generate_image" src="../../../assets/images/guide/invokeai/canvas/use_first_tag_to_generate_image.png"></a></p>
+<p>生成后将边界框移动到画布空白的地方，再更换成第二张提示词生成图片。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_second_tag_to_generate_image.png" data-desc-position="bottom"><img alt="use_second_tag_to_generate_image" src="../../../assets/images/guide/invokeai/canvas/use_second_tag_to_generate_image.png"></a></p>
+<p>此时就有了两张图片，现在在右侧的栅格图层中选择其中一张图片，右键打开菜单，选择 <strong>Select Object</strong>。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/open_raster_layer_menu.png" data-desc-position="bottom"><img alt="open_raster_layer_menu" src="../../../assets/images/guide/invokeai/canvas/open_raster_layer_menu.png"></a></p>
+<p>打开后在下方将显示<strong>元素选取(Select Object)</strong>的菜单，<strong>Point Type</strong>可以选择标记点的模式，将<strong>Point Type</strong>选择成<strong>Include</strong>，在人物上点击以添加绿色标记点，标记后可以将人物部分抠出来，并且使用半透明蓝色蒙版标记出来。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_select_object_to_extract_image.png" data-desc-position="bottom"><img alt="use_select_object_to_extract_image" src="../../../assets/images/guide/invokeai/canvas/use_select_object_to_extract_image.png"></a></p>
+<p>点击 <strong>Save As</strong> 后选择<strong>新建 栅格层</strong>，这样就可以把人物抠出来单独使用一个栅格层进行保存，另一张图片也是同样的操作。抠出来后将原来带有背景的栅格层禁用，就可以看到抠出来的人物了。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_select_object_to_extract_image_result.png" data-desc-position="bottom"><img alt="use_select_object_to_extract_image_result" src="../../../assets/images/guide/invokeai/canvas/use_select_object_to_extract_image_result.png"></a></p>
+<h3 id="transform_1">使用图片变换(Transform)调整栅格层<a class="headerlink" href="#transform_1" title="锚链接到此处">☍</a></h3>
+<p>现在将原来抠出来的人物所在的栅格层移动到源图的栅格层和抠出来的椅子的栅格层之间，在右侧图层面板的栅格图层中进行操作，选中一个栅格层后进行拖动。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/move_raster_layer.png" data-desc-position="bottom"><img alt="move_raster_layer" src="../../../assets/images/guide/invokeai/canvas/move_raster_layer.png"></a></p>
+<p>然后选择包含抠出来的人物的<strong>栅格层</strong>，右键选择 <strong>Transform</strong> 调整该栅格层的大小，在 <strong>Transform</strong> 面板中将 <strong>Isolated Preview</strong> 禁用，这样可以看到调整后的效果。</p>
+<p>如果移动不平滑，可以在右上角点击 ⚙ 按钮打开画布的设置，将<strong>固定到画布网格(Snap to Grid)</strong>关闭，这样就能平滑移动栅格层了（移动完成后建议重新打开）。    </p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_transform_to_modify_image.png" data-desc-position="bottom"><img alt="use_transform_to_modify_image" src="../../../assets/images/guide/invokeai/canvas/use_transform_to_modify_image.png"></a></p>
+<p>现在还缺少一个背景，可以再生成一张背景图后移动到人物所在的栅格层后面。不过我这里打算使用纯色背景，在右侧的<strong>栅格图层</strong>创建一个新的<strong>栅格层</strong>，并将新建的<strong>栅格层</strong>移动到包含人物的<strong>栅格层</strong>的下方，再按下键盘的 <strong>U</strong> 键切换到<strong>矩形(Rectangle)</strong>画笔，在左上角的调色板调节好合适的颜色后，绘制纯色背景。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/paint_solid_color_background.png" data-desc-position="bottom"><img alt="paint_solid_color_background" src="../../../assets/images/guide/invokeai/canvas/paint_solid_color_background.png"></a></p>
+<p>这样大概的图片结构就有了，再修改一些不合理的地方即可。</p>
+<h3 id="_24">细化<a class="headerlink" href="#_24" title="锚链接到此处">☍</a></h3>
+<p>使用前面的<strong>修改元素</strong>、<strong>使用分区提示词强化提示词</strong>、<strong>面部细化</strong>的方法修改图片。</p>
+<p>在右侧创建两个<strong>区域导向</strong>，分别填入描述人物的提示词，再绘制对应人物的蒙版。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cute,ahoge,silver hair,blue hair,gradient hair,sidelocks,single drill,side ponytail,straight hair,blue scrunchie,scrunchie,purple eyes,collared shirt,white shirt,blue cardigan,blue sweater,blue jacket,black jacket,open jacket,long sleeves,sleeves past wrists,pleated skirt,black skirt,
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>wariza,looking at viewer,head tilt,
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>cute,loli,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,grey hair,short hair,bangs,blue eyes,hair between eyes,eyebrows visible through hair,blush,white shirt,white sailor collar,red bow,pink cardigan,very long sleeves,red bowtie,light blue skirt,pleated skirt,flat chest,white thighhighs,
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sitting,knees up,looking at viewer,hugging own legs,parted lips,
+</span></code></pre></div>
+<p>再将左边的提示词修改一下。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>2girls,yuri,hug,
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>simple background,pink background,
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>front view,
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+</span></code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_1.png" data-desc-position="bottom"><img alt="refind_image_1" src="../../../assets/images/guide/invokeai/canvas/refind_image_1.png"></a></p>
+<p>用画笔将人物缺失的部分简单涂鸦一下，再绘制<strong>修复遮罩</strong>，将<strong>去噪强度</strong>调整成比较高的值，再点击 <strong>Invoke</strong> 生成，选择比较好的结果。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_2.png" data-desc-position="bottom"><img alt="refind_image_2" src="../../../assets/images/guide/invokeai/canvas/refind_image_2.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_3.png" data-desc-position="bottom"><img alt="refind_image_3" src="../../../assets/images/guide/invokeai/canvas/refind_image_3.png"></a></p>
+<p>现在可以注意到边界框外部有多余的背景，可以在<strong>栅格图层</strong>找到之前包含纯色背景的<strong>栅格层</strong>并禁用。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_4.png" data-desc-position="bottom"><img alt="refind_image_4" src="../../../assets/images/guide/invokeai/canvas/refind_image_4.png"></a></p>
+<p>利用涂鸦和<strong>修复遮罩</strong>可以将人物的动作进行修改。这里有个技巧，要进行涂鸦时先创建一个新的<strong>栅格层</strong>，在新建的<strong>栅格层</strong>上再进行涂鸦，这样可以保护原来的图层不被修改（在使用 PhotoShop 时类似的方法很常用，可以用来保护原图层），对涂鸦的部分使用<strong>修复遮罩</strong>进行重绘后，可以把原来包含涂鸦的<strong>栅格层</strong>禁用。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_5.png" data-desc-position="bottom"><img alt="refind_image_5" src="../../../assets/images/guide/invokeai/canvas/refind_image_5.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_6.png" data-desc-position="bottom"><img alt="refind_image_6" src="../../../assets/images/guide/invokeai/canvas/refind_image_6.png"></a></p>
+<p>重绘的结果可能会有瑕疵，此时可以先保存重绘的结果，再进行图片重绘来细化。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_7.png" data-desc-position="bottom"><img alt="refind_image_7" src="../../../assets/images/guide/invokeai/canvas/refind_image_7.png"></a></p>
+<p>人物的边缘还包含抠图产生的锯齿，并且头发部分也残留部分原来的背景，可以通过涂鸦和<strong>修复遮罩</strong>进行去除。还有两个人物之间衔接部分也可以通过这个方法去细化。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_8.png" data-desc-position="bottom"><img alt="refind_image_8" src="../../../assets/images/guide/invokeai/canvas/refind_image_8.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_9.png" data-desc-position="bottom"><img alt="refind_image_9" src="../../../assets/images/guide/invokeai/canvas/refind_image_9.png"></a></p>
+<p>对于面部的细化，可以将边界框缩小到面部的范围，再绘制<strong>修复遮罩</strong>，使用较低的<strong>去噪强度</strong>细化面部。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_10.png" data-desc-position="bottom"><img alt="refind_image_10" src="../../../assets/images/guide/invokeai/canvas/refind_image_10.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_11.png" data-desc-position="bottom"><img alt="refind_image_11" src="../../../assets/images/guide/invokeai/canvas/refind_image_11.png"></a></p>
+<p>手部细化也是可以用和面部细化一样的方法去处理。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_12.png" data-desc-position="bottom"><img alt="refind_image_12" src="../../../assets/images/guide/invokeai/canvas/refind_image_12.png"></a></p>
+<p>现在图片的效果就比较了，可以点击顶部的保存按钮将图片保存下来。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/refind_image_result.png" data-desc-position="bottom"><img alt="refind_image_result" src="../../../assets/images/guide/invokeai/canvas/refind_image_result.png"></a></p>
+<p><em>这张我是真喜欢~</em></p>
+<h3 id="_25">背景替换<a class="headerlink" href="#_25" title="锚链接到此处">☍</a></h3>
+<p>前面的那张图片是纯色背景的，现在我想把背景替换一下，</p>
+<p>此时可以选择该图片的<strong>栅格层</strong>，右键画布，使用<strong>元素选取(Select Object)</strong>功能将图片的人物选取出来。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character.png" data-desc-position="bottom"><img alt="use_select_object_to_select_character" src="../../../assets/images/guide/invokeai/canvas/use_select_object_to_select_character.png"></a></p>
+<p>因为现在需要替换背景，所以将选择结果进行反选，启用 <strong>Invert Selection</strong> 后原来的结果将进行反选。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/invert_select_object_result.png" data-desc-position="bottom"><img alt="invert_select_object_result" src="../../../assets/images/guide/invokeai/canvas/invert_select_object_result.png"></a></p>
+<p>此时点击 <strong>Save As</strong> 将选择结果保存为<strong>修复遮罩</strong>。将<strong>去噪强度</strong>设置为 1，再对画面进行描述。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>2girls,yuri,hug,heads together,
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>outdoors,scenery,park,on grass,flowers,grass,tree,under tree,cherry blossoms,near river,bug,butterfly,pink butterfly,day,blue sky,
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>front view,
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+</span></code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/modify_replace_background_config.png" data-desc-position="bottom"><img alt="modify_replace_background_config" src="../../../assets/images/guide/invokeai/canvas/modify_replace_background_config.png"></a></p>
+<p>现在尝试 <strong>Invoke</strong> 将原图的背景进行重绘。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/replace_background_result_1.png" data-desc-position="bottom"><img alt="replace_background_result_1" src="../../../assets/images/guide/invokeai/canvas/replace_background_result_1.png"></a></p>
+<p>可以看到原来的背景已经替换，并且原来图片中的人物还保持着原来的样子。</p>
+<p>但是会发现人物边缘似乎多了另一个人物的影子，这时因为对画面进行描述的提示词中包含了人物的描述，并且<strong>去噪强度</strong>很高，所以模型生成了一个人，但是人物的位置发生了偏移。</p>
+<p>这时可以删去提示词中关于人物的描述，这种问题就可以得到缓解，或者可以尝试使用<strong>控制层</strong>控制人物，使人物的位置不发生偏移。</p>
+<p>这里<strong>元素选取(Select Object)</strong>功能将图片的人物选取出来，点击 <strong>Save As</strong> 将选取结果保存到<strong>控制层</strong>中。</p>
+<p>在刚刚新建的<strong>控制层</strong>选择 <strong>Multi-Guidance Detection (Union Pro)</strong> 模型（如果没有就在 InvokeAI 的模型管理的<strong>初始模型</strong>中下载），再右键该<strong>控制层</strong>，选择 <strong>Fitter</strong>，将保存到<strong>控制层</strong>的图片进行预处理。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/filter_image_for_control_layer.png" data-desc-position="bottom"><img alt="filter_image_for_control_layer" src="../../../assets/images/guide/invokeai/canvas/filter_image_for_control_layer.png"></a></p>
+<p><strong>Fitter Type</strong> 选择 <strong>Canny Edge Detection</strong>。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/filter_image_for_control_layer_result.png" data-desc-position="bottom"><img alt="filter_image_for_control_layer_result" src="../../../assets/images/guide/invokeai/canvas/filter_image_for_control_layer_result.png"></a></p>
+<p>将预处理图片的结果点击 <strong>Apply</strong> 进行应用。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/apply_filter_image_result.png" data-desc-position="bottom"><img alt="apply_filter_image_result" src="../../../assets/images/guide/invokeai/canvas/apply_filter_image_result.png"></a></p>
+<p>现在在尝试 <strong>Invoke</strong> 进行生成。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/replace_background_result_2.png" data-desc-position="bottom"><img alt="replace_background_result_2" src="../../../assets/images/guide/invokeai/canvas/replace_background_result_2.png"></a></p>
+<p>现在可以发现原来的问题得到了很好的解决。</p>
+<h3 id="_26">线稿上色与风格迁移<a class="headerlink" href="#_26" title="锚链接到此处">☍</a></h3>
+<p>这里有一张白色的线稿，准备用于上色，一张图片用于保持人物一致性，另一张图片用于画风迁移，此时可以借助统一画布的<strong>控制层</strong>和<strong>区域导向</strong>实现线稿上色和画风迁移。</p>
+<table>
+<thead>
+<tr>
+<th>线稿</th>
+<th>用于保持人物一致性</th>
+<th>用于迁移画风</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>!<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/lineart_image_for_controlnet.png" data-desc-position="bottom"><img alt="lineart_image_for_controlnet" src="../../../assets/images/guide/invokeai/canvas/lineart_image_for_controlnet.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/image_for_ip_adapter_1.png" data-desc-position="bottom"><img alt="image_for_ip_adapter_1" src="../../../assets/images/guide/invokeai/canvas/image_for_ip_adapter_1.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/image_for_ip_adapter_2.png" data-desc-position="bottom"><img alt="image_for_ip_adapter_2" src="../../../assets/images/guide/invokeai/canvas/image_for_ip_adapter_2.png"></a></td>
+</tr>
+</tbody>
+</table>
+<p>将这 3 张图片拖到 InvokeAI 中，导入<strong>画廊</strong>的<strong>素材</strong>中。将线稿图拖到画布中，此时 InvokeAI 弹出提示要导入哪种图层类型，这里拖到 <strong>New Control Layer</strong>中创建一个新的<strong>控制层</strong>。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/input_image_to_control_layer.png" data-desc-position="bottom"><img alt="input_image_to_control_layer" src="../../../assets/images/guide/invokeai/canvas/input_image_to_control_layer.png"></a></p>
+<p>这里先调整边界框的大小，调整好后在右侧的图层面板中选择刚刚新建的<strong>控制层</strong>，右键打开菜单，选择<strong>图片变换(Transform)</strong>缩放线稿到边界框中。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_transform_to_resize_image.png" data-desc-position="bottom"><img alt="use_transform_to_resize_image" src="../../../assets/images/guide/invokeai/canvas/use_transform_to_resize_image.png"></a></p>
+<p>缩放完成后点击 <strong>Apply</strong> 将结果应用，在<strong>控制层</strong>的模型选项中选择 <strong>Multi-Guidance Detection (Union Pro)</strong> 模型。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果没有模型，需要在 InvokeAI 的模型管理的<strong>初始模型</strong>选项下载 <strong>Multi-Guidance Detection (Union Pro)</strong> 模型。</p>
+</div>
+<p>再右键该<strong>控制层</strong>，选择 <strong>Fitter</strong>，将保存到<strong>控制层</strong>的图片进行预处理。<strong>Fitter Type</strong> 选择 <strong>Lineart Edge Detection</strong>，再点击 <strong>Apply</strong> 保存预处理结果。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/select_controlnet_model_and_filter_image.png" data-desc-position="bottom"><img alt="select_controlnet_model_and_filter_image" src="../../../assets/images/guide/invokeai/canvas/select_controlnet_model_and_filter_image.png"></a></p>
+<p>接下来将用于保持人物一致性和迁移画风的图片分别拖动到画布中，并拖到 <strong>New Regional Reference Image</strong> 中，为需要保持人物一致性的部分和迁移画风的部分绘制<strong>区域导向</strong>的蒙版。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/paint_mask_for_regional_reference.png" data-desc-position="bottom"><img alt="paint_mask_for_regional_reference" src="../../../assets/images/guide/invokeai/canvas/paint_mask_for_regional_reference.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>区域导向</strong>所需的模型需要在 InvokeAI 的模型管理的<strong>初始模型</strong>选项中下载，对应的模型名称为 <strong>Standard Reference (IP Adapter ViT-H)</strong>。</p>
+</div>
+<p>绘制蒙版完成后，调整<strong>控制层</strong>和<strong>区域导向</strong>的参数，再填写提示词。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>1girl,solo,cherry blossoms,hair flower,pink flower,hair ribbon,cat ears,animal ear fluff,blue eyes,grey hair,short hair,bangs,hair between eyes,eyebrows visible through hair,blush,closed mouth,neck ribbon,white dress,crease,frilled_collar,detached_sleeves,flat chest,
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>holding sword,looking at viewer,dynamic pose,
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>battoujutsu stance,motion blur,sword,battoujutsu stance,bamboo forest,
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>upper body,
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>masterpiece,best quality,newest,amazing quality,very aesthetic,absurdres,
+</span></code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/configure_control_layer_and_regional_reference.png" data-desc-position="bottom"><img alt="configure_control_layer_and_regional_reference" src="../../../assets/images/guide/invokeai/canvas/configure_control_layer_and_regional_reference.png"></a></p>
+<p>调整参数后尝试几次 <strong>Invoke</strong>，从中挑选一个比较好的结果。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/use_control_layer_and_regional_reference_to_generate_image.png" data-desc-position="bottom"><img alt="use_control_layer_and_regional_reference_to_generate_image" src="../../../assets/images/guide/invokeai/canvas/use_control_layer_and_regional_reference_to_generate_image.png"></a></p>
+<p>现在可以看到线稿已经上色了，并且画风成功迁移到上色后的图片中。</p>
+<h3 id="_27">其他应用<a class="headerlink" href="#_27" title="锚链接到此处">☍</a></h3>
+<p>InvokeAI 官方发布了许多关于 InvokeAI 的基础教学视频，在 InvokeAI 左下角的按钮可以查看。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/invokeai/canvas/invokeai_official_tutor_video.png" data-desc-position="bottom"><img alt="invokeai_official_tutor_video" src="../../../assets/images/guide/invokeai/canvas/invokeai_official_tutor_video.png"></a></p>
+<p>除了基础教学视频，InvokeAI 还发布许多实际应用的视频，可在 InvoeAI 官方的视频号进行查看：<a href="https://www.youtube.com/@invokeai">Invoke - YouTube</a>。</p>
+<p>InvokeAI 官方的说明文档：</p>
+<ul>
+<li><a href="https://support.invoke.ai">Support : Invoke Support Portal</a></li>
+<li><a href="https://invoke-ai.github.io/InvokeAI">Home - InvokeAI Documentation</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025年11月17日 17:31:53 UTC">2025-11-17</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚">
+        
+          
+          <a href="../t2i/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 文生图">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                文生图
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../upscale/" class="md-footer__link md-footer__link--next" aria-label="下一页: 放大">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                放大
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 licyk
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/licyk" target="_blank" rel="noopener" title="Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://space.bilibili.com/46497516" target="_blank" rel="noopener" title="哔哩哔哩" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92c-26.4-.8-48.2-9.8-65.3-27.2S.7 396.5 0 368.2V169.8c.8-26 9.7-47.6 26.7-65.7C43.8 87.8 65.5 78.8 92 78h29.4L96 52.2c-5.7-5.7-8.6-13-8.6-21.8S90.3 14.3 96 8.6 109 0 117.9 0s16.1 2.9 21.9 8.6L213.1 78h88l74.5-69.4C381.7 2.9 389.2 0 398 0s16.1 2.9 21.9 8.6c5.7 5.7 8.6 13 8.6 21.8s-2.9 16.1-8.6 21.8L394.6 78h29.3c26.4.8 48 9.8 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96c-9.6.4-17.4 3.7-23.6 9.8-6.1 6.1-9.4 13.9-9.8 23.5v194.4c0 9.2 3.3 17 9.8 23.5s14.4 9.8 23.6 9.8h320.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://licyk.netlify.app" target="_blank" rel="noopener" title="licyk的小窝" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224 24c0-13.3 10.7-24 24-24 145.8 0 264 118.2 264 264 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-119.3-96.7-216-216-216-13.3 0-24-10.7-24-24M80 96c26.5 0 48 21.5 48 48v224c0 26.5 21.5 48 48 48s48-21.5 48-48-21.5-48-48-48c-8.8 0-16-7.2-16-16v-64c0-8.8 7.2-16 16-16 79.5 0 144 64.5 144 144s-64.5 144-144 144S32 447.5 32 368V144c0-26.5 21.5-48 48-48m168 0c92.8 0 168 75.2 168 168 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3-53.7-120-120-120-13.3 0-24-10.7-24-24s10.7-24 24-24"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:licyk233@163.com" target="_blank" rel="noopener" title="联系邮箱" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant.prefetch", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.expand", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

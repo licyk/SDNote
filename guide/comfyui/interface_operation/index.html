@@ -1,0 +1,4442 @@
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../install/">
+      
+      
+        <link rel="next" href="../input_workflows/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/site_resources/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>界面操作 - SD Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="https://sdnote.netlify.app" title="SD Note" class="md-header__button md-logo" aria-label="SD Note" data-md-component="logo">
+      
+  <img src="../../../assets/site_resources/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SD Note
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              界面操作
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="跟随系统配色" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="跟随系统配色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue" aria-label="浅色主题" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="浅色主题" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue" aria-label="黑暗主题" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="黑暗主题" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/licyk/SDNote" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    licyk/SDNote
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  部署与使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../sd_launcher/" class="md-tabs__link">
+          
+  
+  
+  绘世启动器使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../help/" class="md-tabs__link">
+          
+  
+  
+  使用疑难解答
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../appendix/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  附录
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://sdnote.netlify.app" title="SD Note" class="md-nav__button md-logo" aria-label="SD Note" data-md-component="logo">
+      
+  <img src="../../../assets/site_resources/logo.png" alt="logo">
+
+    </a>
+    SD Note
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/licyk/SDNote" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    licyk/SDNote
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requirement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    需求与准备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    模型指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型种类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/download_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型下载
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD WebUI 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SD WebUI 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/configure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前期配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/t2i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文生图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    提示词书写
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/advance_prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级提示词语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/artist_prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    画师提示词应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/i2i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图生图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/lora/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoRA 应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/upscale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    放大图片
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/controlnet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ControlNet 应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD WebUI Forge 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SD WebUI Forge 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/common_use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常见功能使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/flux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FLUX 模型使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/video_momory_optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    显存优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/use_build_in_extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    内置扩展使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ComfyUI 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ComfyUI 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    界面操作
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    界面操作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前期配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="前期配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用绘世启动器安装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 Git 命令安装
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置中文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快捷键
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="节点操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点菜单
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工作流运行提示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        建立节点组
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点连线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重置节点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转换节点输入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        折叠节点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点批量拖动 / 复制 / 粘贴
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点删除
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具栏
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        执行队列
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        扩展管理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        释放显存占用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comfyui-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置 ComfyUI Manager 安全等级
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comfyui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ComfyUI 内置节点
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../input_workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导入工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    搭建工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node_writing_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    节点编写指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InvokeAI 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    InvokeAI 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    界面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/model_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/low_vram_mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    显存优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/t2i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文生图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    统一画布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/upscale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    放大
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    绘世启动器使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    绘世启动器使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2">
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署功能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    部署功能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/install/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级选项
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级选项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/advance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级选项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/advance/env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    环境维护
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/advance/patch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    补丁管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4">
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    版本管理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    版本管理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/kernel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    内核
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装新扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实用功能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实用功能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    疑难解答
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/terminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制台
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    启动器设置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/zluda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置 ZLUDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用疑难解答
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    使用疑难解答
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/sd_launcher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    绘世启动器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/sd_webui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD WebUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/comfyui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ComfyUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/other/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/amd_info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD 运行问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/intel_info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intel 运行问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前期配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="前期配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用绘世启动器安装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 Git 命令安装
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置中文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快捷键
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="节点操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点菜单
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工作流运行提示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        建立节点组
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点连线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重置节点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转换节点输入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        折叠节点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点批量拖动 / 复制 / 粘贴
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        节点删除
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具栏
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        执行队列
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        扩展管理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        释放显存占用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comfyui-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置 ComfyUI Manager 安全等级
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comfyui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ComfyUI 内置节点
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    主页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    部署与使用
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ComfyUI 部署与使用
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/licyk/SDNote/edit/main/docs/guide/comfyui/interface_operation.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="_1">简述<a class="headerlink" href="#_1" title="锚链接到此处">☍</a></h1>
+<p>ComfyUI 的界面和 Stable Diffusion WebUI 的界面完全不相同，在 ComfyUI 中，每个功能都被拆散成一个个节点，通过连接不同的节点搭建起一个完整的生图流程。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/comfyui_interface.png" data-desc-position="bottom"><img alt="comfyui_interface" src="../../../assets/images/guide/comfyui/interface_operation/comfyui_interface.png"></a></p>
+<h2 id="_2">前期配置<a class="headerlink" href="#_2" title="锚链接到此处">☍</a></h2>
+<p>如果 ComfyUI-Manager，建议通过以下几种方式进行安装。</p>
+<h3 id="_3">使用绘世启动器安装<a class="headerlink" href="#_3" title="锚链接到此处">☍</a></h3>
+<p>打开绘世启动器的 版本管理 -&gt; 安装新扩展，搜索 ComfyUI-Manager并下载安装。</p>
+<h3 id="git">使用 Git 命令安装<a class="headerlink" href="#git" title="锚链接到此处">☍</a></h3>
+<p>进入 ComfyUI 的 custom_nodes 文件夹中，打开终端，输入以下的命令安装 ComfyUI-Manager 扩展。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git clone https://github.com/ltdrdata/ComfyUI-Manager
+</span></code></pre></div>
+<p>安装后重新启动 ComfyUI，如果在 ComfyUI 界面顶部可以看到 Manager 按钮，说明 ComfyUI-Manager 已经成功安装。</p>
+<h2 id="_4">设置中文<a class="headerlink" href="#_4" title="锚链接到此处">☍</a></h2>
+<p>在 ComfyUI 左下角点击齿轮按钮进入 ComfyUI 设置，在 Comfy -&gt; Locale -&gt; Language，将该选项改为<strong>中文</strong>即可。</p>
+<h2 id="_5">快捷键<a class="headerlink" href="#_5" title="锚链接到此处">☍</a></h2>
+<p>以下为操作 ComfyUI 界面的快捷键。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>鼠标滚轮</td>
+<td>缩放工作流的大小。</td>
+</tr>
+<tr>
+<td>鼠标右键</td>
+<td>打开节点列表。</td>
+</tr>
+<tr>
+<td>鼠标左键双击</td>
+<td>打开节点搜索列表。</td>
+</tr>
+<tr>
+<td>Ctrl + Enter</td>
+<td>运行当前的工作流</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Enter</td>
+<td>将当前的工作流作为运行列表里第一个被运行的工作流</td>
+</tr>
+<tr>
+<td>Ctrl + Z</td>
+<td>撤销工作流更改</td>
+</tr>
+<tr>
+<td>Ctrl + Y</td>
+<td>重做工作流更改</td>
+</tr>
+<tr>
+<td>Ctrl + S</td>
+<td>保存工作流</td>
+</tr>
+<tr>
+<td>Ctrl + O</td>
+<td>导入工作流</td>
+</tr>
+<tr>
+<td>Alt + C</td>
+<td>折叠 / 取消折叠选中的节点。</td>
+</tr>
+<tr>
+<td>Ctrl + M</td>
+<td>禁用 / 激活选中的节点。</td>
+</tr>
+<tr>
+<td>Ctrl + B</td>
+<td>使被选中的节点在工作流运行时被绕过。</td>
+</tr>
+<tr>
+<td>Delete / Backspace</td>
+<td>删除选中的节点。</td>
+</tr>
+<tr>
+<td>Ctrl + 右 Ctrl + Backspace</td>
+<td>清除当前的工作流。</td>
+</tr>
+<tr>
+<td>Space + 移动鼠标</td>
+<td>移动画布。</td>
+</tr>
+<tr>
+<td>Ctrl + 鼠标左键单击</td>
+<td>多选节点。</td>
+</tr>
+<tr>
+<td>Shift + 鼠标左键长按</td>
+<td>拖动选中的多个节点。</td>
+</tr>
+<tr>
+<td>Ctrl + C / V</td>
+<td>复制 / 粘贴选中的节点（不复制节点的连线）。</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + C / V</td>
+<td>复制 / 粘贴选中的节点（同时复制节点的连线）。</td>
+</tr>
+<tr>
+<td>Ctrl + D</td>
+<td>加载默认的工作流。</td>
+</tr>
+<tr>
+<td>Alt + <code>+</code></td>
+<td>放大工作流。</td>
+</tr>
+<tr>
+<td>Alt + <code>-</code></td>
+<td>缩小工作流。</td>
+</tr>
+<tr>
+<td>Alt + 点击连接线上的点</td>
+<td>创建转接点。</td>
+</tr>
+<tr>
+<td>Shift + 按住连接线上的转接点</td>
+<td>从转接点拉出连接线。</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>显示当前运行的工作流队列。</td>
+</tr>
+<tr>
+<td>H</td>
+<td>显示历史工作流。</td>
+</tr>
+<tr>
+<td>R</td>
+<td>刷新工作流。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">节点操作<a class="headerlink" href="#_6" title="锚链接到此处">☍</a></h2>
+<p>在节点的左侧接口为输入点，节点右侧的接口为输出点，鼠标按住接口并向外拖动可以看到延伸出来的线，将线拖到匹配这个线的接口上可完成不同节点之间的连接。</p>
+<h3 id="_7">节点菜单<a class="headerlink" href="#_7" title="锚链接到此处">☍</a></h3>
+<p>右键节点可以看到该节点的编辑功能。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/comfyui_context_menu.png" data-desc-position="bottom"><img alt="comfyui_context_menu" src="../../../assets/images/guide/comfyui/interface_operation/comfyui_context_menu.png"></a></p>
+<h3 id="_8">工作流运行提示<a class="headerlink" href="#_8" title="锚链接到此处">☍</a></h3>
+<p>如果节点未连接必要的输入，在运行工作流是节点将会报错，使用红色圈标记缺少的输入。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/node_missing_require_input.png" data-desc-position="bottom"><img alt="node_missing_require_input" src="../../../assets/images/guide/comfyui/interface_operation/node_missing_require_input.png"></a></p>
+<p>此时连上对应的输入即可。</p>
+<p>运行工作流时，正在运行的节点将会标记为绿色。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/working_node.png" data-desc-position="bottom"><img alt="working_node" src="../../../assets/images/guide/comfyui/interface_operation/working_node.png"></a></p>
+<p>如果某个节点运行出现的错误，此时节点会标记为紫色，此时应该检查该节点和该节点前面的节点是否有参数错误，连接是否有误。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/node_has_error.png" data-desc-position="bottom"><img alt="node_has_error" src="../../../assets/images/guide/comfyui/interface_operation/node_has_error.png"></a></p>
+<p>除了将节点标记为紫色，ComfyUI 将弹窗提示报错信息。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/error_notice.png" data-desc-position="bottom"><img alt="error_notice" src="../../../assets/images/guide/comfyui/interface_operation/error_notice.png"></a></p>
+<p>点击 Find Issues 可以跳转到 ComfyUI 的 Github Issues 分区中，可以尝试从中找到和自己错误类似的帖子并寻求解决方法，或者发送 Issues 报告这个错误。</p>
+<p>点击 Show Report 将显示具体的报错信息，可以根据这个信息在搜索引擎查找对应的解决方法。</p>
+<h3 id="_9">建立节点组<a class="headerlink" href="#_9" title="锚链接到此处">☍</a></h3>
+<p>下面是一个简单的生图工作流，可以看到该工作流有许多节点组成。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/nodes_before_make_group.png" data-desc-position="bottom"><img alt="nodes_before_make_group" src="../../../assets/images/guide/comfyui/interface_operation/nodes_before_make_group.png"></a></p>
+<p>如果觉得一个个节点在调整时很麻烦，可以将这些节点组合成节点组。按住键盘上的 Ctrl 键，使用鼠标选中这些节点，再右键打开菜单，选择<strong>转换为节点组</strong>，此时将弹出节点组命名窗口，输入名称并确定后将创建一个新的节点组。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/make_new_node_group.png" data-desc-position="bottom"><img alt="make_new_node_group" src="../../../assets/images/guide/comfyui/interface_operation/make_new_node_group.png"></a></p>
+<p>现在工作流就显得非常整洁了，右键该节点选择<strong>Manage Group Node</strong>可以调整节点组的组件顺序和要显示的组件，但是这样整合功能的节点在出现报错时排查问题会变得困难，当出现报错时需要右键该节点组，选择<strong>转换为节点</strong>将节点组拆分，对错误进行排查。</p>
+<h3 id="_10">节点分类<a class="headerlink" href="#_10" title="锚链接到此处">☍</a></h3>
+<p>当节点过多时，工作流可能就显得很乱，此时就可以通过建立组对节点进行分类。</p>
+<p>在 ComfyUI 界面空白处右键打开菜单，点击<strong>新建框</strong>就会创建一个框，创建多个框并调整框的大小后，将节点移动到里面进行分类，这样就可以让工作流的每个部分清晰明了，当拖动框时，框内的节点也会被拖动。</p>
+<p>除了通过这种方式创建框进行分类，还可以用 ComfyUI 的快速建框的功能。将几个节点放在一起后，按住 Ctrl 键多选节点，再右键 ComfyUI 界面空白处，选择<strong>并入到框</strong>，此时 ComfyUI 将自动为选中的 ComfyUI 节点创建框。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/create_frame_classify_node.png" data-desc-position="bottom"><img alt="create_frame_classify_node" src="../../../assets/images/guide/comfyui/interface_operation/create_frame_classify_node.png"></a></p>
+<h3 id="_11">节点连线<a class="headerlink" href="#_11" title="锚链接到此处">☍</a></h3>
+<p>节点之间连线可以通过按住节点的接口拉出一条线，将线连接到另一个节点上。如果一个节点的输出想要拉出两条线，除了从接口分别拉出两条线这个方法，还可以在有一条线的基础上，按住 Shift 键并点击那条线，此时将快速从该线的端点快速拉出一条线，而不是必须从输出接口拉线。</p>
+<p>如果节点之间的连线过长，想要整理连线，可以使用<strong>转接点</strong>节点进行中转。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/use_route_node.png" data-desc-position="bottom"><img alt="use_route_node" src="../../../assets/images/guide/comfyui/interface_operation/use_route_node.png"></a></p>
+<p>除了使用<strong>转接点</strong>节点，也可以直接在线上突出的点建立转接点。打开 ComfyUI 设置，在<strong>LiteGraph -&gt; Reroute Beta</strong>，将 <strong>Opt-in to the reroute beta test</strong> 启用即可使用该功能。</p>
+<p>按住 Alt 键并点击连线上凸起的点，此时点将变大并转换为转接点，按住 Shift 键可以从该转接点拉出线用于连接其他节点。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/use_new_route_point.png" data-desc-position="bottom"><img alt="use_new_route_point" src="../../../assets/images/guide/comfyui/interface_operation/use_new_route_point.png"></a></p>
+<h3 id="_12">重置节点<a class="headerlink" href="#_12" title="锚链接到此处">☍</a></h3>
+<p>如果节点的参数调错了导致出图效果不行或者无法正常生成图片，可以右键该节点，选择<strong>修复（重建）</strong>，此时将重置节点的参数为默认值。</p>
+<h3 id="_13">转换节点输入<a class="headerlink" href="#_13" title="锚链接到此处">☍</a></h3>
+<p>节点的参数一般由输入接口和界面组件组成，但界面组件可以转换为输入接口，通过输入接口控制原有界面组件的参数。右键该节点，在<strong>转换为输入</strong>选项中可以选择将想要转换的界面组件转换成输入接口。</p>
+<table>
+<thead>
+<tr>
+<th>转换前</th>
+<th>转换后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/node_before_convert_widget_to_input.png" data-desc-position="bottom"><img alt="node_before_convert_widget_to_input" src="../../../assets/images/guide/comfyui/interface_operation/node_before_convert_widget_to_input.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/convert_node_widget_to_input.png" data-desc-position="bottom"><img alt="convert_node_widget_to_input" src="../../../assets/images/guide/comfyui/interface_operation/convert_node_widget_to_input.png"></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>注意，将界面组件转换成输入接口后必须为该输入接口连接对应的节点，否则将导致该节点报错无法运行，或者右键该节点，在<strong>转换为组件</strong>选项将输入接口转换为界面组件。</p>
+</div>
+<h3 id="_14">折叠节点<a class="headerlink" href="#_14" title="锚链接到此处">☍</a></h3>
+<p>有些节点的参数不需要展示，并且想要降低节点占用界面的空间，可以点击节点左上角的圆点，此时节点将折叠所有参数，再次点击圆点将恢复。</p>
+<h3 id="_15">节点批量拖动 / 复制 / 粘贴<a class="headerlink" href="#_15" title="锚链接到此处">☍</a></h3>
+<p>按住 Ctrl / Shift 键，使用左键点击节点可以多选节点，按住 Shift 键时拖动被多选中的节点的某一个节点可以同时拖动多个被选中的节点。</p>
+<p>使用 Ctrl + C 可以复制节点，再按下 Ctrl + V 可以粘贴节点。</p>
+<h3 id="_16">节点删除<a class="headerlink" href="#_16" title="锚链接到此处">☍</a></h3>
+<p>如果要删除某个节点，选中某个后按下 Backspace / Delete 键即可，或者右键该节点，选择<strong>移除</strong>即可删除节点。</p>
+<h2 id="_17">工具栏<a class="headerlink" href="#_17" title="锚链接到此处">☍</a></h2>
+<p>ComfyUI 的工具栏包含了一些快捷按钮，如 执行队列，这个按钮就类似 Stable Diffusion WebUI 中的生成按钮。</p>
+<p>下面是侧边栏的功能。</p>
+<table>
+<thead>
+<tr>
+<th>按钮</th>
+<th>队列</th>
+<th>节点库</th>
+<th>模型库</th>
+<th>工作流</th>
+<th>切换主题</th>
+<th>设置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>界面</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/queue_interface.png" data-desc-position="bottom"><img alt="queue_interface" src="../../../assets/images/guide/comfyui/interface_operation/queue_interface.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/node_library_interface.png" data-desc-position="bottom"><img alt="node_library_interface" src="../../../assets/images/guide/comfyui/interface_operation/node_library_interface.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/model_library_interface.png" data-desc-position="bottom"><img alt="model_library_interface" src="../../../assets/images/guide/comfyui/interface_operation/model_library_interface.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/workflow_list_interface.png" data-desc-position="bottom"><img alt="workflow_list_interface" src="../../../assets/images/guide/comfyui/interface_operation/workflow_list_interface.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/switch_interface_theme.png" data-desc-position="bottom"><img alt="switch_interface_theme" src="../../../assets/images/guide/comfyui/interface_operation/switch_interface_theme.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/comfyui_setting.png" data-desc-position="bottom"><img alt="comfyui_setting" src="../../../assets/images/guide/comfyui/interface_operation/comfyui_setting.png"></a></td>
+</tr>
+<tr>
+<td>作用</td>
+<td>显示 ComfyUI 正在执行的工作流队列和已完成的队列。</td>
+<td>显示 ComfyUI 中存在的节点列表，可以拖动节点出来放入工作流中。</td>
+<td>显示 ComfyUI 中<code>ComfyUI/models</code>文件夹里已有的模型，将模型拖动出来将自动创建加载该模型所对应的模型加载节点。</td>
+<td>显示 ComfyUI 已保存的工作流和已经打开的工作流。</td>
+<td>切换 ComfyUI 界面的主题。</td>
+<td>打开 ComfyUi 的设置。</td>
+</tr>
+</tbody>
+</table>
+<p>在 ComfyUI 的顶部栏也包含一些功能。</p>
+<table>
+<thead>
+<tr>
+<th>按钮</th>
+<th>工作流</th>
+<th>编辑</th>
+<th>帮助</th>
+<th>切换底部面板</th>
+<th>隐藏菜单</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>界面</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/workflow_button.png" data-desc-position="bottom"><img alt="workflow_button" src="../../../assets/images/guide/comfyui/interface_operation/workflow_button.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/edit_buttom.png" data-desc-position="bottom"><img alt="edit_buttom" src="../../../assets/images/guide/comfyui/interface_operation/edit_buttom.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/help_buttom.png" data-desc-position="bottom"><img alt="help_buttom" src="../../../assets/images/guide/comfyui/interface_operation/help_buttom.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/toggle_bottom_panel.png" data-desc-position="bottom"><img alt="toggle_bottom_panel" src="../../../assets/images/guide/comfyui/interface_operation/toggle_bottom_panel.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/hide_menu.png" data-desc-position="bottom"><img alt="hide_menu" src="../../../assets/images/guide/comfyui/interface_operation/hide_menu.png"></a></td>
+</tr>
+<tr>
+<td>作用</td>
+<td>显示关于工作流的操作。</td>
+<td>显示编辑工作流的功能。</td>
+<td>获取 ComfyUI 帮助。</td>
+<td>显示 ComfyUI 运行日志。</td>
+<td>隐藏 / 显示 ComfyUI 工具栏。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_18">执行队列<a class="headerlink" href="#_18" title="锚链接到此处">☍</a></h2>
+<p>ComfyUI 提供一个按钮用于运行工作流。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/queue_buttom.png" data-desc-position="bottom"><img alt="queue_buttom" src="../../../assets/images/guide/comfyui/interface_operation/queue_buttom.png"></a></p>
+<p>按住该按钮的最左边可以拖动该按钮的位置。</p>
+<p>点击<strong>执行队列</strong>可以运行工作流，多次点击将会创建一个工作流队列，依次运行工作流。在<strong>执行队列</strong>的右边有个向下的箭头，点开后可以看到工作流的工作模式。</p>
+<p><strong>执行队列</strong>模式是在点击该按钮后才运行工作流，<strong>执行队列 立即</strong>模式是一直运行工作流，<strong>执行队列 变动</strong>模式是在修改工作流的某个参数后再运行，但使用该模式时要注意，当工作流中有运行后会发生变动的参数，比如<strong>随机种</strong>，运行工作流后将会发生变化，此时将再次触发工作流的运行，也就会无限运行下去。</p>
+<p>假设下面是一个工作流队列。</p>
+<p>|(正在运行的工作流)|(待运行的工作流 1)|(待运行的工作流 2)|(待运行的工作流 3)|</p>
+<p>点击<strong>执行队列</strong>时将会在队列后面插入新的工作流队列。</p>
+<p>|(正在运行的工作流)|(待运行的工作流 1)|(待运行的工作流 2)|(待运行的工作流 3)|(插入的待运行的工作流)|</p>
+<p>如果按下 Shift 键再点击<strong>执行队列</strong>，工作流队列将插入在正在运行的工作流和待运行的工作流之间。</p>
+<p>|(正在运行的工作流)|(插入的待运行的工作流)|(待运行的工作流 1)|(待运行的工作流 2)|(待运行的工作流 3)|</p>
+<p>如果当前已经有几个工作流队列，但是想修改参数后让下次运行的工作流为刚刚修改后的工作流，可以按住 Shift 键，</p>
+<p>右边的数字调整运行工作流的批次。</p>
+<p>× 按钮为取消当前运行的工作流，而方形按钮将清空所有待运行的工作流队列。</p>
+<h2 id="_19">扩展管理<a class="headerlink" href="#_19" title="锚链接到此处">☍</a></h2>
+<p>安装 ComfyUI-Manager 扩展后，在 ComfyUI 工具栏可以看到<strong>管理器</strong>按钮，点开后可以看到 ComfyUI-Manager 的界面。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/comfyui_manager_interface.png" data-desc-position="bottom"><img alt="comfyui_manager_interface" src="../../../assets/images/guide/comfyui/interface_operation/comfyui_manager_interface.png"></a></p>
+<p>ComfyUI-Manager 包含了管理 ComfyUI 的各种功能，以下是不同功能的描述。</p>
+<ul>
+<li>节点管理</li>
+</ul>
+<p>管理 ComfyUI 的扩展，包含安装 / 卸载 / 禁用 / 启用节点，修复节点缺失依赖的功能。</p>
+<ul>
+<li>安装缺失节点</li>
+</ul>
+<p>当导入一个工作流时，如果 ComfyUI 缺少工作流中节点所需要的扩展，ComfyUI 将弹窗提示有节点缺失，这是可以使用该功能扫描工作流需要的节点并安装。</p>
+<ul>
+<li>模型管理</li>
+</ul>
+<p>模型管理可以下载一些节点所需的模型。</p>
+<ul>
+<li>通过 Git URL 安装</li>
+</ul>
+<p>如果将要安装的插件没有节点管理中搜到，但是知道该节点的 Git 仓库地址，可以通过该功能进行安装。</p>
+<ul>
+<li>更新全部</li>
+</ul>
+<p>点击后将更新所有的 ComfyUI 扩展和 ComfyUI 本体。</p>
+<ul>
+<li>更新 ComfyUI</li>
+</ul>
+<p>仅更新 ComfyUI 本体。</p>
+<ul>
+<li>A1111 替代</li>
+</ul>
+<p>下载实现 Stable Diffusion WebUI 部分功能的扩展。</p>
+<p>ComfyUI-Manager 还有其他实用的功能，如标签显示功能，启用后可以看到节点是来源于哪个扩展。</p>
+<h2 id="_20">释放显存占用<a class="headerlink" href="#_20" title="锚链接到此处">☍</a></h2>
+<p>ComfyUI-Manager 还提供了释放显存的工具，在 ComfyUI-Manager 的<strong>管理器</strong>按钮旁边有 2 个用于释放显存的按钮，点击后将会卸载放置在显存中的模型，释放被占用的显存。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/comfyui/interface_operation/unload_model_by_comfyui_manager.png" data-desc-position="bottom"><img alt="unload_model_by_comfyui_manager" src="../../../assets/images/guide/comfyui/interface_operation/unload_model_by_comfyui_manager.png"></a></p>
+<h2 id="comfyui-manager">配置 ComfyUI Manager 安全等级<a class="headerlink" href="#comfyui-manager" title="锚链接到此处">☍</a></h2>
+<p>在 ComfyUI Manager 默认的安全等级下，ComfyUI Manager 的部分功能将被限制，防止执行一些危险操作破坏 ComfyUI 的环境，如果需要解除，需要调整 ComfyUI Manager 安全等级。</p>
+<p>编辑<code>ComfyUI/custom_nodes/ComfyUI-Manager/config.ini</code>文件，将<code>security_level = normal</code>修改成<code>security_level = weak</code>后保存该文件并重启 ComfyUI 即可生效。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>修改 ComfyUI Manager 的安全等级存在风险。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>有关该配置的说明：<a href="https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#security-policy">Security policy - ltdrdata/ComfyUI-Manager</a>。</p>
+</div>
+<h2 id="comfyui">ComfyUI 内置节点<a class="headerlink" href="#comfyui" title="锚链接到此处">☍</a></h2>
+<p>使用 ComfyUI 时，优先使用 ComfyUI 内置的节点进行工作流搭建，当 ComfyUI 内置的节点无法实现想要的功能时再考虑使用 ComfyUI 扩展提供的节点。</p>
+<p>下面是 ComfyUI 内置的节点列表。</p>
+<details class="comfyui_node_library">
+<summary>Comfyui_node_library</summary>
+<p>ComfyUI Node Library<br>
+├── api<br>
+│&nbsp;&nbsp; └── 图像<br>
+│&nbsp;&nbsp;     └── 保存图像到网络接口<br>
+├── Latent<br>
+│&nbsp;&nbsp; ├── Latent按系数缩放<br>
+│&nbsp;&nbsp; ├── Latent复合<br>
+│&nbsp;&nbsp; ├── Latent缩放<br>
+│&nbsp;&nbsp; ├── Latent遮罩复合<br>
+│&nbsp;&nbsp; ├── SD3<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 空Latent_SD3<br>
+│&nbsp;&nbsp; ├── StableCascade<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── VAE编码_Cascade_StageC<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 空Latent_Cascade<br>
+│&nbsp;&nbsp; ├── VAE编码<br>
+│&nbsp;&nbsp; ├── VAE解码<br>
+│&nbsp;&nbsp; ├── video<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── EmptyMochiLatentVideo<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── ltxv<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp;     └── EmptyLTXVLatentVideo<br>
+│&nbsp;&nbsp; ├── 变换<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── Latent裁剪<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── Latent翻转<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── Latent旋转<br>
+│&nbsp;&nbsp; ├── 高级<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── Latent插值<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── Latent批次随机种操作<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── Latent相乘<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── Latent相加<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── Latent相减<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── operations<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp;     ├── Latent操作 色调映射Reinhard<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp;     ├── Latent操作（锐化）<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp;     ├── Latent应用操作<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp;     └── Latent应用操作（CFG）<br>
+│&nbsp;&nbsp; ├── 空Latent<br>
+│&nbsp;&nbsp; ├── 内补<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── VAE内补编码器<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 设置Latent噪波遮罩<br>
+│&nbsp;&nbsp; ├── 批处理<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── Latent组合批次<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 从批次获取Latent<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 复制Latent批次<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 重设Latent批次<br>
+│&nbsp;&nbsp; └── 音频<br>
+│&nbsp;&nbsp;     ├── VAE编码_Audio<br>
+│&nbsp;&nbsp;     ├── VAE解码_Audio<br>
+│&nbsp;&nbsp;     └── 空Latent_Audio<br>
+├── 采样<br>
+│&nbsp;&nbsp; ├── K采样器<br>
+│&nbsp;&nbsp; ├── K采样器(高级)<br>
+│&nbsp;&nbsp; ├── 视频模型<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 三角CFG引导<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 线性CFG引导<br>
+│&nbsp;&nbsp; └── 自定义采样<br>
+│&nbsp;&nbsp;     ├── Sigmas<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── 翻转Sigmas<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── 分离Sigmas<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; └── 分离Sigmas降噪<br>
+│&nbsp;&nbsp;     ├── 采样器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── DPMAdaptative采样器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── DPMPP_2M_SDE采样器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── DPMPP_2S_Ancestral采样器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── DPMPP_3M_SDE采样器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── DPMPP_SDE采样器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── Euler_A_CFG++采样器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── Euler_A采样器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── K采样器选择<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── LCM缩放采样器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; └── LMS采样器<br>
+│&nbsp;&nbsp;     ├── 调度器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── AlignYourSteps调度器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── Beta调度器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── Exponential调度器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── GITS调度器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── Karras调度器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── Laplace调度器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── LTXVScheduler<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── Polyexponential调度器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── SDTurbo调度器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── VP调度器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; └── 基础调度器<br>
+│&nbsp;&nbsp;     ├── 引导器<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── CFG引导<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── 基础引导<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; └── 双CFG引导<br>
+│&nbsp;&nbsp;     ├── 噪波<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── 禁用噪波<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; └── 随机噪波<br>
+│&nbsp;&nbsp;     ├── 自定义采样器<br>
+│&nbsp;&nbsp;     └── 自定义采样器(高级)<br>
+├── 测试
+│&nbsp;&nbsp; ├── Euler_CFG++采样器<br>
+│&nbsp;&nbsp; ├── Latent混合<br>
+│&nbsp;&nbsp; ├── PerpNeg重塑负提示引导<br>
+│&nbsp;&nbsp; ├── PhotoMaker<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── PhotoMaker编码<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── PhotoMaker加载器<br>
+│&nbsp;&nbsp; ├── SAG自注意力引导<br>
+│&nbsp;&nbsp; ├── StableCascade<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── StableCascade_超分ControlNet<br>
+│&nbsp;&nbsp; ├── Torch编译模型<br>
+│&nbsp;&nbsp; ├── VAE分块编码<br>
+│&nbsp;&nbsp; ├── VAE分块解码<br>
+│&nbsp;&nbsp; ├── 保存 LoRA<br>
+│&nbsp;&nbsp; ├── 保存Latent<br>
+│&nbsp;&nbsp; ├── 差异扩散<br>
+│&nbsp;&nbsp; ├── 读取Latent<br>
+│&nbsp;&nbsp; ├── 条件<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── CLIP文本编码ControlNet<br>
+│&nbsp;&nbsp; ├── 注意力测试<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── CLIP注意力乘数<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── UNetTemporal注意力乘数<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── UNet交叉注意力乘数<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── UNet自注意力乘数<br>
+│&nbsp;&nbsp; └── 自定义采样<br>
+│&nbsp;&nbsp;     └── 噪波<br>
+│&nbsp;&nbsp;         └── 添加噪波<br>
+├── 高级<br>
+│&nbsp;&nbsp; ├── guidance<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── SkipLayerGuidanceDiT<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── SkipLayerGuidanceSD3<br>
+│&nbsp;&nbsp; ├── hooks<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── CLIP<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; └── Set CLIP Hooks<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── combine<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── Combine Hooks [2]<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── Combine Hooks [4]<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; └── Combine Hooks [8]<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── cond pair<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── Cond Pair Combine<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── Cond Pair Set Default Combine<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── Cond Pair Set Props<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; └── Cond Pair Set Props Combine<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── cond single<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── Cond Set Default Combine<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── Cond Set Props<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; └── Cond Set Props Combine<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── create<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── Create Hook LoRA<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── Create Hook LoRA (MO)<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── Create Hook Model as LoRA<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; └── Create Hook Model as LoRA (MO)<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── Timesteps Range<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 调度<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp;     ├── Create Hook Keyframe<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp;     ├── Create Hook Keyframes From Floats<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp;     ├── Create Hook Keyframes Interp<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp;     └── Set Hook Keyframes<br>
+│&nbsp;&nbsp; ├── 加载器<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── CLIP加载器<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── UNET加载器<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 三CLIP加载器<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 双CLIP加载器<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 已弃用<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp;     └── 扩散加载器<br>
+│&nbsp;&nbsp; ├── 模型<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── ModelSamplingLTXV<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型采样算法AuraFlow<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型采样算法Cascade<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型采样算法Flux<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型采样算法SD3<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型离散采样算法<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型连续采样算法EDM<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型连续采样算法V<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 缩放CFG<br>
+│&nbsp;&nbsp; ├── 模型融合<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 保存Checkpoint<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 保存Checkpoint(仅图像)<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 保存CLIP<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 保存VAE<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 保存模型<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型版本<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── ModelMergeAuraflow<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── ModelMergeLTXV<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── ModelMergeMochiPreview<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── ModelMergeSD35_Large<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型融合(SD1)<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型融合(SD2)<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型融合(SD3_2B)<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型融合(SDXL)<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; │&nbsp;&nbsp; └── 融合Flux1模型<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 模型融合(相加)<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 融合CLIP<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 融合CLIP（相加）<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 融合CLIP（相减）<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 融合模型<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 融合模型(分层)<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 融合模型(相减)<br>
+│&nbsp;&nbsp; └── 条件<br>
+│&nbsp;&nbsp;     ├── CLIP文本编码Hunyuan<br>
+│&nbsp;&nbsp;     ├── CLIP文本编码SD3<br>
+│&nbsp;&nbsp;     ├── CLIP文本编码SDXL<br>
+│&nbsp;&nbsp;     ├── CLIP文本编码SDXL(Refiner)<br>
+│&nbsp;&nbsp;     ├── flux<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; ├── CLIP文本编码Flux<br>
+│&nbsp;&nbsp;     │&nbsp;&nbsp; └── Flux引导<br>
+│&nbsp;&nbsp;     ├── 设置条件时间<br>
+│&nbsp;&nbsp;     └── 条件零化<br>
+├── 加载器<br>
+│&nbsp;&nbsp; ├── Checkpoint加载器(简易)<br>
+│&nbsp;&nbsp; ├── CLIP视觉加载器<br>
+│&nbsp;&nbsp; ├── ControlNet加载器<br>
+│&nbsp;&nbsp; ├── DiffControlNet加载器<br>
+│&nbsp;&nbsp; ├── GLIGEN加载器<br>
+│&nbsp;&nbsp; ├── LoRA加载器<br>
+│&nbsp;&nbsp; ├── LoRA加载器(仅模型)<br>
+│&nbsp;&nbsp; ├── unCLIPCheckpoint加载器<br>
+│&nbsp;&nbsp; ├── VAE加载器<br>
+│&nbsp;&nbsp; ├── 超网络加载器<br>
+│&nbsp;&nbsp; ├── 放大模型加载器<br>
+│&nbsp;&nbsp; ├── 风格模型加载器<br>
+│&nbsp;&nbsp; └── 视频模型<br>
+│&nbsp;&nbsp;     └── Checkpoint加载器(仅图像)<br>
+├── 模型微调<br>
+│&nbsp;&nbsp; └── UNet<br>
+│&nbsp;&nbsp;     ├── FreeU_V2模型重加权<br>
+│&nbsp;&nbsp;     ├── FreeU模型重加权<br>
+│&nbsp;&nbsp;     ├── PAG注意力引导<br>
+│&nbsp;&nbsp;     ├── Tome合并模型Token<br>
+│&nbsp;&nbsp;     ├── 超分块<br>
+│&nbsp;&nbsp;     └── 收缩模型UNET<br>
+├── 实用工具<br>
+│&nbsp;&nbsp; ├── Primitive元节点<br>
+│&nbsp;&nbsp; ├── 注释<br>
+│&nbsp;&nbsp; └── 转接点<br>
+├── 条件<br>
+│&nbsp;&nbsp; ├── 3D模型<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── SV3D_条件<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── SZ123条件<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── SZ123条件(批次)<br>
+│&nbsp;&nbsp; ├── CLIP设置停止层<br>
+│&nbsp;&nbsp; ├── CLIP视觉编码<br>
+│&nbsp;&nbsp; ├── CLIP文本编码器<br>
+│&nbsp;&nbsp; ├── ControlNet<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── ControlNet应用（旧版高级）<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── ControlNet应用_阿里妈妈局部重绘<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 设置UnionControlNet类型<br>
+│&nbsp;&nbsp; ├── GLIGEN<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── GLIGEN文本框应用<br>
+│&nbsp;&nbsp; ├── InstructPix2Pix<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── InstructPixToPix条件<br>
+│&nbsp;&nbsp; ├── StableCascade<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── StableCascade_StageB条件<br>
+│&nbsp;&nbsp; ├── unCLIP条件<br>
+│&nbsp;&nbsp; ├── 按系数设置条件采样区域<br>
+│&nbsp;&nbsp; ├── 放大扩散<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── SD4X放大条件<br>
+│&nbsp;&nbsp; ├── 风格模型<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 风格模型应用<br>
+│&nbsp;&nbsp; ├── 内补<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 内补模型条件<br>
+│&nbsp;&nbsp; ├── 视频模型<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── LTXVConditioning<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── LTXVImgToVideo<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── SVD_图像到视频_条件<br>
+│&nbsp;&nbsp; ├── 条件采样区域<br>
+│&nbsp;&nbsp; ├── 条件采样区域强度<br>
+│&nbsp;&nbsp; ├── 条件合并<br>
+│&nbsp;&nbsp; ├── 条件联结<br>
+│&nbsp;&nbsp; ├── 条件平均<br>
+│&nbsp;&nbsp; └── 条件设置遮罩<br>
+├── 图像<br>
+│&nbsp;&nbsp; ├── 保存图像<br>
+│&nbsp;&nbsp; ├── 变换<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 图像裁剪<br>
+│&nbsp;&nbsp; ├── 动画<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 保存APNG<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 保存WEBP<br>
+│&nbsp;&nbsp; ├── 放大<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 图像按系数缩放<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 图像按像素缩放<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 图像缩放<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 图像通过模型放大<br>
+│&nbsp;&nbsp; ├── 后处理<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 图像混合<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 图像量化<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 图像模糊<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 图像锐化<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 图像形态学<br>
+│&nbsp;&nbsp; ├── 加载图像<br>
+│&nbsp;&nbsp; ├── 空图像<br>
+│&nbsp;&nbsp; ├── 批处理<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 从批次获取图像<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 复制图像批次<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── 重设图像批次<br>
+│&nbsp;&nbsp; ├── 图像反转<br>
+│&nbsp;&nbsp; ├── 图像遮罩复合<br>
+│&nbsp;&nbsp; ├── 图像组合批次<br>
+│&nbsp;&nbsp; ├── 外补画板<br>
+│&nbsp;&nbsp; ├── 网页镜头捕捉<br>
+│&nbsp;&nbsp; ├── 预处理<br>
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── Canny<br>
+│&nbsp;&nbsp; └── 预览图像<br>
+├── 音频<br>
+│&nbsp;&nbsp; ├── 保存音频<br>
+│&nbsp;&nbsp; ├── 加载音频<br>
+│&nbsp;&nbsp; └── 预览音频<br>
+└── 遮罩<br>
+    ├── 纯块遮罩<br>
+    ├── 合成<br>
+    │&nbsp;&nbsp; ├── Porter-Duff图像合成<br>
+    │&nbsp;&nbsp; ├── 分离图像Alpha<br>
+    │&nbsp;&nbsp; └── 合并图像Alpha<br>
+    ├── 加载图像遮罩<br>
+    ├── 图像到遮罩<br>
+    ├── 图像颜色到遮罩<br>
+    ├── 遮罩裁剪<br>
+    ├── 遮罩到图像<br>
+    ├── 遮罩反转<br>
+    ├── 遮罩混合<br>
+    ├── 遮罩扩展<br>
+    ├── 遮罩羽化<br>
+    └── 遮罩阈值  </p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>部分节点的说明：<br>
+<a href="https://comfyui-wiki.com/zh/comfyui-nodes">ComfyUI 节点功能详解 | ComfyUI WIKI 速查手册</a><br>
+<a href="https://docs.getsalt.ai/md">Node Documentation - Salt AI Docs</a><br>
+<a href="https://blenderneko.github.io/ComfyUI-docs/Core%20Nodes">Overview page of ComfyUI core nodes - ComfyUI Community Manual</a><br>
+<a href="https://github.com/T8star1984/Comfyui-Aix-NodeMap">T8star1984/Comfyui-Aix-NodeMap: Comfyui's latest node organization and annotation, continuously updated, and supported by the Aix team/comfyui最新节点整理及注释，持续更新，AIX团队</a></p>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025年11月17日 17:31:53 UTC">2025-11-17</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚">
+        
+          
+          <a href="../install/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 部署">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                部署
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../input_workflows/" class="md-footer__link md-footer__link--next" aria-label="下一页: 导入工作流">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                导入工作流
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 licyk
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/licyk" target="_blank" rel="noopener" title="Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://space.bilibili.com/46497516" target="_blank" rel="noopener" title="哔哩哔哩" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92c-26.4-.8-48.2-9.8-65.3-27.2S.7 396.5 0 368.2V169.8c.8-26 9.7-47.6 26.7-65.7C43.8 87.8 65.5 78.8 92 78h29.4L96 52.2c-5.7-5.7-8.6-13-8.6-21.8S90.3 14.3 96 8.6 109 0 117.9 0s16.1 2.9 21.9 8.6L213.1 78h88l74.5-69.4C381.7 2.9 389.2 0 398 0s16.1 2.9 21.9 8.6c5.7 5.7 8.6 13 8.6 21.8s-2.9 16.1-8.6 21.8L394.6 78h29.3c26.4.8 48 9.8 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96c-9.6.4-17.4 3.7-23.6 9.8-6.1 6.1-9.4 13.9-9.8 23.5v194.4c0 9.2 3.3 17 9.8 23.5s14.4 9.8 23.6 9.8h320.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://licyk.netlify.app" target="_blank" rel="noopener" title="licyk的小窝" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224 24c0-13.3 10.7-24 24-24 145.8 0 264 118.2 264 264 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-119.3-96.7-216-216-216-13.3 0-24-10.7-24-24M80 96c26.5 0 48 21.5 48 48v224c0 26.5 21.5 48 48 48s48-21.5 48-48-21.5-48-48-48c-8.8 0-16-7.2-16-16v-64c0-8.8 7.2-16 16-16 79.5 0 144 64.5 144 144s-64.5 144-144 144S32 447.5 32 368V144c0-26.5 21.5-48 48-48m168 0c92.8 0 168 75.2 168 168 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3-53.7-120-120-120-13.3 0-24-10.7-24-24s10.7-24 24-24"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:licyk233@163.com" target="_blank" rel="noopener" title="联系邮箱" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant.prefetch", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.expand", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -1,0 +1,4958 @@
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../upscale/">
+      
+      
+        <link rel="next" href="../extra/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/site_resources/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>ControlNet 应用 - SD Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#controlnet" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="https://sdnote.netlify.app" title="SD Note" class="md-header__button md-logo" aria-label="SD Note" data-md-component="logo">
+      
+  <img src="../../../assets/site_resources/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SD Note
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ControlNet 应用
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="跟随系统配色" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="跟随系统配色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue" aria-label="浅色主题" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="浅色主题" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue" aria-label="黑暗主题" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="黑暗主题" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/licyk/SDNote" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    licyk/SDNote
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  部署与使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../sd_launcher/" class="md-tabs__link">
+          
+  
+  
+  绘世启动器使用
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../help/" class="md-tabs__link">
+          
+  
+  
+  使用疑难解答
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../appendix/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  附录
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://sdnote.netlify.app" title="SD Note" class="md-nav__button md-logo" aria-label="SD Note" data-md-component="logo">
+      
+  <img src="../../../assets/site_resources/logo.png" alt="logo">
+
+    </a>
+    SD Note
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/licyk/SDNote" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    licyk/SDNote
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requirement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    需求与准备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    模型指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型种类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/download_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型下载
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD WebUI 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SD WebUI 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前期配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t2i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文生图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    提示词书写
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advance_prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级提示词语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../artist_prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    画师提示词应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../i2i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图生图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lora/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LoRA 应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upscale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    放大图片
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ControlNet 应用
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ControlNet 应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet 扩展
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同 ControlNet 的作用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet 使用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ControlNet 使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-scribble-canny-mlsd-softedge-lineart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Scribble / Canny / MLSD / Softedge / Lineart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ControlNet Scribble / Canny / MLSD / Softedge / Lineart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scribble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scribble
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canny
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlsd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MLSD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#softedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Softedge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lineart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-normalmap-depth-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet NormalMap / Depth / Segmentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ControlNet NormalMap / Depth / Segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normalmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NormalMap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Segmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-openpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet OpenPose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-inpaint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Inpaint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-instructp2p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet InstructP2P
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-reclor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Reclor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-tile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Tile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-shuffle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Shuffle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Revision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP Adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多 ControlNet 使用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文生图和图生图中 ControlNet 的区别
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet-controlnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet 预处理器和 ControlNet 模型的关系
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD WebUI Forge 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SD WebUI Forge 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/common_use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常见功能使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/flux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FLUX 模型使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/video_momory_optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    显存优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sd_webui_forge/use_build_in_extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    内置扩展使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ComfyUI 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ComfyUI 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/interface_operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    界面操作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/input_workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导入工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/build_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    搭建工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/node_writing_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    节点编写指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comfyui/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InvokeAI 部署与使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    InvokeAI 部署与使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    界面
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/model_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/low_vram_mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    显存优化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/t2i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文生图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    统一画布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/upscale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    放大
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../invokeai/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    绘世启动器使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    绘世启动器使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2">
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署功能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    部署功能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    部署功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/install/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级选项
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级选项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/advance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级选项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/advance/env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    环境维护
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/advance/patch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    补丁管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4">
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    版本管理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    版本管理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/kernel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    内核
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/ver_manager/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装新扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实用功能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实用功能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    疑难解答
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/terminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制台
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    启动器设置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/zluda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    配置 ZLUDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sd_launcher/other/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用疑难解答
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    使用疑难解答
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/sd_launcher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    绘世启动器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/sd_webui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD WebUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/comfyui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ComfyUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/other/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/amd_info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD 运行问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/intel_info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intel 运行问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet 扩展
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同 ControlNet 的作用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet 使用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ControlNet 使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-scribble-canny-mlsd-softedge-lineart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Scribble / Canny / MLSD / Softedge / Lineart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ControlNet Scribble / Canny / MLSD / Softedge / Lineart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scribble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scribble
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canny
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlsd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MLSD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#softedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Softedge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lineart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-normalmap-depth-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet NormalMap / Depth / Segmentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ControlNet NormalMap / Depth / Segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normalmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NormalMap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Segmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-openpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet OpenPose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-inpaint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Inpaint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-instructp2p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet InstructP2P
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-reclor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Reclor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-tile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Tile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-shuffle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Shuffle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlnet-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet Revision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP Adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多 ControlNet 使用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文生图和图生图中 ControlNet 的区别
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlnet-controlnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ControlNet 预处理器和 ControlNet 模型的关系
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    主页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    部署与使用
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    SD WebUI 部署与使用
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/licyk/SDNote/edit/main/docs/guide/sd_webui/controlnet.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="controlnet">ControlNet 应用<a class="headerlink" href="#controlnet" title="锚链接到此处">☍</a></h1>
+<p>在 ControlNet 出现之前，控制图片的生成靠的是提示词，再加上图生图的局部重绘辅助。但在 ControlNet 出现后，控制图片变得简单了，通过图片 + 提示词的方式来更好的控制图片生成，还可以配合图生图进行生图。</p>
+<h2 id="controlnet_1">ControlNet 扩展<a class="headerlink" href="#controlnet_1" title="锚链接到此处">☍</a></h2>
+<p>如果需要使用 ControlNet，需要安装 sd-webui-controlnet 扩展。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>sd-webui-controlnet 扩展下载：<a href="https://github.com/Mikubill/sd-webui-controlnet">https://github.com/Mikubill/sd-webui-controlnet</a>。</li>
+<li>sd-webui-controlnet 扩展部分预处理器模型文件官方下载地址：<a href="https://huggingface.co/lllyasviel/Annotators/tree/main">https://huggingface.co/lllyasviel/Annotators/tree/main</a>。</li>
+<li>sd-webui-controlnet 扩展模型文件官方下载地址：<a href="https://github.com/Mikubill/sd-webui-controlnet/wiki/Model-download">https://github.com/Mikubill/sd-webui-controlnet/wiki/Model-download</a>。</li>
+<li><strong>预处理器模型文件</strong> 用于 <strong>预处理器</strong> 项，<strong>模型文件</strong> 用于 <strong>模型</strong> 项。</li>
+<li>sd-webui-controlnet 扩展 <strong>并不会</strong> 主动下载预处理器模型文件 / 模型文件，默认情况下，您需要主动的去下载模型文件并放置到对应的文件夹。而预处理器文件在首次使用对应预处理器时从网络下载。</li>
+</ol>
+</div>
+<p>如果您打算主动下载预处理器模型文件，请将下载的文件按照以下折叠内容放置到对应的文件夹内。</p>
+<details class="点击展开">
+<summary>点击展开</summary>
+<p>stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/downloads <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/anime_face_segment/UNet.pth">anime_face_segment/UNet.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/clip_g.pth">clip_vision/clip_g.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/clip_h.pth">clip_vision/clip_h.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/clip_vision/clip_vitl.pth">clip_vision/clip_vitl.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/densepose/densepose_r50_fpn_dl.torchscript">densepose/densepose_r50_fpn_dl.torchscript</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/depth_anything/depth_anything_vitl14.pth">depth_anything/depth_anything_vitl14.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/depth_anything_v2/depth_anything_v2_vitl.safetensors">depth_anything_v2/depth_anything_v2_vitl.safetensors</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/hand_refiner/hr16/ControlNet-HandRefiner-pruned/graphormer_hand_state_dict.bin">hand_refiner/hr16/ControlNet-HandRefiner-pruned/graphormer_hand_state_dict.bin</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/hand_refiner/hr16/ControlNet-HandRefiner-pruned/hrnetv2_w64_imagenet_pretrained.pth">hand_refiner/hr16/ControlNet-HandRefiner-pruned/hrnetv2_w64_imagenet_pretrained.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/hed/ControlNetHED.pth">hed/ControlNetHED.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/antelopev2/1k3d68.onnx">insightface/models/antelopev2/1k3d68.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/antelopev2/2d106det.onnx">insightface/models/antelopev2/2d106det.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/antelopev2/genderage.onnx">insightface/models/antelopev2/genderage.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/antelopev2/glintr100.onnx">insightface/models/antelopev2/glintr100.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/antelopev2/scrfd_10g_bnkps.onnx">insightface/models/antelopev2/scrfd_10g_bnkps.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/buffalo_l/1k3d68.onnx">insightface/models/buffalo_l/1k3d68.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/buffalo_l/2d106det.onnx">insightface/models/buffalo_l/2d106det.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/buffalo_l/det_10g.onnx">insightface/models/buffalo_l/det_10g.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/buffalo_l/genderage.onnx">insightface/models/buffalo_l/genderage.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/insightface/models/buffalo_l/w600k_r50.onnx">insightface/models/buffalo_l/w600k_r50.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/lama/ControlNetLama.pth">lama/ControlNetLama.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/leres/latest_net_G.pth">leres/latest_net_G.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/leres/res101.pth">leres/res101.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/lineart/sk_model.pth">lineart/sk_model.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/lineart/sk_model2.pth">lineart/sk_model2.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/lineart_anime/netG.pth">lineart_anime/netG.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/manga_line/erika.pth">manga_line/erika.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/midas/dpt_hybrid-midas-501f0c75.pt">midas/dpt_hybrid-midas-501f0c75.pt</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/mlsd/mlsd_large_512_fp32.pth">mlsd/mlsd_large_512_fp32.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/mobile_sam/mobile_sam.pt">mobile_sam/mobile_sam.pt</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/normal_bae/scannet.pt">normal_bae/scannet.pt</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/normal_dsine/dsine.pt">normal_dsine/dsine.pt</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/oneformer/150_16_swin_l_oneformer_coco_100ep.pth">oneformer/150_16_swin_l_oneformer_coco_100ep.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/oneformer/250_16_swin_l_oneformer_ade20k_160k.pth">oneformer/250_16_swin_l_oneformer_ade20k_160k.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/body_pose_model.pth">openpose/body_pose_model.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/dw-ll_ucoco_384.onnx">openpose/dw-ll_ucoco_384.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/facenet.pth">openpose/facenet.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/hand_pose_model.pth">openpose/hand_pose_model.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/rtmpose-m_simcc-ap10k_pt-aic-coco_210e-256x256-7a041aa1_20230206.onnx">openpose/rtmpose-m_simcc-ap10k_pt-aic-coco_210e-256x256-7a041aa1_20230206.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/openpose/yolox_l.onnx">openpose/yolox_l.onnx</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/pidinet/table5_pidinet.pth">pidinet/table5_pidinet.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/TEED/MTEED.pth">TEED/7_model.pth</a> <br>
+├── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/uniformer/upernet_global_small.pth">uniformer/upernet_global_small.pth</a> <br>
+└── <a href="https://modelscope.cn/models/licyks/controlnet_v1.1_annotator/resolve/master/zoedepth/ZoeD_M12_N.pt">zoedepth/ZoeD_M12_N.pt</a></p>
+</details>
+<p>安装后可在 SD WebUI 左下角的选项找到 ControNet 选项。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/controlnet_interface.jpg" data-desc-position="bottom"><img alt="controlnet_interface" src="../../../assets/images/guide/sd_webui/controlnet/controlnet_interface.jpg"></a></p>
+<p>这里简单介绍 ControlNet 扩展的几个选项。</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图片导入框</td>
+<td>上方导入图片的框就是导入作为控制条件的图片。</td>
+</tr>
+<tr>
+<td>完美像素模式</td>
+<td>可解决导入的控制图片和生成图片设置的宽高比例不同的问题。启用后 ControlNet 插件后，ControlNet 将会自动设置 Resolution 值（预处理器的分辨率），通常为最低可用分辨率。如果需要更高精度的预处理结果，需要禁用完美像素模式，手动调节  Resolution。</td>
+</tr>
+<tr>
+<td>高效子区蒙版</td>
+<td>该功能用于 ControlNet Inpaint / IP Adapter 控制类型中，用于上传预绘制的蒙版。可查看关于该选项的说明：<a href="https://github.com/Mikubill/sd-webui-controlnet/discussions/2793">What does mask upload do? · Mikubill/sd-webui-controlnet · Discussion #2793</a>。</td>
+</tr>
+<tr>
+<td>上传独立的控制图像</td>
+<td>该选项只在图生图的 ControlNet 选项中出现，当不启用该选项时， ControlNet 使用图生图中导入的图像作为 ControlNet 图像。如果启用该选项，则而外导入一张图像作为 ControlNet 图像。</td>
+</tr>
+<tr>
+<td>控制类型</td>
+<td>调节不同的控制效果，一般选择后 ControlNet 扩展会自动选择相对应的预处理器和模型，部分情况下可能需要手动选择模型。</td>
+</tr>
+<tr>
+<td>预处理器</td>
+<td>处理导入的控制图片，使控制图片成为 ControlNet 模型可识别的控制条件。如果导入的控制图片已经经过预处理器处理过，则预处理器应选择无。预处理器有许多种，预处理图片的精度各不相同，可根据自己的需求进行选择。</td>
+</tr>
+<tr>
+<td>模型</td>
+<td>选择要使用的 ControlNet 模型。</td>
+</tr>
+<tr>
+<td>中间的爆炸按钮（💥）</td>
+<td>点击后可显示预处理器处理后的控制图片。</td>
+</tr>
+<tr>
+<td>控制权重</td>
+<td>调节 ControlNet 控制的强度。</td>
+</tr>
+<tr>
+<td>引导介入 / 终止时机</td>
+<td>调节 ControlNet 介入图片生成过程的时机。</td>
+</tr>
+<tr>
+<td>控制模式</td>
+<td>调节生图时提示词和 ControlNet 这两者所占的控制强度。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="controlnet_2">不同 ControlNet 的作用<a class="headerlink" href="#controlnet_2" title="锚链接到此处">☍</a></h2>
+<p>下面列出不同 ControlNet 的作用。</p>
+<table>
+<thead>
+<tr>
+<th>种类</th>
+<th>作用</th>
+<th>控制图片</th>
+<th>处理后的控制图片</th>
+<th>效果图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11p_sd15_canny_fp16.safetensors">Canny</a></td>
+<td>使用粗略的线条描绘图片中物体的边缘，生成线稿图。生图过程中使用线稿图约束物体的边缘。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_canny.jpg" data-desc-position="bottom"><img alt="origin_canny" src="../../../assets/images/guide/sd_webui/controlnet/origin_canny.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_canny.jpg" data-desc-position="bottom"><img alt="preprocess_canny" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_canny.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_canny.jpg" data-desc-position="bottom"><img alt="output_canny" src="../../../assets/images/guide/sd_webui/controlnet/output_canny.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11f1p_sd15_depth_fp16.safetensors">Depth</a></td>
+<td>生成一个灰度图，通过灰度的深浅描述物品的前后远近关系，指导大模型生成图片时物品的远近关系。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_depth.jpg" data-desc-position="bottom"><img alt="origin_depth" src="../../../assets/images/guide/sd_webui/controlnet/origin_depth.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_depth.jpg" data-desc-position="bottom"><img alt="preprocess_depth" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_depth.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_depth.jpg" data-desc-position="bottom"><img alt="output_depth" src="../../../assets/images/guide/sd_webui/controlnet/output_depth.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11p_sd15_normalbae_fp16.safetensors">NormalMap</a></td>
+<td>生成从输入图像派生的基本法线贴图，该图像使用了三种颜色：红色、绿色和蓝色。在 3D 程序领域，这些颜色用于确定物体表面的感知光滑度或凹凸度。每个颜色通道对应于一个特定的方向，例如左 / 右、上 / 下和近 / 远，从而可以在三维环境中模拟复杂的表面特征。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_normalmap.jpg" data-desc-position="bottom"><img alt="origin_normalmap" src="../../../assets/images/guide/sd_webui/controlnet/origin_normalmap.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_normalmap.jpg" data-desc-position="bottom"><img alt="preprocess_normalmap" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_normalmap.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_normalmap.jpg" data-desc-position="bottom"><img alt="output_normalmap" src="../../../assets/images/guide/sd_webui/controlnet/output_normalmap.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11p_sd15_openpose_fp16.safetensors">Openpose</a></td>
+<td>将图片中的人物动作分析出来，并生成骨骼图，指导大模型绘制人物时的动作。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_openpose.jpg" data-desc-position="bottom"><img alt="origin_openpose" src="../../../assets/images/guide/sd_webui/controlnet/origin_openpose.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_openpose.jpg" data-desc-position="bottom"><img alt="preprocess_openpose" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_openpose.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_openpose.jpg" data-desc-position="bottom"><img alt="output_openpose" src="../../../assets/images/guide/sd_webui/controlnet/output_openpose.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11p_sd15_mlsd_fp16.safetensors">MLSD</a></td>
+<td>将图片中的场景（不包括人物）使用直线进行轮廓的大致描绘，生成大致的线条结构图。在生图过程通过线条结构图约束场景中大物件的边缘，常用于场景设计。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_mlsd.jpg" data-desc-position="bottom"><img alt="origin_mlsd" src="../../../assets/images/guide/sd_webui/controlnet/origin_mlsd.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_mlsd.jpg" data-desc-position="bottom"><img alt="preprocess_mlsd" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_mlsd.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_mlsd.jpg" data-desc-position="bottom"><img alt="output_mlsd" src="../../../assets/images/guide/sd_webui/controlnet/output_mlsd.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11p_sd15s2_lineart_anime_fp16.safetensors">Lineart</a></td>
+<td>使用更加精细的线条对图片进行描绘，生成线稿图。在生图过程中通过线稿图约束物体的边缘，常用于比较精细地还原物品的结构，保持构图结构。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_lineart.jpg" data-desc-position="bottom"><img alt="origin_lineart" src="../../../assets/images/guide/sd_webui/controlnet/origin_lineart.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_lineart.jpg" data-desc-position="bottom"><img alt="preprocess_lineart" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_lineart.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_lineart.jpg" data-desc-position="bottom"><img alt="output_lineart" src="../../../assets/images/guide/sd_webui/controlnet/output_lineart.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11p_sd15_softedge_fp16.safetensors">Softedge</a></td>
+<td>将图片中物体的边缘用软边缘线条进行描绘，生成线条图。在生图过程中通过线条图约束物体的边缘，常用于还原物品的大致结构，保持构图结构。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_softedge.jpg" data-desc-position="bottom"><img alt="origin_softedge" src="../../../assets/images/guide/sd_webui/controlnet/origin_softedge.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_softedge.jpg" data-desc-position="bottom"><img alt="preprocess_softedge" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_softedge.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_softedge.jpg" data-desc-position="bottom"><img alt="output_softedge" src="../../../assets/images/guide/sd_webui/controlnet/output_softedge.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11p_sd15_scribble_fp16.safetensors">Scribble</a></td>
+<td>将图片处理成涂鸦，类似手绘的效果，然后利用生成的涂鸦图片指导大模型生图，常用于自己画一张粗糙的涂鸦，使用该涂鸦来生成一张效果不错的图片。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_scribble.jpg" data-desc-position="bottom"><img alt="origin_scribble" src="../../../assets/images/guide/sd_webui/controlnet/origin_scribble.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_scribble.jpg" data-desc-position="bottom"><img alt="preprocess_scribble" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_scribble.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_scribble.jpg" data-desc-position="bottom"><img alt="output_scribble" src="../../../assets/images/guide/sd_webui/controlnet/output_scribble.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11p_sd15_seg_fp16.safetensors">Segmentation</a></td>
+<td>将图片进行语义分割，将不同的画面元素用不同的颜色进行标注，生成语义分割图。在生图的过程中使用语义分割图指导大模型在对应的区域绘制不同颜色对应的物品，常用于大致规划图片构图。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_segmentation.jpg" data-desc-position="bottom"><img alt="origin_segmentation" src="../../../assets/images/guide/sd_webui/controlnet/origin_segmentation.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_segmentation.jpg" data-desc-position="bottom"><img alt="preprocess_segmentation" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_segmentation.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_segmentation.jpg" data-desc-position="bottom"><img alt="output_segmentation" src="../../../assets/images/guide/sd_webui/controlnet/output_segmentation.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11e_sd15_shuffle_fp16.safetensors">Shuffle</a></td>
+<td>将图片进行随机变换，然后将变换后的图像作为参考，指导图片生成的过程（风格迁移）。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_shuffle.jpg" data-desc-position="bottom"><img alt="origin_shuffle" src="../../../assets/images/guide/sd_webui/controlnet/origin_shuffle.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_shuffle.jpg" data-desc-position="bottom"><img alt="preprocess_shuffle" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_shuffle.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_shuffle.jpg" data-desc-position="bottom"><img alt="output_shuffle" src="../../../assets/images/guide/sd_webui/controlnet/output_shuffle.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11f1e_sd15_tile_fp16.safetensors">Tile/Blur</a></td>
+<td>Tile 将图片分割成一个个小区快，在对每个小区快进行重绘。Tile 不仅可以用作图片放大，增加图片的细节，也可以保持图片的整体构图不被改变，可用于风格转换。Blur 将图片进行高斯模糊，用作生成图片的参考，有点类似图生图，但整体构图不会改变太多。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_tile.jpg" data-desc-position="bottom"><img alt="origin_tile" src="../../../assets/images/guide/sd_webui/controlnet/origin_tile.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_tile.jpg" data-desc-position="bottom"><img alt="preprocess_tile" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_tile.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_tile.jpg" data-desc-position="bottom"><img alt="origin_tile" src="../../../assets/images/guide/sd_webui/controlnet/origin_tile.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11p_sd15_inpaint_fp16.safetensors">Inpaint</a></td>
+<td>重绘画笔涂抹过的区域，和 SD WebUI 自带的局部重绘功能类似。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_inpaint.jpg" data-desc-position="bottom"><img alt="origin_inpaint" src="../../../assets/images/guide/sd_webui/controlnet/origin_inpaint.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_inpaint.jpg" data-desc-position="bottom"><img alt="preprocess_inpaint" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_inpaint.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_inpaint.jpg" data-desc-position="bottom"><img alt="output_inpaint" src="../../../assets/images/guide/sd_webui/controlnet/output_inpaint.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=control_v11e_sd15_ip2p_fp16.safetensors">InstructP2P</a></td>
+<td>将提示词作为命令，指定修改图片中的元素，但不改变构图。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_instructp2p.jpg" data-desc-position="bottom"><img alt="origin_instructp2p" src="../../../assets/images/guide/sd_webui/controlnet/origin_instructp2p.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_instructp2p.jpg" data-desc-position="bottom"><img alt="preprocess_instructp2p" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_instructp2p.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_instructp2p.jpg" data-desc-position="bottom"><img alt="output_instructp2p" src="../../../assets/images/guide/sd_webui/controlnet/output_instructp2p.jpg"></a></td>
+</tr>
+<tr>
+<td>Reference</td>
+<td>将输入的图片作为参考，有点类似图生图。相对于图生图的效果，画面有着更多样的变化，不会过于呆板，输入图的风格也能迁移到生成出来的图片中。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_reference.jpg" data-desc-position="bottom"><img alt="origin_reference" src="../../../assets/images/guide/sd_webui/controlnet/origin_reference.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_reference.jpg" data-desc-position="bottom"><img alt="preprocess_reference" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_reference.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_reference.jpg" data-desc-position="bottom"><img alt="output_reference" src="../../../assets/images/guide/sd_webui/controlnet/output_reference.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=ioclab_sd15_recolor.safetensors">Recolor</a></td>
+<td>根据提示词的描述，对黑白的图片进行上色</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_recolor.jpg" data-desc-position="bottom"><img alt="origin_recolor" src="../../../assets/images/guide/sd_webui/controlnet/origin_recolor.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_recolor.jpg" data-desc-position="bottom"><img alt="preprocess_recolor" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_recolor.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_recolor.jpg" data-desc-position="bottom"><img alt="output_recolor" src="../../../assets/images/guide/sd_webui/controlnet/output_recolor.jpg"></a></td>
+</tr>
+<tr>
+<td>Revision</td>
+<td>使用 CLIP Vision 分析图片，并指导图片的生成。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_revision.jpg" data-desc-position="bottom"><img alt="origin_revision" src="../../../assets/images/guide/sd_webui/controlnet/origin_revision.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_revision.jpg" data-desc-position="bottom"><img alt="preprocess_revision" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_revision.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_revision.jpg" data-desc-position="bottom"><img alt="output_revision" src="../../../assets/images/guide/sd_webui/controlnet/output_revision.jpg"></a></td>
+</tr>
+<tr>
+<td><a href="https://modelscope.cn/api/v1/models/licyks/controlnet_v1.1/repo?Revision=master&amp;FilePath=ip-adapter_sd15_plus.pth">IP-Adapter</a></td>
+<td>使用 CLIP Vision 分析输入图片的信息，并将得出的信息作用于图像的生成过程中，常用于迁移画风，并搭配其他控制构图的 Controlnet 一起使用。</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/origin_ipadapter.jpg" data-desc-position="bottom"><img alt="origin_ipadapter" src="../../../assets/images/guide/sd_webui/controlnet/origin_ipadapter.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/preprocess_ipadapter.jpg" data-desc-position="bottom"><img alt="preprocess_ipadapter" src="../../../assets/images/guide/sd_webui/controlnet/preprocess_ipadapter.jpg"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/output_ipadapter.jpg" data-desc-position="bottom"><img alt="output_ipadapter" src="../../../assets/images/guide/sd_webui/controlnet/output_ipadapter.jpg"></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>点击种类的名称可下载对应的 ControlNet 模型，ControlNet 模型放置在 stable-diffusion-webui/models/ControlNet 路径中</p>
+</div>
+<p>不同的 ControlNet 可组合起来一起使用，实现不同的效果。</p>
+<hr>
+<h2 id="controlnet_3">ControlNet 使用<a class="headerlink" href="#controlnet_3" title="锚链接到此处">☍</a></h2>
+<p>下面介绍不同 ControlNet 控制类型的使用。</p>
+<h3 id="controlnet-scribble-canny-mlsd-softedge-lineart">ControlNet Scribble / Canny / MLSD / Softedge / Lineart<a class="headerlink" href="#controlnet-scribble-canny-mlsd-softedge-lineart" title="锚链接到此处">☍</a></h3>
+<p>该控制类型属于边缘类控制，Scribble / Canny / MLSD / Softedge / Lineart 控制的精度各不同。</p>
+<p>对画面的控制的精度：Scribble &lt; Canny &lt; Softedge &lt; MLSD &lt; Lineart</p>
+<h4 id="scribble">Scribble<a class="headerlink" href="#scribble" title="锚链接到此处">☍</a></h4>
+<p>这个 ControlNet 类型通常用于将涂鸦转换为图片，可以发挥自己的灵魂画技画一张草稿，再用 ControlNet Scribble 将涂鸦转换为一张想要的壁纸。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_scribble_controlnet_type.png" data-desc-position="bottom"><img alt="use_scribble_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_scribble_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors">xinsir-controlnet-union-sdxl-1.0-promax.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>ControlNet 扩展下方可以调节 Scribble 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>XDoG Threshold（scribble_xdog 预处理器）</td>
+<td>设置边缘检测灵敏度。较低的值将导致检测到更多的边缘，从而可能捕获更精细的细节，而较高的值将集中在更突出的边缘上，从而减少杂色。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>scribble_pidinet</th>
+<th>scribble_xdog</th>
+<th>scribble_hed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_scribble.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_scribble" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_scribble.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/scribble_pidinet_preprocess.png" data-desc-position="bottom"><img alt="scribble_pidinet_preprocess" src="../../../assets/images/guide/sd_webui/controlnet/scribble_pidinet_preprocess.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/scribble_xdog_preprocess.png" data-desc-position="bottom"><img alt="scribble_xdog_preprocess" src="../../../assets/images/guide/sd_webui/controlnet/scribble_xdog_preprocess.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/scribble_hed_preprocess.png" data-desc-position="bottom"><img alt="scribble_hed_preprocess" src="../../../assets/images/guide/sd_webui/controlnet/scribble_hed_preprocess.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="canny">Canny<a class="headerlink" href="#canny" title="锚链接到此处">☍</a></h4>
+<p>Canny 控制类型的相比于 Scribble，精确度就比较高，可以用于复刻图片或者做艺术字等。</p>
+<table>
+<thead>
+<tr>
+<th><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_canny_controlnet_type_1.png" data-desc-position="bottom"><img alt="use_canny_controlnet_type_1" src="../../../assets/images/guide/sd_webui/controlnet/use_canny_controlnet_type_1.png"></a></th>
+<th><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_canny_controlnet_type_2.png" data-desc-position="bottom"><img alt="use_canny_controlnet_type_2" src="../../../assets/images/guide/sd_webui/controlnet/use_canny_controlnet_type_2.png"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors">xinsir-controlnet-union-sdxl-1.0-promax.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>ControlNet 扩展下方可以调节 Canny 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>Low Threshold</td>
+<td>去掉过细的线段。大于低阈值的线段被认定为边缘。</td>
+</tr>
+<tr>
+<td>High Threshold</td>
+<td>去掉零散的线段。大于高阈值的线段被认定为强边缘，全部保留；高阈值和低阈值之间的线段认定为弱边缘，只保留强边缘相邻的弱边缘。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>canny</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_canny.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_canny" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_canny.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/canny.png" data-desc-position="bottom"><img alt="canny" src="../../../assets/images/guide/sd_webui/controlnet/canny.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="mlsd">MLSD<a class="headerlink" href="#mlsd" title="锚链接到此处">☍</a></h4>
+<p>MLSD 比较特殊，使用 MLSD 的预处理图片时，预处理器只会识别到图片中包含直线的部分（通常是建筑，物体），其他部分并不会识别到（如人物），所以这个控制类型适合控制建筑类的生成。</p>
+<table>
+<thead>
+<tr>
+<th><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_mlsd_controlnet_type_1.png" data-desc-position="bottom"><img alt="use_mlsd_controlnet_type_1" src="../../../assets/images/guide/sd_webui/controlnet/use_mlsd_controlnet_type_1.png"></a></th>
+<th><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_mlsd_controlnet_type_2.png" data-desc-position="bottom"><img alt="use_mlsd_controlnet_type_2" src="../../../assets/images/guide/sd_webui/controlnet/use_mlsd_controlnet_type_2.png"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors">xinsir-controlnet-union-sdxl-1.0-promax.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>ControlNet 扩展下方可以调节 MLSD 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>MLSD Value Threshold</td>
+<td>直线阈值。值越低，检测的直线越多。</td>
+</tr>
+<tr>
+<td>MLSD Distance Threshold</td>
+<td>距离阈值。对检测的之间进行距离筛选。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>mlsd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_mlsd.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_mlsd" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_mlsd.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/mlsd.png" data-desc-position="bottom"><img alt="mlsd" src="../../../assets/images/guide/sd_webui/controlnet/mlsd.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="softedge">Softedge<a class="headerlink" href="#softedge" title="锚链接到此处">☍</a></h4>
+<p>Softedge 的精度较高，预处理出的控制图片的边缘更加平滑，并且忽略内部的细节，可以让 AI 有更多的发挥空间。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_softedge_controlnet_type.png" data-desc-position="bottom"><img alt="use_softedge_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_softedge_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors">xinsir-controlnet-union-sdxl-1.0-promax.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>ControlNet 下方可以调节 Softedge 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>Safe Steps（softedge_teed、softedge_anyline 预处理器）</td>
+<td>这个值越大，预处理得到的图片画面越干净。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>softedge_pidinet</th>
+<th>softedge_teed</th>
+<th>softedge_pidisafe</th>
+<th>softedge_hedsafe</th>
+<th>softedge_hed</th>
+<th>softedge_anyline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_softedge.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_softedge" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_softedge.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/softedge_pidinet.png" data-desc-position="bottom"><img alt="softedge_pidinet" src="../../../assets/images/guide/sd_webui/controlnet/softedge_pidinet.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/softedge_teed.png" data-desc-position="bottom"><img alt="softedge_teed" src="../../../assets/images/guide/sd_webui/controlnet/softedge_teed.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/softedge_pidisafe.png" data-desc-position="bottom"><img alt="softedge_pidisafe" src="../../../assets/images/guide/sd_webui/controlnet/softedge_pidisafe.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/softedge_hedsafe.png" data-desc-position="bottom"><img alt="softedge_hedsafe" src="../../../assets/images/guide/sd_webui/controlnet/softedge_hedsafe.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/softedge_hed.png" data-desc-position="bottom"><img alt="softedge_hed" src="../../../assets/images/guide/sd_webui/controlnet/softedge_hed.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/softedge_anyline.png" data-desc-position="bottom"><img alt="softedge_anyline" src="../../../assets/images/guide/sd_webui/controlnet/softedge_anyline.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="lineart">Lineart<a class="headerlink" href="#lineart" title="锚链接到此处">☍</a></h4>
+<p>Lineart 控制类型的精度最高，可以用于线稿上色等。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_lineart_controlnet_type.png" data-desc-position="bottom"><img alt="use_lineart_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_lineart_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors">xinsir-controlnet-union-sdxl-1.0-promax.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。  </li>
+<li>如果控制图片是白底线稿，只需要 invert 预处理器将导入的图片进行反色就成为 ControlNet Lineart 的控制图片了。</li>
+</ol>
+</div>
+<p>ControlNet 下方可以调节 Lineart 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同 Lineart 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>lineart_standard</th>
+<th>lineart_realistic</th>
+<th>lineart_coarse</th>
+<th>lineart_anime_denoise</th>
+<th>lineart_anime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_lineart.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_lineart" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_lineart.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/lineart_standard.png" data-desc-position="bottom"><img alt="lineart_standard" src="../../../assets/images/guide/sd_webui/controlnet/lineart_standard.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/lineart_realistic.png" data-desc-position="bottom"><img alt="lineart_realistic" src="../../../assets/images/guide/sd_webui/controlnet/lineart_realistic.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/lineart_coarse.png" data-desc-position="bottom"><img alt="lineart_coarse" src="../../../assets/images/guide/sd_webui/controlnet/lineart_coarse.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/lineart_anime_denoise.png" data-desc-position="bottom"><img alt="lineart_anime_denoise" src="../../../assets/images/guide/sd_webui/controlnet/lineart_anime_denoise.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/lineart_anime.png" data-desc-position="bottom"><img alt="lineart_anime" src="../../../assets/images/guide/sd_webui/controlnet/lineart_anime.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="controlnet-normalmap-depth-segmentation">ControlNet NormalMap / Depth / Segmentation<a class="headerlink" href="#controlnet-normalmap-depth-segmentation" title="锚链接到此处">☍</a></h3>
+<p>这类控制类型类似边缘控制，也能提供比较高的精度控制。</p>
+<h4 id="normalmap">NormalMap<a class="headerlink" href="#normalmap" title="锚链接到此处">☍</a></h4>
+<p>该控制类型通过法线贴图进行控制，可以为 AI 提供方位信息用于生成，可以更加精准的控制生成的图片中的元素方位，如人物面向的方向等。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_normal_map_controlnet_type.png" data-desc-position="bottom"><img alt="use_normal_map_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_normal_map_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors">xinsir-controlnet-union-sdxl-1.0-promax.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>ControlNet 下方可以调节 NormalMap 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>Normal Background Threshold（normal_midas 预处理器）</td>
+<td>控制图片中多远的背景元素被消除，该值越高，法线贴图中远处部分消失的越多。</td>
+</tr>
+<tr>
+<td>Fov（normal_dsine 预处理器）</td>
+<td>控制在任何给定时刻看到的可观察世界的范围，影响输入图像的透视来影响法线贴图的生成方式。较高的值会使视图更宽，捕获更多的场景，而较低的值会缩小视图。</td>
+</tr>
+<tr>
+<td>Iterations（normal_dsine 预处理器）</td>
+<td>设置预处理器的迭代步数，类似图片生成参数中的迭代步数。值越高，预处理得到的发现贴图质量越高。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>normal_bae</th>
+<th>normal_midas</th>
+<th>normal_dsine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_normal_map.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_normal_map" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_normal_map.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/normal_bae.png" data-desc-position="bottom"><img alt="normal_bae" src="../../../assets/images/guide/sd_webui/controlnet/normal_bae.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/normal_midas.png" data-desc-position="bottom"><img alt="normal_midas" src="../../../assets/images/guide/sd_webui/controlnet/normal_midas.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/normal_dsine.png" data-desc-position="bottom"><img alt="normal_dsine" src="../../../assets/images/guide/sd_webui/controlnet/normal_dsine.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="depth">Depth<a class="headerlink" href="#depth" title="锚链接到此处">☍</a></h4>
+<p>该控制类型通过灰度图中带的远近前后关系，控制 AI 生成元素时的远近前后关系。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_depth_controlnet_type.png" data-desc-position="bottom"><img alt="use_depth_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_depth_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors">xinsir-controlnet-union-sdxl-1.0-promax.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>ControlNet 下方可以调节 Depth 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>Remove Near %（depth_leres++ / depth_leres 预处理器）</td>
+<td>将较亮的区域剪辑为全白，从而有效地将图像的较近部分涂抹为平面，就像卡通人物撞到一块玻璃一样。值越高，深度贴图的近处部分就越容易被压平和模糊。</td>
+</tr>
+<tr>
+<td>Remove Background %（depth_leres++ / depth_leres 预处理器）</td>
+<td>将较暗的区域剪辑为全黑，从而有效地使它们消失在阴影中。值越高，深度贴图的远处部分消失得越多。这对于剪切背景中不需要的元素非常有用。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>depth_midas</th>
+<th>depth_zoe</th>
+<th>depth_leres++</th>
+<th>depth_leres</th>
+<th>depth_hand_refiner</th>
+<th>depth_anything_v2</th>
+<th>depth_anything</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_depth.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_depth" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_depth.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/depth_midas.png" data-desc-position="bottom"><img alt="depth_midas" src="../../../assets/images/guide/sd_webui/controlnet/depth_midas.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/depth_zoe.png" data-desc-position="bottom"><img alt="depth_zoe" src="../../../assets/images/guide/sd_webui/controlnet/depth_zoe.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/depth_leres%2B%2B.png" data-desc-position="bottom"><img alt="depth_leres++" src="../../../assets/images/guide/sd_webui/controlnet/depth_leres%2B%2B.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/depth_leres.png" data-desc-position="bottom"><img alt="depth_leres" src="../../../assets/images/guide/sd_webui/controlnet/depth_leres.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/depth_hand_refiner.png" data-desc-position="bottom"><img alt="depth_hand_refiner" src="../../../assets/images/guide/sd_webui/controlnet/depth_hand_refiner.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/depth_anything_v2.png" data-desc-position="bottom"><img alt="depth_anything_v2" src="../../../assets/images/guide/sd_webui/controlnet/depth_anything_v2.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/depth_anything.png" data-desc-position="bottom"><img alt="depth_anything" src="../../../assets/images/guide/sd_webui/controlnet/depth_anything.png"></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>depth_hand_refiner 预处理器专门用于识别手部并只生成手部的深度图，因为该预处理器在训练时可能缺少二次元图片的训练集，所以对于二次元图片的手部识别较差。</p>
+</div>
+<h4 id="segmentation">Segmentation<a class="headerlink" href="#segmentation" title="锚链接到此处">☍</a></h4>
+<p>该控制类型通过对图片进行语义分割，使用不同的颜色对图片元素进行标记，使模型在生成图片时能够根据颜色信息在对应的颜色位置生成对应的元素。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_segmentation_controlnet_type.png" data-desc-position="bottom"><img alt="use_segmentation_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_segmentation_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors">xinsir-controlnet-union-sdxl-1.0-promax.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。  </li>
+<li>Segmentation 分割图像使用的颜色对应的元素可参考：<a href="https://modelscope.cn/models/licyks/sdnote/resolve/master/other/%E5%A4%A7%E6%B1%9F%E6%88%B7%E6%88%98%E5%A3%AB%E6%95%B4%E7%90%86%E7%9A%84Seg%E5%88%86%E9%9A%94.pdf">大江户战士整理的Seg分隔.pdf</a>。</li>
+</ol>
+</div>
+<p>ControlNet 下方可以调节 Segmentation 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>seg_ofade20k</th>
+<th>seg_ufade20k</th>
+<th>seg_ofcoco</th>
+<th>seg_anime_face</th>
+<th>mobile_sam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_segmentation.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_segmentation" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_segmentation.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/seg_ofade20k.png" data-desc-position="bottom"><img alt="seg_ofade20k" src="../../../assets/images/guide/sd_webui/controlnet/seg_ofade20k.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/seg_ufade20k.png" data-desc-position="bottom"><img alt="seg_ufade20k" src="../../../assets/images/guide/sd_webui/controlnet/seg_ufade20k.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/seg_ofcoco.png" data-desc-position="bottom"><img alt="seg_ofcoco" src="../../../assets/images/guide/sd_webui/controlnet/seg_ofcoco.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/seg_anime_face.png" data-desc-position="bottom"><img alt="seg_anime_face" src="../../../assets/images/guide/sd_webui/controlnet/seg_anime_face.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/mobile_sam.png" data-desc-position="bottom"><img alt="mobile_sam" src="../../../assets/images/guide/sd_webui/controlnet/mobile_sam.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="controlnet-openpose">ControlNet OpenPose<a class="headerlink" href="#controlnet-openpose" title="锚链接到此处">☍</a></h3>
+<p>该控制类型通过骨架图，精准地控制人物动作。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_openpose_controlnet_type.png" data-desc-position="bottom"><img alt="use_openpose_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_openpose_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors">xinsir-controlnet-union-sdxl-1.0-promax.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>ControlNet 下方可以调节 OpenPose 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>openpose_full</th>
+<th>openpose_hand</th>
+<th>openpose_faceonly</th>
+<th>openpose_face</th>
+<th>openpose</th>
+<th>dw_openpose_full</th>
+<th>densepose_parula</th>
+<th>densepose</th>
+<th>animal_openpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_openpose.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_openpose" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_openpose.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/openpose_full.png" data-desc-position="bottom"><img alt="openpose_full" src="../../../assets/images/guide/sd_webui/controlnet/openpose_full.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/openpose_hand.png" data-desc-position="bottom"><img alt="openpose_hand" src="../../../assets/images/guide/sd_webui/controlnet/openpose_hand.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/openpose_faceonly.png" data-desc-position="bottom"><img alt="openpose_faceonly" src="../../../assets/images/guide/sd_webui/controlnet/openpose_faceonly.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/openpose_face.png" data-desc-position="bottom"><img alt="openpose_face" src="../../../assets/images/guide/sd_webui/controlnet/openpose_face.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/openpose.png" data-desc-position="bottom"><img alt="openpose" src="../../../assets/images/guide/sd_webui/controlnet/openpose.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/dw_openpose_full.png" data-desc-position="bottom"><img alt="dw_openpose_full" src="../../../assets/images/guide/sd_webui/controlnet/dw_openpose_full.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/densepose_parula.png" data-desc-position="bottom"><img alt="densepose_parula" src="../../../assets/images/guide/sd_webui/controlnet/densepose_parula.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/densepose.png" data-desc-position="bottom"><img alt="densepose" src="../../../assets/images/guide/sd_webui/controlnet/densepose.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/animal_openpose.png" data-desc-position="bottom"><img alt="animal_openpose" src="../../../assets/images/guide/sd_webui/controlnet/animal_openpose.png"></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>因为部分预处理器在训练时训练集缺少二次元类型的图片，所以预处理器的识别效果较差。  </li>
+<li>可以使用 <a href="https://github.com/huchenlei/sd-webui-openpose-editor">sd-webui-openpose-editor</a> 扩展对骨架图进行编辑，导入图片到 ControlNet 扩展后，选择识别效果比较好的预处理器，如 dw_openpose_full，再点击 💥 对图片进行预处理，处理图片完成后可以在预处理结果看到处理好的图片，此时点击第二个<strong>编辑</strong>按钮进入 sd-webui-openpose-editor。<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_openpose_editor_to_edit_pose.png" data-desc-position="bottom"><img alt="use_openpose_editor_to_edit_pose" src="../../../assets/images/guide/sd_webui/controlnet/use_openpose_editor_to_edit_pose.png"></a><br>
+在里面对骨架图编辑好后，<strong>点击发送姿势到ControlNet</strong>，将编辑后的骨架图发送回 ControlNet 扩展中，再进行图片生成，这样可以得到比较好的效果。  </li>
+<li>sd-webui-openpose-editor 扩展下载：<a href="https://github.com/huchenlei/sd-webui-openpose-editor">https://github.com/huchenlei/sd-webui-openpose-editor</a></li>
+</ol>
+</div>
+<h3 id="controlnet-inpaint">ControlNet Inpaint<a class="headerlink" href="#controlnet-inpaint" title="锚链接到此处">☍</a></h3>
+<p>该功能类似图生图的局部重绘功能，用于对图片进行重绘。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_inpaint_controlnet_type.png" data-desc-position="bottom"><img alt="use_inpaint_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_inpaint_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion 1.5 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sd_1.5/nai1-artist_all_in_one_merge.safetensors">nai1-artist_all_in_one_merge.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/controlnet_v1.1/resolve/master/control_v11p_sd15_inpaint_fp16.safetensors">control_v11p_sd15_inpaint_fp16.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>下面是不同预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>inpaint_only</th>
+<th>inpaint_only+lama</th>
+<th>inpaint_global_harmonious</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_inpaint.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_inpaint" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_inpaint.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/inpaint_only.png" data-desc-position="bottom"><img alt="inpaint_only" src="../../../assets/images/guide/sd_webui/controlnet/inpaint_only.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/inpaint_only%2Blama.png" data-desc-position="bottom"><img alt="inpaint_only+lama" src="../../../assets/images/guide/sd_webui/controlnet/inpaint_only%2Blama.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/inpaint_global_harmonious.png" data-desc-position="bottom"><img alt="inpaint_global_harmonious" src="../../../assets/images/guide/sd_webui/controlnet/inpaint_global_harmonious.png"></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>ControlNet Inpaint 的效果可在图生图中做到，在图生图界面中，将<strong>蒙版区域内容处理</strong>选择为<strong>潜空间噪声</strong>或者<strong>空白潜空间</strong>即可得到一样的效果。  </li>
+<li>inpaint_only 预处理仅仅是对图片进行重绘，inpaint_only+lama 通过 Lama 模型对要局部重回的区域进行元素消除后再进行局部重绘，inpaint_global_harmonious 在对图片进行局部重绘后，根据重绘部分的结果，对非重绘部分进行整体调色，使重绘部分和非重绘部分的衔接更好。</li>
+</ol>
+</div>
+<h3 id="controlnet-instructp2p">ControlNet InstructP2P<a class="headerlink" href="#controlnet-instructp2p" title="锚链接到此处">☍</a></h3>
+<p>通过提示词定向修改图片中某个元素，但保持基本构图一致。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_instructp2p_controlnet_type.png" data-desc-position="bottom"><img alt="use_instructp2p_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_instructp2p_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion 1.5 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sd_1.5/nai1-artist_all_in_one_merge.safetensors">nai1-artist_all_in_one_merge.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/controlnet_v1.1/resolve/master/control_v11e_sd15_ip2p_fp16.safetensors">control_v11e_sd15_ip2p_fp16.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<h3 id="controlnet-reclor">ControlNet Reclor<a class="headerlink" href="#controlnet-reclor" title="锚链接到此处">☍</a></h3>
+<p>该控制类型用于对黑白图片进行重上色，根据提示词对图片的色彩进行还原，但保持原图的一致性。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_recolor_controlnet_type.png" data-desc-position="bottom"><img alt="use_recolor_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_recolor_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/control-lora/resolve/master/control-lora-recolor-rank128-sdxl.safetensors">control-lora-recolor-rank128-sdxl.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>ControlNet 下方可以调节 OpenPose 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>Gamma Correction</td>
+<td>调整预处理得到的图片亮度和对比度。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>recolor_luminance</th>
+<th>recolor_intensity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_recolor.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_recolor" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_recolor.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/recolor_luminance.png" data-desc-position="bottom"><img alt="recolor_luminance" src="../../../assets/images/guide/sd_webui/controlnet/recolor_luminance.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/recolor_intensity.png" data-desc-position="bottom"><img alt="recolor_intensity" src="../../../assets/images/guide/sd_webui/controlnet/recolor_intensity.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="controlnet-tile">ControlNet Tile<a class="headerlink" href="#controlnet-tile" title="锚链接到此处">☍</a></h3>
+<p>该控制类型能够保持和原图的一致性，并且能够为原图增加细节。在低 ControlNet 权重下可用于风格转换，高 ControlNet 权重下为图片增加细节。</p>
+<table>
+<thead>
+<tr>
+<th><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_tile_controlnet_type_1.png" data-desc-position="bottom"><img alt="use_tile_controlnet_type_1" src="../../../assets/images/guide/sd_webui/controlnet/use_tile_controlnet_type_1.png"></a></th>
+<th><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_tile_controlnet_type_2.png" data-desc-position="bottom"><img alt="use_tile_controlnet_type_2" src="../../../assets/images/guide/sd_webui/controlnet/use_tile_controlnet_type_2.png"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/xinsir-controlnet-union-sdxl-1.0-promax.safetensors">xinsir-controlnet-union-sdxl-1.0-promax.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>ControlNet 下方可以调节 Tile 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>Down Sampling Rate（tile_resample 预处理器）</td>
+<td>增加预处理器得到的图片模糊度，有助于 ControlNet Tile 为图片增加细节。值越高，模糊效果越强。</td>
+</tr>
+<tr>
+<td>Variation（tile_colorfix+sharp / tile_colorfix 预处理器）</td>
+<td>调节变化的程度。</td>
+</tr>
+<tr>
+<td>Sharpness（tile_colorfix+sharp 预处理器）</td>
+<td>为预处理后的图片增加锐化效果。</td>
+</tr>
+<tr>
+<td>Sigma（blur_gaussian 预处理器）</td>
+<td>调节模糊效果。值越大，模糊效果越强。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>tile_resample</th>
+<th>tile_colorfix+sharp</th>
+<th>tile_colorfix</th>
+<th>blur_gaussian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_tile.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_tile" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_tile.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/tile_resample.png" data-desc-position="bottom"><img alt="tile_resample" src="../../../assets/images/guide/sd_webui/controlnet/tile_resample.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/tile_colorfix%2Bsharp.png" data-desc-position="bottom"><img alt="tile_colorfix+sharp" src="../../../assets/images/guide/sd_webui/controlnet/tile_colorfix%2Bsharp.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/tile_colorfix.png" data-desc-position="bottom"><img alt="tile_colorfix" src="../../../assets/images/guide/sd_webui/controlnet/tile_colorfix.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/blur_gaussian.png" data-desc-position="bottom"><img alt="blur_gaussian" src="../../../assets/images/guide/sd_webui/controlnet/blur_gaussian.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="controlnet-shuffle">ControlNet Shuffle<a class="headerlink" href="#controlnet-shuffle" title="锚链接到此处">☍</a></h3>
+<p>该控制类型通过打乱元素的图片，实现风格迁移（在整体上色方面）。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_shuffle_controlnet_type.png" data-desc-position="bottom"><img alt="use_shuffle_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_shuffle_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion 1.5 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sd_1.5/nai1-artist_all_in_one_merge.safetensors">nai1-artist_all_in_one_merge.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/controlnet_v1.1/resolve/master/control_v11e_sd15_shuffle_fp16.safetensors">control_v11e_sd15_shuffle_fp16.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>下面是不同预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无</th>
+<th>shuffle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_shuffle.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_shuffle" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_shuffle.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/shuffle.png" data-desc-position="bottom"><img alt="shuffle" src="../../../assets/images/guide/sd_webui/controlnet/shuffle.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="controlnet-reference">ControlNet Reference<a class="headerlink" href="#controlnet-reference" title="锚链接到此处">☍</a></h3>
+<p>该控制类型通过参考导入 ControlNet 的图片，将图片中的画风进行迁移。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_shuffle_controlnet_type.png" data-desc-position="bottom"><img alt="use_reference_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_shuffle_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。</p>
+</div>
+<p>ControlNet 下方可以调节 Reference 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>Style Fidelity (only for Balanced mode)（仅在 ControlNet 控制模式为<strong>均衡</strong>模式下生效）</td>
+<td>调节风格迁移的强度。值越高，迁移画风的效果越强烈。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是不同预处理器下生成的结果。</p>
+<table>
+<thead>
+<tr>
+<th>预处理器</th>
+<th>无（参考图）</th>
+<th>reference_only</th>
+<th>reference_adain+attn</th>
+<th>reference_adain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_reference.png" data-desc-position="bottom"><img alt="image_before_preprocess_for_reference" src="../../../assets/images/guide/sd_webui/controlnet/image_before_preprocess_for_reference.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/reference_only.png" data-desc-position="bottom"><img alt="reference_only" src="../../../assets/images/guide/sd_webui/controlnet/reference_only.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/reference_adain%2Battn.png" data-desc-position="bottom"><img alt="reference_adain+attn" src="../../../assets/images/guide/sd_webui/controlnet/reference_adain%2Battn.png"></a></td>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/reference_adain.png" data-desc-position="bottom"><img alt="reference_adain" src="../../../assets/images/guide/sd_webui/controlnet/reference_adain.png"></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="controlnet-revision">ControlNet Revision<a class="headerlink" href="#controlnet-revision" title="锚链接到此处">☍</a></h3>
+<p>使用 CLIP Vision 理解导入 COntrolNet 扩展的图片，并作为提示词进行图片生成。</p>
+<p>ControlNet 下方可以调节 Revision 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>Noise Augmentation</td>
+<td>类似图生图中重绘幅度。</td>
+</tr>
+</tbody>
+</table>
+<p>预处理器中 revision_clipvision 是将 CLIP Vision 解析图片得到的提示信息和原有的提示词共同控制图片生成，而 revision_ignore_prompt 则忽略原有的提示词，只使用 CLIP Vision 解析图片得到的提示信息进行图片生成。</p>
+<h3 id="ip-adapter">IP Adapter<a class="headerlink" href="#ip-adapter" title="锚链接到此处">☍</a></h3>
+<p>这个控制类型拥有较强的风格迁移效果，可用于保持人物特征一致性或者进行风格迁移。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_ip_adapter_controlnet_type.png" data-desc-position="bottom"><img alt="use_ip_adapter_controlnet_type" src="../../../assets/images/guide/sd_webui/controlnet/use_ip_adapter_controlnet_type.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用的模型：<br>
+Stable Diffusion XL 模型：<a href="https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/Illustrious-XL-v0.1.safetensors">Illustrious-XL-v0.1.safetensors</a>，模型放在<code>stable-diffusion-webui/models/Stable-diffusion</code>路径中。<br>
+ControlNet 模型：<a href="https://modelscope.cn/models/licyks/sd_control_collection/resolve/master/ip-adapter-plus_sdxl_vit-h.safetensors">ip-adapter-plus_sdxl_vit-h.safetensors</a>，模型放在<code>stable-diffusion-webui/models/ControlNet</code>路径中。</p>
+</div>
+<p>ControlNet 下方可以调节 Tile 预处理器的效果。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resolution</td>
+<td>调节预处理器的分辨率。</td>
+</tr>
+<tr>
+<td>Weight Type</td>
+<td>调节 IP Adapter 对模型权重的控制方式。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="controlnet_4">多 ControlNet 使用<a class="headerlink" href="#controlnet_4" title="锚链接到此处">☍</a></h2>
+<p>不同的 ControlNet 类型可以共同控制图片的生成，在 ControlNet 扩展界面中可以看到 3 个 ControlNet 控制单元，可以将这些控制单元启用，并分别设置好不同的参数，即可使用多重 ControlNet 控制图片的生成。</p>
+<p>下面是使用 ControlNet Reference + ControlNet Lineart 进行生图，可以根据自己的需求选择要使用 ControlNet。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/guide/sd_webui/controlnet/use_controlnet_reference_and_lineart_type.png" data-desc-position="bottom"><img alt="use_controlnet_reference_and_lineart_type" src="../../../assets/images/guide/sd_webui/controlnet/use_controlnet_reference_and_lineart_type.png"></a></p>
+<p>如果需要使用 3 个以上的 ControlNet，可以在 SD WebUI 的<strong>设置 -&gt; ControlNet -&gt; Multi-ControlNet: ControlNet 单元数量</strong>调节要显示的 ControlNet 单元数量。</p>
+<h2 id="controlnet_5">文生图和图生图中 ControlNet 的区别<a class="headerlink" href="#controlnet_5" title="锚链接到此处">☍</a></h2>
+<p>在文生图中使用 ControlNet。相当于在图生图中将重绘幅度设置为 1 后使用 ControlNet。</p>
+<p>所以，在图生图中如果重绘幅度低于 1，使用 ControlNet 时控制图片生成的条件为<strong>提示词 + 图片 + ControlNet</strong>，而在文生图中，使用 ControlNet 时控制图片生成的条件为<strong>提示词 + ControlNet</strong>。</p>
+<h2 id="controlnet-controlnet">ControlNet 预处理器和 ControlNet 模型的关系<a class="headerlink" href="#controlnet-controlnet" title="锚链接到此处">☍</a></h2>
+<p>ControlNet 模型在控制图片的生成时，需要使用一张图作为参考，但是 ControlNet 模型并不认识普通的图片，所以这就需要使用 ControlNet 预处理将图片处理成 ControlNet 模型认识的图片。</p>
+<p>ControlNet 预处理器后的图片如上方<a href="./#controlnet_2">不同 ControlNet 的作用</a>部分中表格的处理后的控制图片的一样的效果。如果给 ControlNet 模型参考的图片是已经经过 ControlNet 处理过的图片时，就不需要再次经过 ControlNet 预处理器进行处理。</p>
+<p>ControlNet 预处理器并不参与生图的采样过程，所以并不存在只兼容 Stable Diffusion 1.5 或者 Stable Diffusion XL 的说法。而 ControlNet 模型参与生图过程的采样过程，所以需要使用匹配版本的 Stable Diffusion 模型，如果出现<code>mat1 and mat2 shapes cannot be multiplied</code>这种报错，这就说明 ControlNet 模型和 Stable Diffusion 模型的版本不匹配。</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025年11月17日 17:31:53 UTC">2025-11-17</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚">
+        
+          
+          <a href="../upscale/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 放大图片">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                放大图片
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../extra/" class="md-footer__link md-footer__link--next" aria-label="下一页: 杂项">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                杂项
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 licyk
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/licyk" target="_blank" rel="noopener" title="Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://space.bilibili.com/46497516" target="_blank" rel="noopener" title="哔哩哔哩" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92c-26.4-.8-48.2-9.8-65.3-27.2S.7 396.5 0 368.2V169.8c.8-26 9.7-47.6 26.7-65.7C43.8 87.8 65.5 78.8 92 78h29.4L96 52.2c-5.7-5.7-8.6-13-8.6-21.8S90.3 14.3 96 8.6 109 0 117.9 0s16.1 2.9 21.9 8.6L213.1 78h88l74.5-69.4C381.7 2.9 389.2 0 398 0s16.1 2.9 21.9 8.6c5.7 5.7 8.6 13 8.6 21.8s-2.9 16.1-8.6 21.8L394.6 78h29.3c26.4.8 48 9.8 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96c-9.6.4-17.4 3.7-23.6 9.8-6.1 6.1-9.4 13.9-9.8 23.5v194.4c0 9.2 3.3 17 9.8 23.5s14.4 9.8 23.6 9.8h320.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://licyk.netlify.app" target="_blank" rel="noopener" title="licyk的小窝" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224 24c0-13.3 10.7-24 24-24 145.8 0 264 118.2 264 264 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-119.3-96.7-216-216-216-13.3 0-24-10.7-24-24M80 96c26.5 0 48 21.5 48 48v224c0 26.5 21.5 48 48 48s48-21.5 48-48-21.5-48-48-48c-8.8 0-16-7.2-16-16v-64c0-8.8 7.2-16 16-16 79.5 0 144 64.5 144 144s-64.5 144-144 144S32 447.5 32 368V144c0-26.5 21.5-48 48-48m168 0c92.8 0 168 75.2 168 168 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3-53.7-120-120-120-13.3 0-24-10.7-24-24s10.7-24 24-24"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:licyk233@163.com" target="_blank" rel="noopener" title="联系邮箱" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant.prefetch", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.expand", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
