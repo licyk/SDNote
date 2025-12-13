@@ -306,3 +306,20 @@ ComfyUI-WD14-Tagger 扩展可以用于反推图片的提示词。
 !!!note
     ComfyUI-Custom-Scripts 扩展下载：https://github.com/pythongosssss/ComfyUI-Custom-Scripts  
     ComfyUI-WD14-Tagger 扩展下载：https://github.com/pythongosssss/ComfyUI-WD14-Tagger
+
+
+## 可视化分区绘制调整
+下面是搭建工作流使用的模型。
+
+|模型下载|放置路径|
+|---|---|
+|[noobaiXLNAIXL_vPred10Version.safetensors](https://modelscope.cn/models/licyks/sd-model/resolve/master/sdxl_1.0/noobaiXLNAIXL_vPred10Version.safetensors)|ComfyUI/models/checkpoints|
+|[ill-xl-01-ibara_riato_1-000034.safetensors](https://modelscope.cn/models/licyks/sd-lora/resolve/master/sdxl/style/ill-xl-01-ibara_riato_1-000034.safetensors)|ComfyUI/models/loras|
+
+ComfyUI-Danbooru-Gallery 扩展提供了 多角色编辑器 (Multi Character Editor) 节点，可通过一个可视化编辑器编辑分区绘制的区域。该节点在运行后将生成带有分区控制语法的提示词，此时需要配合 comfyui-prompt-control 扩展提供的 PC: Text Encode (no scheduling) 节点对该提示词进行处理以应用分区绘制。
+
+![visual_regional_prompter](../../assets/images/guide/comfyui/extra/visual_regional_prompter.png)
+
+!!!note
+    ComfyUI-Danbooru-Gallery 扩展下载：https://github.com/Aaalice233/ComfyUI-Danbooru-Gallery  
+    comfyui-prompt-control 扩展下载：https://github.com/asagi4/comfyui-prompt-control
