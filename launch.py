@@ -235,7 +235,7 @@ def validate_requirements(requirements_file: str):
 
 
 def launch_mkdocs(arg):
-    from mkdocs.__main__ import cli
+    from zensical.main import cli
     if arg:
         sys.argv = [sys.argv[0]] + arg
     sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
