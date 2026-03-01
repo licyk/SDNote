@@ -4,28 +4,54 @@ on:
     branches:
       - master
       - main
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  workflow_dispatch:
+
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/configure-pages@v5
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v5
+      - name: Checkout Repo
+        uses: actions/checkout@v5
+
+      - name: Configure Timezone
+        run: |
+          sudo timedatectl set-timezone "Asia/Shanghai"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
-      - run: pip install zensical
-      - run: zensical build --clean
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: site
-      - uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ github.workspace }}/site
+      
+      - name: Install Dependencies
+        run: |
+          pip install zensical
+
+      - name: Build Documentation
+        run: |
+          zensical build --clean
+
+      - name: Configure Git
+        env:
+          DEPLOY_PRI: ${{ secrets.DEPLOY_PRI }}
+          GIT_USERNAME: ${{ github.repository_owner }}
+          GIT_EMAIL: ${{ github.repository_owner }}@user.github.com
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${DEPLOY_PRI}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.name "${GIT_USERNAME}"
+          git config --global user.email "${GIT_EMAIL}"
+
+      - name: Commit Documentation File
+        env:
+          GIT_URL: 'git@github.com:licyk/SDNote.git'
+        run: |
+          git -C "${{ github.workspace }}/site" init
+          git -C "${{ github.workspace }}/site" remote add origin "${GIT_URL}"
+          git -C "${{ github.workspace }}/site" add -A
+          git -C "${{ github.workspace }}/site" commit -m "Documentation auto generated. Time: $(date +'%Y-%m-%d %H:%M:%S')"
+
+      - name: Push Documentation File
+        run: |
+          git -C "${{ github.workspace }}/site" push origin HEAD:gh-pages --force
