@@ -12,7 +12,7 @@
 
 
 ## 使用 SD WebUI Installer 部署
-[SD WebUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/stable_diffusion_webui_installer.md)
+[SD WebUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/docs/stable_diffusion_webui_installer.md)
 
 
 ## 使用 Stability Matrix 部署
@@ -28,6 +28,10 @@
 
 
 # Linux 平台
+## 使用 SD WebUI Installer 部署
+[SD WebUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/docs/stable_diffusion_webui_installer.md)
+
+
 ## 使用 Term-SD 安装
 [licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
 
@@ -45,6 +49,10 @@
 
 
 # MacOS 平台
+## 使用 SD WebUI Installer 部署
+[SD WebUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/docs/stable_diffusion_webui_installer.md)
+
+
 ## 使用 Term-SD 安装
 [licyk/term-sd: Stable Diffusion 部署，管理脚本](https://github.com/licyk/term-sd)
 
