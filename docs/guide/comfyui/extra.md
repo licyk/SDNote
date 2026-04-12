@@ -162,7 +162,7 @@ COSXL 模型也可以通过融合模型的方式进行创建，使用的公式�
 点击 Manage Custom Words 进行提示词库管理，进入管理界面后在上方输入链接的地方将原来的链接替换成下面的链接。
 
 ```
-https://licyk.github.io/t/tag/tag_pp_zh.csv
+https://licyk.github.io/resources/tag_pp_zh_new.csv
 ```
 
 替换之后点击右边的**加载**将提示词库下载下来，再点击下方的**保存**就能保存提示词库，再点击**关闭**退出提示词库管理。
