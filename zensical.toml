@@ -1,6 +1,6 @@
 [project]
 site_name = "SD Note"
-repo_url = "https://github.com/zensical/zensical"
+repo_url = "https://github.com/licyk/SDNote"
 repo_name = "licyk/SDNote"
 edit_uri = "edit/main/docs/"
 copyright = "Copyright &copy; 2026 licyk"
