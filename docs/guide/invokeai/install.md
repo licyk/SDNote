@@ -1,10 +1,14 @@
 # Windows
 ## 整合包部署
-[AI 绘画 / 训练整合包 · licyk/sd-webui-all-in-one · Discussion #1](https://github.com/licyk/sd-webui-all-in-one/discussions/1)
+[AI 绘画 / 训练整合包 · licyk/sd-webui-all-in-one · Discussion #1](https://licyk.github.io/sd-webui-all-in-one/portable/portable/)
 
 
 ## 使用 InvokeAI Installer 部署
-[InvokeAI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/docs/invokeai_installer.md)
+[InvokeAI Installer - licyk/sd-webui-all-in-one](https://licyk.github.io/sd-webui-all-in-one/installer/invokeai/)
+
+
+## 使用 SD WebUI All In One Launcher 部署
+[Windows GUI Launcher - SD WebUI All In One](https://licyk.github.io/sd-webui-all-in-one/tools/launcher-gui)
 
 
 ## 使用 InvokeAI Launcher 部署
@@ -25,7 +29,11 @@
 
 # Linux
 ## 使用 InvokeAI Installer 部署
-[InvokeAI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/docs/invokeai_installer.md)
+[InvokeAI Installer - licyk/sd-webui-all-in-one](https://licyk.github.io/sd-webui-all-in-one/installer/invokeai/)
+
+
+## 使用 SD WebUI All In One Launcher 部署
+[Bash TUI / CLI Launcher - SD WebUI All In One](https://licyk.github.io/sd-webui-all-in-one/tools/launcher-tui)
 
 
 ## 使用 InvokeAI Launcher 部署
@@ -50,7 +58,11 @@
 
 # MacOS
 ## 使用 InvokeAI Installer 部署
-[InvokeAI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/docs/invokeai_installer.md)
+[InvokeAI Installer - licyk/sd-webui-all-in-one](https://licyk.github.io/sd-webui-all-in-one/installer/invokeai/)
+
+
+## 使用 SD WebUI All In One Launcher 部署
+[Bash TUI / CLI Launcher - SD WebUI All In One](https://licyk.github.io/sd-webui-all-in-one/tools/launcher-tui)
 
 
 ## 使用 InvokeAI Launcher 部署

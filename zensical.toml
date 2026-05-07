@@ -10,6 +10,7 @@ plugins = [
     "glightbox", # 图像缩放
     "git-revision-date-localized", # Git 修改日期
 ]
+extra_javascript = ["javascripts/giscus.js"]
 nav = [
     {"主页" = "index.md"},
     {"部署与使用" = [

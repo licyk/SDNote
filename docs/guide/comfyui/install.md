@@ -4,15 +4,19 @@
 
 
 ## 整合包(licyk)部署
-[AI 绘画 / 训练整合包 · licyk/sd-webui-all-in-one · Discussion #1](https://github.com/licyk/sd-webui-all-in-one/discussions/1)
+[AI 绘画 / 训练整合包 · licyk/sd-webui-all-in-one · Discussion #1](https://licyk.github.io/sd-webui-all-in-one/portable/portable/)
 
 
 ## 绘世启动器部署
 [什么，绘世启动器还能安装ComfyUI（全新篇——安装与配置） - 哔哩哔哩](https://www.bilibili.com/read/cv28869554)
 
 
+## 使用 SD WebUI All In One Launcher 部署
+[Windows GUI Launcher - SD WebUI All In One](https://licyk.github.io/sd-webui-all-in-one/tools/launcher-gui)
+
+
 ## 使用 ComfyUI Installer 部署
-[ComfyUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/docs/comfyui_installer.md)
+[ComfyUI Installer - licyk/sd-webui-all-in-one](https://licyk.github.io/sd-webui-all-in-one/installer/comfyui/)
 
 
 ## 使用 Stability Matrix 部署
@@ -33,7 +37,11 @@
 
 # Linux 平台
 ## 使用 ComfyUI Installer 部署
-[ComfyUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/docs/comfyui_installer.md)
+[ComfyUI Installer - licyk/sd-webui-all-in-one](https://licyk.github.io/sd-webui-all-in-one/installer/comfyui/)
+
+
+## 使用 SD WebUI All In One Launcher 部署
+[Bash TUI / CLI Launcher - SD WebUI All In One](https://licyk.github.io/sd-webui-all-in-one/tools/launcher-tui)
 
 
 ## 使用 Term-SD 安装
@@ -58,7 +66,11 @@
 
 # MacOS 平台
 ## 使用 SD WebUI Installer 部署
-[ComfyUI Installer - licyk/sd-webui-all-in-one](https://github.com/licyk/sd-webui-all-in-one/blob/main/docs/comfyui_installer.md)
+[ComfyUI Installer - licyk/sd-webui-all-in-one](https://licyk.github.io/sd-webui-all-in-one/installer/comfyui/)
+
+
+## 使用 SD WebUI All In One Launcher 部署
+[Bash TUI / CLI Launcher - SD WebUI All In One](https://licyk.github.io/sd-webui-all-in-one/tools/launcher-tui)
 
 
 ## 使用 Term-SD 安装
