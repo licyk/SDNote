@@ -138,6 +138,7 @@ features = [
 ]
 logo = "assets/site_resources/logo.png"
 favicon = "assets/site_resources/favicon.png"
+custom_dir = "docs/assets/overrides"
 
 [project.theme.icon]
 repo = "fontawesome/brands/github"
@@ -184,6 +185,11 @@ link = "https://licyk.netlify.app"
 name = "licyk 的小窝"
 
 [[project.extra.social]]
+icon = "bootstrap/aifadian"
+link = "https://afdian.com/a/licyk"
+name = "爱发电"
+
+[[project.extra.social]]
 icon = "fontawesome/solid/envelope"
 link = "mailto:licyk233@163.com"
 name = "联系邮箱"
@@ -223,6 +229,7 @@ alternate_style = true
 [project.markdown_extensions.pymdownx.emoji]
 emoji_index = "zensical.extensions.emoji.twemoji" 
 emoji_generator = "zensical.extensions.emoji.to_svg"
+options.custom_icons = ["docs/assets/overrides/.icons"]
 
 [project.markdown_extensions.pymdownx.keys]
 
