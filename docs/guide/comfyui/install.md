@@ -7,6 +7,10 @@
 [AI 绘画 / 训练整合包 · licyk/sd-webui-all-in-one · Discussion #1](https://licyk.github.io/sd-webui-all-in-one/portable/portable/)
 
 
+## Hanafubuki 绘世启动器部署
+[Hanafubuki — 本地 AI WebUI 桌面管理器](https://hanafubuki.netlify.app)
+
+
 ## 绘世启动器部署
 [什么，绘世启动器还能安装ComfyUI（全新篇——安装与配置） - 哔哩哔哩](https://www.bilibili.com/read/cv28869554)
 
@@ -36,6 +40,10 @@
 
 
 # Linux 平台
+## Hanafubuki 绘世启动器部署
+[Hanafubuki — 本地 AI WebUI 桌面管理器](https://hanafubuki.netlify.app)
+
+
 ## 使用 ComfyUI Installer 部署
 [ComfyUI Installer - licyk/sd-webui-all-in-one](https://licyk.github.io/sd-webui-all-in-one/installer/comfyui/)
 
@@ -65,7 +73,11 @@
 
 
 # MacOS 平台
-## 使用 SD WebUI Installer 部署
+## Hanafubuki 绘世启动器部署
+[Hanafubuki — 本地 AI WebUI 桌面管理器](https://hanafubuki.netlify.app)
+
+
+## 使用 ComfyUI Installer 部署
 [ComfyUI Installer - licyk/sd-webui-all-in-one](https://licyk.github.io/sd-webui-all-in-one/installer/comfyui/)
 
 

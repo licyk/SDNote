@@ -6,3 +6,7 @@ InvokeAI 同时拥有工作流系统，类似 ComfyUI 的工作流系统，可�
 在稳定性方面，InvokeAI 相比 Stable Diffusion WebUI、Stable Diffusion WebUI Forge、ComfyUI，稳定性更好，更不容易出现报错。
 
 下面就开始介绍 InvokeAI 的使用方法。
+
+!!!note
+    [InvokeAI](https://github.com/invoke-ai/InvokeAI) 目前已有官方文档，可以阅读官方文档学习 InvokeAI 的使用方法：[InvokeAI Documentation](https://invoke.ai/start-here/installation)
+
